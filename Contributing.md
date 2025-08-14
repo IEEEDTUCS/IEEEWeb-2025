@@ -145,4 +145,3 @@ Follow these steps to contribute:
 
   - *Frontend:* Next.js (Page Router), TailwindCSS or Vanilla CSS, shadcn, MUI, lucide-react.
   - *Backend:* A separate backend directory will be used for APIs and future features.
-.
