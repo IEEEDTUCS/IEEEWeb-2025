@@ -64,7 +64,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile View */}
       {mobileOpen && (
         <div className="md:hidden bg-gray-900/95 text-white px-6 pb-4 space-y-3 border-t border-gray-800">
           <Link href="/" className="block hover:text-indigo-400" onClick={() => setMobileOpen(false)}>Home</Link>
