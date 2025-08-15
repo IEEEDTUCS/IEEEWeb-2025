@@ -3,7 +3,32 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-opensans: 'Open Sans', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-raleway: 'Raleway', sans-serif;
 }
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-subheading {
+    font-family: var(--font-subheading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .font-caption {
+    font-family: var(--font-caption);
+  }
+  .font-nav {
+    font-family: var(--font-nav);
+  }
+}
+
 
 @theme inline {
   --color-background: var(--background);
