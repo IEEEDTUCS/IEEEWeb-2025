@@ -4,11 +4,13 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  --font-montserrat: 'Montserrat', sans-serif;
-  --font-playfair: 'Playfair Display', serif;
-  --font-opensans: 'Open Sans', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
-  --font-raleway: 'Raleway', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-subheading: 'Playfair Display', serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-caption: 'Roboto', sans-serif;
+  --font-nav: 'Raleway', sans-serif;
+
+
 }
 
 @layer utilities {
