@@ -12,9 +12,9 @@ const boilerPlate = (WrappedComponent) => {//passed as entire component here
         const router = useRouter();
         return (
             <>
-                <Navbar />
+                {/* <Navbar /> */}
                 <WrappedComponent {...props} />
-                {router.pathname === '/' ? null : <Footer />}
+                {/* {router.pathname === '/' ? null : <Footer />} */}
             </>
         );
     };

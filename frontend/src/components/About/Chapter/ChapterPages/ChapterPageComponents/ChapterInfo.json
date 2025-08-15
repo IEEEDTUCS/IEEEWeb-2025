@@ -1,0 +1,54 @@
+{
+    "CS": {
+
+        "title": "IEEE DTU CS CHAPTER",
+
+        "images": [{"_comment": "include image URLS here."}],
+
+        "about": {
+            "heading": "About Us",
+            "content": "The IEEE Computer Society stands as the premier source for information, inspiration, and collaboration in computer science and engineering. It is a vibrant community of passionate individuals united by their deep enthusiasm for computer science. Together, they collaborate on projects, foster mutual growth, and drive innovation within the field. At IEEE DTU Computer Society, we've organized several flagship events, including Microhacks, IEEEXtreme, and Bulls N' Bears. We're also proud to host Vihaan, India's largest student-run hackathon, which garnered over 5,000 registrations last year."
+        },
+
+        "events": {
+            "heading": "Events",
+            "images": [{"_comment": "include image URLS here."}]    
+        },
+
+        "membership": {
+            "heading": "Benefits",
+            "content": "IEEE membership offers numerous benefits, including invitations to international conferences, journals, and seminars, with discounts on electronics, workshops, and exclusive competitions like IEEE Xtreme. Members also enjoy access to the IEEE Xplore Library, which contains research from 37 peer-reviewed magazines and over 700,000 documents on various topics. \n\nAt IEEE DTU, the experience goes further. You'll join Special Interest Groups (SIGs), explore AI, ML, Arduino, and 3D design, and participate in events like hackathons and Robo races. The hands-on experience, mentorship, and creativity make IEEE DTU more than a club—it's a community of growth and innovation.",
+            "_comment1": "content can be directly added into the component since it is common for all chapters.",
+            "_comment2": "Option for membership form can be directly added into the component, not specific to a chapter."
+        },
+
+        "contact": {
+            "email": "cs.ieeedtu@gmail.com",
+            "_comment": "IG and LN links are common for each chapter and can be added directly into the component."
+        },
+
+        "colorSchemes": {
+            "CommonComponentBG": "rgba(20, 20, 40, 0.8)",
+            "PrimaryTextColor": "#b8b8ff",
+            "SecondaryTextColor": "#d0d0ff",
+            "JoinFormBGColor": "#4a4aff",
+            "JoinFormButtonHoverBG": "#6a6aff",
+            "ContactBoxBG": "rgba(10, 10, 20, 0.9)",
+            "ContactBoxTextColor": "#b0b0ff",
+            "MailTextColor": "#6a6aff"
+        }
+
+    },
+
+    "PES-IAS": {
+
+        "...": "..."
+
+    },
+
+    "WIE": {
+
+        "...": "..."
+
+    }
+}
