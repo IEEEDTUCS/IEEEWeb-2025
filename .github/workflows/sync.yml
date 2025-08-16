@@ -12,7 +12,7 @@ jobs:
       - name: Checkout staging repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.deploy_secret }}
+          token: ${{ secrets.DEPLOY_SECRET }}
 
       - name: Add upstream remote
         run: |
