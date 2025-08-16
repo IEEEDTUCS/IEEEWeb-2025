@@ -11,7 +11,7 @@ function ChapterImageCarousel({ images }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setRotationY((prev) => prev - 360 / pos.length);
-    }, 6000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [pos.length]);
 
