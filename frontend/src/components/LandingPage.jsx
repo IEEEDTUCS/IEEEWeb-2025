@@ -2,17 +2,17 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { motion } from "framer-motion";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"; // Scroll arrow icon
+import AboutIEEE from "./LandingPage/AboutIEEE";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const MotionButton = motion(Button);
 
 export default function LandingPage() {
-  // Function for smooth scrolling
   const handleScrollDown = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
+    const aboutSection = document.getElementById("about-section");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -25,7 +25,12 @@ export default function LandingPage() {
           style={{ backgroundImage: "url('./images/dtu.png')" }}
           initial={{ scale: 1 }}
           animate={{ scale: 1.05 }}
-          transition={{ duration: 8, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
+          transition={{
+            duration: 8,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
         />
 
         {/* Dark Overlay */}
@@ -60,7 +65,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
-            className="text-indigo-300 text-2xl md:text-3xl font-semibold mt-4 "
+            className="text-indigo-300 text-2xl md:text-3xl font-semibold mt-4"
           >
             A World of Limitless Possibilities
           </motion.h2>
@@ -69,7 +74,10 @@ export default function LandingPage() {
           <Stack direction="row" spacing={3} className="mt-10">
             <MotionButton
               whileTap={{ scale: 0.9 }}
-              whileHover={{ scale: 1.07, boxShadow: "0px 8px 25px rgba(99,102,241,0.6)" }}
+              whileHover={{
+                scale: 1.07,
+                boxShadow: "0px 8px 25px rgba(99,102,241,0.6)",
+              }}
               variant="contained"
               href="#"
               className="!bg-indigo-600 !text-white !px-6 !py-3 !rounded-xl !text-lg font-semibold shadow-md hover:!bg-indigo-700 transition-all duration-300"
@@ -79,9 +87,12 @@ export default function LandingPage() {
 
             <MotionButton
               whileTap={{ scale: 0.9 }}
-              whileHover={{ scale: 1.07, boxShadow: "0px 8px 25px rgba(129,140,248,0.6)" }}
+              whileHover={{
+                scale: 1.07,
+                boxShadow: "0px 8px 25px rgba(129,140,248,0.6)",
+              }}
               variant="outlined"
-              href="#"
+              onClick={handleScrollDown} // Scroll About section
               className="!border-2 !border-indigo-400 !text-indigo-300 !px-6 !py-3 !rounded-xl !text-lg font-semibold hover:!bg-indigo-500 hover:!text-white transition-all duration-300"
             >
               More About Us
@@ -100,7 +111,11 @@ export default function LandingPage() {
           <KeyboardArrowDownIcon className="!text-white !text-3xl" />
         </motion.div>
       </section>
+
+      {/* About Section */}
+      <section id="about-section" className="py-20 px-6 md:px-12">
+        <AboutIEEE />
+      </section>
     </div>
   );
 }
-
