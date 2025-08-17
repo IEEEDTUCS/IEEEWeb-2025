@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, Divider, Typography } from "@mui/material";
 
-export default function JoinIEEE() {
+export default function Form() {
   return (
     <section
       id="join"

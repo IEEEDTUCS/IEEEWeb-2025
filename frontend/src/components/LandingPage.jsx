@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import AboutIEEE from "./LandingPage/AboutIEEE";
 import Form from "./LandingPage/Form";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Advisory from "./LandingPage/Advisory";
 
 const MotionButton = motion(Button);
 
@@ -128,8 +129,13 @@ export default function LandingPage() {
       </section>
 
       {/*Membership Form */}
-      <section id='about-section' className='py-20 px-6 md:px-12'>
+      <section id='form' className='py-20 px-6 md:px-12'>
         <Form/>
+      </section>
+
+      {/* Advisory Faculty */}
+      <section id='form' className='py-20 px-6 md:px-12'>
+        <Advisory/>
       </section>
     </div>
   );
