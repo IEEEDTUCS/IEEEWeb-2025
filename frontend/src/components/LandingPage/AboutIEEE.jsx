@@ -63,7 +63,7 @@ export default function AboutIEEE() {
           ABOUT IEEE DTU
         </h1>
         <div className="mx-auto mt-3 h-1 w-32 bg-indigo-500/70 blur-sm rounded-full"></div>
-        <hr className="mt-6 mb-12 h-1 w-full bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 rounded-full border-0 shadow-md" />
+
       </motion.div>
 
       {/* Content Area */}
