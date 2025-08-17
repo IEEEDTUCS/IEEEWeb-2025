@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '@/styles/ChapterInfos.module.css'
 import Form from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/Form'
+import { CarouselComp } from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterEventCarousel'
 
 const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
   return (
@@ -19,8 +20,9 @@ const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
         <div className={styles.infoContainer} style={{ backgroundColor: ColorScheme.CommonComponentBG }}>
              { ComponentInformation.heading && <h1 className={`font-subheading ${styles.infoHeading}`}
               style={{ color: ColorScheme.PrimaryTextColor }}>{ComponentInformation.heading}</h1> }
-             { <p className={`font-body ${styles.infoContent}`}
-              style={{ color: ColorScheme.SecondaryTextColor }}>Event Carousel to be dealt with later.</p> }
+
+            { ComponentInformation.images && <CarouselComp images={ComponentInformation.images} /> }
+
         </div>
       }
 
@@ -33,7 +35,8 @@ const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
             <br /><br />
             { ComponentInformation.content2 && <p className={`font-body ${styles.infoContentBenefits}`}
               style={{ color: ColorScheme.SecondaryTextColor }}>{ComponentInformation.content2}</p> }
-            <Form ColorScheme={ColorScheme} />   {/*integrate color scheme*/}
+
+            <Form ColorScheme={ColorScheme} /> 
         </div>
       }
     </>

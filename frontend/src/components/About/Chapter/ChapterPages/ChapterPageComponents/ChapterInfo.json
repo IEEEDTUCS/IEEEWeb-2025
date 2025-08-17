@@ -3,9 +3,9 @@
 
         "title": "IEEE DTU CS CHAPTER",
 
-        "backdropImg": "https://i.pinimg.com/originals/32/10/92/32109263a1c9123d13811ab7374f46c6.jpg",
+        "backdropImg": "/Chapters/Backdrops/CS_backdrop.jpg",
 
-        "images": ["https://www.ieeedtu.in/images/group.jpg", "https://www.ieeedtu.in/images/techweek.jpg", "https://www.ieeedtu.in/images/xtreme.jpg", "https://www.ieeedtu.in/images/vihaan.jpg", "https://www.ieeedtu.in/images/vihaan2.jpg"],
+        "images": ["/Chapters/Images/vihaan.jpg", "/Chapters/Images/vihaan2.jpg", "/Chapters/Images/techweek.jpg", "/Chapters/Images/xtreme.jpg", "/Chapters/Images/group.jpg"],
 
         "about": {
             "isAbout": true,
@@ -16,7 +16,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": [{"_comment": "include image URLS here."}]    
+            "images": ["/Chapters/Events/vihaan007.jpg", "/Chapters/Events/techweek.jpeg", "/Chapters/Events/MIST.jpg", "/Chapters/Events/ieeextreme.png", "/Chapters/Events/hackaithon.jpg", "/Chapters/Events/blockchain1.jpeg"]
         },
 
         "membership": {
@@ -52,9 +52,9 @@
 
         "title": "IEEE DTU PES-IAS CHAPTER",
 
-        "backdropImg": "https://t4.ftcdn.net/jpg/05/54/68/75/360_F_554687591_E8tIxWkr5mBVYa5z11Hiqv5wEfqQcNEQ.jpg",
+        "backdropImg": "/Chapters/Backdrops/PES_IAS_backdrop.jpg",
 
-        "images": ["https://www.ieeedtu.in/images/pese1.jpg", "https://www.ieeedtu.in/images/pese2.jpg", "https://www.ieeedtu.in/images/group.jpg"],
+        "images": ["/Chapters/Images/pese1.jpg", "/Chapters/Images/pese2.jpg", "/Chapters/Images/group.jpg"],
 
         "about": {
             "isAbout": true,
@@ -65,7 +65,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": [{"_comment": "include image URLS here."}]    
+            "images": ["/Chapters/Events/DSSYWC.jpg", "/Chapters/Events/tinkercase.jpg"]  
         },
 
         "membership": {
@@ -101,9 +101,9 @@
 
         "title": "IEEE DTU WIE CHAPTER",
 
-        "backdropImg": "https://img.freepik.com/premium-photo/digital-art-woman-engineer-with-vibrant-neon-lines-worker-hard-hat-dark-background-modern-tech-style-illustration-ai_372197-29011.jpg",
+        "backdropImg": "/Chapters/Backdrops/WIE_backdrop.avif",
 
-        "images": ["https://www.ieeedtu.in/images/kids.jpg", "https://www.ieeedtu.in/images/vihaan.jpg", "https://www.ieeedtu.in/images/group.jpg", "https://www.ieeedtu.in/images/ishwarngo.jpg", "https://www.ieeedtu.in/images/IMG_0412.jpeg"],
+        "images": ["/Chapters/Images/kids.jpg", "/Chapters/Images/vihaan.jpg", "/Chapters/Images/group.jpg", "/Chapters/Images/ishwarngo.jpg", "/Chapters/Images/IMG_0412.jpeg"],
 
         "about": {
             "isAbout": true,
@@ -114,7 +114,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": [{"_comment": "include image URLS here."}]    
+            "images": ["/Chapters/Events/DSSYWC.jpg", "/Chapters/Events/vihaan007.jpg", "/Chapters/Events/wievek.jpg"]  
         },
 
         "membership": {
