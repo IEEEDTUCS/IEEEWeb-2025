@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from "react";
 import Carousel from "react-material-ui-carousel";
 import { motion } from "framer-motion";
 
-// Custom reusable counter hook (without TypeScript types)
 function useCounter(target, step, speed, start) {
   const [count, setCount] = useState(0);
 
@@ -69,7 +68,7 @@ export default function AboutIEEE() {
 
       {/* Content Area */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl">
-        {/* Left Text Card */}
+        {/* Left Card */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -134,7 +133,7 @@ export default function AboutIEEE() {
           </Carousel>
         </motion.div>
 
-        {/* Stats Section */}
+        {/* Counter Section */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}

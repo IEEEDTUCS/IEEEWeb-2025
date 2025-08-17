@@ -1,13 +1,20 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import AboutIEEE from "./LandingPage/AboutIEEE";
+import Form from "./LandingPage/Form";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const MotionButton = motion(Button);
 
 export default function LandingPage() {
+  const { scrollY } = useScroll();
+
+  // Fade out effect based on scroll
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]); // 0px → fully visible, 400px → invisible
+  const y = useTransform(scrollY, [0, 400], [0, -100]); // optional: slide upward while fading
+
   const handleScrollDown = () => {
     const aboutSection = document.getElementById("about-section");
     if (aboutSection) {
@@ -18,7 +25,10 @@ export default function LandingPage() {
   return (
     <div className="w-full flex flex-col overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen w-full">
+      <motion.section
+        style={{ opacity, y }}
+        className="relative h-screen w-full"
+      >
         {/* Background Image */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
@@ -92,7 +102,7 @@ export default function LandingPage() {
                 boxShadow: "0px 8px 25px rgba(129,140,248,0.6)",
               }}
               variant="outlined"
-              onClick={handleScrollDown} // Scroll About section
+              onClick={handleScrollDown}
               className="!border-2 !border-indigo-400 !text-indigo-300 !px-6 !py-3 !rounded-xl !text-lg font-semibold hover:!bg-indigo-500 hover:!text-white transition-all duration-300"
             >
               More About Us
@@ -110,11 +120,16 @@ export default function LandingPage() {
         >
           <KeyboardArrowDownIcon className="!text-white !text-3xl" />
         </motion.div>
-      </section>
+      </motion.section>
 
       {/* About Section */}
       <section id="about-section" className="py-20 px-6 md:px-12">
         <AboutIEEE />
+      </section>
+
+      {/*Membership Form */}
+      <section id='about-section' className='py-20 px-6 md:px-12'>
+        <Form/>
       </section>
     </div>
   );
