@@ -1,21 +1,17 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AboutIEEE from "./LandingPage/AboutIEEE";
 import Form from "./LandingPage/Form";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Advisory from "./LandingPage/Advisory";
 import Chapters from "./LandingPage/Chapters";
-
-const MotionButton = motion(Button);
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import StyledButton from "./LandingPage/StyledButton"; 
 
 export default function LandingPage() {
   const { scrollY } = useScroll();
 
-  // Fade out effect based on scroll
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]); // 0px → fully visible, 400px → invisible
-  const y = useTransform(scrollY, [0, 400], [0, -100]); // optional: slide upward while fading
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const y = useTransform(scrollY, [0, 400], [0, -100]);
 
   const handleScrollDown = () => {
     const aboutSection = document.getElementById("about-section");
@@ -26,7 +22,7 @@ export default function LandingPage() {
 
   return (
     <div className="w-full flex flex-col overflow-x-hidden">
-      {/* Hero Section */}
+      {/* Landing Site */}
       <motion.section
         style={{ opacity, y }}
         className="relative h-screen w-full"
@@ -45,7 +41,7 @@ export default function LandingPage() {
           }}
         />
 
-        {/* Dark Overlay */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
         {/* Content */}
@@ -58,7 +54,7 @@ export default function LandingPage() {
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 1.2 }}
             className="text-indigo-400 text-2xl md:text-3xl font-semibold tracking-widest uppercase"
           >
             Welcome to
@@ -83,36 +79,17 @@ export default function LandingPage() {
           </motion.h2>
 
           {/* Buttons */}
-          <Stack direction="row" spacing={3} className="mt-10">
-            <MotionButton
-              whileTap={{ scale: 0.9 }}
-              whileHover={{
-                scale: 1.07,
-                boxShadow: "0px 8px 25px rgba(99,102,241,0.6)",
-              }}
-              variant="contained"
-              href="#"
-              className="!bg-indigo-600 !text-white !px-6 !py-3 !rounded-xl !text-lg font-semibold shadow-md hover:!bg-indigo-700 transition-all duration-300"
-            >
+          <div className="flex flex-wrap gap-4 mt-10">
+            <StyledButton href="#form" variant="primary">
               Contact Us
-            </MotionButton>
-
-            <MotionButton
-              whileTap={{ scale: 0.9 }}
-              whileHover={{
-                scale: 1.07,
-                boxShadow: "0px 8px 25px rgba(129,140,248,0.6)",
-              }}
-              variant="outlined"
-              onClick={handleScrollDown}
-              className="!border-2 !border-indigo-400 !text-indigo-300 !px-6 !py-3 !rounded-xl !text-lg font-semibold hover:!bg-indigo-500 hover:!text-white transition-all duration-300"
-            >
+            </StyledButton>
+            <StyledButton onClick={handleScrollDown} variant="secondary">
               More About Us
-            </MotionButton>
-          </Stack>
+            </StyledButton>
+          </div>
         </motion.div>
 
-        {/* Scroll Arrow */}
+        {/* Scroll Down*/}
         <motion.div
           onClick={handleScrollDown}
           className="absolute bottom-8 right-8 cursor-pointer p-3 rounded-full bg-indigo-600/80 hover:bg-indigo-500 transition-all"
@@ -124,25 +101,26 @@ export default function LandingPage() {
         </motion.div>
       </motion.section>
 
-      {/* About Section */}
+      {/* ABOUT SECTION */}
       <section id="about-section" className="py-20 px-6 md:px-12">
         <AboutIEEE />
       </section>
 
-      {/*Membership Form */}
-      <section id='form' className='py-20 px-6 md:px-12'>
-        <Form/>
+      {/* MEMBERSHIP FORM */}
+      <section id="form" className="py-20 px-6 md:px-12 bg-indigo-50">
+        <Form />
       </section>
 
-      {/* Advisory Faculty */}
-      <section id='form' className='py-20 px-6 md:px-12'>
-        <Advisory/>
+      {/* ADVISORY */}
+      <section id="advisory" className="py-20 px-6 md:px-12">
+        <Advisory />
       </section>
 
-      {/* Chapters */}
-      <section id='chapters' className="py-20 px-6 md:px-12">
-        <Chapters/>
+      {/* CHAPTERS */}
+      <section id="chapters" className="py-20 px-6 md:px-12 bg-indigo-50">
+        <Chapters />
       </section>
     </div>
   );
 }
+
