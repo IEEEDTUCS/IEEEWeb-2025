@@ -1,4 +1,6 @@
 import React from 'react'
+
+
 import LandingPage from "@/components/LandingPage"
 import boilerPlate from '@/layout/Boilerplate'
 
@@ -9,5 +11,9 @@ function Home() {
 }
 
 export default boilerPlate(Home)
+
+
+
+
 
 
