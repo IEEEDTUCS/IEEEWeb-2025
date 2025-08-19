@@ -8,56 +8,56 @@ export default function Events() {
       title: 'MIST',
       subheader: 'October 14, 2024',
       description: 'The Cryptic Hunt',
-      imageUrl: 'https://placehold.co/400x300/1a202c/ffffff?text=MIST'
+      imageUrl: ''
     },
     {
       id: 2,
       title: 'IEEE Day',
       subheader: 'October 3, 2024',
       description: 'Celebrating the Oldest Student Society of DTU!',
-      imageUrl: 'https://placehold.co/400x300/4a5568/ffffff?text=IEEE+Day'
+      imageUrl: ''
     },
     {
       id: 3,
       title: 'IEEEXtreme',
       subheader: 'October 26, 2024',
       description: '24-hour global competition',
-      imageUrl: 'https://placehold.co/400x300/2d3748/ffffff?text=IEEEXtreme'
+      imageUrl: ''
     },
     {
       id: 4,
       title: 'Project WIEVEK',
       subheader: 'July 11-14, 2024',
       description: 'Empowering Young Minds in Engineering',
-      imageUrl: 'https://placehold.co/400x300/1a202c/ffffff?text=Project+WIEVEK'
+      imageUrl: ''
     },
      {
       id: 5,
       title: 'Another Event',
       subheader: 'Date TBD',
       description: 'Description for another event',
-      imageUrl: 'https://placehold.co/400x300/4a5568/ffffff?text=Event+5'
+      imageUrl: ''
     },
     {
       id: 6,
       title: 'Tech Talk',
       subheader: 'Date TBD',
       description: 'A talk on new technologies',
-      imageUrl: 'https://placehold.co/400x300/2d3748/ffffff?text=Event+6'
+      imageUrl: ''
     },
     {
       id: 7,
       title: 'Workshop',
       subheader: 'Date TBD',
       description: 'Hands-on workshop session',
-      imageUrl: 'https://placehold.co/400x300/1a202c/ffffff?text=Event+7'
+      imageUrl: ''
     },
     {
       id: 8,
       title: 'Hackathon',
       subheader: 'Date TBD',
       description: 'Code for a cause',
-      imageUrl: 'https://placehold.co/400x300/4a5568/ffffff?text=Event+8'
+      imageUrl: ''
     },
   ];
 */}
