@@ -5,13 +5,30 @@
   justify-content: center;
   align-items: center;
   background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .logo {
   width: 10vw;
   height: auto;
   display: block;
+  animation: 
+    reveal 2s linear infinite,
+    zoom 2.7s ease-in-out infinite;
 
+  /* Mask effect for reveal */
   -webkit-mask-image: linear-gradient(to bottom, black 100%, transparent 100%);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: 0 0;
@@ -21,37 +38,66 @@
   mask-position: 0 0;
   mask-size: 100% 0%;
 
+  /* Animations combined */
   animation: 
-    reveal 1.8s linear infinite,
-    zoom 2s ease-in-out infinite;
+    reveal 1.8s ease-in-out infinite,
+    zoom 2s ease-in-out infinite,
+    glow 2s ease-in-out infinite;
 }
 
-@keyframes reveal {
-  0% {
-    -webkit-mask-size: 100% 0%;
-    mask-size: 100% 0%;
-  }
-  70% {
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-  }
-  100% {
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-  }
-}
+/* Reveal the mask smoothly */
+/* (Duplicate @keyframes removed to avoid conflicts) */
 
+/* Subtle zoom in-out */
 @keyframes zoom {
   0%, 100% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 }
 
+/* Responsive size adjustment */
 @media (max-width: 768px) {
   .logo {
     width: 30vw;
   }
+}
+
+/* Optional: add fade-out when loader is hidden by React */
+.loaderContainer.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+/* keep your keyframes as before */
+@keyframes reveal {
+  0% {
+    mask-size: 100% 0%;
+    mask-position: 0 100%;
+  }
+  50% {
+    mask-size: 100% 55%;
+    mask-position: 0 100%;
+  }
+  70% {
+    mask-size: 100% 55%;
+    mask-position: 0 100%;
+  }
+  100% {
+    mask-size: 100% 100%;
+    mask-position: 0 100%;
+  }
+}
+
+@keyframes zoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@media (max-width: 768px) {
+  .logo { width: 30vw; }
 }
