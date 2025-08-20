@@ -5,7 +5,7 @@ import { CarouselComp } from "@/components/About/Chapter/ChapterPages/ChapterPag
 const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
   return (
     <>
-      {/* About Section */}
+      {/* About */}
       {ComponentInformation?.isAbout && (
         <div
           className="w-full px-4 sm:px-6 md:px-12 py-10 rounded-2xl shadow-md my-6 text-center"
@@ -30,7 +30,7 @@ const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
         </div>
       )}
 
-      {/* Events Section */}
+      {/* Events  */}
       {ComponentInformation?.isEvents && (
         <div
           className="w-full px-4 sm:px-6 md:px-12 py-10 rounded-2xl shadow-md my-6"
@@ -53,7 +53,7 @@ const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
         </div>
       )}
 
-      {/* Membership Section */}
+      {/* Membership */}
       {ComponentInformation?.isMembership && (
         <div
           className="w-full px-4 sm:px-6 md:px-12 py-10 rounded-2xl shadow-md my-6"

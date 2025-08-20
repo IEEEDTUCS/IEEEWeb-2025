@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react"; // icons for mobile
+import { Menu, X } from "lucide-react"; 
 
 const ChapterNavbar = ({ ColorScheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +9,7 @@ const ChapterNavbar = ({ ColorScheme }) => {
     const component = document.getElementById(id);
     if (component) {
       component.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false); // close menu on click
+      setIsOpen(false); 
     }
   };
 
@@ -24,7 +24,7 @@ const ChapterNavbar = ({ ColorScheme }) => {
     <>
       {ColorScheme && (
         <nav
-          className="fixed top-0 left-0 w-full z-50 backdrop-blur-md shadow-md"
+          className="fixed top-0 left-0 w-full z-50 backdrop-blur-md shadow-md" 
           style={{ background: ColorScheme.CommonComponentBG }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-14">
