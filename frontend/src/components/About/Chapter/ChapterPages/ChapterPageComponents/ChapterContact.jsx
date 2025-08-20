@@ -9,7 +9,7 @@ const ChapterContact = ({ ContactInformation, ColorScheme }) => {
           className={`${styles.contactBox} rounded-2xl shadow-md p-6 md:p-10 max-w-3xl mx-auto flex flex-col items-center text-center`}
           style={{ backgroundColor: ColorScheme.ContactBoxBG }}
         >
-          {/* Email Section */}
+          {/* Email */}
           {ContactInformation.email && (
             <h2
               className={`font-caption ${styles.contactInfo} text-base sm:text-lg md:text-xl mb-4`}
@@ -26,7 +26,7 @@ const ChapterContact = ({ ContactInformation, ColorScheme }) => {
             </h2>
           )}
 
-          {/* Follow us text */}
+          {/* Follow us */}
           <h2
             className={`font-caption ${styles.contactInfo} text-base sm:text-lg md:text-xl mb-4`}
             style={{ color: ColorScheme.ContactBoxTextColor }}

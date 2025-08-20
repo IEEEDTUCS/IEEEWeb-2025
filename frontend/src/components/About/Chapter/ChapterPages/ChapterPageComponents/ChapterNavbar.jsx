@@ -28,7 +28,7 @@ const ChapterNavbar = ({ ColorScheme }) => {
           style={{ background: ColorScheme.CommonComponentBG }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-14">
-            {/* Back Button */}
+            {/* Back */}
             <a
               onClick={() => console.log("Don't forget to link the back button")}
               className="px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer transition-all duration-200"
@@ -40,7 +40,7 @@ const ChapterNavbar = ({ ColorScheme }) => {
               Back
             </a>
 
-            {/* Desktop Links */}
+            {/* Links */}
             <div className="hidden md:flex space-x-3">
               {links.map((link) => (
                 <a
@@ -65,7 +65,7 @@ const ChapterNavbar = ({ ColorScheme }) => {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Hamsburger Menu */}
             <button
               className="md:hidden p-2 rounded-lg"
               style={{
