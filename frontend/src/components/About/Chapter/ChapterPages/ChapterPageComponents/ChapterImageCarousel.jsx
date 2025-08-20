@@ -15,7 +15,6 @@ function ChapterImageCarousel({ images }) {
     return () => clearInterval(interval);
   }, [pos.length]);
 
-
   useEffect(() => {
     const curr_index = (rotationY / 360) * pos.length + 1;
     const round_index =
@@ -29,21 +28,34 @@ function ChapterImageCarousel({ images }) {
   }, [rotationY, pos.length]);
 
   return (
-    <>
-      <div style={{width: "100%", display: "flex", justifyContent: "center", alignItems: "center"}}>
-        <div className={styles.innerContainer} style={{ touchAction: "none", userSelect: "none" }}>
-          <div className={styles.carousel} 
-          style={{ transform: `perspective(1000px) rotateY(${rotationY}deg)`, transition: "transform 1s ease-in-out", }}>
-            {pos.map((img, index) => (
-              <ImgComp key={index} position={index + 1} num_items={pos.length} selected={selected === index} image={img} />
-            ))}
-          </div>
+    <div className="w-full flex justify-center items-center px-4 sm:px-6 md:px-12">
+      <div
+        className={`${styles.innerContainer} relative w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl`}
+        style={{ touchAction: "none", userSelect: "none" }}
+      >
+        <div
+          className={`${styles.carousel} w-full`}
+          style={{
+            transform: `perspective(1000px) rotateY(${rotationY}deg)`,
+            transition: "transform 1s ease-in-out",
+          }}
+        >
+          {pos.map((img, index) => (
+            <ImgComp
+              key={index}
+              position={index + 1}
+              num_items={pos.length}
+              selected={selected === index}
+              image={img}
+            />
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
 export default ChapterImageCarousel;
+
 
 
