@@ -5,7 +5,8 @@ import Form from "./LandingPage/Form";
 import Advisory from "./LandingPage/Advisory";
 import Chapters from "./LandingPage/Chapters";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import StyledButton from "./LandingPage/StyledButton"; 
+import StyledButton from "./LandingPage/StyledButton";
+import { CarouselComp } from "./LandingPage/CarouselComp";
 
 export default function LandingPage() {
   const { scrollY } = useScroll();
@@ -119,6 +120,11 @@ export default function LandingPage() {
       {/* CHAPTERS */}
       <section id="chapters" className="py-20 px-6 md:px-12 bg-indigo-50">
         <Chapters />
+      </section>
+
+      {/* EVENTS */}
+      <section id="chapters" className="py-20 px-6 md:px-12 bg-indigo-50">
+        <CarouselComp />
       </section>
     </div>
   );

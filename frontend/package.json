@@ -17,7 +17,8 @@
     "next": "15.4.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-material-ui-carousel": "^3.4.2"
+    "react-material-ui-carousel": "^3.4.2",
+    "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
