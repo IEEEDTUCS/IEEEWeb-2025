@@ -79,8 +79,14 @@ export function CarouselComp({ images = [], ColorScheme }) {
           <button
             key={i}
             onClick={() => api && api.scrollTo(i)}
-            className={`h-2 w-${i === current ? "4" : "2"} rounded-full transition-all`}
-            style={{ backgroundColor: i === current ? ColorScheme.SelectedDot : "#69706b" }}
+            // className={`h-2 w-${i === current ? "4" : "2"} rounded-full transition-all`}
+            style={{ 
+              height: '0.5rem',
+              borderRadius: '0.3rem',
+              width: i === current ? '1.1rem' :'0.5rem',
+              transition: '0.3s ease-in',
+              backgroundColor: i === current ? ColorScheme.SelectedDot : "#69706b" 
+            }}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
