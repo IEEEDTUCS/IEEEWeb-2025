@@ -43,7 +43,8 @@
             "JoinFormButtonHoverBG": "#6a6aff",
             "ContactBoxBG": "rgba(10, 10, 20, 0.9)",
             "ContactBoxTextColor": "#b0b0ff",
-            "MailTextColor": "#6a6aff"
+            "MailTextColor": "#6a6aff",
+            "SelectedDot": "#6a6aff"
         }
 
     },
@@ -92,7 +93,8 @@
             "JoinFormButtonHoverBG": "#6a6aff",
             "ContactBoxBG": "rgba(10, 10, 20, 0.9)",
             "ContactBoxTextColor": "#b0b0ff",
-            "MailTextColor": "#6a6aff"
+            "MailTextColor": "#6a6aff",
+            "SelectedDot": "#6a6aff"
         }
 
     },
@@ -132,7 +134,7 @@
         },
 
         "ColorSchemes": {
-            "CommonComponentBG": "rgba(25, 25, 25, 0.8)",
+            "CommonComponentBG": "rgba(25, 25, 25, 0.7)",
             "NavBarButtonBG": "linear-gradient(135deg, rgba(255, 105, 180, 0.3), rgba(255, 20, 147, 0.3))",
             "NavBarButtonBGHover": "rgba(255, 105, 180, 0.6)",
             "PrimaryTextColor": "#ffc0cb",
@@ -141,7 +143,8 @@
             "JoinFormButtonHoverBG": "#ff1493",
             "ContactBoxBG": "rgba(25, 25, 25, 0.9)",
             "ContactBoxTextColor": "#ffc0cb",
-            "MailTextColor": "#ff69b4"
+            "MailTextColor": "#ff69b4",
+            "SelectedDot": "#ff1493"
         }
 
     }

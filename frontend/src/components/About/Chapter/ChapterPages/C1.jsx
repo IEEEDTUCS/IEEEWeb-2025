@@ -11,8 +11,9 @@ export default function C1({ ChapterInformation }) {
     <>
       { ChapterInformation &&
       <div style={{scrollBehavior: 'smooth', backgroundImage: `linear-gradient(rgba(10, 10, 20, 0.7), rgba(10, 10, 20, 0.7)), url(${ChapterInformation.backdropImg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
-        <ChapterNavbar ColorScheme={ChapterInformation.ColorSchemes} />    {/*integrate ChapterInformation object with navbar later*/}
-        <div className="font-heading" style={{marginTop: '1.8rem', 
+        <ChapterNavbar ColorScheme={ChapterInformation.ColorSchemes} />
+        <div className="font-heading" style={{marginTop: '3.5rem', 
+          paddingTop: '2rem',
           fontSize: '3.5rem', 
           display: 'flex', 
           justifyContent: 'center', 

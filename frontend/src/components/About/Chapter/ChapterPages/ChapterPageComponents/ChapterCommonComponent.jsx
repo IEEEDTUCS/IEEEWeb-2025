@@ -13,7 +13,7 @@ const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
         >
           {ComponentInformation.heading && (
             <h1
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold"
               style={{ color: ColorScheme.PrimaryTextColor }}
             >
               {ComponentInformation.heading}
@@ -47,7 +47,7 @@ const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
 
           {ComponentInformation.images && (
             <div className="max-w-5xl mx-auto">
-              <CarouselComp images={ComponentInformation.images} />
+              <CarouselComp images={ComponentInformation.images} ColorScheme={ColorScheme} />
             </div>
           )}
         </div>

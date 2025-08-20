@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export function CarouselComp({ images = [] }) {
+export function CarouselComp({ images = [], ColorScheme }) {
   const [api, setApi] = React.useState(null);
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(images.length);
@@ -73,23 +73,19 @@ export function CarouselComp({ images = [] }) {
         )}
       </Carousel>
 
-      <div className="text-muted-foreground py-3 text-center text-xs sm:text-sm">
-        Slide {current + 1} of {count}
-      </div>
-
       {/* Dots */}
-      <div className="flex justify-center gap-2 mt-1">
+      { ColorScheme && <div className="flex justify-center gap-2 mt-1">
         {Array.from({ length: count }).map((_, i) => (
           <button
             key={i}
             onClick={() => api && api.scrollTo(i)}
-            className={`h-2 w-2 rounded-full transition-all ${
-              i === current ? "bg-primary w-4" : "bg-gray-400"
-            }`}
+            className={`h-2 w-${i === current ? "4" : "2"} rounded-full transition-all`}
+            style={{ backgroundColor: i === current ? ColorScheme.SelectedDot : "#69706b" }}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
       </div>
+      }
     </div>
   );
 }
