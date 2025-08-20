@@ -9,16 +9,16 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Faculty Advisor", href: "/faculty" },
-    { name: "Contact", href: "/contact" },
+    { name: "About Us", href: "/IEEEDTU/about" },
+    // { name: "Faculty Advisor", href: "/faculty" },
+    // { name: "Contact", href: "/contact" },
   ];
 
   const moreLinks = [
-    { name: "Events", href: "/events" },
-    { name: "Chapter", href: "/chapter" },
-    { name: "Council", href: "/council" },
-    { name: "Testimonials", href: "/testimonials" },
+    { name: "Events", href: "/IEEEDTU/events" },
+    { name: "Chapter", href: "/IEEEDTU/Chapters/CS" },
+    { name: "Council", href: "/IEEEDTU/council" },
+    { name: "Testimonials", href: "/IEEEDTU/testimonials" },
   ];
 
   const linkStyle =

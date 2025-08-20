@@ -1,12 +1,8 @@
 import * as React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import AboutIEEE from "./LandingPage/AboutIEEE";
-import Form from "./LandingPage/Form";
-import Advisory from "./LandingPage/Advisory";
-import Chapters from "./LandingPage/Chapters";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import StyledButton from "./LandingPage/StyledButton";
-import { CarouselComp } from "./LandingPage/CarouselComp";
+
 
 export default function LandingPage() {
   const { scrollY } = useScroll();
