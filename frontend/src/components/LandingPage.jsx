@@ -102,30 +102,7 @@ export default function LandingPage() {
         </motion.div>
       </motion.section>
 
-      {/* ABOUT SECTION */}
-      <section id="about-section" className="py-20 px-6 md:px-12">
-        <AboutIEEE />
-      </section>
-
-      {/* MEMBERSHIP FORM */}
-      <section id="form" className="py-20 px-6 md:px-12 bg-indigo-50">
-        <Form />
-      </section>
-
-      {/* ADVISORY */}
-      <section id="advisory" className="py-20 px-6 md:px-12">
-        <Advisory />
-      </section>
-
-      {/* CHAPTERS */}
-      <section id="chapters" className="py-20 px-6 md:px-12 bg-indigo-50">
-        <Chapters />
-      </section>
-
-      {/* EVENTS */}
-      <section id="chapters" className="py-20 px-6 md:px-12 bg-indigo-50">
-        <CarouselComp />
-      </section>
+      
     </div>
   );
 }
