@@ -1,7 +1,6 @@
 
 const EventsData=[
 
-  
    {
     title:"Project WIEVEK",
     subheader:"July 19-21 2025",
