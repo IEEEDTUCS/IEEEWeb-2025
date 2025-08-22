@@ -38,7 +38,6 @@ export default function LandingPage() {
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
 
-        {/* Content */}
         <motion.div
           className="relative container mx-auto flex flex-col items-start justify-center h-full px-6 md:px-12"
           initial={{ opacity: 0, y: 40 }}
