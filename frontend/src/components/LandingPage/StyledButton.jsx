@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import MuiButton from "@mui/material/Button"; // MUI button import
+import MuiButton from "@mui/material/Button";
 
 const MotionButton = motion(MuiButton);
 
@@ -10,29 +10,22 @@ export default function StyledButton({
   ...props
 }) {
   const base =
-    "!px-6 !py-3 !rounded-xl !text-lg font-semibold transition-all duration-300";
+    "!px-6 !py-2.5 !rounded-lg !text-base font-medium tracking-wide transition-all duration-200";
 
   const styles =
     variant === "primary"
-      ? "!bg-indigo-600 !text-white shadow-md hover:!bg-indigo-700"
-      : "!border-2 !border-indigo-400 !text-indigo-300 hover:!bg-indigo-500 hover:!text-white";
-
-  const hoverShadow =
-    variant === "primary"
-      ? "0px 8px 25px rgba(99,102,241,0.6)"
-      : "0px 8px 25px rgba(129,140,248,0.6)";
+      ? "!bg-indigo-600 !text-white hover:!bg-indigo-700"
+      : "!border !border-indigo-500 !text-indigo-400 hover:!bg-indigo-500 hover:!text-white";
 
   return (
     <MotionButton
-      whileTap={{ scale: 0.9 }}
-      whileHover={{ scale: 1.07, boxShadow: hoverShadow }}
+      whileTap={{ scale: 0.96 }}
+      whileHover={{ scale: 1.03 }}
       className={`${base} ${styles}`}
-      href={href} 
+      href={href}
       {...props}
     >
       {children}
     </MotionButton>
   );
 }
-
-
