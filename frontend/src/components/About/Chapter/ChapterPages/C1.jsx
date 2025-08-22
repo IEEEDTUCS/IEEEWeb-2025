@@ -10,10 +10,11 @@ export default function C1({ ChapterInformation }) {
   return (
     <>
       { ChapterInformation &&
-      <div style={{scrollBehavior: 'smooth', backgroundImage: `linear-gradient(rgba(10, 10, 20, 0.7), rgba(10, 10, 20, 0.7)), url(${ChapterInformation.backdropImg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div style={{scrollBehavior: 'smooth',
+        backgroundImage: `linear-gradient(rgba(10, 10, 20, 0.2), rgba(10, 10, 20, 0.2)), url(${ChapterInformation.backdropImg})`,
+        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
         <ChapterNavbar ColorScheme={ChapterInformation.ColorSchemes} />
-        <div className="font-heading" style={{marginTop: '3.5rem', 
-          paddingTop: '2rem',
+        <div className="font-heading" style={{marginTop: '1.8rem', 
           fontSize: '3.5rem', 
           display: 'flex', 
           justifyContent: 'center', 

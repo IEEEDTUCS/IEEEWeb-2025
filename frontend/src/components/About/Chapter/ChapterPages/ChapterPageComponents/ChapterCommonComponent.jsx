@@ -1,98 +1,46 @@
-import React from "react";
-import Form from "@/components/About/Chapter/ChapterPages/ChapterPageComponents/Form";
-import { CarouselComp } from "@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterEventCarousel";
+import React from 'react'
+import styles from '@/styles/ChapterInfos.module.css'
+import Form from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/Form'
+import { CarouselComp } from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterEventCarousel'
 
 const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
   return (
     <>
-      {/* About */}
-      {ComponentInformation?.isAbout && (
-        <div
-          className="w-full px-4 sm:px-6 md:px-12 py-10 rounded-2xl shadow-md my-6 text-center"
-          style={{ backgroundColor: ColorScheme.CommonComponentBG }}
-        >
-          {ComponentInformation.heading && (
-            <h1
-              className="text-2xl sm:text-3xl md:text-4xl font-bold"
-              style={{ color: ColorScheme.PrimaryTextColor }}
-            >
-              {ComponentInformation.heading}
-            </h1>
-          )}
-          {ComponentInformation.content && (
-            <p
-              className="text-sm sm:text-base md:text-lg leading-relaxed max-w-3xl mx-auto"
-              style={{ color: ColorScheme.SecondaryTextColor }}
-            >
-              {ComponentInformation.content}
-            </p>
-          )}
+      { ComponentInformation && ComponentInformation.isAbout &&
+        <div className={styles.infoContainer} style={{ background: ColorScheme.CommonComponentBG }}>
+            { ComponentInformation.heading && <h1 className={`font-subheading ${styles.infoHeading}`}
+              style={{ color: ColorScheme.PrimaryTextColor }}>{ComponentInformation.heading}</h1>}
+            { ComponentInformation.content && <p className={`font-body ${styles.infoContent}`}
+              style={{ color: ColorScheme.SecondaryTextColor }}> {ComponentInformation.content}
+              </p> }
         </div>
-      )}
+      }
 
-      {/* Events  */}
-      {ComponentInformation?.isEvents && (
-        <div
-          className="w-full px-4 sm:px-6 md:px-12 py-10 rounded-2xl shadow-md my-6"
-          style={{ backgroundColor: ColorScheme.CommonComponentBG }}
-        >
-          {ComponentInformation.heading && (
-            <h1
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center"
-              style={{ color: ColorScheme.PrimaryTextColor }}
-            >
-              {ComponentInformation.heading}
-            </h1>
-          )}
+      { ComponentInformation && ComponentInformation.isEvents &&
+        <div className={styles.infoContainer} style={{ background: ColorScheme.CommonComponentBG }}>
+             { ComponentInformation.heading && <h1 className={`font-subheading ${styles.infoHeading}`}
+              style={{ color: ColorScheme.PrimaryTextColor }}>{ComponentInformation.heading}</h1> }
 
-          {ComponentInformation.images && (
-            <div className="max-w-5xl mx-auto">
-              <CarouselComp images={ComponentInformation.images} ColorScheme={ColorScheme} />
-            </div>
-          )}
+            { ComponentInformation.images && <CarouselComp images={ComponentInformation.images} SelectedDot={ColorScheme.SelectedDot} /> }
+
         </div>
-      )}
+      }
 
-      {/* Membership */}
-      {ComponentInformation?.isMembership && (
-        <div
-          className="w-full px-4 sm:px-6 md:px-12 py-10 rounded-2xl shadow-md my-6"
-          style={{ backgroundColor: ColorScheme.CommonComponentBG }}
-        >
-          {ComponentInformation.heading && (
-            <h1
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center"
-              style={{ color: ColorScheme.PrimaryTextColor }}
-            >
-              {ComponentInformation.heading}
-            </h1>
-          )}
+      { ComponentInformation && ComponentInformation.isMembership &&
+        <div className={styles.infoContainer} style={{ background: ColorScheme.CommonComponentBG }}>
+            { ComponentInformation.heading && <h1 className={`font-subheading ${styles.infoHeading}`}
+              style={{ color: ColorScheme.PrimaryTextColor }}>{ComponentInformation.heading}</h1> }
+            { ComponentInformation.content1 && <p className={`font-body ${styles.infoContentBenefits}`}
+              style={{ color: ColorScheme.SecondaryTextColor }}>{ComponentInformation.content1}</p> }
+            <br /><br />
+            { ComponentInformation.content2 && <p className={`font-body ${styles.infoContentBenefits}`}
+              style={{ color: ColorScheme.SecondaryTextColor }}>{ComponentInformation.content2}</p> }
 
-          {ComponentInformation.content1 && (
-            <p
-              className="text-sm sm:text-base md:text-lg leading-relaxed mb-4"
-              style={{ color: ColorScheme.SecondaryTextColor }}
-            >
-              {ComponentInformation.content1}
-            </p>
-          )}
-
-          {ComponentInformation.content2 && (
-            <p
-              className="text-sm sm:text-base md:text-lg leading-relaxed mb-8"
-              style={{ color: ColorScheme.SecondaryTextColor }}
-            >
-              {ComponentInformation.content2}
-            </p>
-          )}
-
-          <div className="max-w-lg mx-auto">
-            <Form ColorScheme={ColorScheme} />
-          </div>
+            <Form ColorScheme={ColorScheme} /> 
         </div>
-      )}
+      }
     </>
-  );
-};
+  )
+}
 
-export default ChapterCommonComponent;
+export default ChapterCommonComponent

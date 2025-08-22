@@ -3,7 +3,7 @@
 
         "title": "IEEE DTU CS CHAPTER",
 
-        "backdropImg": "/Chapters/Backdrops/CS_backdrop.jpg",
+        "backdropImg": "/Chapters/Backdrops/CS_backdrop.png",
 
         "images": ["/Chapters/Images/vihaan.jpg", "/Chapters/Images/vihaan2.jpg", "/Chapters/Images/techweek.jpg", "/Chapters/Images/xtreme.jpg", "/Chapters/Images/group.jpg"],
 
@@ -34,9 +34,9 @@
         },
 
         "ColorSchemes": {
-            "CommonComponentBG": "rgba(20, 20, 40, 0.8)",
-            "NavBarButtonBG": "linear-gradient(135deg, rgba(40, 40, 80, 0.8), rgba(60, 60, 120, 0.8))",
-            "NavBarButtonBGHover": "rgba(80, 80, 160, 0.5)",
+            "CommonComponentBG": "linear-gradient(to bottom, rgba(23, 5, 33, 0.8), rgba(48, 6, 59, 0.8))",
+            "NavBarButtonBG": "linear-gradient(135deg, rgba(45, 218, 224, 0.8), rgba(15, 136, 191, 0.8))",
+            "NavBarButtonBGHover": "linear-gradient(135deg, rgba(45, 218, 224, 0.8), rgba(20, 219, 196, 0.8))",
             "PrimaryTextColor": "#b8b8ff",
             "SecondaryTextColor": "#d0d0ff",
             "JoinFormBGColor": "#4a4aff",
@@ -44,7 +44,7 @@
             "ContactBoxBG": "rgba(10, 10, 20, 0.9)",
             "ContactBoxTextColor": "#b0b0ff",
             "MailTextColor": "#6a6aff",
-            "SelectedDot": "#6a6aff"
+            "SelectedDot": "#9e0ec2"
         }
 
     },
@@ -53,7 +53,7 @@
 
         "title": "IEEE DTU PES-IAS CHAPTER",
 
-        "backdropImg": "/Chapters/Backdrops/PES_IAS_backdrop.jpg",
+        "backdropImg": "/Chapters/Backdrops/PES_IAS_backdrop.png",
 
         "images": ["/Chapters/Images/pese1.jpg", "/Chapters/Images/pese2.jpg", "/Chapters/Images/group.jpg"],
 
@@ -84,17 +84,17 @@
         },
 
         "ColorSchemes": {
-            "CommonComponentBG": "rgba(20, 20, 40, 0.8)",
-            "NavBarButtonBG": "linear-gradient(135deg, rgba(40, 40, 80, 0.8), rgba(60, 60, 120, 0.8))",
-            "NavBarButtonBGHover": "rgba(80, 80, 160, 0.5)",
-            "PrimaryTextColor": "#b8b8ff",
-            "SecondaryTextColor": "#d0d0ff",
-            "JoinFormBGColor": "#4a4aff",
-            "JoinFormButtonHoverBG": "#6a6aff",
-            "ContactBoxBG": "rgba(10, 10, 20, 0.9)",
-            "ContactBoxTextColor": "#b0b0ff",
-            "MailTextColor": "#6a6aff",
-            "SelectedDot": "#6a6aff"
+            "CommonComponentBG": "linear-gradient(to bottom, rgba(219, 94, 48, 0.7), rgba(219, 48, 48, 0.7))",
+            "NavBarButtonBG": "linear-gradient(135deg, #f09c0c, #fc7b03)",
+            "NavBarButtonBGHover": "linear-gradient(135deg, #ff5e00, #ff2e63)",
+            "PrimaryTextColor": "#f2dfce",
+            "SecondaryTextColor": "#fad5cd",
+            "JoinFormBGColor": "#fc7b03",
+            "JoinFormButtonHoverBG": "#ff5e00",
+            "ContactBoxBG": "rgba(158, 78, 60, 0.7)",
+            "ContactBoxTextColor": "#fcc59a",
+            "MailTextColor": "#fa3205",
+            "SelectedDot": "#ff2408"
         }
 
     },
