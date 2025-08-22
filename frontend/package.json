@@ -9,9 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@radix-ui/react-separator": "^1.1.7",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.540.0",
     "next": "15.4.5",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-material-ui-carousel": "^3.4.2",
+    "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -21,7 +29,6 @@
     "class-variance-authority": "^0.7.0",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
-    "lucide-react": "^0.539.0",
     "tailwind-merge": "^2.2.0",
     "tailwindcss": "^4"
   }
