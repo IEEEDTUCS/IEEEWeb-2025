@@ -1,11 +1,12 @@
 import boilerPlate from '@/layout/Boilerplate'
 import React from 'react'
-import Events from '@/components/Events'
+import Events from '@/components/Events/Events'
 
-function events() {
+function EventsPage() {
+
   return (
-    <div><Events></Events></div>
+    <Events/>
   )
 }
 
-export default boilerPlate(events)
+export default boilerPlate(EventsPage)
