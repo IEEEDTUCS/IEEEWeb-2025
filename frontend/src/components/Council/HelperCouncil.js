@@ -39,7 +39,7 @@ const CouncilData=[
         Name:"Khobaib Akmal",
         Position:"Treasurer  ",
         insta:"https://www.instagram.com/kdotakmal/",
-        linkedin:""
+        linkedin:"https://khobaibakmal.framer.website/"
     },
      {
         img:"/CouncilPhotos/FR Image - Tasneem Ahmed.jpg",
@@ -80,7 +80,7 @@ const CouncilData=[
     },
      {
         img:"/CouncilPhotos/IMG_0352 - Aaryan Agarwal.jpeg",
-        Name:"Aaryan Agarwal  ",
+        Name:"Aaryan Agarwal",
         Position:"Vice Chairperson, PES-IAS",
         insta:"https://www.instagram.com/aaryan_agarwal._/",
         linkedin:"https://www.linkedin.com/in/aaryan-agarwal-488582256/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
@@ -99,6 +99,7 @@ const CouncilData=[
         insta:"",
         linkedin:"https://www.linkedin.com/in/jasmeen-kour-31b624261/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3B1BMvykmeTf%2Ba%2BuJLBdotEA%3D%3D"
     },
+
      {
         img:"/CouncilPhotos/Arjun_Pandita.png",
         Name:"Arjun Pandita",

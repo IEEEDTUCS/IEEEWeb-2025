@@ -1,15 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import CouncilData from '@/components/Council/HelperCouncil'
-import {
-  ArrowBigDown,
-  ArrowRight,
-  ChevronRight,
-  Heart,
-  MoveUpRight,
-} from 'lucide-react';
+
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import LanguageIcon from '@mui/icons-material/Language';
 
 
  function Council({img,Name,Position,insta,linkedin}) {
@@ -25,7 +20,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
             alt="img"
             width={600}
             height={600}
-            className="h-full w-full  scale-105 group-hover:scale-100 grayscale group-hover:grayscale-0 object-cover transition-all duration-300"
+            className="h-full w-full  scale-105 group-hover:scale-100  object-cover transition-all duration-300"
           />
         </div>
 
@@ -41,7 +36,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
            {Position}
            {   linkedin && (
                <a href={linkedin}>
-               <LinkedInIcon className="text-blue-600 hover:scale-110 transition cursor-pointer" />
+               {Name == "Khobaib Akmal" ? <LanguageIcon className="text-blue-600 hover:scale-110 transition cursor-pointer" /> : <LinkedInIcon className="text-blue-600 hover:scale-110 transition cursor-pointer" /> }
                </a>
                  )
            }
