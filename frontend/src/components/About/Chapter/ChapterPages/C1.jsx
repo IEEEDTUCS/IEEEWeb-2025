@@ -2,7 +2,8 @@ import React from 'react'
 import ChapterNavbar from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterNavbar'
 import ChapterImageCarousel from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterImageCarousel'
 import ChapterContact from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterContact'
-import ChapterCommonComponent from './ChapterPageComponents/ChapterCommonComponent'
+import ChapterCommonComponent from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterCommonComponent'
+import styles from "@/styles/ChapterInfos.module.css"
 
 
 export default function C1({ ChapterInformation }) {
@@ -13,16 +14,10 @@ export default function C1({ ChapterInformation }) {
       <div style={{scrollBehavior: 'smooth',
         backgroundImage: `linear-gradient(rgba(10, 10, 20, 0.2), rgba(10, 10, 20, 0.2)), url(${ChapterInformation.backdropImg})`,
         backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+
         <ChapterNavbar ColorScheme={ChapterInformation.ColorSchemes} />
-        <div className="font-heading" style={{marginTop: '1.8rem', 
-          fontSize: '3.5rem', 
-          display: 'flex', 
-          justifyContent: 'center', 
-          fontWeight: '600', 
-          color: 'white',
-          letterSpacing: '0.2rem',
-          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)'
-          }}>{ChapterInformation.title}
+
+        <div className={`font-heading ${styles.chapterTitle}`} >{ChapterInformation.title}
         </div>
 
         <ChapterImageCarousel images={ChapterInformation.images} />

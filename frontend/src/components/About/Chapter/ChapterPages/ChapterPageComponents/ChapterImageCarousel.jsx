@@ -28,13 +28,13 @@ function ChapterImageCarousel({ images }) {
   }, [rotationY, pos.length]);
 
   return (
-    <div className="w-full flex justify-center items-center px-4 sm:px-6 md:px-12">
+    <div>
       <div
-        className={`${styles.innerContainer} relative w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl`}
+        className={`${styles.innerContainer}`}
         style={{ touchAction: "none", userSelect: "none" }}
       >
         <div
-          className={`${styles.carousel} w-full`}
+          className={styles.carousel}
           style={{
             transform: `perspective(1000px) rotateY(${rotationY}deg)`,
             transition: "transform 1s ease-in-out",

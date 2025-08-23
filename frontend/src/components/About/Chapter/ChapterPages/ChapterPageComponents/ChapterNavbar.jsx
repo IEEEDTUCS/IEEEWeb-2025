@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Menu, X, ArrowLeft } from "lucide-react";
-import styles from "@/styles/ChapterNavbar.module.css";
+import { Menu, X, Undo2 } from "lucide-react";
+import styles from "@/styles/ChapterInfos.module.css";
 
 const ChapterNavbar = ({ ColorScheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,7 @@ const ChapterNavbar = ({ ColorScheme }) => {
             onMouseLeave={hoverOut}
             className={`font-nav ${styles.chapterNavbarLink}`}
             style={{ position: "fixed", left: 0, color: ColorScheme.PrimaryTextColor, background: ColorScheme.NavBarButtonBG, }}
-          > <ArrowLeft size={22} /> </a>
+          > <Undo2 size={22} /> </a>
 
           {/* Desktop links */}
           <div className={styles.desktopLinks}>
@@ -75,8 +75,8 @@ const ChapterNavbar = ({ ColorScheme }) => {
           <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', alignItems: 'center' }}>
           {/* Hamburger menu */}
           <div>
-          <button className={styles.mobileMenuBtn}  style={{background: ColorScheme.JoinFormBGColor}} onClick={() => setIsOpen(!isOpen)}> 
-            {isOpen ? <X size={22} /> : <Menu size={22} color="white" />} 
+          <button className={styles.mobileMenuBtn}  style={{background: ColorScheme.NavBarButtonBG}} onClick={() => setIsOpen(!isOpen)}> 
+            {isOpen ? <X size={26} color={ColorScheme.PrimaryTextColor} /> : <Menu size={26} color={ColorScheme.PrimaryTextColor} />} 
           </button>
           </div>
 

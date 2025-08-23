@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '@/styles/ChapterInfos.module.css'
 import Form from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/Form'
-import { CarouselComp } from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterEventCarousel'
+import CarouselComp from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterEventCarousel'
 
 const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
   return (
