@@ -3,7 +3,7 @@ const EventsData=[
 
    {
     title:"Project WIEVEK",
-    subheader:"",
+    subheader:"July 19-21 2025",
     image:"https://www.ieeedtu.in/images/clients/wievek.jpg", // assuming the image is in public/images/clients/
     typography:"Empowering Young Minds in Engineering"
   },
