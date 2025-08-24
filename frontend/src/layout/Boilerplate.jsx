@@ -1,25 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../utils/Navbar';
 import Footer from '../utils/Footer';
+import Loader from '../utils/Loader';
 import { useRouter } from 'next/router';
-// This is a higher-order component (HOC) that can be used to wrap other components
-// It can be used to add common functionality or layout to multiple components
 
+const boilerPlate = (WrappedComponent) => {
+  const CommonComponent = (props) => {
+    const router = useRouter();
+    const [loading, setLoading] = useState(true); // start with loader on
 
-const boilerPlate = (WrappedComponent) => {//passed as entire component here
-    
-    const CommonComponent = (props) => {
-        const router = useRouter();
-        return (
-            <>
-                {/* <Navbar /> */}
-                <WrappedComponent {...props} />
-                {/* {router.pathname === '/' ? null : <Footer />} */}
-            </>
-        );
-    };
+    useEffect(() => {
+      // 1. Hide loader once DOM fully loads (initial page load)
+      const handleDomLoad = () => setLoading(false);
+      if (document.readyState === "complete") {
+        // If already loaded (fast refresh)
+        handleDomLoad();
+      } else {
+        window.addEventListener("load", handleDomLoad);
+      }
 
-    return CommonComponent;
+      // 2. Show loader during route changes
+      const handleStart = () => setLoading(true);
+      const handleComplete = () => setLoading(false);
+
+      router.events.on("routeChangeStart", handleStart);
+      router.events.on("routeChangeComplete", handleComplete);
+      router.events.on("routeChangeError", handleComplete);
+
+      return () => {
+        window.removeEventListener("load", handleDomLoad);
+        router.events.off("routeChangeStart", handleStart);
+        router.events.off("routeChangeComplete", handleComplete);
+        router.events.off("routeChangeError", handleComplete);
+      };
+    }, [router]);
+
+    return (
+      <>
+        <Loader visible={loading} />
+        <Navbar />
+        <WrappedComponent {...props} setGlobalLoading={setLoading} />
+        {router.pathname === '/' ? null : <Footer />}
+      </>
+    );
+  };
+
+  return CommonComponent;
 };
 
 export default boilerPlate;

@@ -1,7 +1,7 @@
 import React from 'react'
 import AboutIEEE from '@/components/About/AboutIEEE'
 import Chapter from '@/components/About/Chapter/Chapter'
-import Faculty from '@/components/About/Faculty'
+import Faculty from '@/components/About/Faculty/Faculty'
 import boilerPlate from '@/layout/Boilerplate'
 
 function about() {
