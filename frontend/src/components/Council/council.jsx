@@ -15,7 +15,7 @@ import LanguageIcon from '@mui/icons-material/Language';
   className="  w-[400px] relative mt-4 h-[430px] group mx-auto dark:bg-transparent   bg-white   border-2 border-black rounded-md dark:text-black text-black flex flex-col">
       
         <div className="w-full  rounded-t-md h-[350px] group-hover:h-[410px] overflow-hidden transition-all duration-300">
-          <img
+          <Image
             src={img}
             alt="img"
             width={600}
