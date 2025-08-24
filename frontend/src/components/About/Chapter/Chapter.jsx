@@ -50,7 +50,7 @@ export default function Chapter() {
  }
 
   return (
-    <div>
+    <div style={{backgroundColor:"white"}}>
       <div className={styles.chaptercontainer}>
        
         <div className={styles.chapterimage}>
@@ -90,6 +90,43 @@ export default function Chapter() {
           </Card>
         </div>
       </div>
+
+        <div className={styles.chaptercontainer}>
+       
+        <div className={styles.chapterimage}>
+          <img
+            src="https://www.ieeedtu.in/images/PES_IEE.png"
+            alt="IEEE CS Logo"
+          />
+        </div>
+
+      
+        <div className={styles.chaptercontent}>
+          <Card 
+           style={buttonStyle1} 
+          onMouseEnter={() => setIsHovered1(true)}
+      onMouseLeave={() => setIsHovered1(false)}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                IEEE DTU PES-IAS CHAPTER
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+               The Power & Energy Society (PES) provides the world's largest forum for sharing latest in technological developments in the electric power industry, for developing standards that guide the development and construction of equipment and systems, and for educating members of the industry and the general public. Members of the PES are leaders in this field, and the members gain substantial benefits.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" variant="contained" startIcon={<ReadMoreIcon />}
+                onMouseEnter={() => setIsHoveredCS(true)}
+      onMouseLeave={() => setIsHoveredCS(false)}
+       style={buttonStyleCS}>
+                Know more
+              </Button>
+            </CardActions>
+          </Card>
+        </div>
+      </div>
+
+
       <div className={styles.chaptercontainer}>
 
         <div className={styles.chapterimageWie}>
@@ -128,6 +165,48 @@ export default function Chapter() {
           </Card>
         </div>
       </div>
+
+        <div className={styles.chaptercontainer}>
+       
+        <div className={styles.chapterimage}>
+          <img
+            src="https://ieee-cas.org/files/ieeecass/cas-vector-logo-w-text-horizontal_web.svg"
+            alt="IEEE CS Logo"
+          />
+        </div>
+
+      
+        <div className={styles.chaptercontent}>
+          <Card 
+           style={buttonStyle1} 
+          onMouseEnter={() => setIsHovered1(true)}
+      onMouseLeave={() => setIsHovered1(false)}>
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                IEEE DTU CASS CHAPTER
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                The IEEE Computer Society is the premier source for information,
+                inspiration, and collaboration in Computer Science and Engineering.
+                IEEE DTU has become affiliated to the IEEE Computer Society and has
+                established its presence in the ever-expanding world of Computer Science.
+                IEEE DTU Computer Society has organized many flagship events like Microhacks,
+                IEEEXtreme, Vihaan and Bulls N' Bears.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small" variant="contained" startIcon={<ReadMoreIcon />}
+                onMouseEnter={() => setIsHoveredCS(true)}
+      onMouseLeave={() => setIsHoveredCS(false)}
+       style={buttonStyleCS}>
+                Know more
+              </Button>
+            </CardActions>
+          </Card>
+        </div>
+      </div>
+
+
    </div>
   );
 }
