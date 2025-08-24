@@ -8,9 +8,8 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { pink } from '@mui/material/colors';
 import { useState } from 'react';
-import EventsData from '@/components/EventsData';
 
- function EventComponent({title,subheader,image,typography}) {
+export default function EventComponent({title,subheader,image,typography}) {
   const [liked, setLiked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -64,15 +63,3 @@ import EventsData from '@/components/EventsData';
   );
 }
 
-export default function Events(){
-    
-    return(
-<div>
-    {EventsData.map((event, index) => {
-        return <EventComponent key={index} {...event} />
-     })}
-
-</div>
-   
-    )
-}
