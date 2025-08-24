@@ -9,20 +9,32 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.5"
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@radix-ui/react-separator": "^1.1.7",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.540.0",
+    "motion": "^12.23.12",
+    "@radix-ui/react-slot": "^1.2.3",
+    "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.6.0",
+    "next": "15.4.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-material-ui-carousel": "^3.4.2",
+    "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@mui/icons-material": "^5.15.15",
+    "@mui/material": "^5.15.15",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "class-variance-authority": "^0.7.1",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
-    "@eslint/eslintrc": "^3",
-    "@mui/material": "^5.15.15",
-    "@mui/icons-material": "^5.15.15",
-    "lucide-react": "^0.367.0",
-    "class-variance-authority": "^0.7.0",
-    "tailwind-merge": "^2.2.0"
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss": "^4.0.0",
+    "tw-animate-css": "^1.3.7"
   }
 }
