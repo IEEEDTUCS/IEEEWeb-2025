@@ -25,7 +25,7 @@ function FacultyWindow(){
   ];
 
  return (
-  <div className='flex flex-row gap-x-6'>
+  <div className='flex flex-row flex-wrap gap-x-6'>
     {facultyData.map((val, idx) => (
       <FacultyCard key={idx} {...val} />
     ))}
