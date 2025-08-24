@@ -3,102 +3,102 @@ const EventsData=[
 
    {
     title:"Project WIEVEK",
-    subheader:"July 19-21 2025",
-    image:"https://www.ieeedtu.in/images/clients/wievek.jpg", // assuming the image is in public/images/clients/
-    typography:"Empowering Young Minds in Engineering"
-  },
-   {
-    title:"",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/ieeeday24.jpg",
-    typography:""
+    image:"/Events/wievek.png", // assuming the image is in public/images/clients/
+    typography:"Empowering Young Minds in Engineering"
+  },  
+   {
+    title:"IEEE Day 2024",
+    subheader:"",
+    image:"/Events/ieeeday24.png",
+    typography:"Celebrating DTU's Oldest Student Society!"
   },
    {
     title:"IEEEXtreme",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/ieeextreme.png",
-    typography:"24-hour global competition"
+    image:"/Events/ieeextreme.png",
+    typography:"24-hour global programming competition"
   },
    {
-    title:"",
+    title:"MIST",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/MIST.jpg",
-    typography:""
+    image:"/Events/mist.png",
+    typography:"The Cryptic Hunt"
   },
   
    {
-    title:"",
+    title:"Devcraft",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/devcraft.jpg",
-    typography:""
+    image:"/Events/devcraft.png",
+    typography:"Development-based Hackathon"
   },
    {
-    title:"",
+    title:"Vihaan",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/vihaan007.jpg",
-    typography:""
+    image:"/Events/vihaan007.png",
+    typography:"India's Largest Student-run Hacakthon"
   },
    {
-    title:"",
+    title:"CodeCrunchML",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/codecrunch.jpg",
-    typography:""
+    image:"/Events/codecrunch.png",
+    typography:"A Machine Learning Hackathon"
   },
    {
-    title:"",
+    title:"Case Study",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/casestudy.jpg",
-    typography:""
+    image:"/Events/casestudy.png",
+    typography:"Solutions are born from analysis and daring assumptions"
   },
  
    {
-    title:"",
+    title:"Tech Week 2023",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/techweek23.jpg",
-    typography:""
+    image:"/Events/techweek23.png",
+    typography:"1 Week IEEE workshops"
   },
    {
-    title:"",
+    title:"Domain Specific Hackathons",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/domain.jpg",
-    typography:""
+    image:"/Events/domain.png",
+    typography:"A problem-solving journey!"
   },
    {
-    title:"",
+    title:"Field Events",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/field.jpg",
-    typography:""
+    image:"/Events/field.png",
+    typography:"Engineering meets the joy of creative competitions!"
   },
    {
-    title:"",
+    title:"Programming and Development Competitions",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/prog.jpg",
-    typography:""
+    image:"/Events/prog.png",
+    typography:"Code weaves the fabric of tomorrow"
   },
   
    {
-    title:"",
+    title:"HackAIthon",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/hackaithon.png",
-    typography:""
+    image:"/Events/hackaithon.png",
+    typography:"Gen AI Hackathon"
   },
    {
-    title:"",
+    title:"Blockchain",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/blockchain.png",
-    typography:""
+    image:"/Events/blockchain.png",
+    typography:"A webinar on Web3 & Blockchain"
   },
    {
-    title:"",
+    title:"Worldquant",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/wordquit.png",
-    typography:""
+    image:"/Events/worldquant.png",
+    typography:"A quantitative finance & fintech challenge"
   },
    {
-    title:"",
+    title:"DSSYWC",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/DSSYWC.png",
-    typography:""
+    image:"/Events/DSSYWC.png",
+    typography:"DSSYWC 2022"
   },
 ]
 export default EventsData;
