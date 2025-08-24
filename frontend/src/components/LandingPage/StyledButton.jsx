@@ -10,18 +10,18 @@ export default function StyledButton({
   ...props
 }) {
   const base =
-    "!px-6 !py-2.5 !rounded-lg !text-base font-medium tracking-wide transition-all duration-200";
+    "!px-12 !py-2.5 !font-[600] !tracking-[0.1em] !font-body !rounded-lg transition-all duration-200";
 
   const styles =
     variant === "primary"
-      ? "!bg-indigo-600 !text-white hover:!bg-indigo-700"
-      : "!border !border-indigo-500 !text-indigo-400 hover:!bg-indigo-500 hover:!text-white";
+      ? "!border-2 !text-white hover:!bg-white hover:!text-black"
+      : "!border-2 !text-white hover:!bg-white hover:!text-black";
 
   return (
     <MotionButton
       whileTap={{ scale: 0.96 }}
       whileHover={{ scale: 1.03 }}
-      className={`${base} ${styles}`}
+      className={`${base} ${styles}`} 
       href={href}
       {...props}
     >

@@ -16,7 +16,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="w-full flex flex-col overflow-x-hidden relative">
+    <div className="w-full flex flex-col overflow-hidden relative">
       {/* Title */}
       <motion.section
         style={{ opacity, y }}
@@ -25,7 +25,10 @@ export default function LandingPage() {
         {/* Background  */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('./images/dtu.png')" }}
+          style={{ 
+            backgroundImage: "url('./images/IEEE-Family.jpg')",
+            filter: "blur(1px)"
+           }}
           initial={{ scale: 1.05 }}
           animate={{ scale: 1 }}
           transition={{
@@ -48,7 +51,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="text-indigo-400 text-xl md:text-2xl font-medium tracking-[0.2em] uppercase"
+            className="text-[#70A6E3] text-xl md:text-xl font-heading font-bold tracking-[0.1em] uppercase"
           >
             Welcome to
           </motion.h2>
@@ -57,7 +60,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="text-white text-5xl md:text-6xl lg:text-7xl font-extrabold mt-4 leading-snug drop-shadow-lg"
+            className="text-white text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold mt-1 leading-snug drop-shadow-lg"
           >
             IEEE DTU Student Branch
           </motion.h1>
@@ -66,7 +69,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-            className="text-indigo-300 text-lg md:text-2xl font-medium mt-4"
+            className="text-[#70A6E3] text-xl md:text-2xl tracking-[0.1em] font-heading font-[500] mt-1 mb-8"
           >
             A World of Limitless Possibilities
           </motion.h2>
@@ -79,10 +82,10 @@ export default function LandingPage() {
             className="flex flex-wrap gap-4 mt-10"
           >
             <StyledButton href="#form" variant="primary">
-              Contact Us
+              More About Us
             </StyledButton>
             <StyledButton onClick={handleScrollDown} variant="secondary">
-              More About Us
+              Contact Us
             </StyledButton>
           </motion.div>
         </motion.div>
