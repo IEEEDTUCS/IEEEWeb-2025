@@ -1,8 +1,204 @@
-.containername {
-  width: 100%;
-  height: 100%;
+/* Chapter Component Styles */
+.gridContainer2 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align: center;
+  justify-self: center;
+}
+
+.gridItem2 {
+  text-align: center;
+  padding-right: 30px;
+}
+
+.servicesList .serviceText {
+  margin-left: 7.8rem;
+}
+
+/* Chapter specific styles */
+.chapterTitle {
+  font-size: 21px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: 550;
+  height: 27px;
+  margin-block-end: 18px;
+  margin-block-start: 60px;
+  margin-bottom: 18px;
+  margin-top: 60px;
+}
+
+.chapterTitle:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.chapterDescription {
+  padding: 0 30px 0 30px;
+  text-align: justify;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgb(117, 117, 117);
+  margin-bottom: 3rem;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 30px;
+  margin-block-end: 30px;
+  overflow-wrap: break-word;
+}
+
+.btnStroke2 {
+  border: 2px solid #d1d5db;
+  background-color: white;
+  color: #374151;
+  padding: 12px 32px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btnStroke2:hover {
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+  text-decoration: none;
+}
+
+.chapterImage {
+  max-width: 90%;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Left grid item specific styling */
+.gridItem2:first-child {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+.gridItem2:first-child .serviceText {
+  margin: 0;
+}
+
+/* Scroll-triggered animation classes */
+.scrollFadeUp {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scrollFadeUp.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.scrollFadeUp.delay100 {
+  transition-delay: 0.1s;
+}
+
+.scrollFadeUp.delay200 {
+  transition-delay: 0.2s;
+}
+
+.scrollFadeUp.delay300 {
+  transition-delay: 0.3s;
+}
+
+.scrollFadeUp.delay400 {
+  transition-delay: 0.4s;
+}
+
+/* Section container animation */
+.sectionContainer {
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 1s ease-out;
+}
+
+.sectionContainer.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 800px) {
+  .servicesList {
+    margin-top: 4.2rem;
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  .servicesList .serviceItem:nth-child(n) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  .servicesList h3 {
+    font-size: 3rem;
+  }
+  
+  .servicesList .serviceText {
+    margin-left: 0;
+  }
+  
+  .gridContainer2 {
+    grid-template-columns: 1fr !important;
+    margin: 0px 20px 0px 20px !important;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .chapterImage {
+    padding-top: 20px;
+    max-width: 60% !important;
+    height: 400px !important;
+    width: auto !important;
+  }
+  
+  .chapterDescription {
+    padding: 0 15px 0 15px;
+  }
+  
+  .chapterTitle {
+    font-size: 1.5rem;
+  }
+
+  .gridItem2:first-child {
+    padding: 20px 0 !important;
+  }
+
+  .gridItem2 {
+    padding-right: 15px !important;
+  }
+}
+
+/* Extra small screens */
+@media only screen and (max-width: 480px) {
+  .chapterImage {
+    max-width: 100% !important;
+    height: 200px !important;
+  }
+  
+  .chapterTitle {
+    font-size: 1.25rem;
+  }
+  
+  .chapterDescription {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+  
+  .gridContainer2 {
+    margin: 0px 10px 0px 10px !important;
+  }
 }

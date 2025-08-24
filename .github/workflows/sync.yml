@@ -1,0 +1,28 @@
+name: Sync from Main Repo
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # runs every hour
+  workflow_dispatch:      # allow manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.DEPLOY_SECRET }} # Personal access token with repo scope
+          fetch-depth: 0
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/IEEEDTUCS/IEEEWeb-2025.git
+          git fetch upstream
+
+      - name: Force sync with upstream
+        run: |
+          git checkout main
+          git reset --hard upstream/main
+          git push origin main --force

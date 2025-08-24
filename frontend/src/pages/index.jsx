@@ -5,7 +5,10 @@ import boilerPlate from '@/layout/Boilerplate'
 
 function Home() {
   return (
-    <div><LandingPage></LandingPage></div>
+    <div><LandingPage></LandingPage>
+  
+    </div>
+   
   )
 }
 
