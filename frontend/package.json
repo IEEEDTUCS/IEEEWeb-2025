@@ -32,10 +32,6 @@
     "class-variance-authority": "^0.7.1",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
-<<<<<<<<< Temporary merge branch 1
-    "lucide-react": "^0.539.0",
-=========
->>>>>>>>> Temporary merge branch 2
     "tailwind-merge": "^2.2.0",
     "tailwindcss": "^4"
   }

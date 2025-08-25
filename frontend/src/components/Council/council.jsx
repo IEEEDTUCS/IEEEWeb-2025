@@ -12,31 +12,32 @@ import LanguageIcon from '@mui/icons-material/Language';
       <>
       
       <div 
-  className="  w-[400px] relative mt-4 h-[430px] group mx-auto dark:bg-transparent   bg-white   border-2 border-black rounded-md dark:text-black text-black flex flex-col">
+  className="    w-[300px] relative mt-4 h-[380px] group mx-auto dark:bg-transparent hover:shadow-2xl  bg-white    rounded-md dark:text-black text-black flex flex-col">
       
-        <div className="w-full  rounded-t-md h-[350px] group-hover:h-[410px] overflow-hidden transition-all duration-300">
+        <div className="w-full  rounded-t-md h-[340px] group-hover:h-[400px] overflow-hidden transition-all duration-300">
           <Image
             src={img}
             alt="img"
             width={600}
             height={600}
-            className="h-full w-full  scale-105 group-hover:scale-100  object-cover transition-all duration-300"
+            className="h-full w-full  scale-105 group-hover:scale-100  object-cover transition-all duration-500"
           />
         </div>
 
         <article className="relative overflow-hidden  flex-grow">
 
           <div className="info p-2 translate-y-0 group-hover:-translate-y-20 transition-all duration-300">
-            <p className="md:text-2xl p-2 font-semibold">{Name}</p>
+            <p className="md:text-2xl text-center p-2 font-semibold font-body">{Name}</p>
             {/* <p className="sm:text-base text-sm">CEO &amp; Design Engineer</p> */}
           </div>
 
-          <button className="absolute h-10 -bottom-8 opacity-0 group-hover:opacity-100 cursor-pointer group-hover:bottom-3  text-xl font-medium transition-all duration-300 w-full text-center">
+          <button className="absolute h-11 -bottom-8 text-center font-body opacity-0 group-hover:opacity-100 cursor-pointer group-hover:bottom-3  text-lg font-medium transition-all duration-500 w-full text-center">
             {/* CEO &amp; Design Engineer */}
            {Position}
            {   linkedin && (
                <a href={linkedin}>
                {Name == "Khobaib Akmal" ? <LanguageIcon className="text-blue-600 hover:scale-110 transition cursor-pointer" /> : <LinkedInIcon className="text-blue-600 hover:scale-110 transition cursor-pointer" /> }
+              
                </a>
                  )
            }
@@ -60,12 +61,14 @@ import LanguageIcon from '@mui/icons-material/Language';
 export default function CouncilComponent(){
     
     return(
-<div >
- <div >
-          <p className='text-center text-lg font-bold'>THE TEAM</p>
-        <p className='text-center text-3xl font-bold'>IEEE-DTU COUNCIL</p>
+<div className=' relative bg-black pt-20'>
+ <div className='m-20' >
+          <p className='font-subheading text-center text-[#70A6E3] text-2xl font-bold'>THE TEAM</p>
+        <p className='font-heading text-center text-white text-4xl font-bold'>IEEE-DTU COUNCIL</p>
+        <div className='text-white px-[5%] md:px-[20%] mt-10'><hr /></div>
+        <hr />
        </div>
-<div className='flex  flex-wrap justify-center gap-6 p-6'>
+<div className='flex bg-white mx-[10%]  rounded-md flex-wrap justify-center gap-6 p-6'>
   
       
     {CouncilData.map((event, index) => {
