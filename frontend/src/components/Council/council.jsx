@@ -31,7 +31,7 @@ import LanguageIcon from '@mui/icons-material/Language';
             {/* <p className="sm:text-base text-sm">CEO &amp; Design Engineer</p> */}
           </div>
 
-          <button className="absolute h-11 -bottom-8 text-center font-body opacity-0 group-hover:opacity-100 cursor-pointer group-hover:bottom-3  text-lg font-medium transition-all duration-500 w-full text-center">
+          <button className="absolute h-11 -bottom-8 font-body opacity-0 group-hover:opacity-100 cursor-pointer group-hover:bottom-3  text-lg font-medium transition-all duration-500 w-full text-center">
             {/* CEO &amp; Design Engineer */}
            {Position}
            {   linkedin && (
