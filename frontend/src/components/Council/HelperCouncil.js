@@ -44,7 +44,7 @@ const CouncilData=[
      {
         img:"/CouncilPhotos/FR Image - Tasneem Ahmed.jpg",
         Name:"Tasneem Ahmed",
-        Position:"Webmaster & Chairperson, Computer Society",
+        Position:"Chairperson, Computer Society",
         insta:"https://www.instagram.com/tasneemahmed_28/",
         linkedin:"https://www.linkedin.com/in/tasneem-a-2b87b61a5/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
     },
@@ -134,7 +134,14 @@ const CouncilData=[
         Position:"Head of Publications",
         insta:"https://www.instagram.com/unnatinath/",
         linkedin:"https://www.linkedin.com/in/unnatinath/"
-    }
+    },
+    {
+        img:"/CouncilPhotos/FR Image - Tasneem Ahmed.jpg",
+        Name:"Tasneem Ahmed",
+        Position:"Webmaster",
+        insta:"https://www.instagram.com/tasneemahmed_28/",
+        linkedin:"https://www.linkedin.com/in/tasneem-a-2b87b61a5/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
+    },
     
 ]
 
