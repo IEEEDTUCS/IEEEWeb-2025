@@ -41,11 +41,11 @@ const testimonials = [
 
 function Gallery({ items, setIndex, setOpen, index }) {
   return (
-    
-    <div className="flex flex-col sm:flex-row md:flex-row  overflow-x-auto snap-x snap-mandatory  scrollbar-hide scroll-smooth lg:justify-center md:justify-start sm:justify-start items-center gap-2 py-1"> 
+    <div className="flex flex-col sm:flex-row md:flex-row overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth lg:justify-center md:justify-start sm:justify-start items-center gap-2 py-1">
       {items.map((item, i) => (
         <motion.div
           whileTap={{ scale: 0.98 }}
+          
           key={item.id}
           onMouseEnter={() => setIndex(i)}
           onClick={() => {
@@ -53,10 +53,10 @@ function Gallery({ items, setIndex, setOpen, index }) {
             setOpen(true);
           }}
           className={`snap-center flex-shrink-0 w-82 mx-4 bg-white rounded-2xl shadow-lg p-0 text-center" 
-    ${index === i
-            ? "w-full max-w-xs sm:max-w-md md:max-w-2xl lg:w-4xl  p-6 bg-white rounded-2xl shadow-2xl shadow-black/30 flex flex-col justify-center items-center"
-            : "w-10 sm:w-16 md:w-34 h-100 sm:h-116 md:h-[600px] lg:h-160 rounded-xl overflow-hidden shadow-2xl shadow-black/30"
-              
+            ${
+              index === i
+                ? "w-full max-w-xs sm:max-w-md md:max-w-2xl lg:w-4xl transition-[width] ease-in duration-600 p-6 bg-white rounded-2xl shadow-2xl shadow-black/30 flex flex-col justify-center items-center"
+                : "w-10 sm:w-16 md:w-34 h-100 sm:h-116 md:h-[600px] lg:h-160 rounded-xl overflow-hidden shadow-2xl shadow-black/30"
             }`}
         >
           {/* Always show photo thumbnail */}
@@ -64,7 +64,7 @@ function Gallery({ items, setIndex, setOpen, index }) {
             src={item.url}
             alt={item.title}
             className={`object-cover rounded-xl 
-      ${ index === i ? "hidden" : "w-full h-full"}`}
+              ${index === i ? "hidden" : "w-full h-full"}`}
           />
 
           {/* Collapsed state (when not expanded) */}
@@ -84,44 +84,44 @@ function Gallery({ items, setIndex, setOpen, index }) {
             </div>
           )}
 
-          {/* Expanded content */}
-          {index === i && (
-            <div className="flex flex-col md:flex-row items-center md:items-start mt-4 gap-6 w-full ">
-              {/* Left side: Bio */}
-              <div className=" text-left px-2 order-2 md:order-1">
-                <p className="text-lg text-gray-700 font-[lora-regular] font-serif leading-relaxed overflow-hidden line-clamp-18" style={{ color: "#555555" }}>
-                  {item.description}
-                </p>
-              </div>
-
-              {/* Right side: Photo + Details */}
-
-
-              <div className="flex flex-col items-center order-1 md:order-2 md:ml-6 ">
-                {/* <div className="md:w-48 md:h-48 lg:w-56 lg:h-56"> */}
-                <div
-                  className="w-38 h-42 
-               sm:w-56 sm:h-60 
-               md:w-80 md:h-86 
-               lg:w-84 lg:h-110 
-              
-
-               rounded-xl shadow-md bg-white flex items-center justify-center"
-                >
-                  
-                  <img
-                    src={item.url}
-                    alt={item.title}
-                    className="max-w-full h-full object-cover rounded-xl"
-                  />
+          { /* Expanded content with smooth animation */ }
+                <AnimatePresence>
+                {index === i && (
+                  <motion.div
+                  className="flex flex-col md:flex-row items-center md:items-start mt-4 gap-6 w-full"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.45, delay: 0.4 }}
+                  >
+                  {/* Left side: Bio */}
+                <div className=" text-left px-2 order-2 md:order-1">
+                  <p className="text-lg text-gray-700 font-serif leading-relaxed overflow-hidden line-clamp-18" style={{ color: "#555555" }}>
+                    {item.description}
+                  </p>
                 </div>
 
-                <h3 className="text-xl font-[montserrat-semibold] font-sans font-semibold mt-3" style={{ color: "#000000" }}>{item.title}</h3>
+                {/* Right side: Photo + Details */}
+                <div className="flex flex-col items-center order-1 md:order-2 md:ml-6 ">
+                  <div
+                    className="w-38 h-42 
+                      sm:w-56 sm:h-60 
+                      md:w-80 md:h-86 
+                      lg:w-84 lg:h-110 
+                      rounded-xl shadow-md bg-white flex items-center justify-center"
+                  >
+                    <img
+                      src={item.url}
+                      alt={item.title}
+                      className="max-w-full h-full object-cover rounded-xl"
+                    />
+                  </div>
+                  <h3 className="text-xl font-sans font-semibold mt-3" style={{ color: "#000000" }}>{item.title}</h3>
                   <p className="text-sm text-gray-500 md:w-46 md:h-6 ml-8">{item.designation}</p>
-                
-              </div>
-            </div>
-          )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       ))}
     </div>
@@ -148,8 +148,8 @@ export default function Testimonials() {
   }, [open]);
 
   return (
-    <div className="relative">
-      <h3 className="text-center font-bold text-lg uppercase mb-0" style={{
+    <div className="relative py-20 mb-10">
+      <h3 className="text-center font-heading font-bold text-lg uppercase mb-0" style={{
     fontweight: 600,
     fontSize: "1rem",    
     letterSpacing: "0.25rem",
@@ -158,7 +158,7 @@ export default function Testimonials() {
         padding: 0,
   }}>PROUD TO PRESENT</h3>
       <h1
-        className="text-center text-5xl leading-[1.255]  font-[montserrat-medium] font-sans font-bold my-6 mt-0"
+        className="text-center font-heading mb-8 text-5xl leading-[1.255] font-sans font-bold my-6 mt-0"
         style={{ color: "#000000" }}
       >
         Testimonials
@@ -202,7 +202,7 @@ export default function Testimonials() {
                   initial={{ scaleY: 0.2 }}
                   animate={{ scaleY: 1 }}
                   transition={{ duration: 0.2, delay: 0.2 }}
-                  className="text-xl font-semibold font-[montserrat-semibold] font-sans"
+                  className="text-xl font-semibold font-[montserrat-semibold] "
                 >
                    {testimonials[index].title}
                  </motion.h1>
@@ -210,7 +210,7 @@ export default function Testimonials() {
                   initial={{ y: -10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.2, delay: 0.2 }}
-                  className="text-xl md:text-base leading-relaxed py-2 font-[lora-regular] font-serif "
+                  className="text-xl md:text-base leading-relaxed py-2 font-serif "
                   style={{ color: "#555555" }}
                 >
                   {testimonials[index].description}
