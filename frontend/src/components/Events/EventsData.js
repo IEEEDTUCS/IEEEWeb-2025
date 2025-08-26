@@ -70,7 +70,7 @@ const EventsData=[
     typography:"Engineering meets the joy of creative competitions!"
   },
    {
-    title:"Programming and Development Competitions",
+    title:"Programming Competitions",
     subheader:"",
     image:"/Events/prog.png",
     typography:"Code weaves the fabric of tomorrow"

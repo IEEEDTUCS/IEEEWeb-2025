@@ -32,8 +32,11 @@ export default function EventComponent({title,subheader,image,typography}) {
  
 
   return (
+
+    
     <Card 
-      className="Card text-center font-bold" 
+
+      className="Card text-center font-bold w-[300px] h-[400px] m-6 " 
       sx={{ width:'20rem', height:'auto' }}
       style={cardStyle}
       onMouseEnter={() => setIsHovered(true)}
@@ -41,15 +44,15 @@ export default function EventComponent({title,subheader,image,typography}) {
     >
      
 
-      <CardMedia
+      <CardMedia className='h-[300px] w-[300px] object-contain'
         component="img"
         height="194"
         image={image}
       />
 
-      <CardContent>
+  <CardContent className='w-[300px] h-[90px]  flex flex-col items-center justify-center text-center font-heading '>
         <CardHeader
-        className="text-[#70A6E3]"
+        className="text-[#70A6E3] whitespace-nowrap font-subheading "
         title={title}
         subheader={subheader}
       />
@@ -57,9 +60,10 @@ export default function EventComponent({title,subheader,image,typography}) {
           {typography}
         </Typography>
       </CardContent>
-
+     
  
     </Card>
+  
   );
 }
 
