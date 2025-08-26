@@ -65,8 +65,10 @@ export default function CouncilComponent(){
     return(
 <div className=' relative bg-black pb-10 pt-20'>
  <div className='m-20' >
+
           <p className='font-heading text-center text-[#70A6E3] text-lg tracking-[0.2rem] font-semibold' >THE TEAM</p>
         <p className='font-heading text-center tracking-[0.2rem] text-white text-3xl font-bold'>IEEE-DTU COUNCIL</p>
+
         <div className='text-white px-[5%] md:px-[20%] mt-10'><hr /></div>
         <hr />
        </div>
