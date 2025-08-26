@@ -18,7 +18,7 @@ export default function Navbar() {
     { name: "Testimonials", href: "/IEEEDTU/testimonials" },
   ];
 
-  
+  // Close sidebar on outside click / Esc
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (mobileOpen && sidebarRef.current && !sidebarRef.current.contains(e.target)) {
@@ -34,30 +34,31 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  
+  // Prevent scroll when sidebar open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => (document.body.style.overflow = "");
   }, [mobileOpen]);
 
+  // Utility styles
   const linkBase =
     "relative text-lg tracking-wide transition-all duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-400 after:transition-all after:duration-300 hover:after:w-full";
   const activeStyle = "font-semibold text-white after:w-full";
 
   return (
     <>
-      
+      {/* Overlay */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 bg-black/70 z-40"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
           onClick={() => setMobileOpen(false)}
         />
       )}
 
-      
-      <nav className="fixed top-0 z-50 w-full bg-black border-b border-gray-800 shadow-md">
+      {/* Top Navbar */}
+      <nav className="fixed top-0 z-50 w-full bg-black/90 backdrop-blur-md border-b border-gray-800 shadow-lg">
         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <img
               src="/images/logo.png"
@@ -66,7 +67,7 @@ export default function Navbar() {
             />
           </Link>
 
-          
+          {/* Right Section (Auth Buttons + Hamburger) */}
           <div className="flex items-center gap-4">
             <Link
               href="/login"
@@ -81,7 +82,7 @@ export default function Navbar() {
               Sign Up
             </Link>
 
-            
+            {/* Hamburger Toggle */}
             <button
               onClick={() => setMobileOpen((p) => !p)}
               className="text-white relative z-50 focus:outline-none"
@@ -91,18 +92,18 @@ export default function Navbar() {
           </div>
         </div>
 
-        
+        {/* Sidebar Menu (Hamburger Drawer) */}
         <div
           ref={sidebarRef}
           className={`fixed top-0 right-0 h-full w-72 
-            bg-black text-white 
-            px-8 py-8 flex flex-col 
-            border-l border-gray-800 shadow-2xl
+            bg-indigo-950/95 backdrop-blur-xl 
+            text-white px-8 py-8 flex flex-col 
+            border-l border-indigo-800 shadow-2xl
             z-50 transform transition-transform duration-300 ease-in-out ${
               mobileOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
-          
+          {/* Nav Links */}
           <div className="flex flex-col gap-7 mt-14">
             {navLinks.map(({ name, href }) => (
               <Link
@@ -112,7 +113,7 @@ export default function Navbar() {
                 className={`${linkBase} ${
                   router.pathname === href
                     ? activeStyle
-                    : "text-gray-300 hover:text-indigo-400"
+                    : "text-gray-300 hover:text-indigo-300"
                 }`}
               >
                 {name}
@@ -120,8 +121,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          
-          <div className="mt-auto flex justify-center gap-6 pt-6 border-t border-gray-700">
+          {/* Social Icons */}
+          <div className="mt-auto flex justify-center gap-6 pt-6 border-t border-indigo-800">
             <a
               href="https://www.facebook.com/ieeedtu"
               target="_blank"
