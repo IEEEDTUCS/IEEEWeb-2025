@@ -1,19 +1,11 @@
 import * as React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import StyledButton from "./LandingPage/StyledButton";
 
 export default function LandingPage() {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
   const y = useTransform(scrollY, [0, 400], [0, -100]);
-
-  const handleScrollDown = () => {
-    const aboutSection = document.getElementById("about-section");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <div className="w-full flex flex-col overflow-hidden relative">
@@ -81,27 +73,15 @@ export default function LandingPage() {
             transition={{ duration: 1, delay: 0.6 }}
             className="flex flex-wrap gap-4 mt-10"
           >
-            <StyledButton href="#form" variant="primary">
+            <StyledButton href="/IEEEDTU/about" variant="primary" >
               More About Us
             </StyledButton>
-            <StyledButton onClick={handleScrollDown} variant="secondary">
+            <StyledButton href="/IEEEDTU/council" variant="secondary">
               Contact Us
             </StyledButton>
           </motion.div>
         </motion.div>
 
-        {/* Scroll Down */}
-        <motion.div
-          onClick={handleScrollDown}
-          className="absolute bottom-8 right-8 cursor-pointer p-3 rounded-full 
-                     bg-white/10 backdrop-blur-md border border-white/20 
-                     hover:bg-white/20 transition-all shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: [0, -10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <KeyboardArrowDownIcon className="!text-white !text-3xl" />
-        </motion.div>
       </motion.section>
     </div>
   );

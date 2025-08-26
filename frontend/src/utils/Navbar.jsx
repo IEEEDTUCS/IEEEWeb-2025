@@ -15,9 +15,7 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/IEEEDTU/about" },
     { name: "Events", href: "/IEEEDTU/events" },
-    { name: "Chapter", href: "/IEEEDTU/Chapters/CS" },
     { name: "Council", href: "/IEEEDTU/council" },
-    { name: "Testimonials", href: "/IEEEDTU/testimonials" },
   ];
 
   useEffect(() => {
