@@ -3,6 +3,8 @@
 
         "title": "IEEE DTU CS CHAPTER",
 
+        "logo": "/images/Chapters/IEEE_CS.png",
+
         "backdropImg": "/Chapters/Backdrops/CS_backdrop.png",
 
         "images": ["/Chapters/Images/vihaan.jpg", "/Chapters/Images/vihaan2.jpg", "/Chapters/Images/techweek.jpg", "/Chapters/Images/xtreme.jpg", "/Chapters/Images/group.jpg"],
@@ -52,6 +54,8 @@
     "PES_IAS": {
 
         "title": "IEEE DTU PES-IAS CHAPTER",
+
+        "logo": "/images/Chapters/PES_IEE.png",
 
         "backdropImg": "/Chapters/Backdrops/PES_IAS_backdrop.png",
 
@@ -103,7 +107,9 @@
 
         "title": "IEEE DTU WIE CHAPTER",
 
-        "backdropImg": "/Chapters/Backdrops/WIE_backdrop.avif",
+        "logo": "/images/Chapters/IEEE_WIE.png",
+
+        "backdropImg": "/Chapters/Backdrops/WIE_backdrop.png",
 
         "images": ["/Chapters/Images/kids.jpg", "/Chapters/Images/vihaan.jpg", "/Chapters/Images/group.jpg", "/Chapters/Images/ishwarngo.jpg", "/Chapters/Images/IMG_0412.jpeg"],
 

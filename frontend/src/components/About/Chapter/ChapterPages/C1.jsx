@@ -11,13 +11,14 @@ export default function C1({ ChapterInformation }) {
   return (
     <>
       { ChapterInformation &&
-      <div style={{scrollBehavior: 'smooth',
-        backgroundImage: `linear-gradient(rgba(10, 10, 20, 0.2), rgba(10, 10, 20, 0.2)), url(${ChapterInformation.backdropImg})`,
-        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+      <div style={{
+    scrollBehavior: 'smooth',
+    backgroundImage: `linear-gradient(rgba(10, 10, 20, 0.2), rgba(10, 10, 20, 0.2)), url(${ChapterInformation.logo}),
+      url(${ChapterInformation.backdropImg})`}} className={styles.chapterBackdrop} >
 
-        <ChapterNavbar ColorScheme={ChapterInformation.ColorSchemes} />
+        {/* <ChapterNavbar ColorScheme={ChapterInformation.ColorSchemes} /> */}
 
-        <div className={`font-heading ${styles.chapterTitle}`} >{ChapterInformation.title}
+        <div className={`font-heading ${styles.chapterTitle}`} style={{color: ChapterInformation.ColorSchemes.PrimaryTextColor}} >{ChapterInformation.title}
         </div>
 
         <ChapterImageCarousel images={ChapterInformation.images} />
@@ -30,9 +31,9 @@ export default function C1({ ChapterInformation }) {
           <div id="membership">< ChapterCommonComponent ComponentInformation={ChapterInformation.membership} ColorScheme={ChapterInformation.ColorSchemes} /></div>
 
           <div id="contact"><ChapterContact ContactInformation={ChapterInformation.contact} ColorScheme={ChapterInformation.ColorSchemes} /></div>
-
-        </div>
       </div> 
+
+      </div>
       }
     </>
   )

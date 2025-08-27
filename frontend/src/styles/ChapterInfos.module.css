@@ -56,33 +56,55 @@
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
+.chapterBackdrop {
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: cover, 40% auto, cover;   
+    background-position: center, 50% 70%, center;
+    background-attachment: fixed, fixed, fixed;
+    position: relative;
+    min-height: 100vh; 
+}
+
 .chapterTitle {
-    margin-top: 1.8rem;
+    padding-top: 8rem;
     font-size: 3.5rem;
     display: flex;
     justify-content: center;
     font-weight: 600;
-    color: white;
     letter-spacing: 0.2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.7);
 }
 
 .infoContainer {
+    position: relative;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 2rem;
-    padding: 6.25rem 0;
+    padding: 5rem 0;
     background-color: rgba(20, 20, 40, 0.8);
     border-radius: 1rem;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .infoContainer:hover {
     transform: translateY(-0.6rem);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6);
+}
+
+.glowSpan {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255,255,255, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+    transform: translateX(-120%);
+    pointer-events: none;
+    color: white;
 }
 
 .infoHeading {
@@ -124,11 +146,26 @@
 }
 
 .contactBox {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 2.5rem 1.25rem;
+    overflow: hidden;
+    transition: 0.4s ease;
+}
+
+.contactBox:hover {
+    transform: scale(1.01);
+}
+
+.infoContainer:hover .glowSpan, .contactBox:hover .glowSpan {
+    animation: glowEffect 1s ease;
+}
+
+@keyframes glowEffect {
+  0% {transform: translateX(-100%); opacity: 0;} 30% {opacity: 0.3;} 70% {opacity: 0.5;} 100% {transform: translateX(100%); opacity: 0;}
 }
 
 .contactInfo {
@@ -281,6 +318,7 @@
     .desktopLinks {display: none;}
     .mobileMenuBtn {display: block;}
 
+    .chapterBackdrop {background-size: cover, 60% auto, cover; background-position: center, 50% 55%, center;}
     .chapterTitle {margin-top: 1.5rem; text-align: center; font-size: 2.4rem; letter-spacing: 0.1rem;}
     .infoContainer {padding: 2.5rem 0;}
     .infoHeading {font-size: 2rem;}
