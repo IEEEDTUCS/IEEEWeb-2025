@@ -42,7 +42,7 @@ function BranchCounsellor() {
             <h3 className="font-bold text-blue-800 text-xl sm:text-2xl lg:text-3xl tracking-tight hover:text-blue-900 transition-all duration-300 transform hover:scale-105 cursor-default font-playfair">
               Prof. Jeebananda Panda
             </h3>
-            <p className="italic text-base sm:text-lg text-gray-600 font-medium tracking-wider uppercase text-sm opacity-80 hover:opacity-100 transition-all duration-300 font-inter">
+            <p className="italic sm:text-lg text-gray-600 font-medium tracking-wider uppercase text-sm opacity-80 hover:opacity-100 transition-all duration-300 font-inter">
               Branch Counsellor
             </p>
           </div>

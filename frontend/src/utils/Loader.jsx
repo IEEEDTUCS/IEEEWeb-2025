@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from './Loader.module.css';  
 
-export default function Loader() {
+export default function Loader({ visible }) {
   return (
-    <div className={styles.loaderContainer}>
+    <div 
+      id="loader" 
+      className={`${styles.loaderContainer} ${!visible ? styles.hide : ''}`}
+    >
       <img 
         src="/loader/ieee-dtu-logo.svg" 
         alt="logo" 

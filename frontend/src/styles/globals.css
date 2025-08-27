@@ -6,10 +6,9 @@
 
   --font-heading: 'Montserrat', sans-serif;
   --font-subheading: 'Playfair Display', serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-body: 'serif', serif;
   --font-caption: 'Roboto', sans-serif;
   --font-nav: 'Raleway', sans-serif;
-
 
 }
 
@@ -31,23 +30,26 @@
   }
 }
 
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #eeecec;
     --foreground: #ededed;
   }
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+}
+/* For Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }

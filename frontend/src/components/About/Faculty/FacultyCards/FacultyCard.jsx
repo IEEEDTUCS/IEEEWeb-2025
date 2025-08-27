@@ -20,7 +20,7 @@ function FacultyCard({ name, designation, details, imageUrl }) {
         </h3>
         
         <div className="border-t border-gray-200/50 pt-3 space-y-2">
-          <p className="text-base text-gray-600 font-medium tracking-wider uppercase text-sm opacity-80 hover:opacity-100 transition-all duration-300 font-inter italic">
+          <p className=" text-gray-600 font-medium tracking-wider uppercase text-sm opacity-80 hover:opacity-100 transition-all duration-300 font-inter italic">
             {designation}
           </p>
           <p className="text-sm leading-6 text-gray-700 font-normal tracking-wide hover:text-gray-900 transition-colors duration-300 font-inter">
