@@ -50,7 +50,7 @@ export default function EventComponent({title,subheader,image,typography}) {
         image={image}
       />
 
-  <CardContent className='w-[300px] h-[90px]  flex flex-col items-center justify-center text-center font-heading '>
+  <CardContent className='w-[300px] h-[90px]  flex flex-col items-center m-2.5 justify-center text-center font-heading '>
         <CardHeader
         className="text-[#70A6E3] whitespace-nowrap "
         title={title}

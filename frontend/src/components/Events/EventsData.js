@@ -33,18 +33,6 @@ const EventsData=[
   },
   
    {
-    title:"Devcraft",
-    subheader:"",
-    image:"/Events/devcraft.png",
-    typography:"Development-based Hackathon"
-  },
-   {
-    title:"Vihaan",
-    subheader:"",
-    image:"/Events/vihaan007.png",
-    typography:"India's Largest Student-run Hacakthon"
-  },
-   {
     title:"CodeCrunchML",
     subheader:"",
     image:"/Events/codecrunch.png",
@@ -63,6 +51,12 @@ const EventsData=[
     image:"/Events/techweek23.png",
     typography:"1 Week IEEE workshops"
   },
+  {
+    title:"DSSYWC",
+    subheader:"",
+    image:"/Events/DSSYWC.png",
+    typography:"DSSYWC 2022"
+  },
    {
     title:"Domain Specific Hackathons",
     subheader:"",
@@ -74,6 +68,13 @@ const EventsData=[
     subheader:"",
     image:"/Events/field.png",
     typography:"Engineering meets the joy of creative competitions!"
+  },
+  
+   {
+    title:"Devcraft",
+    subheader:"",
+    image:"/Events/devcraft.png",
+    typography:"Development-based Hackathon"
   },
    {
     title:"Programming Competitions",
@@ -101,10 +102,10 @@ const EventsData=[
     typography:"A quantitative finance & fintech challenge"
   },
    {
-    title:"DSSYWC",
+    title:"Vihaan",
     subheader:"",
-    image:"/Events/DSSYWC.png",
-    typography:"DSSYWC 2022"
-  },
+    image:"/Events/vihaan007.png",
+    typography:"India's Largest Student-run Hacakthon"
+  }
 ]
 export default EventsData;

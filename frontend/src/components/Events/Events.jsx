@@ -67,6 +67,7 @@ export default function Events() {
           }}
           >
             SOME OF THE EVENTS CONDUCTED BY IEEE DTU THROUGHOUT THE YEAR
+       
           </motion.p>
         </motion.header>
 
