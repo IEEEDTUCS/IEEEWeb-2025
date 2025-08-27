@@ -52,9 +52,9 @@ export default function EventComponent({title,subheader,image,typography}) {
 
   <CardContent className='w-[300px] h-[90px]  flex flex-col items-center justify-center text-center font-heading '>
         <CardHeader
-        className="text-[#70A6E3] whitespace-nowrap font-subheading "
+        className="text-[#70A6E3] whitespace-nowrap "
         title={title}
-        subheader={subheader}
+       
       />
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           {typography}

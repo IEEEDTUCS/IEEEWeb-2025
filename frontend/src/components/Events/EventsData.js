@@ -4,9 +4,15 @@ const EventsData=[
    {
     title:"Project WIEVEK",
     subheader:"",
-    image:"/Events/wievek.png", // assuming the image is in public/images/clients/
+    image:"/Events/wievek.jpg",
     typography:"Empowering Young Minds in Engineering"
   },  
+  {
+    title:"Cryptovate",
+    subheader:"",
+    image:"/Events/cryptovate.jpg", 
+    typography:"Online Blockchain Hackathon"
+  },
    {
     title:"IEEE Day 2024",
     subheader:"",

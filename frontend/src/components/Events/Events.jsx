@@ -1,39 +1,95 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 import EventComponent from './EventComponent';
-import eventsData from './EventsData'
+import eventsData from './EventsData';
+
+// Variants for staggered animations
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export default function Events() {
   return (
-    
-      <div className="min-h-screen bg-[#111827] text-white  mt-24">
-        <div className="container mx-auto pt-16 ">
-          <header className="text-center mb-8 pb-16">
-            <p className=" text-xl font-semibold text-blue-400 tracking-widest mb-2 font-subheading">
-              FUN & ACTIVITIES
-            </p>
-            <h1 className=" font-heading text-4xl md:text-5xl font-heading font-semibold tracking-tight mb-4">
-              OUR EVENTS
-            </h1>
-            <p className="text-xl font-semibold font-subheading text-blue-400 tracking-wider font-subheading">
-              SOME OF THE EVENTS CONDUCTED BY IEEE DTU THROUGHOUT THE YEAR
-            </p>
-            <p className='mt-8 px-[20%] md:px-[20%]'> <hr/> </p>
+    <div className="min-h-screen bg-[#111827] text-white mt-24">
+      <div className="container mx-auto pt-16">
+        {/* Header with motion */}
+        <motion.header
+          className="text-center mb-8 pb-16"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          
+        >
+          <motion.p
+            className="text-xl font-semibold text-blue-400 tracking-widest mb-2 font-subheading"
+            variants={itemVariants}
+            transition={{
+            duration: 1,       // total animation time
+            ease: "easeInOut",   // easing curve
             
-       </header>
+          }}
+          >
+            FUN & ACTIVITIES
+          </motion.p>
 
+          <motion.h1
+            className="font-heading text-4xl md:text-5xl font-semibold tracking-tight mb-4"
+            variants={itemVariants}
+            transition={{
+            duration: 1,       // total animation time
+            ease: "easeInOut",   // easing curve
+           
+          }}
+          >
+            OUR EVENTS
+          </motion.h1>
 
-          <main>
-            <div className="flex bg-white mx-[10%]  rounded-md flex-wrap justify-center gap-6 p-6 pt-12">
-              {eventsData.map(event => (
-                <EventComponent 
-                  key={event.title || event.image} 
-                  {...event}
-                />
-              ))}
-            </div>
-          </main>
-        </div>
+          <motion.p
+            className="text-xl font-semibold font-subheading text-blue-400 tracking-wider"
+            variants={itemVariants}
+            transition={{
+            duration: 1,       // total animation time
+            ease: "easeInOut",   // easing curve
+            // children animate one after another
+          }}
+          >
+            SOME OF THE EVENTS CONDUCTED BY IEEE DTU THROUGHOUT THE YEAR
+          </motion.p>
+        </motion.header>
+
+        {/* Main Grid with Motion */}
+        <main>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="flex bg-white md:mx-[10%] mx-0  rounded-md flex-wrap justify-center gap-14 p-6 pt-12"
+          >
+            {eventsData.map((event, index) => (
+              <motion.div
+                key={event.title || index}
+                variants={itemVariants}
+                transition={{ duration: 1, ease: 'easeOut' }}
+              >
+                <EventComponent {...event} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </main>
       </div>
-  
+    </div>
   );
 }
