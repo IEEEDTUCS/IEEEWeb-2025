@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Menu, X } from "lucide-react";
+import LandingPage from "@/components/LandingPage";
 
-export default function Navbar() {
+export default function Navbar({setOpen, onClose}) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("");
   const mobileMenuRef = useRef(null);
-
   const router = useRouter();
   const isHome = router.pathname === "/";
 
@@ -19,6 +19,10 @@ export default function Navbar() {
   ];
 
   useEffect(() => {
+    setMobileOpen(setOpen)
+  }, [setOpen])
+
+  useEffect(() => {
     function handleClickOutside(e) {
       if (
         mobileOpen &&
@@ -26,19 +30,26 @@ export default function Navbar() {
         !mobileMenuRef.current.contains(e.target)
       ) {
         setMobileOpen(false);
+        onClose();
       }
     }
     function onKey(e) {
       if (e.key === "Escape") {
         setMobileOpen(false);
+        onClose();
       }
     }
+
+    
+
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", onKey);
     };
+
+    
   }, [mobileOpen]);
 
   useEffect(() => {

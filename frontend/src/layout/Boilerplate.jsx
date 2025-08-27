@@ -38,7 +38,7 @@ const boilerPlate = (WrappedComponent) => {
     return (
       <>
         <Loader visible={loading} />
-        <Navbar />
+        {router.pathname === '/' ? null : <Navbar />}
         <WrappedComponent {...props} setGlobalLoading={setLoading} />
         {router.pathname === '/' ? null : <Footer />}
       </>

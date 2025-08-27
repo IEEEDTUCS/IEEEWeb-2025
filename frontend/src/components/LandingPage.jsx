@@ -1,14 +1,33 @@
 import * as React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Navbar from '../utils/Navbar';
 import StyledButton from "./LandingPage/StyledButton";
 
 export default function LandingPage() {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
   const y = useTransform(scrollY, [0, 400], [0, -100]);
+ const [navbarOpened, setNavbarOpened] = React.useState(false);
 
-  return (
-    <div className="w-full flex flex-col overflow-hidden relative">
+React.useEffect(() => {
+  const openNavbar = () => {
+    setNavbarOpened(true); // open on every scroll gesture
+    
+  };
+
+  window.addEventListener("wheel", openNavbar, { passive: true });
+  window.addEventListener("touchmove", openNavbar, { passive: true });
+
+  return () => {
+    window.removeEventListener("wheel", openNavbar);
+    window.removeEventListener("touchmove", openNavbar);
+  };
+}, []); // no navbarOpened dependency — keeps listener stable
+
+return (
+  <div className="w-full h-screen flex flex-col overflow-hidden snap-y snap-mandatory">
+    <Navbar setOpen={navbarOpened} onClose={() => setNavbarOpened(false)} />
+    
       {/* Title */}
       <motion.section
         style={{ opacity, y }}
