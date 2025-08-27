@@ -174,9 +174,9 @@
 .cardImg {
   height: auto;
   width: auto;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 0.5rem;
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 0.3rem;
   object-fit: cover;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
@@ -298,6 +298,9 @@
 
 @media (max-width: 480px) {
     .carouselSlide {width: 320px; height: 400px;}
-    
     .carouselTrack {height: 400px;}
+}
+
+@media (min-width: 2200px) {
+    .innerContainer {margin: 4rem 0;}
 }
