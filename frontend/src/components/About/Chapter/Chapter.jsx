@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styles from '/src/styles/your_componentname.module.css';
+import styles from '/src/styles/AboutChapter.module.css';
 
 
 export default function Chapter() {
@@ -51,7 +51,7 @@ export default function Chapter() {
           <div className={styles.serviceText}>
             <img 
               height="300"
-              src="/your_component_name/CS_IEEE.png"
+              src="/aboutChapterSection/CS_IEEE.png"
               className={styles.chapterImage}
               alt="IEEE CS Logo"
             />
@@ -95,7 +95,7 @@ export default function Chapter() {
           <div className={styles.serviceText}>
             <img 
               height="300"
-              src="/your_component_name/PES_IEEE.png"
+              src="/aboutChapterSection/PES_IEEE.png"
               className={styles.chapterImage}
               alt="IEEE PES Logo"
             />
@@ -139,7 +139,7 @@ export default function Chapter() {
           <div className={styles.serviceText}>
             <img 
               height="300"
-              src="/your_component_name/WIE_IEEE.png"
+              src="/aboutChapterSection/WIE_IEEE.png"
               className={styles.chapterImage}
               alt="IEEE WIE Logo"
             />
@@ -183,7 +183,7 @@ export default function Chapter() {
           <div className={styles.serviceText}>
             <img 
               height="300"
-              src="/your_component_name/CASS_IEEE.png"
+              src="/aboutChapterSection/CASS_IEEE.png"
               className={styles.chapterImage}
               alt="IEEE CASS Logo"
             />

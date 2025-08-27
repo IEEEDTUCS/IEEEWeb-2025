@@ -1,22 +1,33 @@
 import * as React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Navbar from '../utils/Navbar';
 import StyledButton from "./LandingPage/StyledButton";
 
 export default function LandingPage() {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
   const y = useTransform(scrollY, [0, 400], [0, -100]);
+ const [navbarOpened, setNavbarOpened] = React.useState(false);
 
-  const handleScrollDown = () => {
-    const aboutSection = document.getElementById("about-section");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
-    }
+React.useEffect(() => {
+  const openNavbar = () => {
+    setNavbarOpened(true); // open on every scroll gesture
+    
   };
 
-  return (
-    <div className="w-full flex flex-col overflow-x-hidden relative">
+  window.addEventListener("wheel", openNavbar, { passive: true });
+  window.addEventListener("touchmove", openNavbar, { passive: true });
+
+  return () => {
+    window.removeEventListener("wheel", openNavbar);
+    window.removeEventListener("touchmove", openNavbar);
+  };
+}, []); // no navbarOpened dependency — keeps listener stable
+
+return (
+  <div className="w-full h-screen flex flex-col overflow-hidden snap-y snap-mandatory">
+    <Navbar setOpen={navbarOpened} onClose={() => setNavbarOpened(false)} />
+    
       {/* Title */}
       <motion.section
         style={{ opacity, y }}
@@ -25,7 +36,10 @@ export default function LandingPage() {
         {/* Background  */}
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('./images/dtu.png')" }}
+          style={{ 
+            backgroundImage: "url('./images/IEEE-Family.jpg')",
+            filter: "blur(1px)"
+           }}
           initial={{ scale: 1.05 }}
           animate={{ scale: 1 }}
           transition={{
@@ -48,7 +62,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="text-indigo-400 text-xl md:text-2xl font-medium tracking-[0.2em] uppercase"
+            className="text-[#70A6E3] text-xl md:text-xl font-heading font-bold tracking-[0.1em] uppercase"
           >
             Welcome to
           </motion.h2>
@@ -57,7 +71,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="text-white text-5xl md:text-6xl lg:text-7xl font-extrabold mt-4 leading-snug drop-shadow-lg"
+            className="text-white text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold mt-1 leading-snug drop-shadow-lg"
           >
             IEEE DTU Student Branch
           </motion.h1>
@@ -66,7 +80,7 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-            className="text-indigo-300 text-lg md:text-2xl font-medium mt-4"
+            className="text-[#70A6E3] text-xl md:text-2xl tracking-[0.1em] font-heading font-[500] mt-1 mb-8"
           >
             A World of Limitless Possibilities
           </motion.h2>
@@ -78,27 +92,15 @@ export default function LandingPage() {
             transition={{ duration: 1, delay: 0.6 }}
             className="flex flex-wrap gap-4 mt-10"
           >
-            <StyledButton href="#form" variant="primary">
-              Contact Us
-            </StyledButton>
-            <StyledButton onClick={handleScrollDown} variant="secondary">
+            <StyledButton href="/IEEEDTU/about" variant="primary" >
               More About Us
+            </StyledButton>
+            <StyledButton href="/IEEEDTU/council" variant="secondary">
+              Contact Us
             </StyledButton>
           </motion.div>
         </motion.div>
 
-        {/* Scroll Down */}
-        <motion.div
-          onClick={handleScrollDown}
-          className="absolute bottom-8 right-8 cursor-pointer p-3 rounded-full 
-                     bg-white/10 backdrop-blur-md border border-white/20 
-                     hover:bg-white/20 transition-all shadow-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: [0, -10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <KeyboardArrowDownIcon className="!text-white !text-3xl" />
-        </motion.div>
       </motion.section>
     </div>
   );

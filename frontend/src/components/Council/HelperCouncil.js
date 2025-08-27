@@ -44,21 +44,21 @@ const CouncilData=[
      {
         img:"/CouncilPhotos/FR Image - Tasneem Ahmed.jpg",
         Name:"Tasneem Ahmed",
-        Position:"Webmaster & Chairperson, Computer Society",
+        Position:"Chairperson, CS ",
         insta:"https://www.instagram.com/tasneemahmed_28/",
         linkedin:"https://www.linkedin.com/in/tasneem-a-2b87b61a5/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
     },
     {
         img:"/CouncilPhotos/Kinshuok_Munjal.png",
         Name:"Kinshouk Munjal",
-        Position:"Vice Chairperson, Computer Society",
+        Position:"Vice Chairperson, CS ",
         insta:"https://www.instagram.com/kinshuok/",
         linkedin:"https://www.linkedin.com/in/kinshuok-munjal-54a2b9221/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
     },
      {
         img:"/CouncilPhotos/Abhimanyu_Jha.jpg",
         Name:"Abhimanyu Kumar Jha",
-        Position:"Vice Chairperson, Computer Society",
+        Position:"Vice Chairperson, CS ",
         insta:"https://www.instagram.com/abhimanyu_kumar_2210/",
         linkedin:"https://www.linkedin.com/in/abhimanyu-kumar-jha/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
     },
@@ -67,7 +67,7 @@ const CouncilData=[
      {
         img:"/CouncilPhotos/ayush grover.jpg",
         Name:"Ayush Grover",
-        Position:"Secretary, Computer Society",
+        Position:"Secretary, CS ",
         insta:"https://www.instagram.com/ayushgrovermj1120/",
         linkedin:"https://www.linkedin.com/in/ayush-grover-55b44a281/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
     },
@@ -134,7 +134,14 @@ const CouncilData=[
         Position:"Head of Publications",
         insta:"https://www.instagram.com/unnatinath/",
         linkedin:"https://www.linkedin.com/in/unnatinath/"
-    }
+    },
+    {
+        img:"/CouncilPhotos/FR Image - Tasneem Ahmed.jpg",
+        Name:"Tasneem Ahmed",
+        Position:"Webmaster",
+        insta:"https://www.instagram.com/tasneemahmed_28/",
+        linkedin:"https://www.linkedin.com/in/tasneem-a-2b87b61a5/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
+    },
     
 ]
 

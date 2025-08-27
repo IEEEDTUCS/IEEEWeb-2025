@@ -9,7 +9,7 @@
 
   --font-heading: 'Montserrat', sans-serif;
   --font-subheading: 'Playfair Display', serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-body: 'serif', serif;
   --font-caption: 'Roboto', sans-serif;
   --font-nav: 'Raleway', sans-serif;
   --radius: 0.625rem;
@@ -160,4 +160,16 @@ body {
 
   }
 
+}
+/* For Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
