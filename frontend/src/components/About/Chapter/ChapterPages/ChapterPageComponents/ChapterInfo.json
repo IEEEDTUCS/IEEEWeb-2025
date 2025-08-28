@@ -3,9 +3,11 @@
 
         "title": "IEEE DTU CS CHAPTER",
 
-        "backdropImg": "/Chapters/Backdrops/CS_backdrop.png",
+        "logo": "/images/Chapters/IEEE_CS.png",
 
-        "images": ["/Chapters/Images/vihaan.jpg", "/Chapters/Images/vihaan2.jpg", "/Chapters/Images/techweek.jpg", "/Chapters/Images/xtreme.jpg", "/Chapters/Images/group.jpg"],
+        "backdropImg": "/images/Chapters/Backdrops/CS_backdrop.png",
+
+        "images": ["/images/Chapters/Images/vihaan.jpg", "/images/Chapters/Images/vihaan2.jpg", "/images/Chapters/Images/techweek.jpg", "/images/Chapters/Images/xtreme.jpg", "/images/Chapters/Images/group.jpg"],
 
         "about": {
             "isAbout": true,
@@ -16,7 +18,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": ["/Chapters/Events/vihaan007.jpg", "/Chapters/Events/techweek.jpeg", "/Chapters/Events/MIST.jpg", "/Chapters/Events/ieeextreme.png", "/Chapters/Events/hackaithon.jpg", "/Chapters/Events/blockchain1.jpeg"]
+            "images": ["/Events/vihaan007.png", "/Events/techweek23.png", "/Events/mist.png", "/Events/ieeextreme.png", "/Events/hackaithon.png", "/Events/blockchain.png"]
         },
 
         "membership": {
@@ -34,9 +36,8 @@
         },
 
         "ColorSchemes": {
-            "CommonComponentBG": "linear-gradient(to bottom, rgba(23, 5, 33, 0.8), rgba(48, 6, 59, 0.8))",
-            "NavBarButtonBG": "linear-gradient(to right, #3a3f58, #131d4d)",
-            "NavBarButtonBGHover": "linear-gradient(to right, #5865f2, #3f48a6)",
+            "CommonComponentBG": "linear-gradient(to bottom, rgba(23, 5, 33, 0.8), rgba(45, 27, 61, 0.8))",
+            "TitleColor": "white",
             "PrimaryTextColor": "#b8b8ff",
             "SecondaryTextColor": "#d0d0ff",
             "JoinFormBGColor": "#4a4aff",
@@ -53,9 +54,11 @@
 
         "title": "IEEE DTU PES-IAS CHAPTER",
 
-        "backdropImg": "/Chapters/Backdrops/PES_IAS_backdrop.png",
+        "logo": "/images/Chapters/PES_IEE.png",
 
-        "images": ["/Chapters/Images/pese1.jpg", "/Chapters/Images/pese2.jpg", "/Chapters/Images/group.jpg"],
+        "backdropImg": "/images/Chapters/Backdrops/PES_IAS_backdrop.png",
+
+        "images": ["/images/Chapters/Images/pese1.jpg", "/images/Chapters/Images/pese2.jpg", "/images/Chapters/Images/group.jpg"],
 
         "about": {
             "isAbout": true,
@@ -66,7 +69,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": ["/Chapters/Events/DSSYWC.jpg", "/Chapters/Events/tinkercase.jpg"]  
+            "images": ["/Events/dssywc.png", "/Events/tinkercase.jpg"]  
         },
 
         "membership": {
@@ -85,8 +88,7 @@
 
         "ColorSchemes": {
             "CommonComponentBG": "linear-gradient(to right, rgba(26, 15, 15, 0.7), rgba(42, 26, 26, 0.7))",
-            "NavBarButtonBG": "linear-gradient(135deg, #3a1f1f, #5c2b2b)",
-            "NavBarButtonBGHover": "linear-gradient(135deg, #a4161a, #6b2222)",
+            "TitleColor": "#fac398",
             "PrimaryTextColor": "#f2dfce",
             "SecondaryTextColor": "#fad5cd",
             "JoinFormBGColor": "#bf6969",
@@ -103,9 +105,11 @@
 
         "title": "IEEE DTU WIE CHAPTER",
 
-        "backdropImg": "/Chapters/Backdrops/WIE_backdrop.avif",
+        "logo": "/images/Chapters/IEEE_WIE.png",
 
-        "images": ["/Chapters/Images/kids.jpg", "/Chapters/Images/vihaan.jpg", "/Chapters/Images/group.jpg", "/Chapters/Images/ishwarngo.jpg", "/Chapters/Images/IMG_0412.jpeg"],
+        "backdropImg": "/images/Chapters/Backdrops/WIE_backdrop.png",
+
+        "images": ["/images/Chapters/Images/kids.jpg", "/images/Chapters/Images/vihaan.jpg", "/images/Chapters/Images/group.jpg", "/images/Chapters/Images/ishwarngo.jpg", "/images/Chapters/Images/IMG_0412.jpeg"],
 
         "about": {
             "isAbout": true,
@@ -116,7 +120,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": ["/Chapters/Events/DSSYWC.jpg", "/Chapters/Events/vihaan007.jpg", "/Chapters/Events/wievek.jpg"]  
+            "images": ["/Events/dssywc.png", "/Events/vihaan007.png", "/Events/wievek.png"]  
         },
 
         "membership": {
@@ -135,8 +139,7 @@
 
         "ColorSchemes": {
             "CommonComponentBG": "rgba(25, 25, 25, 0.7)",
-            "NavBarButtonBG": "linear-gradient(135deg, rgba(255, 105, 180, 0.3), rgba(255, 20, 147, 0.3))",
-            "NavBarButtonBGHover": "rgba(255, 105, 180, 0.6)",
+            "TitleColor": "#c28ca8",
             "PrimaryTextColor": "#ffc0cb",
             "SecondaryTextColor": "#d0d0ff",
             "JoinFormBGColor": "#ff69b4",
@@ -145,6 +148,57 @@
             "ContactBoxTextColor": "#ffc0cb",
             "MailTextColor": "#ff69b4",
             "SelectedDot": "#ff1493"
+        }
+
+    },
+
+    "CASS": {
+
+        "title": "IEEE DTU CASS CHAPTER",
+
+        "logo": "/images/Chapters/IEEE_CASS.png",
+
+        "backdropImg": "/images/Chapters/Backdrops/CAS_backdrop.png",
+
+        "images": ["/images/Chapters/Images/vihaan.jpg", "/images/Chapters/Images/vihaan2.jpg", "/images/Chapters/Images/techweek.jpg", "/images/Chapters/Images/xtreme.jpg", "/images/Chapters/Images/group.jpg"],
+
+        "about": {
+            "isAbout": true,
+            "heading": "About Us",
+            "content": "The IEEE Circuits and Systems Society (CASS) is dedicated to advancing the theory, analysis, design, and practical implementation of circuits and systems. It provides a global platform for students and professionals to explore the ever-evolving world of electronics, embedded systems, signal processing, and beyond. Through workshops, technical sessions, and collaborative projects, they aim to nurture a space where students can not only learn but also experiment, innovate, and grow together."
+        },
+
+        "events": {
+            "isEvents": true,
+            "heading": "Events",
+            "images": ["/Events/vihaan007.png", "/Events/techweek23.png", "/Events/mist.png", "/Events/ieeextreme.png", "/Events/hackaithon.png", "/Events/blockchain.png"]
+        },
+
+        "membership": {
+            "isMembership": true,
+            "heading": "Benefits",
+            "content1": "IEEE membership offers numerous benefits, including invitations to international conferences, journals, and seminars, with discounts on electronics, workshops, and exclusive competitions like IEEE Xtreme. Members also enjoy access to the IEEE Xplore Library, which contains research from 37 peer-reviewed magazines and over 700,000 documents on various topics.",
+            "content2": "At IEEE DTU, the experience goes further. You'll join Special Interest Groups (SIGs), explore AI, ML, Arduino, and 3D design, and participate in events like hackathons and Robo races. The hands-on experience, mentorship, and creativity make IEEE DTU more than a club—it's a community of growth and innovation.",
+            "_comment1": "content can be directly added into the component since it is common for all chapters.",
+            "_comment2": "Option for membership form can be directly added into the component, not specific to a chapter."
+        },
+
+        "contact": {
+            "email": "ieeedtupr@gmail.com",
+            "_comment": "IG and LN links are common for each chapter and can be added directly into the component."
+        },
+
+        "ColorSchemes": {
+            "CommonComponentBG": "linear-gradient(to bottom, rgba(5, 115, 21, 0.8), rgba(16, 71, 31, 0.8))",
+            "TitleColor": "#c5e8cb",
+            "PrimaryTextColor": "#e9f2eb",
+            "SecondaryTextColor": "#e1f5e7",
+            "JoinFormBGColor": "#3eb857",
+            "JoinFormButtonHoverBG": "#1b7d2f",
+            "ContactBoxBG": "rgba(10, 10, 20, 0.9)",
+            "ContactBoxTextColor": "#b0b0ff",
+            "MailTextColor": "#1b7d2f",
+            "SelectedDot": "#05731b"
         }
 
     }

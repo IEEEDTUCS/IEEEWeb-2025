@@ -1,13 +1,12 @@
 import React from 'react';
 import FacultyCard from './FacultyCard';
 
-
-function FacultyWindow(){
-    const facultyData = [
+function FacultyWindow() {
+  const facultyData = [
     {
       name: "Prof. Rahul Kataria",
-      designation: "Professor, Computer Engineering",
-      details: "Department DTU, IEEE DTU, CS chapter\nFaculty advisor",
+      designation: "Professor, CSE Department DTU",
+      details: "IEEE DTU, CS chapter\nFaculty advisor",
       imageUrl: "/Faculty/Prof-Rahul.jpg",
     },
     {
@@ -22,16 +21,28 @@ function FacultyWindow(){
       details: "Faculty advisor, IEEE DTU WIE",
       imageUrl: "/Faculty/Dr-Sonam.jpg",
     },
+    {
+      name: "Dr. Deva Nand",
+      designation: "Associate Professor, ECE Department",
+      details: "Faculty advisor, IEEE DTU CASS",
+      imageUrl: "/Faculty/dr-devanand.jpg",
+    },
   ];
 
- return (
-  <div className='flex flex-row flex-wrap gap-x-6'>
-    {facultyData.map((val, idx) => (
-      <FacultyCard key={idx} {...val} />
-    ))}
-  </div>
-);
-
+  return (
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Grid Container with Responsive Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 place-items-center">
+          {facultyData.map((val, idx) => (
+            <div key={idx} className="w-full max-w-[280px] sm:max-w-xs">
+              <FacultyCard {...val} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default FacultyWindow;
