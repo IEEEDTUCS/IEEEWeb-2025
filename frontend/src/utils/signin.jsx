@@ -1,35 +1,49 @@
 import * as React from 'react';
-import { createTheme} from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { SignInPage } from '@toolpad/core/SignInPage';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+import {
+ 
+  Link,
+
+
+} from '@mui/material';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      paper: '#000000ff', 
+      paper: '#000000ff',
     },
     text: {
       primary: '#ffffffff',
     },
   },
-   components: {
-  MuiButton: {
-    styleOverrides: {
-      root: {
-        color: '#d2d4ffff',
-        border: ' 0.5px solid #ffffffff',
-        fontWeight: 500,
-        '&:hover': {
-          backgroundColor: '#6583fb92',
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: '#d2d4ffff',
+          border: '0.5px solid #ffffffff',
+          fontWeight: 500,
+          '&:hover': {
+            backgroundColor: '#6583fb92',
+          },
         },
       },
     },
   },
-}
 });
 
 const providers = [{ id: 'credentials', name: 'Credentials' }];
-// preview-start
+
 const BRANDING = {
   logo: (
     <img
@@ -40,26 +54,94 @@ const BRANDING = {
   ),
   title: 'IEEE DTU',
 };
-// preview-end
 
-const signIn = async (provider) => {
-  const promise = new Promise((resolve) => {
-    setTimeout(() => {
-      console.log(`Sign in with ${provider.id}`);
-      resolve();
-    }, 500);
-  });
-  return promise;
-};
+function ForgotPasswordLink() {
+  return (
+    <Link href="/" variant="body2">
+      Not a part of IEEE DTU?
+      Join now →
+    </Link>
+  );
+}
+
+function Title() {
+  return <h2 style={{ marginBottom: 8 }}>Login</h2>;
+}
+
+function Subtitle() {
+  return (
+    <div style={{ 
+      marginBottom: '16px', 
+      padding: '4px 8px', 
+      fontSize: '0.875rem', 
+      lineHeight: '1.4', 
+      color: '#ccc',
+      textAlign: 'center'
+    }}>
+      <strong>Get access</strong> to research papers, company-wise roadmaps, 
+      and insights from IEEE DTU seniors based on their real experiences and many more!
+    </div>
+  );
+}
+
 
 export default function BrandingSignInPage() {
-  return (  
-      <AppProvider branding={BRANDING} theme={darkTheme}>
+  const [openSnackbar, setOpenSnackbar] = React.useState(false);
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const signIn = async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        setOpenSnackbar(true);
+        resolve(); // avoid Toolpad throwing error
+      }, 3000);
+    });
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === 'clickaway') return;
+    setOpenSnackbar(false);
+  };
+
+  return (
+    <>
+      <AppProvider branding={BRANDING}  theme={darkTheme}>
         <SignInPage
           signIn={signIn}
           providers={providers}
-          slotProps={{ emailField: { autoFocus: false }, form: { noValidate: true } }}
+          slots={{
+          
+          subtitle: Subtitle,
+          forgotPasswordLink: ForgotPasswordLink,
+        }}
+          slotProps={{
+            emailField: {
+              autoFocus: false,
+              onChange: (e) => setEmail(e.target.value),
+            },
+            passwordField: {
+              onChange: (e) => setPassword(e.target.value),
+            },
+            submitButton: {
+              disabled: !email.trim() || !password.trim(),
+            },
+           
+            form: { noValidate: true },
+          }}
         />
       </AppProvider>
+
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={2000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={handleSnackbarClose} severity="error" sx={{ width: '100%' }}>
+          User does not exist!
+        </Alert>
+      </Snackbar>
+    </>
   );
 }

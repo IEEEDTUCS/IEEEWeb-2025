@@ -119,9 +119,11 @@ export default function Navbar({ setOpen, onClose }) {
         open={openSignIn}
         onClose={() => setOpenSignIn(false)}
         PaperProps={{
-          sx: {
-            backgroundColor: "#000",
-          }
+         sx: {
+                         backgroundColor: "#000",
+                         width: { xs:"20rem", sm: "22rem", md: "25rem" },
+                         
+                       }
         }}
       >
         <Signin />

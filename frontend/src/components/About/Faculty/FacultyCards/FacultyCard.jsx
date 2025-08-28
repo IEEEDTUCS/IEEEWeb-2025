@@ -30,21 +30,17 @@ function FacultyCard({ name, designation, details, imageUrl }) {
   }, []);
 
   return (
-<<<<<<< HEAD
     <div 
       ref={cardRef}
-      className={`flex flex-col items-center justify-start text-center gap-4 sm:gap-6 h-auto w-full max-w-[280px] sm:max-w-xs rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 shadow-lg shadow-gray-200/60 transition-all duration-700 hover:shadow-xl hover:shadow-gray-300/40 hover:-translate-y-2 group transform ${
+      className={`flex flex-col items-center justify-start text-center gap-4 sm:gap-6 h-[400px] sm:h-[450px] w-full max-w-[280px] sm:max-w-xs rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 shadow-lg shadow-gray-200/60 transition-all duration-700 hover:shadow-xl hover:shadow-gray-300/40 hover:-translate-y-2 group transform ${
         isVisible
           ? 'opacity-100 translate-y-0'
           : 'opacity-0 translate-y-8'
       }`}
       style={{ transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}
     >
-=======
-    <div className="flex flex-col items-center justify-start text-center gap-4 h-auto w-full max-w-xs min-w-[280px] rounded-2xl border-2 border-gray-100 bg-gradient-to-br from-white via-gray-50 to-blue-50 p-6 shadow-2xl shadow-blue-100/50 transition-all duration-500 hover:shadow-3xl hover:shadow-blue-200/60 hover:-translate-y-3 group font-sans opacity-0 animate-[slideUpEntrance_1s_ease-out_forwards]">
->>>>>>> d06bf60d3fbb00ea4f799b47585fca0c4dc503b5
       {/* Image Section */}
-      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md bg-gray-50 p-1 transform transition-all duration-500 hover:shadow-lg group-hover:scale-[1.02]">
+      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md bg-gray-50 p-1 transform transition-all duration-500 hover:shadow-lg group-hover:scale-[1.02] flex-shrink-0">
         <img
           src={imageUrl}
           alt={`Profile picture of ${name}`}
@@ -52,13 +48,13 @@ function FacultyCard({ name, designation, details, imageUrl }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 via-transparent to-transparent rounded-lg sm:rounded-xl opacity-0 transition-opacity duration-300 hover:opacity-100"></div>
       </div>
-                
+                      
       {/* Content Section */}
-      <div className="space-y-3 sm:space-y-4 transform transition-all duration-500 delay-75 group-hover:translate-y-[-2px]">
+      <div className="flex-1 flex flex-col justify-center space-y-3 sm:space-y-4 transform transition-all duration-500 delay-75 group-hover:translate-y-[-2px]">
         <h3 className="font-bold text-gray-800 text-lg sm:text-xl lg:text-2xl tracking-tight hover:text-gray-900 transition-all duration-300 cursor-default leading-tight">
           {name}
         </h3>
-                      
+                              
         <div className="space-y-2 sm:space-y-3">
           <p className="text-blue-600 font-medium tracking-wide text-xs sm:text-sm hover:text-blue-700 transition-all duration-300">
             {designation}
@@ -68,7 +64,7 @@ function FacultyCard({ name, designation, details, imageUrl }) {
           </p>
         </div>
       </div>
-                
+                      
       <style jsx>{`
         body {
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -25,16 +25,27 @@ export default function LandingPage() {
     // --- State and handlers for Snackbar Added Here ---
     const [openSnackbar, setOpenSnackbar] = React.useState(false);
     React.useEffect(() => {
-        // Check if snackbar has already been shown in this browser
-        const hasShownSnackbar = localStorage.getItem("hasShownSnackbar");
-        if (!hasShownSnackbar) {
-            const timer = setTimeout(() => {
-                setOpenSnackbar(true);
-                localStorage.setItem("hasShownSnackbar", "true");
-            }, 5500);
-            return () => clearTimeout(timer);
-        }
-    }, []);
+  const now = Date.now();
+  const saved = localStorage.getItem("hasShownSnackbar");
+
+  if (saved) {
+    const savedTime = parseInt(saved, 10);
+    const twoDays = 2 * 24 * 60 * 60 * 1000; // ms in 2 days
+    if (now - savedTime < twoDays) {
+      return; // still within 2 days → don't show again
+    } else {
+      localStorage.removeItem("hasShownSnackbar"); // expired → clear it
+    }
+  }
+
+  const timer = setTimeout(() => {
+    setOpenSnackbar(true);
+    localStorage.setItem("hasShownSnackbar", now.toString()); // store timestamp
+  }, 5500);
+
+  return () => clearTimeout(timer);
+}, []);
+
 
     const handleSignInClick = () => {
         setOpenSignIn(true);
@@ -161,7 +172,8 @@ export default function LandingPage() {
                     
                     <p className="mb-2 sm:inline">Get access to exclusive benefits!{"\u00A0"}{"\u00A0"}</p>
                     <Link
-                        href="/api/auth/signin" 
+                        href={""}
+                        onClick={handleSignInClick} 
                         className="border-2  border-white rounded cursor-pointer px-2 py-1 hover:bg-white hover:text-black"
                     >
                         Sign in
@@ -178,6 +190,8 @@ export default function LandingPage() {
                      PaperProps={{
                        sx: {
                          backgroundColor: "#000",
+                         width: { xs:"20rem", sm: "22rem", md: "25rem" },
+                         
                        }
                      }}
                    >
