@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Signin from './Signin'; 
+import Signin from './signin'; 
 import Drawer from '@mui/material/Drawer';
 
 export default function Navbar({ setOpen, onClose }) {
