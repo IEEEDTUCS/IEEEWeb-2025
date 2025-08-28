@@ -54,7 +54,7 @@ const EventsData=[
   {
     title:"DSSYWC",
     subheader:"",
-    image:"/Events/DSSYWC.png",
+    image:"/Events/dssywc.png",
     typography:"DSSYWC 2022"
   },
    {

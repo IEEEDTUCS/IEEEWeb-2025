@@ -2,8 +2,9 @@
 .gridContainer2 {
   display: grid;
   grid-template-columns: 50% 50%;
-  align: center;
-  justify-self: center;
+  justify-content: center; 
+  align-items: center; 
+  gap: 10px; 
 }
 
 .gridItem2 {
