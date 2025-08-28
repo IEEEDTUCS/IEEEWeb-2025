@@ -5,9 +5,9 @@
 
         "logo": "/images/Chapters/IEEE_CS.png",
 
-        "backdropImg": "/Chapters/Backdrops/CS_backdrop.png",
+        "backdropImg": "/images/Chapters/Backdrops/CS_backdrop.png",
 
-        "images": ["/Chapters/Images/vihaan.jpg", "/Chapters/Images/vihaan2.jpg", "/Chapters/Images/techweek.jpg", "/Chapters/Images/xtreme.jpg", "/Chapters/Images/group.jpg"],
+        "images": ["/images/Chapters/Images/vihaan.jpg", "/images/Chapters/Images/vihaan2.jpg", "/images/Chapters/Images/techweek.jpg", "/images/Chapters/Images/xtreme.jpg", "/images/Chapters/Images/group.jpg"],
 
         "about": {
             "isAbout": true,
@@ -18,7 +18,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": ["/Chapters/Events/vihaan007.jpg", "/Chapters/Events/techweek.jpeg", "/Chapters/Events/MIST.jpg", "/Chapters/Events/ieeextreme.png", "/Chapters/Events/hackaithon.jpg", "/Chapters/Events/blockchain1.jpeg"]
+            "images": ["/Events/vihaan007.png", "/Events/techweek23.png", "/Events/mist.png", "/Events/ieeextreme.png", "/Events/hackaithon.png", "/Events/blockchain.png"]
         },
 
         "membership": {
@@ -36,9 +36,8 @@
         },
 
         "ColorSchemes": {
-            "CommonComponentBG": "linear-gradient(to bottom, rgba(23, 5, 33, 0.8), rgba(48, 6, 59, 0.8))",
-            "NavBarButtonBG": "linear-gradient(to right, #3a3f58, #131d4d)",
-            "NavBarButtonBGHover": "linear-gradient(to right, #5865f2, #3f48a6)",
+            "CommonComponentBG": "linear-gradient(to bottom, rgba(23, 5, 33, 0.8), rgba(45, 27, 61, 0.8))",
+            "TitleColor": "white",
             "PrimaryTextColor": "#b8b8ff",
             "SecondaryTextColor": "#d0d0ff",
             "JoinFormBGColor": "#4a4aff",
@@ -57,9 +56,9 @@
 
         "logo": "/images/Chapters/PES_IEE.png",
 
-        "backdropImg": "/Chapters/Backdrops/PES_IAS_backdrop.png",
+        "backdropImg": "/images/Chapters/Backdrops/PES_IAS_backdrop.png",
 
-        "images": ["/Chapters/Images/pese1.jpg", "/Chapters/Images/pese2.jpg", "/Chapters/Images/group.jpg"],
+        "images": ["/images/Chapters/Images/pese1.jpg", "/images/Chapters/Images/pese2.jpg", "/images/Chapters/Images/group.jpg"],
 
         "about": {
             "isAbout": true,
@@ -70,7 +69,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": ["/Chapters/Events/DSSYWC.jpg", "/Chapters/Events/tinkercase.jpg"]  
+            "images": ["/Events/dssywc.png", "/Events/tinkercase.jpg"]  
         },
 
         "membership": {
@@ -89,8 +88,7 @@
 
         "ColorSchemes": {
             "CommonComponentBG": "linear-gradient(to right, rgba(26, 15, 15, 0.7), rgba(42, 26, 26, 0.7))",
-            "NavBarButtonBG": "linear-gradient(135deg, #3a1f1f, #5c2b2b)",
-            "NavBarButtonBGHover": "linear-gradient(135deg, #a4161a, #6b2222)",
+            "TitleColor": "#fac398",
             "PrimaryTextColor": "#f2dfce",
             "SecondaryTextColor": "#fad5cd",
             "JoinFormBGColor": "#bf6969",
@@ -109,9 +107,9 @@
 
         "logo": "/images/Chapters/IEEE_WIE.png",
 
-        "backdropImg": "/Chapters/Backdrops/WIE_backdrop.png",
+        "backdropImg": "/images/Chapters/Backdrops/WIE_backdrop.png",
 
-        "images": ["/Chapters/Images/kids.jpg", "/Chapters/Images/vihaan.jpg", "/Chapters/Images/group.jpg", "/Chapters/Images/ishwarngo.jpg", "/Chapters/Images/IMG_0412.jpeg"],
+        "images": ["/images/Chapters/Images/kids.jpg", "/images/Chapters/Images/vihaan.jpg", "/images/Chapters/Images/group.jpg", "/images/Chapters/Images/ishwarngo.jpg", "/images/Chapters/Images/IMG_0412.jpeg"],
 
         "about": {
             "isAbout": true,
@@ -122,7 +120,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": ["/Chapters/Events/DSSYWC.jpg", "/Chapters/Events/vihaan007.jpg", "/Chapters/Events/wievek.jpg"]  
+            "images": ["/Events/dssywc.png", "/Events/vihaan007.png", "/Events/wievek.png"]  
         },
 
         "membership": {
@@ -141,8 +139,7 @@
 
         "ColorSchemes": {
             "CommonComponentBG": "rgba(25, 25, 25, 0.7)",
-            "NavBarButtonBG": "linear-gradient(135deg, rgba(255, 105, 180, 0.3), rgba(255, 20, 147, 0.3))",
-            "NavBarButtonBGHover": "rgba(255, 105, 180, 0.6)",
+            "TitleColor": "#c28ca8",
             "PrimaryTextColor": "#ffc0cb",
             "SecondaryTextColor": "#d0d0ff",
             "JoinFormBGColor": "#ff69b4",

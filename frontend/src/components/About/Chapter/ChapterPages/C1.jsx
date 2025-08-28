@@ -1,5 +1,4 @@
 import React from 'react'
-import ChapterNavbar from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterNavbar'
 import ChapterImageCarousel from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterImageCarousel'
 import ChapterContact from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterContact'
 import ChapterCommonComponent from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterCommonComponent'
@@ -16,9 +15,7 @@ export default function C1({ ChapterInformation }) {
     backgroundImage: `linear-gradient(rgba(10, 10, 20, 0.2), rgba(10, 10, 20, 0.2)), url(${ChapterInformation.logo}),
       url(${ChapterInformation.backdropImg})`}} className={styles.chapterBackdrop} >
 
-        {/* <ChapterNavbar ColorScheme={ChapterInformation.ColorSchemes} /> */}
-
-        <div className={`font-heading ${styles.chapterTitle}`} style={{color: ChapterInformation.ColorSchemes.PrimaryTextColor}} >{ChapterInformation.title}
+        <div className={`font-heading ${styles.chapterTitle}`} style={{color: ChapterInformation.ColorSchemes.TitleColor}} >{ChapterInformation.title}
         </div>
 
         <ChapterImageCarousel images={ChapterInformation.images} />

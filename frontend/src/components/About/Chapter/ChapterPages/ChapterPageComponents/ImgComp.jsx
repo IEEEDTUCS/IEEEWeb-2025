@@ -33,8 +33,9 @@ const ImgComp = ({ position, num_items, selected = false, image }) => {
         position: "absolute",
         pointerEvents: "none",
         opacity: selected ? "1" : "0",
+        border:'3px solid black',
         boxShadow: selected
-          ? "0 0 0.8rem rgba(0, 0, 0, 1), 0 0 1rem rgba(53, 51, 51, 0.7)"
+          ? "0 0 0.4rem rgba(0, 0, 0, 1), 0 0 1rem rgba(140, 138, 138, 0.7)"
           : "none",
         transition: "box-shadow 1s ease, opacity 1s ease, visibility 1s ease",
       }}
