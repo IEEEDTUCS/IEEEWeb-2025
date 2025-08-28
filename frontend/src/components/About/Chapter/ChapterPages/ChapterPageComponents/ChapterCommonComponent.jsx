@@ -8,7 +8,6 @@ const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
     <>
       { ComponentInformation && ComponentInformation.isAbout &&
         <div className={styles.infoContainer} style={{ background: ColorScheme.CommonComponentBG }}>
-          <span className={styles.glowSpan}></span>
             { ComponentInformation.heading && <h1 className={`font-subheading ${styles.infoHeading}`}
               style={{ color: ColorScheme.PrimaryTextColor }}>{ComponentInformation.heading}</h1>}
             { ComponentInformation.content && <p className={`font-body ${styles.infoContent}`}
@@ -19,7 +18,6 @@ const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
 
       { ComponentInformation && ComponentInformation.isEvents &&
         <div className={styles.infoContainer} style={{ background: ColorScheme.CommonComponentBG }}>
-          <span className={styles.glowSpan}></span>
              { ComponentInformation.heading && <h1 className={`font-subheading ${styles.infoHeading}`}
               style={{ color: ColorScheme.PrimaryTextColor }}>{ComponentInformation.heading}</h1> }
 
@@ -30,7 +28,6 @@ const ChapterCommonComponent = ({ ComponentInformation, ColorScheme }) => {
 
       { ComponentInformation && ComponentInformation.isMembership &&
         <div className={styles.infoContainer} style={{ background: ColorScheme.CommonComponentBG }}>
-          <span className={styles.glowSpan}></span>
             { ComponentInformation.heading && <h1 className={`font-subheading ${styles.infoHeading}`}
               style={{ color: ColorScheme.PrimaryTextColor }}>{ComponentInformation.heading}</h1> }
             { ComponentInformation.content1 && <p className={`font-body ${styles.infoContentBenefits}`}

@@ -1,4 +1,5 @@
 import React from 'react'
+import ChapterNavbar from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterNavbar'
 import ChapterImageCarousel from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterImageCarousel'
 import ChapterContact from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterContact'
 import ChapterCommonComponent from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterCommonComponent'
@@ -10,12 +11,13 @@ export default function C1({ ChapterInformation }) {
   return (
     <>
       { ChapterInformation &&
-      <div style={{
-    scrollBehavior: 'smooth',
-    backgroundImage: `linear-gradient(rgba(10, 10, 20, 0.2), rgba(10, 10, 20, 0.2)), url(${ChapterInformation.logo}),
-      url(${ChapterInformation.backdropImg})`}} className={styles.chapterBackdrop} >
+      <div style={{scrollBehavior: 'smooth',
+        backgroundImage: `linear-gradient(rgba(10, 10, 20, 0.2), rgba(10, 10, 20, 0.2)), url(${ChapterInformation.backdropImg})`,
+        backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
 
-        <div className={`font-heading ${styles.chapterTitle}`} style={{color: ChapterInformation.ColorSchemes.TitleColor}} >{ChapterInformation.title}
+        <ChapterNavbar ColorScheme={ChapterInformation.ColorSchemes} />
+
+        <div className={`font-heading ${styles.chapterTitle}`} >{ChapterInformation.title}
         </div>
 
         <ChapterImageCarousel images={ChapterInformation.images} />
@@ -28,9 +30,9 @@ export default function C1({ ChapterInformation }) {
           <div id="membership">< ChapterCommonComponent ComponentInformation={ChapterInformation.membership} ColorScheme={ChapterInformation.ColorSchemes} /></div>
 
           <div id="contact"><ChapterContact ContactInformation={ChapterInformation.contact} ColorScheme={ChapterInformation.ColorSchemes} /></div>
-      </div> 
 
-      </div>
+        </div>
+      </div> 
       }
     </>
   )
