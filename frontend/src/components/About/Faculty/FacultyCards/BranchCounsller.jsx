@@ -30,6 +30,7 @@ function BranchCounsellor() {
   }, []);
 
   return (
+<<<<<<< HEAD
     <div 
       ref={componentRef}
       className={`flex flex-col lg:flex-row w-full max-w-6xl min-h-[50vh] mx-auto bg-white p-6 sm:p-8 lg:p-10 rounded-3xl shadow-lg shadow-gray-200/60 gap-6 lg:gap-8 transition-all duration-700 hover:shadow-xl hover:shadow-gray-300/40 hover:-translate-y-2 group transform ${
@@ -39,6 +40,9 @@ function BranchCounsellor() {
       }`}
       style={{ transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}
     >
+=======
+    <div className="flex flex-col lg:flex-row border-2 border-gray-100 w-full max-w-6xl min-h-[50vh] mx-auto bg-gradient-to-br from-white via-gray-50 to-blue-50 p-6 sm:p-8 lg:p-10 rounded-3xl shadow-2xl shadow-blue-100/50 gap-6 lg:gap-8 transition-all duration-500 hover:shadow-3xl hover:shadow-blue-200/60 hover:-translate-y-2 group font-sans">
+>>>>>>> d06bf60d3fbb00ea4f799b47585fca0c4dc503b5
       {/* Image Section */}
       <div className="w-full lg:w-1/3 flex justify-center items-center transform transition-all duration-500 group-hover:scale-[1.02]">
         <div className="relative overflow-hidden rounded-2xl shadow-md bg-gray-50 p-2 transform transition-all duration-500 hover:shadow-lg">

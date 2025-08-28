@@ -30,6 +30,7 @@ function FacultyCard({ name, designation, details, imageUrl }) {
   }, []);
 
   return (
+<<<<<<< HEAD
     <div 
       ref={cardRef}
       className={`flex flex-col items-center justify-start text-center gap-4 sm:gap-6 h-auto w-full max-w-[280px] sm:max-w-xs rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 shadow-lg shadow-gray-200/60 transition-all duration-700 hover:shadow-xl hover:shadow-gray-300/40 hover:-translate-y-2 group transform ${
@@ -39,6 +40,9 @@ function FacultyCard({ name, designation, details, imageUrl }) {
       }`}
       style={{ transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}
     >
+=======
+    <div className="flex flex-col items-center justify-start text-center gap-4 h-auto w-full max-w-xs min-w-[280px] rounded-2xl border-2 border-gray-100 bg-gradient-to-br from-white via-gray-50 to-blue-50 p-6 shadow-2xl shadow-blue-100/50 transition-all duration-500 hover:shadow-3xl hover:shadow-blue-200/60 hover:-translate-y-3 group font-sans opacity-0 animate-[slideUpEntrance_1s_ease-out_forwards]">
+>>>>>>> d06bf60d3fbb00ea4f799b47585fca0c4dc503b5
       {/* Image Section */}
       <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md bg-gray-50 p-1 transform transition-all duration-500 hover:shadow-lg group-hover:scale-[1.02]">
         <img
