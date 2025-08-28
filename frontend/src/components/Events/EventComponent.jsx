@@ -2,15 +2,12 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { pink } from '@mui/material/colors';
+
 import { useState } from 'react';
 
 export default function EventComponent({title,subheader,image,typography}) {
-  const [liked, setLiked] = useState(false);
+
   const [isHovered, setIsHovered] = useState(false);
 
   const cardStyle = {

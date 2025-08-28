@@ -23,7 +23,7 @@ const itemVariants = {
 
 export default function Events() {
   return (
-    <div className="min-h-screen bg-[#111827] text-white mt-24">
+    <div className="min-h-screen bg-[#111827] text-white pt-24">
       <div className="container mx-auto pt-16">
         {/* Header with motion */}
         <motion.header
@@ -34,7 +34,7 @@ export default function Events() {
           
         >
           <motion.p
-            className="text-xl font-semibold text-blue-400 tracking-widest mb-2 font-subheading"
+            className="text-xl font-semibold text-blue-400 tracking-normal mb-2 font-nav"
             variants={itemVariants}
             transition={{
             duration: 1,       // total animation time
@@ -58,7 +58,7 @@ export default function Events() {
           </motion.h1>
 
           <motion.p
-            className="text-xl font-semibold font-subheading text-blue-400 tracking-wider"
+            className="text-xl font-semibold font-nav text-blue-400 tracking-wider"
             variants={itemVariants}
             transition={{
             duration: 1,       // total animation time

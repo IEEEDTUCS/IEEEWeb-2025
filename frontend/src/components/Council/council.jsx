@@ -5,6 +5,7 @@ import CouncilData from '@/components/Council/HelperCouncil'
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LanguageIcon from '@mui/icons-material/Language';
+import { motion } from 'framer-motion';
 
 
  function Council({img,Name,Position,insta,linkedin}) {
@@ -60,27 +61,68 @@ import LanguageIcon from '@mui/icons-material/Language';
   )
 }
 
-export default function CouncilComponent(){
-    
-    return(
-<div className=' relative bg-black pb-10 pt-20'>
- <div className='m-20' >
+export default function CouncilComponent() {
+  return (
+    <motion.div
+      className="relative bg-black pb-10 pt-20"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
+      <div className="m-15">
+        <motion.div>
+          <motion.p
+            className="font-heading text-center text-[#70A6E3] text-lg tracking-[0.2rem] font-semibold"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+            duration: 1, // total animation time
+            ease: "easeInOut", // easing curve
 
-          <p className='font-heading text-center text-[#70A6E3] text-lg tracking-[0.2rem] font-semibold' >THE TEAM</p>
-        <p className='font-heading text-center tracking-[0.2rem] text-white text-3xl font-bold'>IEEE-DTU COUNCIL</p>
+          }}
+          >
+            THE TEAM
+          </motion.p>
+          
+        
+        <motion.h1
+          className="font-heading text-center mt-3 md:tracking-[0.2rem] text-white text-2xl md:text-3xl font-bold"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1, // total animation time
+            ease: "easeInOut", // easing curve
 
-        <div className='text-white px-[5%] md:px-[20%] mt-10'><hr /></div>
-        <hr />
-       </div>
-<div className='flex bg-white mx-[10%] mb-20 rounded-md flex-wrap justify-center gap-6 p-6'>
-  
+          }}
+        >
+          IEEE-DTU COUNCIL
+        </motion.h1>
+
+        <motion.div
+          className="text-white px-[5%] md:px-[20%] mt-10"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.7, ease: "easeOut" }}
+        >
+          <hr />
+        </motion.div>
+
+        </motion.div>
       
-    {CouncilData.map((event, index) => {
-        return <Council key={index} {...event} />
-     })}
-
-</div>
-</div>
-   
-    )
+      </div>
+      
+      <div className="flex bg-white mx-[10%] mb-20 rounded-md flex-wrap justify-center gap-6 p-6">
+        {CouncilData.map((event, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            <Council {...event} />
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  );
 }

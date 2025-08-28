@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const Chatbot = ({ onClose }) => {
     const initialMessages = [
-        { id: 1, text: 'Get to know all about IEEE DTU \n with our AI Assistant!', sender: 'bot' },
+        { id: 1, text: 'Want to know more about IEEE DTU?', sender: 'bot' },
+        { id: 2, text: 'Just ask our AI Assistant!', sender: 'bot' },
     ];
 
     const [messages, setMessages] = useState(initialMessages);
@@ -48,7 +49,7 @@ const Chatbot = ({ onClose }) => {
     };
 
     return (
-        <div className="w-96 h-[600px] flex flex-col bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden font-sans">
+        <div className="w-76 h-[500px] md:w-96 md:h-[600px] flex flex-col bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden font-sans">
             <div className="p-4 border-b border-gray-200 flex justify-between items-center flex-shrink-0">
                 <div className="flex items-center space-x-3">
                     <img
