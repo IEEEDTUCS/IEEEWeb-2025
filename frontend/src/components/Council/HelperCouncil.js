@@ -22,7 +22,7 @@ const CouncilData=[
     },
      {
         img:"/CouncilPhotos/Anshul_Agrawal.jpg",
-        Name:"Anshul",
+        Name:"Anshul Agrawal",
         Position:"General Secretary",
         insta:"https://www.instagram.com/anshul._.agrawal/",
         linkedin:"https://www.linkedin.com/in/anshul--agrawal/"

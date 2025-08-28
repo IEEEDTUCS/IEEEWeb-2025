@@ -5,7 +5,7 @@ const EventsData=[
    {
     title:"Project WIEVEK",
     subheader:"",
-    image:"https://www.ieeedtu.in/images/clients/wievek.jpg", // assuming the image is in public/images/clients/
+    image:"https://www.ieeedtu.in/images/clients/wievek.jpg", 
     typography:"Empowering Young Minds in Engineering"
   },
    {
