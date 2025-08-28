@@ -58,7 +58,7 @@
 
 .chapterBackdrop {
     background-repeat: no-repeat, no-repeat, no-repeat;
-    background-size: cover, 40% auto, cover;   
+    background-size: cover, 37.5% auto, cover;   
     background-position: center, 50% 70%, center;
     background-attachment: fixed, fixed, fixed;
     position: relative;
