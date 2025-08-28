@@ -7,7 +7,7 @@ import Link from "next/link";
 //Snackbar Imports
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import Signin from '../../utils/Signin';
+import Signin from '../../utils/signin';
 import Drawer from '@mui/material/Drawer';
 
 // --- Alert component for Snackbar styling ---

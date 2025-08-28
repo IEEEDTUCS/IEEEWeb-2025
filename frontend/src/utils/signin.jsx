@@ -57,15 +57,11 @@ const BRANDING = {
 
 function ForgotPasswordLink() {
   return (
-    <Link href="/" variant="body2">
+  <Link href="https://drive.google.com/file/d/1QWUDALanIDhwZ8CmhwzGCi-irSmRhndq/view?usp=sharing" target="_blank" variant="body2">
       Not a part of IEEE DTU?
       Join now →
     </Link>
   );
-}
-
-function Title() {
-  return <h2 style={{ marginBottom: 8 }}>Login</h2>;
 }
 
 function Subtitle() {
