@@ -23,7 +23,7 @@ const itemVariants = {
 
 export default function Events() {
   return (
-    <div className="min-h-screen bg-[#111827] text-white mt-24">
+    <div className="min-h-screen bg-[#111827] text-white mt-20 mb-0">
       <div className="container mx-auto pt-16">
         {/* Header with motion */}
         <motion.header
