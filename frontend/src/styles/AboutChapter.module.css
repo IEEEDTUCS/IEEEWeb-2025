@@ -2,14 +2,13 @@
 .gridContainer2 {
   display: grid;
   grid-template-columns: 50% 50%;
-  text-align: center;
+  align: center;
   justify-self: center;
 }
 
 .gridItem2 {
   text-align: center;
-  padding-right : 30px;
-  place-items: center; 
+  padding-right: 30px;
 }
 
 .servicesList .serviceText {
@@ -51,18 +50,18 @@
 }
 
 .btnStroke2 {
-  border: 2px solid #d1d5db;
+  color: black;
   background-color: white;
-  color: #374151;
-  padding: 12px 32px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  display: inline-block;
+  border: 2px solid black;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
   transform: scale(1);
 }
 
@@ -79,7 +78,6 @@
   transform: scale(1.15);
 }
 
-
 .chapterImage {
   max-width: 90%;
   height: 300px;
@@ -94,16 +92,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 2rem;
-  background-color: rgb(255, 255, 255);
-  flex-wrap: wrap; 
 }
 
-.chapterimage {
-  flex: 0 0 20rem; 
-  max-width: 25rem;
+.gridItem2:first-child .serviceText {
+  margin: 0;
+}
+
+/* Scroll-triggered animation classes */
+.scrollFadeUp {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scrollFadeUp.visible {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .scrollFadeUp.delay100 {
@@ -189,8 +193,8 @@
 /* Extra small screens */
 @media only screen and (max-width: 480px) {
   .chapterImage {
-    max-width: 100% !important;
-    height: 200px !important;
+    max-width: 50% !important;
+    height: 150px !important;
   }
   
   .chapterTitle {
