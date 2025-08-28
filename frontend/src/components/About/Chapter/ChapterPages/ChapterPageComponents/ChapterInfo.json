@@ -154,9 +154,9 @@
 
     "CASS": {
 
-        "title": "IEEE DTU CAS CHAPTER",
+        "title": "IEEE DTU CASS CHAPTER",
 
-        "logo": "/images/Chapters/CASS_IEEE.png",
+        "logo": "/images/Chapters/IEEE_CASS.png",
 
         "backdropImg": "/images/Chapters/Backdrops/CAS_backdrop.png",
 
@@ -165,7 +165,7 @@
         "about": {
             "isAbout": true,
             "heading": "About Us",
-            "content": "The IEEE Circuits and Systems Society (CAS) is dedicated to advancing the theory, analysis, design, and practical implementation of circuits and systems. It provides a global platform for students and professionals to explore the ever-evolving world of electronics, embedded systems, signal processing, and beyond. Through workshops, technical sessions, and collaborative projects, they aim to nurture a space where students can not only learn but also experiment, innovate, and grow together."
+            "content": "The IEEE Circuits and Systems Society (CASS) is dedicated to advancing the theory, analysis, design, and practical implementation of circuits and systems. It provides a global platform for students and professionals to explore the ever-evolving world of electronics, embedded systems, signal processing, and beyond. Through workshops, technical sessions, and collaborative projects, they aim to nurture a space where students can not only learn but also experiment, innovate, and grow together."
         },
 
         "events": {
