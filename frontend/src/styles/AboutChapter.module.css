@@ -2,9 +2,8 @@
 .gridContainer2 {
   display: grid;
   grid-template-columns: 50% 50%;
-  justify-content: center; 
-  align-items: center; 
-  gap: 10px; 
+  align: center;
+  justify-self: center;
 }
 
 .gridItem2 {
@@ -12,8 +11,19 @@
   padding-right: 30px;
 }
 
-.servicesList .serviceText {
+.serviceText {
   margin-left: 7.8rem;
+}
+
+/* Left grid item specific styling */
+.gridItem2:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gridItem2:first-child .serviceText {
+  margin: 0;
 }
 
 /* Chapter specific styles */
@@ -23,11 +33,14 @@
   text-decoration: none;
   margin-bottom: 2rem;
   font-weight: 550;
-  height: 27px;
   margin-block-end: 18px;
   margin-block-start: 60px;
   margin-bottom: 18px;
   margin-top: 60px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .chapterTitle:hover {
@@ -51,32 +64,24 @@
 }
 
 .btnStroke2 {
-  color: black;
+  border: 2px solid #d1d5db;
   background-color: white;
-  border: 2px solid black;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.1s ease-in-out;
-  display: inline-block;
-  text-decoration: none;
+  color: #374151;
+  padding: 12px 32px;
   font-size: 0.875rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
-  transform: scale(1);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .btnStroke2:hover {
-  color: white;
-  background-color: black;
-  border: 2px solid black;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.1s ease-in-out;
+  border-color: #9ca3af;
+  background-color: #f9fafb;
   text-decoration: none;
-  transform: scale(1.15);
 }
 
 .chapterImage {
@@ -84,19 +89,7 @@
   height: 300px;
   object-fit: contain;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Left grid item specific styling */
-.gridItem2:first-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.gridItem2:first-child .serviceText {
-  margin: 0;
+  margin: 0 auto;
 }
 
 /* Scroll-triggered animation classes */
@@ -141,22 +134,10 @@
 
 /* Responsive Design */
 @media only screen and (max-width: 800px) {
-  .servicesList {
+  .serviceText {
     margin-top: 4.2rem;
     max-width: 500px;
     text-align: center;
-  }
-  
-  .servicesList .serviceItem:nth-child(n) {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  
-  .servicesList h3 {
-    font-size: 3rem;
-  }
-  
-  .servicesList .serviceText {
     margin-left: 0;
   }
   
@@ -172,6 +153,7 @@
     max-width: 60% !important;
     height: 400px !important;
     width: auto !important;
+    margin: 20px auto 0 auto !important;
   }
   
   .chapterDescription {
@@ -180,10 +162,24 @@
   
   .chapterTitle {
     font-size: 1.5rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    line-height: 1.2;
   }
 
   .gridItem2:first-child {
     padding: 20px 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gridItem2:first-child .serviceText {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .gridItem2 {
@@ -194,12 +190,19 @@
 /* Extra small screens */
 @media only screen and (max-width: 480px) {
   .chapterImage {
-    max-width: 50% !important;
-    height: 150px !important;
+    max-width: 90% !important;
+    height: 250px !important;
+    margin: 10px auto !important;
   }
   
   .chapterTitle {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    line-height: 1.3;
+    margin-top: 20px;
+    margin-bottom: 15px;
   }
   
   .chapterDescription {
@@ -209,5 +212,12 @@
   
   .gridContainer2 {
     margin: 0px 10px 0px 10px !important;
+  }
+
+  .gridItem2:first-child .serviceText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 }
