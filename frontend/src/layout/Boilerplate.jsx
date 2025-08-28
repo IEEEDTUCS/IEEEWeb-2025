@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../utils/Navbar';
 import Footer from '../utils/Footer';
 import Loader from '../utils/Loader';
+import Chatbot from '@/utils/Chatbot/chatbotHelper';
 import { useRouter } from 'next/router';
 
 const boilerPlate = (WrappedComponent) => {
@@ -40,6 +41,7 @@ const boilerPlate = (WrappedComponent) => {
         <Loader visible={loading} />
         {router.pathname === '/' ? null : <Navbar />}
         <WrappedComponent {...props} setGlobalLoading={setLoading} />
+        <Chatbot></Chatbot>
         {router.pathname === '/' ? null : <Footer />}
       </>
     );

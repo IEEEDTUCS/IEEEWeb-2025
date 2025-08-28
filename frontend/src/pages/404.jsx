@@ -1,6 +1,6 @@
 import boilerPlate from '@/layout/Boilerplate'
 import React from 'react'
-import NotFound from '@/components/NotFound'
+import NotFound from '@/utils/NotFound'
 
 function NotFoundPage() {
   return (

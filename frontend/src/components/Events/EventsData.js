@@ -4,9 +4,15 @@ const EventsData=[
    {
     title:"Project WIEVEK",
     subheader:"",
-    image:"/Events/wievek.png", // assuming the image is in public/images/clients/
+    image:"/Events/wievek.jpg",
     typography:"Empowering Young Minds in Engineering"
   },  
+  {
+    title:"Cryptovate",
+    subheader:"",
+    image:"/Events/cryptovate.jpg", 
+    typography:"Online Blockchain Hackathon"
+  },
    {
     title:"IEEE Day 2024",
     subheader:"",
@@ -27,18 +33,6 @@ const EventsData=[
   },
   
    {
-    title:"Devcraft",
-    subheader:"",
-    image:"/Events/devcraft.png",
-    typography:"Development-based Hackathon"
-  },
-   {
-    title:"Vihaan",
-    subheader:"",
-    image:"/Events/vihaan007.png",
-    typography:"India's Largest Student-run Hacakthon"
-  },
-   {
     title:"CodeCrunchML",
     subheader:"",
     image:"/Events/codecrunch.png",
@@ -57,6 +51,12 @@ const EventsData=[
     image:"/Events/techweek23.png",
     typography:"1 Week IEEE workshops"
   },
+  {
+    title:"DSSYWC",
+    subheader:"",
+    image:"/Events/dssywc.png",
+    typography:"DSSYWC 2022"
+  },
    {
     title:"Domain Specific Hackathons",
     subheader:"",
@@ -69,8 +69,15 @@ const EventsData=[
     image:"/Events/field.png",
     typography:"Engineering meets the joy of creative competitions!"
   },
+  
    {
-    title:"Programming and Development Competitions",
+    title:"Devcraft",
+    subheader:"",
+    image:"/Events/devcraft.png",
+    typography:"Development-based Hackathon"
+  },
+   {
+    title:"Programming Competitions",
     subheader:"",
     image:"/Events/prog.png",
     typography:"Code weaves the fabric of tomorrow"
@@ -95,10 +102,10 @@ const EventsData=[
     typography:"A quantitative finance & fintech challenge"
   },
    {
-    title:"DSSYWC",
+    title:"Vihaan",
     subheader:"",
-    image:"/Events/DSSYWC.png",
-    typography:"DSSYWC 2022"
-  },
+    image:"/Events/vihaan007.png",
+    typography:"India's Largest Student-run Hacakthon"
+  }
 ]
 export default EventsData;

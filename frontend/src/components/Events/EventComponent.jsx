@@ -2,15 +2,12 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import { pink } from '@mui/material/colors';
+
 import { useState } from 'react';
 
 export default function EventComponent({title,subheader,image,typography}) {
-  const [liked, setLiked] = useState(false);
+
   const [isHovered, setIsHovered] = useState(false);
 
   const cardStyle = {
@@ -32,8 +29,11 @@ export default function EventComponent({title,subheader,image,typography}) {
  
 
   return (
+
+    
     <Card 
-      className="Card text-center font-bold" 
+
+      className="Card text-center font-bold w-[300px] h-[400px] m-6 " 
       sx={{ width:'20rem', height:'auto' }}
       style={cardStyle}
       onMouseEnter={() => setIsHovered(true)}
@@ -41,25 +41,26 @@ export default function EventComponent({title,subheader,image,typography}) {
     >
      
 
-      <CardMedia
+      <CardMedia className='h-[300px] w-[300px] object-contain'
         component="img"
         height="194"
         image={image}
       />
 
-      <CardContent>
+  <CardContent className='w-[300px] h-[90px]  flex flex-col items-center m-2.5 justify-center text-center font-heading '>
         <CardHeader
-        className="text-[#70A6E3]"
+        className="text-[#70A6E3] whitespace-nowrap "
         title={title}
-        subheader={subheader}
+       
       />
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           {typography}
         </Typography>
       </CardContent>
-
+     
  
     </Card>
+  
   );
 }
 
