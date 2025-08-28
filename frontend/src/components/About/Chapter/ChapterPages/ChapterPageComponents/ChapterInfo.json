@@ -1,0 +1,151 @@
+{
+    "CS": {
+
+        "title": "IEEE DTU CS CHAPTER",
+
+        "backdropImg": "/Chapters/Backdrops/CS_backdrop.png",
+
+        "images": ["/Chapters/Images/vihaan.jpg", "/Chapters/Images/vihaan2.jpg", "/Chapters/Images/techweek.jpg", "/Chapters/Images/xtreme.jpg", "/Chapters/Images/group.jpg"],
+
+        "about": {
+            "isAbout": true,
+            "heading": "About Us",
+            "content": "The IEEE Computer Society stands as the premier source for information, inspiration, and collaboration in computer science and engineering. It is a vibrant community of passionate individuals united by their deep enthusiasm for computer science. Together, they collaborate on projects, foster mutual growth, and drive innovation within the field. At IEEE DTU Computer Society, we've organized several flagship events, including Microhacks, IEEEXtreme, and Bulls N' Bears. We're also proud to host Vihaan, India's largest student-run hackathon, which garnered over 5,000 registrations last year."
+        },
+
+        "events": {
+            "isEvents": true,
+            "heading": "Events",
+            "images": ["/Chapters/Events/vihaan007.jpg", "/Chapters/Events/techweek.jpeg", "/Chapters/Events/MIST.jpg", "/Chapters/Events/ieeextreme.png", "/Chapters/Events/hackaithon.jpg", "/Chapters/Events/blockchain1.jpeg"]
+        },
+
+        "membership": {
+            "isMembership": true,
+            "heading": "Benefits",
+            "content1": "IEEE membership offers numerous benefits, including invitations to international conferences, journals, and seminars, with discounts on electronics, workshops, and exclusive competitions like IEEE Xtreme. Members also enjoy access to the IEEE Xplore Library, which contains research from 37 peer-reviewed magazines and over 700,000 documents on various topics.",
+            "content2": "At IEEE DTU, the experience goes further. You'll join Special Interest Groups (SIGs), explore AI, ML, Arduino, and 3D design, and participate in events like hackathons and Robo races. The hands-on experience, mentorship, and creativity make IEEE DTU more than a club—it's a community of growth and innovation.",
+            "_comment1": "content can be directly added into the component since it is common for all chapters.",
+            "_comment2": "Option for membership form can be directly added into the component, not specific to a chapter."
+        },
+
+        "contact": {
+            "email": "cs.ieeedtu@gmail.com",
+            "_comment": "IG and LN links are common for each chapter and can be added directly into the component."
+        },
+
+        "ColorSchemes": {
+            "CommonComponentBG": "linear-gradient(to bottom, rgba(23, 5, 33, 0.8), rgba(48, 6, 59, 0.8))",
+            "NavBarButtonBG": "linear-gradient(to right, #3a3f58, #131d4d)",
+            "NavBarButtonBGHover": "linear-gradient(to right, #5865f2, #3f48a6)",
+            "PrimaryTextColor": "#b8b8ff",
+            "SecondaryTextColor": "#d0d0ff",
+            "JoinFormBGColor": "#4a4aff",
+            "JoinFormButtonHoverBG": "#6a6aff",
+            "ContactBoxBG": "rgba(10, 10, 20, 0.9)",
+            "ContactBoxTextColor": "#b0b0ff",
+            "MailTextColor": "#6a6aff",
+            "SelectedDot": "#9e0ec2"
+        }
+
+    },
+
+    "PES_IAS": {
+
+        "title": "IEEE DTU PES-IAS CHAPTER",
+
+        "backdropImg": "/Chapters/Backdrops/PES_IAS_backdrop.png",
+
+        "images": ["/Chapters/Images/pese1.jpg", "/Chapters/Images/pese2.jpg", "/Chapters/Images/group.jpg"],
+
+        "about": {
+            "isAbout": true,
+            "heading": "About Us",
+            "content": "The IEEE DTU PES-IAS Chapter is a dynamic and vibrant community of passionate individuals dedicated to advancing the field of Power and Energy Systems as well as Industrial Applications.Our primary goal is to disseminate knowledge and promote a deeper understanding of Power and Energy Systems and Industrial Applications.Through various events, workshops, and seminars, we aim to keep our members updated with the latest developments and trends in these fields. One of our flagship events, TinkerCase, is an Arduino showcase event held annually in honor of IEEE Day, where students can delve into the limitless possibilities of Arduino technology."
+        },
+
+        "events": {
+            "isEvents": true,
+            "heading": "Events",
+            "images": ["/Chapters/Events/DSSYWC.jpg", "/Chapters/Events/tinkercase.jpg"]  
+        },
+
+        "membership": {
+            "isMembership": true,
+            "heading": "Benefits",
+            "content1": "IEEE membership offers numerous benefits, including invitations to international conferences, journals, and seminars, with discounts on electronics, workshops, and exclusive competitions like IEEE Xtreme. Members also enjoy access to the IEEE Xplore Library, which contains research from 37 peer-reviewed magazines and over 700,000 documents on various topics.",
+            "content2": "At IEEE DTU, the experience goes further. You'll join Special Interest Groups (SIGs), explore AI, ML, Arduino, and 3D design, and participate in events like hackathons and Robo races. The hands-on experience, mentorship, and creativity make IEEE DTU more than a club—it's a community of growth and innovation.",
+            "_comment1": "content can be directly added into the component since it is common for all chapters.",
+            "_comment2": "Option for membership form can be directly added into the component, not specific to a chapter."
+        },
+
+        "contact": {
+            "email": "ieeedtupr@gmail.com",
+            "_comment": "IG and LN links are common for each chapter and can be added directly into the component."
+        },
+
+        "ColorSchemes": {
+            "CommonComponentBG": "linear-gradient(to right, rgba(26, 15, 15, 0.7), rgba(42, 26, 26, 0.7))",
+            "NavBarButtonBG": "linear-gradient(135deg, #3a1f1f, #5c2b2b)",
+            "NavBarButtonBGHover": "linear-gradient(135deg, #a4161a, #6b2222)",
+            "PrimaryTextColor": "#f2dfce",
+            "SecondaryTextColor": "#fad5cd",
+            "JoinFormBGColor": "#bf6969",
+            "JoinFormButtonHoverBG": "#5c1e1e",
+            "ContactBoxBG": "rgba(20, 20, 30, 0.7)",
+            "ContactBoxTextColor": "#fcc59a",
+            "MailTextColor": "#bd7f48",
+            "SelectedDot": "#ff2408"
+        }
+
+    },
+
+    "WIE": {
+
+        "title": "IEEE DTU WIE CHAPTER",
+
+        "backdropImg": "/Chapters/Backdrops/WIE_backdrop.avif",
+
+        "images": ["/Chapters/Images/kids.jpg", "/Chapters/Images/vihaan.jpg", "/Chapters/Images/group.jpg", "/Chapters/Images/ishwarngo.jpg", "/Chapters/Images/IMG_0412.jpeg"],
+
+        "about": {
+            "isAbout": true,
+            "heading": "About Us",
+            "content": "IEEE Women in Engineering (WIE) is a global network of IEEE members and volunteers dedicated to promoting women engineers and scientists and inspiring girls around the world to follow their academic interests in a career in engineering and science. WIEVEK is a flagship initiative of IEEE WIE, dedicated to sparking a passion for STEM in young minds. Through NGO visits, this program strives to bridge the gap in access to quality STEM education, inspiring the next generation of innovators."
+        },
+
+        "events": {
+            "isEvents": true,
+            "heading": "Events",
+            "images": ["/Chapters/Events/DSSYWC.jpg", "/Chapters/Events/vihaan007.jpg", "/Chapters/Events/wievek.jpg"]  
+        },
+
+        "membership": {
+            "isMembership": true,
+            "heading": "Benefits",
+            "content1": "IEEE membership offers numerous benefits, including invitations to international conferences, journals, and seminars, with discounts on electronics, workshops, and exclusive competitions like IEEE Xtreme. Members also enjoy access to the IEEE Xplore Library, which contains research from 37 peer-reviewed magazines and over 700,000 documents on various topics.",
+            "content2": "At IEEE DTU, the experience goes further. You'll join Special Interest Groups (SIGs), explore AI, ML, Arduino, and 3D design, and participate in events like hackathons and Robo races. The hands-on experience, mentorship, and creativity make IEEE DTU more than a club—it's a community of growth and innovation.",
+            "_comment1": "content can be directly added into the component since it is common for all chapters.",
+            "_comment2": "Option for membership form can be directly added into the component, not specific to a chapter."
+        },
+
+        "contact": {
+            "email": "ieeedtupr@gmail.com",
+            "_comment": "IG and LN links are common for each chapter and can be added directly into the component."
+        },
+
+        "ColorSchemes": {
+            "CommonComponentBG": "rgba(25, 25, 25, 0.7)",
+            "NavBarButtonBG": "linear-gradient(135deg, rgba(255, 105, 180, 0.3), rgba(255, 20, 147, 0.3))",
+            "NavBarButtonBGHover": "rgba(255, 105, 180, 0.6)",
+            "PrimaryTextColor": "#ffc0cb",
+            "SecondaryTextColor": "#d0d0ff",
+            "JoinFormBGColor": "#ff69b4",
+            "JoinFormButtonHoverBG": "#ff1493",
+            "ContactBoxBG": "rgba(25, 25, 25, 0.9)",
+            "ContactBoxTextColor": "#ffc0cb",
+            "MailTextColor": "#ff69b4",
+            "SelectedDot": "#ff1493"
+        }
+
+    }
+}

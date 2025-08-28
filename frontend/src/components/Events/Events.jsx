@@ -1,44 +1,96 @@
-import React, { useState } from 'react';
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
 import EventComponent from './EventComponent';
-import eventsData from './EventsData'
+import eventsData from './EventsData';
+
+// Variants for staggered animations
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function Events() {
-
   return (
-    <>
-                <style jsx global>{`
-            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-          `}</style>
-
-
-    <div className="min-h-screen bg-[#111827] text-white" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-      <div className="container mx-auto px-4 py-16">
- 
-        <header className="text-center mb-12">
-          <p className="text-sm font-semibold text-blue-400 tracking-widest mb-2">
+    <div className="min-h-screen bg-[#111827] text-white mt-24">
+      <div className="container mx-auto pt-16">
+        {/* Header with motion */}
+        <motion.header
+          className="text-center mb-8 pb-16"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          
+        >
+          <motion.p
+            className="text-xl font-semibold text-blue-400 tracking-widest mb-2 font-subheading"
+            variants={itemVariants}
+            transition={{
+            duration: 1,       // total animation time
+            ease: "easeInOut",   // easing curve
+            
+          }}
+          >
             FUN & ACTIVITIES
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          </motion.p>
+
+          <motion.h1
+            className="font-heading text-4xl md:text-5xl font-semibold tracking-tight mb-4"
+            variants={itemVariants}
+            transition={{
+            duration: 1,       // total animation time
+            ease: "easeInOut",   // easing curve
+           
+          }}
+          >
             OUR EVENTS
-          </h1>
-          <p className="text-sm font-semibold text-blue-400 tracking-wider">
+          </motion.h1>
+
+          <motion.p
+            className="text-xl font-semibold font-subheading text-blue-400 tracking-wider"
+            variants={itemVariants}
+            transition={{
+            duration: 1,       // total animation time
+            ease: "easeInOut",   // easing curve
+            // children animate one after another
+          }}
+          >
             SOME OF THE EVENTS CONDUCTED BY IEEE DTU THROUGHOUT THE YEAR
-          </p>
-        </header>
+       
+          </motion.p>
+        </motion.header>
 
+        {/* Main Grid with Motion */}
         <main>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* This is syntax for integrating with the card component in features/events */}
-
-                 {eventsData.map(event => (
-                <EventComponent
-                  {...event}
-                />
-              ))}
-          </div>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="flex bg-white md:mx-[10%] mx-0  rounded-md flex-wrap justify-center gap-14 p-6 pt-12"
+          >
+            {eventsData.map((event, index) => (
+              <motion.div
+                key={event.title || index}
+                variants={itemVariants}
+                transition={{ duration: 1, ease: 'easeOut' }}
+              >
+                <EventComponent {...event} />
+              </motion.div>
+            ))}
+          </motion.div>
         </main>
-        
       </div>
     </div>
-    </>
   );
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styles from '/src/styles/your_componentname.module.css';
 
 
+
 export default function Chapter() {
   const [visibleSections, setVisibleSections] = useState(new Set());
   const sectionRefs = useRef({});
@@ -69,11 +70,11 @@ export default function Chapter() {
             <p className={`${styles.chapterDescription} ${styles.scrollFadeUp} ${styles.delay200}${visibleSections.has('cs') ? ` ${styles.visible}` : ''}`}>
               The IEEE Computer Society is the premier source for information, inspiration, and collaboration in Computer Science and Engineering. IEEE DTU has become affiliated to the IEEE Computer Society and has established its presence in the ever-expanding world of Computer Science. IEEE DTU Computer Society has organized many flagship events like Microhacks, IEEEXtreme, Vihaan and Bulls N' Bears.
             </p>
-            <a  
+            <button 
               className={`${styles.btnStroke2} ${styles.scrollFadeUp} ${styles.delay400}${visibleSections.has('cs') ? ` ${styles.visible}` : ''}`}
             >
               Know More
-            </a>
+            </button>
             <br /><br />
           </div>
         </div>

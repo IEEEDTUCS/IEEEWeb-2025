@@ -25,49 +25,45 @@ export default function EventComponent({title,subheader,image,typography}) {
     margin: 'auto',
     marginBottom: '2rem',
     alignItems: "center",
-
+  
+    transition:"0.45s ease-in-out"
   };
 
-  const toggleLike = () => {
-    setLiked(!liked);
-
-  };
+ 
 
   return (
-    <Card
-      className="Card"
-      sx={{ width: '20rem', height: 'auto' }}
+
+    
+    <Card 
+
+      className="Card text-center font-bold w-[300px] h-[400px] m-6 " 
+      sx={{ width:'20rem', height:'auto' }}
       style={cardStyle}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <CardHeader
-        title={title}
-        subheader={subheader}
-      />
+     
 
-      <CardMedia
+      <CardMedia className='h-[300px] w-[300px] object-contain'
         component="img"
         height="194"
         image={image}
       />
 
-      <CardContent>
+  <CardContent className='w-[300px] h-[90px]  flex flex-col items-center m-2.5 justify-center text-center font-heading '>
+        <CardHeader
+        className="text-[#70A6E3] whitespace-nowrap "
+        title={title}
+       
+      />
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           {typography}
         </Typography>
       </CardContent>
-
-      <CardActions disableSpacing>
-        <span onClick={toggleLike} style={{ cursor: 'pointer' }}>
-          {liked ? (
-            <FavoriteIcon sx={{ color: pink[500] }} fontSize="large" />
-          ) : (
-            <FavoriteBorderIcon fontSize="large" />
-          )}
-        </span>
-      </CardActions>
+     
+ 
     </Card>
+  
   );
 }
 
