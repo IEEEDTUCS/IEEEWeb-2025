@@ -22,15 +22,15 @@ const CouncilData=[
     },
      {
         img:"/CouncilPhotos/Anshul_Agrawal.jpg",
-        Name:"Anshul",
-        Position:"General Secretary",
+        Name:"Anshul Agrawal",
+        Position:"Joint Secretary",
         insta:"https://www.instagram.com/anshul._.agrawal/",
         linkedin:"https://www.linkedin.com/in/anshul--agrawal/"
     },
      {
         img:"/CouncilPhotos/_MG_5059___MG_5059 - Yash Arora.JPG",
         Name:"Yash Arora",
-        Position:"General Secretary",
+        Position:"Joint Secretary",
         insta:"https://www.instagram.com/iamyash.77/",
         linkedin:"https://www.linkedin.com/in/yash-arora-yashinpixels/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
     },
