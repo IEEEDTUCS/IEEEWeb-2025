@@ -1,65 +1,73 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 function FacultyCard({ name, designation, details, imageUrl }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col items-center justify-start text-center gap-4 h-auto w-full max-w-xs min-w-[280px] rounded-2xl border-2 border-gray-100 bg-gradient-to-br from-white via-gray-50 to-blue-50 p-6 shadow-2xl shadow-blue-100/50 transition-all duration-500 hover:shadow-3xl hover:shadow-blue-200/60 hover:-translate-y-3 group font-sans opacity-0 animate-[slideUpEntrance_1s_ease-out_forwards]">
+    <div 
+      ref={cardRef}
+      className={`flex flex-col items-center justify-start text-center gap-4 sm:gap-6 h-[400px] sm:h-[450px] w-full max-w-[280px] sm:max-w-xs rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 shadow-lg shadow-gray-200/60 transition-all duration-700 hover:shadow-xl hover:shadow-gray-300/40 hover:-translate-y-2 group transform ${
+        isVisible
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-8'
+      }`}
+      style={{ transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}
+    >
       {/* Image Section */}
-      <div className="relative overflow-hidden rounded-2xl shadow-xl border-4 border-black bg-white p-2 transform transition-all duration-500 hover:shadow-2xl group-hover:scale-105">
+      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md bg-gray-50 p-1 transform transition-all duration-500 hover:shadow-lg group-hover:scale-[1.02] flex-shrink-0">
         <img
           src={imageUrl}
           alt={`Profile picture of ${name}`}
-          className="h-48 w-40 object-cover rounded-xl border-2 border-black transition-all duration-500 hover:scale-110"
+          className="h-40 w-32 sm:h-48 sm:w-40 object-cover rounded-lg sm:rounded-xl transition-all duration-500 hover:scale-[1.03]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-transparent to-transparent rounded-xl opacity-0 transition-opacity duration-300 hover:opacity-100"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 via-transparent to-transparent rounded-lg sm:rounded-xl opacity-0 transition-opacity duration-300 hover:opacity-100"></div>
       </div>
-      
+                      
       {/* Content Section */}
-      <div className="space-y-3 transform transition-all duration-700 delay-100 group-hover:translate-y-1">
-        <h3 className="font-bold text-blue-800 text-xl sm:text-2xl tracking-tight hover:text-blue-900 transition-all duration-300 transform hover:scale-105 cursor-default font-playfair">
+      <div className="flex-1 flex flex-col justify-center space-y-3 sm:space-y-4 transform transition-all duration-500 delay-75 group-hover:translate-y-[-2px]">
+        <h3 className="font-bold text-gray-800 text-lg sm:text-xl lg:text-2xl tracking-tight hover:text-gray-900 transition-all duration-300 cursor-default leading-tight">
           {name}
         </h3>
-        
-        <div className="border-t border-gray-200/50 pt-3 space-y-2">
-          <p className=" text-gray-600 font-medium tracking-wider uppercase text-sm opacity-80 hover:opacity-100 transition-all duration-300 font-inter italic">
+                              
+        <div className="space-y-2 sm:space-y-3">
+          <p className="text-blue-600 font-medium tracking-wide text-xs sm:text-sm hover:text-blue-700 transition-all duration-300">
             {designation}
           </p>
-          <p className="text-sm leading-6 text-gray-700 font-normal tracking-wide hover:text-gray-900 transition-colors duration-300 font-inter">
+          <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-normal tracking-wide hover:text-gray-700 transition-colors duration-300 whitespace-pre-line">
             {details}
           </p>
         </div>
       </div>
-      
+                      
       <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-        
-        .font-inter {
-          font-family: 'Inter', sans-serif;
-        }
-        
-        .font-playfair {
-          font-family: 'Playfair Display', serif;
-        }
-        
-        @keyframes slideUpEntrance {
-          from {
-            opacity: 0;
-            transform: translateY(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
       `}</style>
     </div>

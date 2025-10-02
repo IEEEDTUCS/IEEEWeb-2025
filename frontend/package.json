@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.14.1",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@toolpad/core": "^0.16.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.12",
@@ -21,13 +22,12 @@
     "next": "15.4.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-material-ui-carousel": "^3.4.2",
     "react-responsive-carousel": "^3.2.23"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@mui/icons-material": "^5.15.15",
-    "@mui/material": "^5.15.15",
+    "@mui/icons-material": "^7.3.1",
+    "@mui/material": "^7.3.1",
     "@tailwindcss/postcss": "^4",
     "class-variance-authority": "^0.7.1",
     "eslint": "^9",

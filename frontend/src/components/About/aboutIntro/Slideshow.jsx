@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 const Slideshow = () => {
   const images = [
-    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800&h=600&fit=crop'
+    "/aboutPage/topImages/img1.jpg",
+    "/aboutPage/topImages/img2.jpg",
+    "/aboutPage/topImages/img3.jpg"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

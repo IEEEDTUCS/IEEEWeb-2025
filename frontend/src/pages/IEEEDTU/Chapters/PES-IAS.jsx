@@ -1,15 +1,13 @@
 import React from 'react'
-// import C2 from '@/components/About/Chapter/ChapterPages/C2'
-import C1 from '@/components/About/Chapter/ChapterPages/C1'
+import PES_IAS from '@/components/About/Chapter/ChapterPages/ChapterRoutes'
 import Boilerplate from '@/layout/Boilerplate'
 
-//placing JSON data here for simplicity, to be moved later.
 import ChapterInfo from '@/components/About/Chapter/ChapterPages/ChapterPageComponents/ChapterInfo'
 
-function PES_IAS() {
+function ChapterPES_IAS() {
   return (
-    <div><C1 ChapterInformation={ChapterInfo.PES_IAS}/></div>
+    <div><PES_IAS ChapterInformation={ChapterInfo.PES_IAS}/></div>
   )
 }
 
-export default Boilerplate(PES_IAS)
+export default Boilerplate(ChapterPES_IAS)
