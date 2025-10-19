@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
-import mongoose from "mongoose";
 import webpush from "web-push";
 import {connectToDB} from "./init/index.js";
 import ErrorHandler from './utils/errorHandler.js';
@@ -33,7 +32,11 @@ webpush.setVapidDetails(
 
 app.use("/email", emailRouter);
 app.use("/subs", subsRouter);
-    
+
+app.get("/",(req,res)=>{
+    res.status(200).send("API is running...");
+});
+
 app.use((req,res,next)=>{
     next(new ErrorHandler("Not Found", 404));
 });
