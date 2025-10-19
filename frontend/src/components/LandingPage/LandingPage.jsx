@@ -167,24 +167,17 @@ export default function LandingPage() {
             
             {/* --- Snackbar Component Added Here --- */}
             <div className="flex flex-row items-center">
-            <div className="flex flex-row items-center">
             <Snackbar open={openSnackbar} autoHideDuration={8000} onClose={handleSnackbarClose}>
-                <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: '100%', alignItems: 'center', alignItems: 'center' }}>
+                <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: '100%', alignItems: 'center' }}>
                     
-                    <p className="mb-2 sm:inline">
-                    <p className="mb-2 sm:inline">Get access to exclusive benefits!{"\u00A0"}{"\u00A0"}</p></p>
+                    <p className="mb-2 sm:inline">Get access to exclusive benefits!{"\u00A0"}{"\u00A0"}</p>
                     <Link
-<<<<<<< HEAD
-                        href="/api/auth/signin" 
-=======
                         href={""}
                         onClick={handleSignInClick} 
->>>>>>> 72df439fd285bc413637f1af6921230f0df112db
                         className="border-2  border-white rounded cursor-pointer px-2 py-1 hover:bg-white hover:text-black"
                     >
                         Sign in
                     </Link>
-                    
                     
                 </Alert>
             </Snackbar>
