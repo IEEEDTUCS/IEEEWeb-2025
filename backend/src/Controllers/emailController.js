@@ -1,7 +1,7 @@
 import Email from "../models/emailModel.js";
 import expressError from "../utils/errorHandler.js";
 
-export const saveEmail = wrapAsync(async (req, res, next) => {
+export const saveEmail = async (req, res, next) => {
   const { email } = req.body;
 
   if (!email) {
@@ -25,5 +25,5 @@ export const saveEmail = wrapAsync(async (req, res, next) => {
     success: true,
     message: "Email registered successfully",
   });
-});
+};
 

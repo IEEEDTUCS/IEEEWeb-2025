@@ -1,5 +1,5 @@
 import express from "express";
-import { saveEmail } from "../Controllers/emailController";
+import { saveEmail } from "../Controllers/emailController.js";
 import wrapAsync from "../utils/wrapAsync.js";
 
 const router=express.Router();
