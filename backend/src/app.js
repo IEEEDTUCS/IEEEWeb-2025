@@ -6,6 +6,8 @@ import mongoose from "mongoose";
 import webpush from "web-push";
 import {connectToDB} from "./init/index.js";
 import ErrorHandler from './utils/errorHandler.js';
+import emailRouter from "./Routes/emailRouter.js";
+import subsRouter from "./Routes/subsRouter.js";
 
 if(process.env.NODE_ENV !== "production"){
     dotenv.config();
@@ -27,7 +29,10 @@ webpush.setVapidDetails(
     "mailto:admin@gmail.com",
     process.env.PUBLIC_VAPID_KEY,
     process.env.PRIVATE_VAPID_KEY
-)
+);
+
+app.use("/api", emailRouter);
+app.use("/api", subsRouter);
 
 app.use((req,res,next)=>{
     next(new ErrorHandler("Not Found", 404));
