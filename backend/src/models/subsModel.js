@@ -6,6 +6,7 @@ const subsSchema = new Schema({
   keys: { auth: String, p256dh: String },
 });
 
-const Subscription = mongoose.model("Subscription", subsSchema);
+const Subs = mongoose.model("Subs", subsSchema);
 
-export default Subscription;
+export default Subs;
+

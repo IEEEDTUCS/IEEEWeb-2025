@@ -31,9 +31,9 @@ webpush.setVapidDetails(
     process.env.PRIVATE_VAPID_KEY
 );
 
-app.use("/api", emailRouter);
-app.use("/api", subsRouter);
-
+app.use("/email", emailRouter);
+app.use("/subs", subsRouter);
+    
 app.use((req,res,next)=>{
     next(new ErrorHandler("Not Found", 404));
 });
