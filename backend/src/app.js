@@ -5,6 +5,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import webpush from "web-push";
 import {connectToDB} from "./init/index.js";
+import ErrorHandler from './utils/errorHandler.js';
 
 if(process.env.NODE_ENV !== "production"){
     dotenv.config();
@@ -27,6 +28,20 @@ webpush.setVapidDetails(
     process.env.PUBLIC_VAPID_KEY,
     process.env.PRIVATE_VAPID_KEY
 )
+
+app.use((req,res,next)=>{
+    next(new ErrorHandler("Not Found", 404));
+});
+
+app.use((err,req,res,next)=>{
+    err.status=err.status || 500;
+    err.message=err.message || "Internal Server Error";
+    res.status(err.status).json({
+        success:false,
+        message:err.message,
+        status:err.status
+    });
+})
 
 app.listen(process.env.PORT || 8000, () => {
     console.log(`Server is running on port ${process.env.PORT || 8000}`);
