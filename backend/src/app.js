@@ -26,8 +26,8 @@ await connectToDB();
 
 webpush.setVapidDetails(
     "mailto:admin@gmail.com",
-    process.env.PUBLIC_VAPID_KEY,
-    process.env.PRIVATE_VAPID_KEY
+    process.env.PUBLIC_VAPID_KEY || "BAVYJmXadMWG0D9XTNGNoGgDnbQESe_nkFxwMTptFTOGPMBowXgKYLvR-32h_ho2B97rZtjOaKeRoDYqFGGP6aw",
+    process.env.PRIVATE_VAPID_KEY || "jG9-ejw6GdppV8h4VNf-v6gagrym5Sv1CYrIw9o97D0"
 );
 
 app.use("/email", emailRouter);
