@@ -1,13 +1,14 @@
-if(process.env.NODE_ENV !== "production"){
-    dotenv.config();
-}
-
 import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
-import {connectToDB} from "../init/index.js";
+import webpush from "web-push";
+import {connectToDB} from "./init/index.js";
+
+if(process.env.NODE_ENV !== "production"){
+    dotenv.config();
+}
 
 const app = express();  
 
