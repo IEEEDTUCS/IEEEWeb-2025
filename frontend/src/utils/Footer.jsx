@@ -1,7 +1,12 @@
-import React from "react";
+import React,{useState} from "react";
 import { Facebook, Instagram, Twitter, Phone } from "lucide-react";
 
 export default function Footer() {
+  const [name,setName]=useState("");
+  const [email,setEmail]=useState("");
+  const [status,setStatus]=useStatus(null);
+  const [errorMessage,setErrorMessage]=useState("");
+
   const socials = [
     {
       name: "Facebook",
@@ -22,6 +27,47 @@ export default function Footer() {
       color: "hover:text-gray-300",
     },
   ];
+
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const handleSubmit=async (e)=>{
+    e.preventDefault();
+    setStatus(null);
+    setErrorMessage("");
+
+    if(!name.trim()){
+      setStatus("error");
+      setErrorMessage("Username is required");
+      return;
+    }
+
+    if(!validateEmail(email)){
+      setStatus("error");
+      setErrorMessage("Please provide a valid email");
+      return;
+    }
+
+    try{
+    const res=await fetch("http://localhost:8000/emails/subscribe"||process.env.BACK_API , {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({name,email})
+    });
+
+    const data=await res.json();
+    if(res.ok){
+      setStatus("success");
+      setName("");
+      setEmail("");
+    }else{
+      setStatus("error");
+      setErrorMessage("Subscription Failed!");
+    }
+  }catch(error){
+    setStatus("error");
+    setErrorMessage("Network error. Please try again");
+  }
+  };
 
   return (
     <footer className="w-full bg-gray-500 bg-[url('/footer.png')] text-gray-300 pt-10 pb-6 relative mt-20 font-sans">
@@ -126,16 +172,22 @@ export default function Footer() {
           <p className="text-sm mb-3 text-gray-400">
             Subscribe to our newsletter for more updates.
           </p>
-          <form className="flex flex-col gap-3">
+          <form className="flex flex-col gap-3" onSubmit={handleSubmit} noValidate>
             <input
               type="text"
+              value={name}
+              onChange={(e)=>setName(e.target.value)}
               placeholder="Your Name"
               className="px-3 py-2 bg-gray-800 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              required
             />
             <input
               type="email"
+              value={name}
+              onChange={(e)=>setName(e.target.value)}
               placeholder="Your Email"
               className="px-3 py-2 bg-gray-800 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              required
             />
             <button
               type="submit"
@@ -143,6 +195,10 @@ export default function Footer() {
             >
               Subscribe
             </button>
+            {status === "success" && (
+              <p className="text-indigo-600">Thank you {name}! You’ve been subscribed successfully.</p>
+            )}
+            {status === "error" && <p className="text-red-500">{errorMessage}</p>}
           </form>
         </div>
       </div>
