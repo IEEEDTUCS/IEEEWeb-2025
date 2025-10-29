@@ -14,36 +14,46 @@ export const saveEmail = async (req, res, next) => {
   try {
     const { email } = req.body;
 
-    if (!email) return next(new ExpressError(400, "Email is required"));
+    if (!email || email.trim() === "" || email === "undefined") {
+      throw new ExpressError(400, "Email is required");
+
+  }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email))
-      return next(new ExpressError(400, "Invalid email format"));
+      return res.status(400).json({
+        success: false,
+        message: "Invalid email format",
+      });
 
     const exists = await Email.findOne({ email });
-    if (exists)
-      return next(new ExpressError(400, "Email already registered"));
+    if (exists) {
+      return res.status(200).json({
+      success: true,
+      message: "You're already subscribed.",
+      });
+    }
 
     const newEmail = new Email({ email });
     await newEmail.save();
 
-    // Send confirmation to user
-    const userMailOptions = {
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "🎉 Subscription Confirmed!",
-      text: `Hey there! You’ve successfully subscribed to our newsletter. Stay tuned for exciting updates.`,
-    };
-    await transporter.sendMail(userMailOptions);
+    // // Send confirmation to user
+    // const userMailOptions = {
+    //   from: process.env.EMAIL_USER,
+    //   to: email,
+    //   subject: "🎉 Subscription Confirmed!",
+    //   text: `Hey there! You’ve successfully subscribed to our newsletter. Stay tuned for exciting updates.`,
+    // };
+    // await transporter.sendMail(userMailOptions);
 
-    // Notify admin
-    const adminMailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: "🆕 New Subscriber Alert",
-      text: `A new user has subscribed with the email: ${email}.`,
-    };
-    await transporter.sendMail(adminMailOptions);
+    // // Notify admin
+    // const adminMailOptions = {
+    //   from: process.env.EMAIL_USER,
+    //   to: process.env.EMAIL_USER,
+    //   subject: "🆕 New Subscriber Alert",
+    //   text: `A new user has subscribed with the email: ${email}.`,
+    // };
+    // await transporter.sendMail(adminMailOptions);
 
     return res.status(201).json({
       success: true,

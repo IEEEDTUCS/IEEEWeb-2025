@@ -1,17 +1,15 @@
 import Subs from "../models/subsModel.js";
 import expressError from "../utils/errorHandler.js";
 import webpush from "web-push";
-
 export const saveSubs = async (req, res, next) => {
   const subscription = req.body;
-  // console.log(subscription);
-  
+
   if (
-    !subscription.endpoint ||
-    !subscription.keys?.auth ||
-    !subscription.keys?.p256dh
+    !subscription?.endpoint ||
+    !subscription?.keys?.auth ||
+    !subscription?.keys?.p256dh
   ) {
-    return next(new expressError(400, "Invalid subscription object"));
+    throw new expressError(400, "Invalid subscription format");
   }
 
   const found = await Subs.findOne({ endpoint: subscription.endpoint });
@@ -20,15 +18,33 @@ export const saveSubs = async (req, res, next) => {
       success: false,
       message: "Subscription already exists",
     });
-    return next(new expressError(400, "Subscription already exists"));
   }
 
+  // ✅ Validate by sending a tiny test notification for server side validation
+  const testPayload = JSON.stringify({
+    title: "IEEE DTU CS",
+    message: "Notifications enabled successfully!",
+    icon: '/pwa-512x512.png'
+  });
+
+  try {
+    await webpush.sendNotification(subscription, testPayload);
+  } catch (err) {
+    // If sendNotification fails → subscription is invalid
+    console.error("Invalid subscription:", err.statusCode || err.message);
+
+    if (err.statusCode === 410 || err.statusCode === 404) {
+      throw new expressError(400, "Subscription is expired or invalid");
+    }
+
+    throw err;
+  }
   const newSubs = new Subs(subscription);
   await newSubs.save();
 
-  res.status(201).json({
+  return res.status(201).json({
     success: true,
-    message: "Subscription saved successfully",
+    message: "Subscription saved and verified ",
   });
 };
 

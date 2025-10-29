@@ -15,7 +15,7 @@ app.set("port", process.env.PORT || 8000);
 
 // --- Middleware ---
 app.use(cors({
-    origin:"http://localhost:3006"||process.env.CLIENT_URL,
+    origin:  "http://localhost:4173" || process.env.CLIENT_URL,
     credentials: true
 }));
 // Use only the built-in Express middleware for parsing JSON and URL-encoded bodies
