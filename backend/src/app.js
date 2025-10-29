@@ -27,7 +27,7 @@ app.use(cors({
     }
   },
   credentials: true,
-  
+
 }));
 // Use only the built-in Express middleware for parsing JSON and URL-encoded bodies
 app.use(express.json({ limit: "40kb" }));
@@ -49,7 +49,7 @@ app.use("/emails",emailRouter);
 
 // --- Error Handling ---
 app.use((req, res, next) => {
-    next(new ErrorHandler("Not Found", 404));
+    next(new ErrorHandler(404, "Not Found"));
 });
 
 app.use((err, req, res, next) => {
