@@ -6,20 +6,37 @@ import webpush from "web-push";
 import { connectToDB } from "./init/index.js";
 import ErrorHandler from './utils/errorHandler.js';
 import subsRouter from "./Routes/subsRouter.js";
+import emailRouter from "./Routes/emailRouter.js";
 
 dotenv.config();
 const app = express();
 
 app.set("port", process.env.PORT || 8000);
 
-// --- Middleware ---
-app.use(cors());
+const allowedOrigins = process.env.CLIENT_URLS.split(",");
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests like Postman or server-to-server (no origin)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, origin);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  
+}));
 // Use only the built-in Express middleware for parsing JSON and URL-encoded bodies
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
 // --- Database and VAPID Setup ---
 await connectToDB();
+// const keys = webpush.generateVAPIDKeys();
+// console.log(keys);
 
 webpush.setVapidDetails(
     "mailto:ieeedtucs123@gmail.com",
@@ -28,6 +45,7 @@ webpush.setVapidDetails(
 );
 
 app.use("/subs", subsRouter); 
+app.use("/emails",emailRouter);
 
 // --- Error Handling ---
 app.use((req, res, next) => {
