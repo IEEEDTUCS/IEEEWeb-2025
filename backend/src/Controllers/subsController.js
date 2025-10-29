@@ -60,7 +60,7 @@ export const sendNotification = async (req, res, next) => {
   const payload = JSON.stringify({
     title,
     message,
-    icon: '/pwa-192x192.png' // Or your preferred icon path
+    icon: '/pwa-512x512.png' // Or your preferred icon path
   });
 
   try {

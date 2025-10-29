@@ -24,8 +24,8 @@ app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
 // --- Database and VAPID Setup ---
 await connectToDB();
-const keys = webpush.generateVAPIDKeys();
-console.log(keys);
+// const keys = webpush.generateVAPIDKeys();
+// console.log(keys);
 
 webpush.setVapidDetails(
     "mailto:ieeedtucs123@gmail.com",
