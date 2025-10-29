@@ -13,10 +13,21 @@ const app = express();
 
 app.set("port", process.env.PORT || 8000);
 
-// --- Middleware ---
+const allowedOrigins = process.env.CLIENT_URLS.split(",");
+
 app.use(cors({
-    origin:  "http://localhost:4173" || process.env.CLIENT_URL,
-    credentials: true
+  origin: (origin, callback) => {
+    // Allow requests like Postman or server-to-server (no origin)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, origin);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  
 }));
 // Use only the built-in Express middleware for parsing JSON and URL-encoded bodies
 app.use(express.json({ limit: "40kb" }));
