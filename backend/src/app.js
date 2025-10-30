@@ -7,7 +7,6 @@ import { connectToDB } from "./init/index.js";
 import ErrorHandler from './utils/errorHandler.js';
 import subsRouter from "./Routes/subsRouter.js";
 import emailRouter from "./Routes/emailRouter.js";
-import emailRouter from "./Routes/emailRouter.js";
 
 dotenv.config();
 const app = express();

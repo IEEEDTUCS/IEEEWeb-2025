@@ -51,7 +51,7 @@ export default function Footer() {
     try {
       setLoading(true); // 🌀 Start loader
       const res = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/emails/subscribe`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/subscribe`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
