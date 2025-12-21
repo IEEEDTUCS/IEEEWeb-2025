@@ -3,36 +3,34 @@ import dotenv from "dotenv";
 import cors from "cors";
 import webpush from "web-push";
 import { connectToDB } from "./init/index.js";
-import ErrorHandler from './utils/errorHandler.js';
+import ErrorHandler from "./utils/errorHandler.js";
 import subsRouter from "./Routes/subsRouter.js";
 import emailRouter from "./Routes/emailRouter.js";
 import session from "express-session";
 import passport from "./config/passport.js";
 import authRoutes from "./Routes/authRoutes.js";
 
-
 dotenv.config();
 const app = express();
 
-app.set("port", process.env.PORT || 8000);
+/* ---------- SAFE ENV ---------- */
+const PORT = process.env.PORT || 8000;
+const allowedOrigins = (process.env.CLIENT_URLS || "")
+  .split(",")
+  .filter(Boolean);
 
-const allowedOrigins = process.env.CLIENT_URLS.split(",");
-
-app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests like Postman or server-to-server (no origin)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, origin);
-    } else {
+/* ---------- MIDDLEWARE ---------- */
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
       return callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
+    },
+    credentials: true,
+  })
+);
 
-}));
-// Use only the built-in Express middleware for parsing JSON and URL-encoded bodies
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
@@ -40,43 +38,43 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
   })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-await connectToDB();
-// const keys = webpush.generateVAPIDKeys();
-// console.log(keys);
-
-webpush.setVapidDetails(
-    "mailto:ieeedtucs123@gmail.com",
-    process.env.PUBLIC_VAPID_KEY,
-    process.env.PRIVATE_VAPID_KEY
-);
-
-app.use("/subs", subsRouter); 
-app.use("/emails",emailRouter);
+/* ---------- ROUTES ---------- */
+app.use("/subs", subsRouter);
+app.use("/emails", emailRouter);
 app.use("/auth", authRoutes);
 
-// --- Error Handling ---
+/* ---------- ERROR HANDLING ---------- */
 app.use((req, res, next) => {
-    next(new ErrorHandler(404, "Not Found"));
+  next(new ErrorHandler(404, "Not Found"));
 });
 
 app.use((err, req, res, next) => {
-    err.status = err.status || 500;
-    err.message = err.message || "Internal Server Error";
-    res.status(err.status).json({
-        success: false,
-        message: err.message,
-        status: err.status
-    });
+  res.status(err.status || 500).json({
+    success: false,
+    message: err.message || "Internal Server Error",
+  });
 });
 
-// --- Start Server ---
-app.listen(process.env.PORT || 8000, () => {
-    console.log(`Server is running on port ${process.env.PORT || 8000}`);
-});
+/* ---------- START SERVER ONLY AFTER DB ---------- */
+(async () => {
+  await connectToDB(); // wait here properly
+
+  if (process.env.PUBLIC_VAPID_KEY && process.env.PRIVATE_VAPID_KEY) {
+    webpush.setVapidDetails(
+      "mailto:ieeedtucs123@gmail.com",
+      process.env.PUBLIC_VAPID_KEY,
+      process.env.PRIVATE_VAPID_KEY
+    );
+  }
+
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+  });
+})();
