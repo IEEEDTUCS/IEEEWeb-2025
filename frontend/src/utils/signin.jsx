@@ -1,50 +1,29 @@
 import * as React from "react";
-import {
-  Box,
-  Button,
-  Link,
-  Snackbar,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
-import { createTheme } from "@mui/material/styles";
-import { AppProvider } from "@toolpad/core/AppProvider";
-import { SignInPage } from "@toolpad/core/SignInPage";
 
 const Alert = React.forwardRef((props, ref) => (
   <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
 ));
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    background: { paper: "#000" },
-    text: { primary: "#fff" },
-  },
-});
-
-const BRANDING = {
-  logo: (
-    <img
-      src="/loader/ieee-dtu-logo.svg"
-      alt="IEEE logo"
-      style={{ height: 65 }}
-    />
-  ),
-  title: "IEEE DTU",
-};
-
-const API = process.env.REACT_APP_API_URL || "http://localhost:8000";
+// ✅ NEXT.JS ENV
+const API =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function AuthPage() {
   const [mode, setMode] = React.useState("FORM"); 
-  const [intent, setIntent] = React.useState("LOGIN"); 
+  const [intent, setIntent] = React.useState("LOGIN");
 
+  const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [otp, setOtp] = React.useState("");
+
   const [loading, setLoading] = React.useState(false);
+  const [otpTimer, setOtpTimer] = React.useState(0);
+  const [checkingSession, setCheckingSession] = React.useState(true);
+
+  const [currentUser, setCurrentUser] = React.useState(null);
 
   const [snack, setSnack] = React.useState({
     open: false,
@@ -55,49 +34,114 @@ export default function AuthPage() {
   const showSnack = (msg, type = "error") =>
     setSnack({ open: true, msg, type });
 
+  const validateEmail = (e) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  const validatePassword = (p) => p.length >= 6;
+  const validateUsername = (u) => u.length >= 3;
+
+  /* ---------------- SESSION CHECK ---------------- */
+  React.useEffect(() => {
+    let mounted = true;
+
+    (async () => {
+      try {
+        const res = await fetch(`${API}/auth/check-session`, {
+          credentials: "include",
+        });
+
+        if (!mounted) return;
+
+        if (res.ok) {
+          const data = await res.json();
+          if (data.isAuthenticated && data.user) {
+            setCurrentUser(data.user);
+            setMode("SUCCESS");
+            showSnack(
+              `Welcome back ${data.user.username || data.user.email}`,
+              "success"
+            );
+          }
+        }
+      } catch (err) {
+        console.error("Session check failed");
+      } finally {
+        mounted && setCheckingSession(false);
+      }
+    })();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  React.useEffect(() => {
+    if (otpTimer <= 0) return;
+    const t = setTimeout(() => setOtpTimer((v) => v - 1), 1000);
+    return () => clearTimeout(t);
+  }, [otpTimer]);
+
   /* ---------------- LOGIN / SIGNUP ---------------- */
   const handleAuth = async () => {
-    try {
-      setLoading(true);
+    if (!email || !password)
+      return showSnack("Please fill all required fields");
 
+    if (!validateEmail(email))
+      return showSnack("Invalid email format");
+
+    if (!validatePassword(password))
+      return showSnack("Password must be at least 6 characters");
+
+    if (intent === "SIGNUP" && !validateUsername(username))
+      return showSnack("Username must be at least 3 characters");
+
+    setLoading(true);
+    try {
       const endpoint =
         intent === "LOGIN" ? "/auth/login" : "/auth/signup";
+
+      const payload =
+        intent === "SIGNUP"
+          ? { username, email, password }
+          : { email, password };
 
       const res = await fetch(`${API}${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify(payload),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        // LOGIN → user not found → auto SIGNUP
-        if (
-          intent === "LOGIN" &&
-          data.message?.toLowerCase().includes("not found")
-        ) {
-          showSnack("No account found. Switching to signup.", "info");
+        if (res.status === 403) {
+          setCurrentUser(data.currentUser);
+          setMode("SUCCESS");
+          showSnack(data.message, "warning");
+          return;
+        }
+
+        if (intent === "LOGIN" && res.status === 404) {
+          showSnack("User not found. Switching to signup.", "info");
           setIntent("SIGNUP");
           return;
         }
 
-        // SIGNUP → user exists → auto LOGIN
-        if (
-          intent === "SIGNUP" &&
-          data.message?.toLowerCase().includes("exists")
-        ) {
-          showSnack("Account already exists. Please login.", "info");
+        if (intent === "SIGNUP" && res.status === 409) {
+          showSnack(data.message, "info");
           setIntent("LOGIN");
+          setUsername("");
           return;
         }
 
         throw new Error(data.message);
       }
 
-      showSnack("OTP sent to your email", "success");
-      setMode("OTP");
+      if (data.otpRequired) {
+        setMode("OTP");
+        setOtpTimer(300);
+        showSnack("OTP sent to your email", "success");
+      }
     } catch (err) {
       showSnack(err.message || "Authentication failed");
     } finally {
@@ -105,11 +149,12 @@ export default function AuthPage() {
     }
   };
 
-  /* ---------------- VERIFY OTP ---------------- */
   const handleVerifyOtp = async () => {
-    try {
-      setLoading(true);
+    if (otp.length !== 6)
+      return showSnack("Please enter a valid 6-digit OTP");
 
+    setLoading(true);
+    try {
       const res = await fetch(`${API}/auth/verify-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -120,13 +165,9 @@ export default function AuthPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
 
-      showSnack(
-        intent === "LOGIN"
-          ? "Login successful 🎉"
-          : "Signup successful 🎉",
-        "success"
-      );
-
+      setCurrentUser(data.user);
+      setMode("SUCCESS");
+      showSnack("Authentication successful 🎉", "success");
     } catch (err) {
       showSnack(err.message || "OTP verification failed");
     } finally {
@@ -134,102 +175,194 @@ export default function AuthPage() {
     }
   };
 
+  /* ---------------- RESEND OTP ---------------- */
+  const handleResendOtp = async () => {
+    setLoading(true);
+    try {
+      const endpoint =
+        intent === "LOGIN" ? "/auth/login" : "/auth/signup";
+
+      const payload =
+        intent === "SIGNUP"
+          ? { username, email, password }
+          : { email, password };
+
+      await fetch(`${API}${endpoint}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(payload),
+      });
+
+      setOtp("");
+      setOtpTimer(300);
+      showSnack("OTP resent successfully", "success");
+    } catch {
+      showSnack("Failed to resend OTP");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /* ---------------- LOGOUT ---------------- */
+  const handleLogout = async () => {
+    try {
+      await fetch(`${API}/auth/logout`, {
+        method: "POST",
+        credentials: "include",
+      });
+
+      setCurrentUser(null);
+      setMode("FORM");
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      showSnack("Logged out successfully", "success");
+    } catch {
+      showSnack("Logout failed");
+    }
+  };
+
+  if (checkingSession) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <>
-      <AppProvider branding={BRANDING} theme={darkTheme}>
+      <div className="min-h-screen flex items-center justify-center bg-black text-white px-4">
+
+        {/* FORM */}
         {mode === "FORM" && (
-          <SignInPage
-            title={
-              intent === "LOGIN"
-                ? "Sign in to IEEE DTU"
-                : "Create your IEEE DTU account"
-            }
-            providers={[{ id: "credentials", name: "Credentials" }]}
-            signIn={handleAuth}
-            slotProps={{
-              emailField: { onChange: (e) => setEmail(e.target.value) },
-              passwordField: { onChange: (e) => setPassword(e.target.value) },
-              submitButton: {
-                disabled: !email || !password || loading,
-              },
-            }}
-            slots={{
-              subtitle: () => (
-                <Typography color="gray" textAlign="center">
-                  {intent === "LOGIN"
-                    ? "Welcome back 👋"
-                    : "Join the IEEE DTU community"}
-                </Typography>
-              ),
-              forgotPasswordLink: () => (
-                <Link
-                  component="button"
-                  onClick={() =>
-                    setIntent(intent === "LOGIN" ? "SIGNUP" : "LOGIN")
-                  }
-                >
-                  {intent === "LOGIN"
-                    ? "New here? Create an account →"
-                    : "Already have an account? Login →"}
-                </Link>
-              ),
-            }}
-          />
-        )}
+          <div className="w-full max-w-md bg-zinc-950 border border-white/10 rounded-xl p-6 backdrop-blur-xl">
+            <div className="text-center mb-6">
+              <img
+                src="/loader/ieee-dtu-logo.svg"
+                className="h-16 mx-auto mb-3"
+              />
+              <h2 className="text-xl font-semibold">
+                {intent === "LOGIN" ? "Welcome Back" : "Create Account"}
+              </h2>
+              <p className="text-gray-400 text-sm">
+                {intent === "LOGIN"
+                  ? "Sign in to continue to IEEE DTU"
+                  : "Join the IEEE DTU community"}
+              </p>
+            </div>
 
-        {mode === "OTP" && (
-          <Box
-            sx={{
-              maxWidth: 400,
-              mx: "auto",
-              mt: 10,
-              p: 4,
-              bgcolor: "#000",
-              borderRadius: 2,
-            }}
-          >
-            <Typography textAlign="center" variant="h6" mb={2}>
-              Verify OTP
-            </Typography>
+            {intent === "SIGNUP" && (
+              <input
+                className="w-full mb-3 px-4 py-2 rounded bg-black border border-white/20"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            )}
 
-            <Typography textAlign="center" mb={2} color="gray">
-              OTP sent to <b>{email}</b>
-            </Typography>
-
-            <TextField
-              fullWidth
-              label="OTP"
-              margin="normal"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
+            <input
+              className="w-full mb-3 px-4 py-2 rounded bg-black border border-white/20"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
-            <Button
-              fullWidth
-              variant="outlined"
-              disabled={!otp || loading}
-              onClick={handleVerifyOtp}
-            >
-              {loading ? "Verifying..." : "Verify OTP"}
-            </Button>
+            <input
+              type="password"
+              className="w-full mb-4 px-4 py-2 rounded bg-black border border-white/20"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-            <Button
-              fullWidth
-              sx={{ mt: 1 }}
-              onClick={() => {
-                setMode("FORM");
-                setOtp("");
-              }}
+            <button
+              onClick={handleAuth}
+              disabled={loading}
+              className="w-full py-2 rounded bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
             >
-              Back to Login
-            </Button>
-          </Box>
+              {loading ? "Please wait..." : intent}
+            </button>
+
+            <button
+              onClick={() =>
+                setIntent(intent === "LOGIN" ? "SIGNUP" : "LOGIN")
+              }
+              className="mt-4 w-full text-sm text-blue-400 hover:underline"
+            >
+              {intent === "LOGIN"
+                ? "New here? Create an account →"
+                : "Already have an account? Login →"}
+            </button>
+          </div>
         )}
-      </AppProvider>
+
+        {/* OTP */}
+        {mode === "OTP" && (
+          <div className="w-full max-w-sm bg-zinc-950 border border-white/10 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-center mb-2">
+              Verify OTP
+            </h3>
+            <p className="text-sm text-gray-400 text-center mb-4">
+              Sent to <b>{email}</b>
+            </p>
+
+            <input
+              className="w-full mb-3 px-4 py-2 text-center tracking-widest rounded bg-black border border-white/20"
+              placeholder="000000"
+              value={otp}
+              onChange={(e) =>
+                setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))
+              }
+            />
+
+            {otpTimer > 0 && (
+              <p className="text-center text-gray-400 mb-3">
+                {Math.floor(otpTimer / 60)}:
+                {String(otpTimer % 60).padStart(2, "0")}
+              </p>
+            )}
+
+            <button
+              onClick={handleVerifyOtp}
+              disabled={loading}
+              className="w-full py-2 rounded bg-green-600 hover:bg-green-700"
+            >
+              Verify OTP
+            </button>
+
+            <button
+              onClick={handleResendOtp}
+              disabled={otpTimer > 0}
+              className="mt-3 w-full text-sm text-blue-400 hover:underline"
+            >
+              {otpTimer > 0 ? "Resend OTP disabled" : "Resend OTP"}
+            </button>
+          </div>
+        )}
+
+        {/* SUCCESS */}
+        {mode === "SUCCESS" && (
+          <div className="w-full max-w-sm bg-zinc-950 border border-white/10 rounded-xl p-6 text-center">
+            <h2 className="text-2xl font-bold mb-2">Welcome 🎉</h2>
+            <p className="text-gray-400 mb-6">
+              {currentUser?.username || currentUser?.email}
+            </p>
+
+            <button
+              onClick={handleLogout}
+              className="w-full py-2 rounded bg-red-600 hover:bg-red-700"
+            >
+              Logout
+            </button>
+          </div>
+        )}
+      </div>
 
       <Snackbar
         open={snack.open}
-        autoHideDuration={2500}
+        autoHideDuration={4000}
         onClose={() => setSnack({ ...snack, open: false })}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
@@ -238,3 +371,4 @@ export default function AuthPage() {
     </>
   );
 }
+
