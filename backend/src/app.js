@@ -1,4 +1,3 @@
-// src/app.js
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -7,6 +6,10 @@ import { connectToDB } from "./init/index.js";
 import ErrorHandler from './utils/errorHandler.js';
 import subsRouter from "./Routes/subsRouter.js";
 import emailRouter from "./Routes/emailRouter.js";
+import session from "express-session";
+import passport from "./config/passport.js";
+import authRoutes from "./Routes/authRoutes.js";
+
 
 dotenv.config();
 const app = express();
@@ -33,7 +36,17 @@ app.use(cors({
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
-// --- Database and VAPID Setup ---
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 await connectToDB();
 // const keys = webpush.generateVAPIDKeys();
 // console.log(keys);
@@ -46,6 +59,7 @@ webpush.setVapidDetails(
 
 app.use("/subs", subsRouter); 
 app.use("/emails",emailRouter);
+app.use("/auth", authRoutes);
 
 // --- Error Handling ---
 app.use((req, res, next) => {
