@@ -35,11 +35,11 @@ const BRANDING = {
   title: "IEEE DTU",
 };
 
-const API = "http://localhost:8000";
+const API = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 export default function AuthPage() {
-  const [mode, setMode] = React.useState("FORM"); // FORM | OTP
-  const [intent, setIntent] = React.useState("LOGIN"); // LOGIN | SIGNUP
+  const [mode, setMode] = React.useState("FORM"); 
+  const [intent, setIntent] = React.useState("LOGIN"); 
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -96,7 +96,6 @@ export default function AuthPage() {
         throw new Error(data.message);
       }
 
-      // OTP ALWAYS COMES FROM BACKEND
       showSnack("OTP sent to your email", "success");
       setMode("OTP");
     } catch (err) {
@@ -127,9 +126,6 @@ export default function AuthPage() {
           : "Signup successful 🎉",
         "success"
       );
-
-      // ✅ Close / redirect here
-      // navigate("/dashboard");
 
     } catch (err) {
       showSnack(err.message || "OTP verification failed");
