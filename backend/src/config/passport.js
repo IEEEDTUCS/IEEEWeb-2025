@@ -5,10 +5,13 @@ import { User } from "../models/users.js";
 
 passport.use(
   new LocalStrategy(
-    { usernameField: "email" },
+    { 
+      usernameField: "email", 
+      passwordField: "password"
+    },
     async (email, password, done) => {
       try {
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email });  
         if (!user) return done(null, false, { message: "User not found" });
 
         const isMatch = await bcrypt.compare(password, user.password);
@@ -23,9 +26,14 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => done(null, user.id));
+
 passport.deserializeUser(async (id, done) => {
-  const user = await User.findById(id);
-  done(null, user);
+  try {
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
 });
 
 export default passport;

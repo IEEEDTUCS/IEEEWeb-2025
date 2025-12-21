@@ -15,7 +15,7 @@ const app = express();
 
 /* ---------- SAFE ENV ---------- */
 const PORT = process.env.PORT || 8000;
-const allowedOrigins = (process.env.CLIENT_URLS || "")
+const allowedOrigins = (process.env.CLIENT_URLS)
   .split(",")
   .filter(Boolean);
 
