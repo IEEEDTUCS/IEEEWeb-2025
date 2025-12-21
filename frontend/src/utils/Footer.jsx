@@ -51,8 +51,7 @@ export default function Footer() {
     try {
       setLoading(true); // 🌀 Start loader
       const res = await fetch(
-        process.env.REACT_APP_BACK_API ||
-          "http://localhost:8000/emails/subscribe",
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/emails/subscribe`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -61,7 +60,10 @@ export default function Footer() {
       );
 
       const data = await res.json();
-      if (res.ok) {
+      if(res.status === 200 && data.success) {
+        setStatus("successButExists");
+      } 
+      if (res.ok && res.status === 201 && data.success) {
         setStatus("success");
         setName("");
         setEmail("");
@@ -211,6 +213,12 @@ export default function Footer() {
                 "Subscribe"
               )}
             </button>
+
+            {status === "successButExists" && (
+              <p className="text-indigo-400">
+              You’re already subscribed.
+              </p>
+            )}
 
             {status === "success" && (
               <p className="text-indigo-400">
