@@ -25,7 +25,6 @@ const requireNoAuth = (req, res, next) => {
   next();
 };
 
-// Auth routes
 router.post("/signup", requireNoAuth, signup);
 router.post("/login", requireNoAuth, loginAndSendOTP);
 router.post("/verify-otp", verifyOTP); // No auth check here - needed to complete login
