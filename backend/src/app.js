@@ -20,6 +20,11 @@ app.use(cors({
     // Allow requests like Postman or server-to-server (no origin)
     if (!origin) return callback(null, true);
 
+        // ✅ Allow ALL Vercel preview deployments
+    if (origin.endsWith(".vercel.app")) {
+      return callback(null, true);
+    }
+
     if (allowedOrigins.includes(origin)) {
       return callback(null, origin);
     } else {
