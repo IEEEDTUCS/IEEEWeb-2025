@@ -1,0 +1,798 @@
+[
+  {
+    "id": "ieee_dtu_faculty_counselor",
+    "text": "Prof. Jeebananda Panda serves as the Branch Counselor of IEEE DTU. Under his visionary leadership, the society has established itself as a hub for innovation and technical excellence. He emphasizes the core mission of advancing technology for humanity's benefit, pushing boundaries in research, and creating a vibrant ecosystem for future leaders.",
+    "metadata": {
+      "name": "Prof. Jeebananda Panda",
+      "role": "Branch Counselor",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_cs_faculty_advisor",
+    "text": "Prof. Rahul Katarya is the Faculty Advisor for the IEEE DTU Computer Society. He focuses on bridging the gap between theory and industry practice through hands-on learning, including hackathons and research symposiums. He envisions a strong industry-academia collaboration to inspire the next generation of engineers.",
+    "metadata": {
+      "name": "Prof. Rahul Katarya",
+      "role": "CS Faculty Advisor",
+      "priority": "medium",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_dtu_pes_ias_faculty_advisor",
+    "text": "Prof. Rachna Garg, the Chair of IEEE Delhi SSN & SAC, serves as the Faculty Advisor for the PES-IAS Chapter. Her mission is to disseminate scientific knowledge in power and energy systems for social betterment, promoting sustainable energy and ensuring professional growth for students in the electrical sector.",
+    "metadata": {
+      "name": "Prof. Rachna Garg",
+      "role": "PES-IAS Faculty Advisor",
+      "priority": "medium",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "ieee_dtu_wie_faculty_advisor",
+    "text": "Prof. Sonam Rewari is the Faculty Advisor for the IEEE DTU Women in Engineering (WIE) Affinity Group. She leads the community in paving new paths for women in STEM, leveraging professional networks and inclusive collaboration to develop cutting-edge solutions in electronic and IT systems.",
+    "metadata": {
+      "name": "Prof. Sonam Rewari",
+      "role": "WIE Faculty Advisor",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "ieee_dtu_cass_faculty_advisor",
+    "text": "Dr. Deva Nand serves as the Faculty Advisor for the IEEE DTU Circuits and Systems Society (CASS). He promotes advancement in the design and implementation of modern circuits and embedded systems, fostering academic rigor and skill-building through international publications and technical workshops.",
+    "metadata": {
+      "name": "Dr. Deva Nand",
+      "role": "CASS Faculty Advisor",
+      "priority": "medium",
+      "chapter": "CASS"
+    }
+  },
+  {
+    "id": "ieee_global_overview",
+    "text": "IEEE, which stands for the Institute of Electrical and Electronics Engineers, is the world's largest technical organization dedicated to advancing technology for humanity's benefit. Its membership includes engineers, scientists, computer scientists, software developers, and medical professionals. It serves as an authoritative voice through publications, standards, and professional networking.",
+    "metadata": {
+      "event": "IEEE Global",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_region_10",
+    "text": "IEEE Region 10, the Asia-Pacific region, spans from Japan to New Zealand. It is a vibrant division comprising over 6 councils, 58 sections, 26 sub-sections, and more than 1,400 student branches.",
+    "metadata": {
+      "event": "IEEE Region 10",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_india_council",
+    "text": "Established in 1976, the IEEE India Council coordinates activities across India to foster collaboration and prevent duplication of resources. It leads initiatives like the IEEE Blended Learning Program and engages in public policy with government officials through the IEEE India Operations Center.",
+    "metadata": {
+      "event": "IEEE India Council",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_delhi_section",
+    "text": "The IEEE Delhi Section is one of 13 sections under the India Council, serving Northern India (Delhi, Rajasthan, Haryana, Punjab, Himachal Pradesh, and relevant UTs). It promotes excellence by organizing conferences and supporting Special Interest Groups (SIGs) to bridge the gap between academia and industry.",
+    "metadata": {
+      "event": "IEEE Delhi Section",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_dtu_general_info",
+    "text": "The IEEE DTU Student Branch is the oldest student branch in the Delhi Section, with a legacy spanning over 30 years. It is one of the largest and most established societies at Delhi Technological University, operating under the leadership of Dr. Jeebananda Panda.",
+    "metadata": {
+      "event": "IEEE DTU Overview",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_mission_and_activities",
+    "text": "IEEE DTU aims to foster scientific thinking and innovation through a diverse range of year-round activities, including hackathons, seminars, and workshops. The branch is dedicated to providing students with access to technical knowledge, research opportunities, and professional networking.",
+    "metadata": {
+      "event": "IEEE DTU Activities",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_dtu_publications",
+    "text": "The student branch is renowned for its technical publications, which include 'ECHO', a resource specifically designed for freshmen, and an annual technical magazine that showcases research and innovation within the community.",
+    "metadata": {
+      "event": "IEEE DTU Publications",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_dtu_team_and_philosophy",
+    "text": "Embodying the motto 'Toil to attain thy heights', the IEEE DTU team consists of active members who go beyond participation to handle the planning and execution of events, focusing on resilience and grounded aspirations for the future.",
+    "metadata": {
+      "event": "IEEE DTU Team",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_dtu_summary",
+    "text": "IEEE DTU is a premier technical society at Delhi Technological University with a 30-year history. Through its four specialized chapters (CS, PES-IAS, WIE, CASS) and flagship events like Vihaan, it provides a national-level platform for technical growth, research, and inclusive mentorship.",
+    "metadata": {
+      "event": "IEEE DTU Summary",
+      "year": 2024,
+      "type": "summary",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "ieee_dtu_chapters_overview",
+    "text": "The IEEE DTU Student Branch comprises four distinct chapters and affinity groups, each specializing in different domains of engineering and technology: the Computer Society (CS), Power & Energy Society - Industry Applications Society (PES-IAS), Women in Engineering (WIE), and the Circuits and Systems Society (CASS).",
+    "metadata": {
+      "event": "IEEE DTU Chapters",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_cs_chapter",
+    "text": "The IEEE Computer Society (CS) chapter focuses on Computer Science and Engineering projects and innovation. It organizes several key technical events and competitions, including Micro-Hacks, IEEEXtreme, Bulls N' Bears, MIST, and Techweek to promote interest in the computing field.",
+    "metadata": {
+      "event": "Computer Society",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_dtu_pes_ias_chapter",
+    "text": "The PES-IAS Chapter drives progress in Power and Energy Systems and Industrial Applications. Key initiatives include 'Tinker-Case' (an Arduino showcase) and Special Interest Groups (SIGs) focused on Robotics, electronics, and embedded systems, alongside various workshops and seminars.",
+    "metadata": {
+      "event": "PES-IAS",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "ieee_dtu_wie_affinity_group",
+    "text": "The IEEE Women in Engineering (WIE) Affinity Group focuses on mentorship and advancing women in STEM. Its flagship initiatives include 'VIHAAN', a 24-hour hackathon, and 'WIEVEK', a program designed to build STEM interest among girls through collaborations with NGOs.",
+    "metadata": {
+      "event": "WIE",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "ieee_dtu_cass_chapter",
+    "text": "Established in 2024, the Circuits and Systems Society (CASS) chapter bridges research and real-world applications in circuit design. In November 2024, members participated in the 'IEEE International Symposium on Integrated Circuits and Systems' (ISICAS), themed 'Systems and Circuits for a Sustainable Society'.",
+    "metadata": {
+      "event": "CASS",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "CASS"
+    }
+  },
+  {
+    "id": "ieee_day_core_facts_2024",
+    "text": "IEEE Day is an annual flagship technical celebration organized jointly by IEEE DTU Student Branch and IEEE GTBIT Student Branch. The event focuses on innovation, technical excellence, collaboration, and professional development through competitions, hackathons, speaker sessions, and exhibitions.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_day_core_facts_2025",
+    "text": "IEEE Day is an annual flagship technical celebration organized jointly by IEEE DTU Student Branch and IEEE GTBIT Student Branch. The event focuses on innovation, technical excellence, collaboration, and professional development through competitions, hackathons, speaker sessions, and exhibitions.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_day_2024_core_facts",
+    "text": "IEEE Day 2024 was held from 14th to 16th October 2024 at Delhi Technological University and Guru Tegh Bahadur Institute of Technology. The event recorded more than 2000 registrations and featured ten technical and non-technical events conducted across multiple venues.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_day_2025_core_facts",
+    "text": "IEEE Day 2025 took place from 9th to 11th October 2025 at Delhi Technological University. The event witnessed over 1600 registrations and was powered by Midland Tools and co-powered by Aqua Quant.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_day_inauguration_2024",
+    "text": "The inauguration ceremony of IEEE Day 2024 featured senior faculty advisors and branch counsellors who highlighted IEEE's role in shaping future technologies, professional ethics, and collaborative innovation. Interactive elements such as quizzes enhanced audience engagement.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_day_inauguration_2025",
+    "text": "The inauguration ceremony of IEEE Day 2025 featured senior faculty advisors and branch counsellors who highlighted IEEE's role in shaping future technologies, professional ethics, and collaborative innovation. Interactive elements such as quizzes enhanced audience engagement.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_day_dreamforge_2024",
+    "text": "DreamForge 2024 was a flagship ideation competition conducted during IEEE Day 2024 that focused on futuristic and sci-fi inspired ideas, encouraging participants to think beyond conventional boundaries.",
+    "metadata": {
+      "event": "DreamForge",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_day_dreamforge_2025",
+    "text": "DreamForge 2.0 in 2025 was a case study competition conducted during IEEE Day 2025 that emphasized real-world business case studies, feasibility analysis, and entrepreneurial thinking.",
+    "metadata": {
+      "event": "DreamForge",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_day_tinkercase_2024",
+    "text": "TinkerCase 2.0 in 2024 was IEEE DTU's hardware showcase competition that featured Arduino-based and embedded system projects during IEEE Day 2024.",
+    "metadata": {
+      "event": "TinkerCase",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "ieee_day_tinkercase_2025",
+    "text": "TinkerCase 3.0 in 2025 expanded into domains such as smart cities, healthcare, UAVs, agritech, and women's safety during IEEE Day 2025.",
+    "metadata": {
+      "event": "TinkerCase",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "ieee_day_speedathon",
+    "text": "Speedathon was a fast-paced hackathon conducted during IEEE Day 2025. Participants were challenged to build functional prototypes within three hours using AI-powered coding tools, with evaluation based on speed, creativity, and functionality.",
+    "metadata": {
+      "event": "Speedathon",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_day_technical_events_2024",
+    "text": "IEEE Day 2024 included multiple technical and competitive events such as MIST (cryptic hunt), Code In The Dark, Knight's Duel chess tournament, Tech Track Relay, and Tech Tambola, promoting logical thinking, coding skills, and teamwork.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_day_speaker_session",
+    "text": "A dedicated speaker session on stress management was organized during IEEE Day 2024. The session focused on mindfulness, mental well-being, time management, and personal growth for students.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2024,
+      "type": "fact",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "ieee_day_closing_ceremony_2024",
+    "text": "The closing ceremony of IEEE Day 2024 included award distributions, recognition of winners and volunteers, faculty appreciation, and celebratory activities that strengthened the IEEE student community.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2024,
+      "type": "fact",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "ieee_day_closing_ceremony_2025",
+    "text": "The closing ceremony of IEEE Day 2025 included award distributions, recognition of winners and volunteers, faculty appreciation, and celebratory activities that strengthened the IEEE student community.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2025,
+      "type": "fact",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "ieee_day_summary",
+    "text": "IEEE Day 2024 and 2025 together showcased IEEE's commitment to innovation, technical learning, and student leadership. Through competitions, hackathons, speaker sessions, and exhibitions, the events fostered collaboration, creativity, and professional development among students.",
+    "metadata": {
+      "event": "IEEE Day",
+      "year": 2024,
+      "type": "summary",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "vihaan_007_core_facts",
+    "text": "Vihaan 007 was the 7th edition of the annual flagship 24-hour offline hackathon organized by the IEEE DTU Student Branch. The event took place on April 12th and 13th, 2024, at the Raj Soin Hall complex, Delhi Technological University. Designed to encourage innovation among young minds in India, the event focused on developing unprecedented solutions to real-world problems.",
+    "metadata": {
+      "event": "Vihaan 007",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "vihaan_007_participation",
+    "text": "The event garnered massive interest with 4,500 total registrations. From these, 1,500 contenders across 492 teams were selected to participate. The hackathon saw a diverse national presence with participants from states including Tamil Nadu, Uttarakhand, Uttar Pradesh, Maharashtra, and Punjab, bringing locally inspired solutions to various societal hurdles.",
+    "metadata": {
+      "event": "Vihaan 007",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "vihaan_007_themes_and_tracks",
+    "text": "Inspired by the 'Viksit Bharat @ 2047' theme of the Indian government, the hackathon featured eight specific tracks: Education, Fintech, Sustainability, Tourism and Culture, Employability, Healthcare, Open Innovation, and Artificial Intelligence. The event aimed to imbue a spirit of development particularly in sustainability and healthcare among the youth.",
+    "metadata": {
+      "event": "Vihaan 007",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "vihaan_007_hackathon_flow",
+    "text": "The competition was structured in three rounds: Round 1 (Initial screening on April 12), Round 2 (A 24-hour coding marathon starting the night of April 12 with mentoring on April 13), and Round 3 (Final presentations on April 13). Only the top 30% of teams reached Round 2, and the final 15 elite teams advanced to Round 3 to present before industry experts.",
+    "metadata": {
+      "event": "Vihaan 007",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "vihaan_007_judging_and_prizes",
+    "text": "Projects were evaluated by esteemed industry experts and STEM achievers based on creativity, innovation, functionality, and market potential. Winning teams were encouraged with prizes including monetary awards and professional guidance/support from relevant organizations and veterans in the field.",
+    "metadata": {
+      "event": "Vihaan 007",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "vihaan_007_summary",
+    "text": "Vihaan 007 was a prestigious national-level 24-hour hackathon organized by IEEE DTU that promoted teamwork and technological innovation. By aligning with the Viksit Bharat @ 2047 vision, it provided a platform for 492 teams to solve critical challenges in sectors like AI, healthcare, and sustainability, culminating in a high-stakes final presentation before industry leaders.",
+    "metadata": {
+      "event": "Vihaan 007",
+      "year": 2024,
+      "type": "summary",
+      "priority": "low",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "vihaan_007_judges",
+    "text": "The final round of Vihaan 007 featured an esteemed panel of judges, including Nishant Chahar (Ex-Microsoft SDE and Co-Founder of Algoprep), Saumya Singh (SDE at RedHat and LinkedIn Top Voice '24), Sunchit Dudeja (SDE-V at Adobe and Software Architect), and Nayan Lal (Consultant at Deloitte USI and Linux Foundation Energy Scholar '23).",
+    "metadata": {
+      "event": "Vihaan 007",
+      "year": 2024,
+      "type": "people",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "vihaan_007_mentors",
+    "text": "Participants were mentored by industry professionals from top-tier tech companies, including Software Developers and Engineers from Microsoft (Hemang Sinha, Akanksha Prasad, Vanshika Yadav), Amazon (Abdul Ahad Khan, Sahil Gupta), Expedia Group (Amishi Jain, Ashutosh Das), and other notable firms such as Adobe, Deloitte, Optum, Airtel Digital, Inshorts, GroMo, and Acko.",
+    "metadata": {
+      "event": "Vihaan 007",
+      "year": 2024,
+      "type": "people",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "wievek_2_0_overview",
+    "text": "WIEVEK 2.0: Event Vision & Summary\nIEEE WIEVEK 2.0 was a 6-day STEM workshop (July 11-17, 2024) held in collaboration with IEEE WIE-AG Delhi Section across various NGOs in Delhi. The initiative focused on empowering young girls in STEM through hands-on experiments and interactive sessions. The program included quizzes, brain teasers, math problems, and scholarship guidance to inspire students toward further opportunities in engineering and technology.",
+    "metadata": {
+      "event": "WIEVEK 2.0",
+      "year": 2024,
+      "type": "summary",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "wievek_2_0_logistics_participation",
+    "text": "NGOs Visited & Participation Statistics (July 2024):\n1. Shubhakshika Educational Society (Sec-16, Rohini): July 11 | 8 Volunteers, 45 Students\n2. Nirmana NGO (Sec-18, Rohini): July 11 | 3 Volunteers, 20 Students\n3. Ishwar NGO (South Delhi): July 12 | 11 Volunteers, 60 Students\n4. MANZIL NGO (Sujan Singh Park): July 13 | 6 Volunteers, 30 Students\n5. MIMA NGO (RK Puram): July 17 | 20 Volunteers, 50 Students",
+    "metadata": {
+      "event": "WIEVEK 2.0",
+      "year": 2024,
+      "type": "logistics",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "wievek_2_0_organizers_curriculum",
+    "text": "Lead Organizers:\n- Tasneem Ahmed (IT, 2K22/IT/171)\n- Vaishnavi Saraswat (EE, 2K22/EE/91)\n- Vaibhav Gautam (EE, 2K22/EE/286)\n- Spruha Kar (EE, 2K22/EE/266)\n\nWorkshop Curriculum:\nLed by female industry leaders, sessions covered emerging technologies and practical experiments including invisible inks, pH testing, and element identification using everyday substances. The program aimed to develop technical skills, leadership, and confidence among students from underprivileged backgrounds.",
+    "metadata": {
+      "event": "WIEVEK 2.0",
+      "year": 2024,
+      "type": "details",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "wievek_3_0_core_facts",
+    "text": "WIEVEK 3.0 was a 3-day STEM workshop series held from July 19 to July 21, 2025, in collaboration with the IEEE WIE-AG Delhi Section. The outreach program was conducted across several NGOs in Delhi, aimed at igniting curiosity and awareness about Science, Technology, Engineering, and Mathematics (STEM) among underprivileged students, with a specific focus on empowering girls and young minds.",
+    "metadata": {
+      "event": "WIEVEK",
+      "version": "3.0",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "wievek_3_0_participation_log",
+    "text": "WIEVEK 3.0 successfully visited four major NGOs in Delhi: The VIDYA Foundation (RK Puram) on July 19, Blue pen NGO (Okhla) on July 20, Subhakshika Educational Society (Rohini) on July 21, and Shiksha Abhiyan Educational Society (Dabri) on July 21. Each session maintained a strong presence of 10 IEEE volunteers, reaching a total of 130 students across the three-day drive.",
+    "metadata": {
+      "event": "WIEVEK",
+      "version": "3.0",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "wievek_3_0_activities_curriculum",
+    "text": "The workshops featured hands-on STEM experiments including pH testing using lemon and soap water, demonstrations of static electricity, and applications of magnetism. The curriculum also included math challenges, logical reasoning games, and basic physics puzzles designed to simplify complex concepts and foster a spirit of inquiry among participating students.",
+    "metadata": {
+      "event": "WIEVEK",
+      "version": "3.0",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "wievek_3_0_team_members",
+    "text": "The event was reported by Sneha Meerwal. The core organizing team included Bhavit Jain (2K23/EP/141), Bhavya Agarwal (2K23/ME/89), Sneha Meerwal (2K23/EC/202), and Kanak Maheshwari (2K23/CS/200), representing a cross-disciplinary group of engineering students dedicated to social outreach.",
+    "metadata": {
+      "event": "WIEVEK",
+      "version": "3.0",
+      "year": 2025,
+      "type": "people",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "wievek_3_0_impact_summary",
+    "text": "WIEVEK 3.0 served as a catalyst for grassroots change, bridging the accessibility gap in STEM education. Beyond technical learning, the initiative helped IEEE volunteers develop soft skills like leadership and empathy. Future plans include scaling the drive to more NGOs, introducing long-term mentorship programs, and developing a structured STEM curriculum for underprivileged communities.",
+    "metadata": {
+      "event": "WIEVEK",
+      "version": "3.0",
+      "year": 2025,
+      "type": "summary",
+      "priority": "low",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "ieee_xtreme_18_core",
+    "text": "IEEEXtreme 18.0 is a global 24-hour competitive programming challenge organized by IEEE. On October 26, 2024, IEEE DTU hosted the event with over 190 participants, marking a significant milestone in the branch's history of coding excellence.",
+    "metadata": {
+      "event": "IEEEXtreme 18.0",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_xtreme_18_rankings",
+    "text": "IEEE DTU achieved historic rankings during IEEEXtreme 18.0: 1st in the Delhi Section, Top 5 in Region 10 (Asia-Pacific), and Top 10 globally in terms of total registrations. Top performing teams included Team BlackHat (Rank 202 globally), Bitflow (Rank 205 globally), and Yaarana (Rank 309 globally).",
+    "metadata": {
+      "event": "IEEEXtreme 18.0",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_xtreme_18_leadership",
+    "text": "The success of the event was guided by faculty members Prof. Rahul Katarya, Prof. Varsha Sisaudia, and Prof. Dhirendra Kumar. Their mentorship was instrumental in coordinating the 24-hour marathon and supporting the teams through complex algorithmic problem-solving.",
+    "metadata": {
+      "event": "IEEEXtreme 18.0",
+      "year": 2024,
+      "type": "people",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ieee_xtreme_18_outcomes",
+    "text": "Beyond the rankings, the event provided participants with prizes, exclusive software access, and entry into a global network of innovators. It emphasized skill, speed, and endurance, solidifying DTU's position as a leader in the international technical community.",
+    "metadata": {
+      "event": "IEEEXtreme 18.0",
+      "year": 2024,
+      "type": "summary",
+      "priority": "low",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_dtu_techweek_2025_core",
+    "text": "TechWeek'25 was a five-day innovation festival organized by IEEE DTU from January 13th to January 17th, 2025. The event served as a hands-on project hub, attracting over 1,000 students from DTU and other prestigious institutions including IIITD, IGDTUW, NSUT, USICT, and MAIT.",
+    "metadata": {
+      "event": "TechWeek",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_dtu_techweek_2025_workshops",
+    "text": "The festival featured nine intensive workshops led by Special Interest Groups (SIGs). The curriculum covered high-demand domains: Machine Learning, Robotics, Competitive Programming, Data Structures and Algorithms (DSA), Design, and DevOps, focusing on real-world skills and career path exposure.",
+    "metadata": {
+      "event": "TechWeek",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_dtu_techweek_2025_mentorship",
+    "text": "A unique aspect of TechWeek'25 was the peer-to-peer learning model, where sophomores served as mentors. This structure provided participants with interactive project-based learning while helping mentors develop leadership, public speaking, and confidence-building skills.",
+    "metadata": {
+      "event": "TechWeek",
+      "year": 2025,
+      "type": "people",
+      "priority": "medium",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_dtu_techweek_2025_impact",
+    "text": "TechWeek'25 emphasized practical implementation over theoretical knowledge, reinforcing IEEE DTU's reputation as a breeding ground for technical excellence. It bridged the gap between academic learning and industry requirements through hands-on innovation.",
+    "metadata": {
+      "event": "TechWeek",
+      "year": 2025,
+      "type": "summary",
+      "priority": "low",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "invictus_2024_core_facts",
+    "text": "Invictus 2024 was the annual technical fest of Delhi Technological University (DTU). It was organized by the Technical Council of DTU and held from 9th to 11th February 2024, starting daily from 10 AM onwards. The venue was Delhi Technological University, Bawana Road, Shahbad Daulatpur Extension, New Delhi - 110042. The theme of the event was 'Life in a Pixelated Era'. The fest lasted for three days and featured more than 60 events.",
+    "metadata": {
+      "event": "Invictus",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "invictus_2024_participation",
+    "text": "Invictus 2024 saw participation from more than 100 colleges across India, including IITs, NITs, NSUT, MAIT, UCMS, IGDTUW, BPIT, SRM University Sonepat, and Sharda University. Students from multiple disciplines took part in the fest, making it a national-level technical event with wide diversity.",
+    "metadata": {
+      "event": "Invictus",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "invictus_2024_speakers",
+    "text": "Invictus 2024 featured several distinguished speakers including Dr. Vijender Chauhan, IAS interviewer and Associate Professor at Delhi University; Saloni Khanna, economist and UPSC interviewer; Abhishek Singh, IAS officer and social entrepreneur; Arun Sharma, CAT educator and author; Sanket Singh, Software Engineer at Google; Shivali Goel, AI Strategy Engineer at Adobe; Akshay Saini, founder of NamasteDev; Khushboo Verma, SDE at Appwrite; Ansh Mehra, AI and design consultant; Mahak Garg from Stanford GSB; Arun Dudee, CTO of DeHaat; Ashish Solanki, comedian; and Dikshant, singer and sound engineer.",
+    "metadata": {
+      "event": "Invictus",
+      "year": 2024,
+      "type": "people",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "invictus_2024_event_domains",
+    "text": "Invictus 2024 hosted events across multiple technical and creative domains including hackathons, coding competitions, artificial intelligence and machine learning challenges, robotics and drone events, business and case study competitions, UI/UX and design events, finance and trading simulations, workshops, quizzes, and engineering challenges related to mechanical and civil disciplines.",
+    "metadata": {
+      "event": "Invictus",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "invictus_2024_highlights",
+    "text": "Some of the most participated events at Invictus 2024 included IEEE CaseQuest with around 670 participants, Devcraft with approximately 565 participants, CodeCrunch ML with 500 participants, Bulls and Bears with 440 participants, Pitchfork with 340 participants, ILUX with 170 participants, Aeroglide with 115 participants, and CAT-Talk with 110 participants.",
+    "metadata": {
+      "event": "Invictus",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "invictus_2024_summary",
+    "text": "Invictus 2024 was a three-day national-level technical festival organized by the Technical Council of Delhi Technological University. With the theme 'Life in a Pixelated Era', the fest celebrated innovation, creativity, and emerging technologies. It brought together students from over 100 colleges and featured a diverse range of competitions, workshops, and expert talks across technology, business, and creative domains.",
+    "metadata": {
+      "event": "Invictus",
+      "year": 2024,
+      "type": "summary",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "invictus_2025_core_facts",
+    "text": "INVICTUS '25 was the annual flagship technical fest of Delhi Technological University, held from February 15th to 18th, 2025. The fest featured over 60 events organized in collaboration with 18 technical societies, blending technical excellence with inventive thinking under the theme of 'Unleashing the Sword of Innovation'.",
+    "metadata": {
+      "event": "INVICTUS",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "invictus_2025_ieee_flagship_events",
+    "text": "IEEE DTU organized several major highlights of INVICTUS 2025. These included 'Adobe DevCraft', a high-level innovation challenge; 'Pitchfork' (in collaboration with Business Bulls DTU) for startup fundraising simulations; 'CodeKaze' (with GeeksforGeeks) for algorithmic coding; and 'CaseQuest', themed 'Sustainable Technological Progression'.",
+    "metadata": {
+      "event": "INVICTUS",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "invictus_2025_adobe_devcraft",
+    "text": "Adobe DevCraft stood out as a premier event for the batch of 2027. Supported by Adobe, it offered top performers the exclusive opportunity for pre-placement interviews (PPIs), directly connecting student innovation with high-end career prospects in the industry.",
+    "metadata": {
+      "event": "Adobe DevCraft",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "invictus_2025_design_and_speakers",
+    "text": "The fest showcased DTU's design prowess through events like 'BrandIt' and 'ILUX' using Figma and Adobe XD. Keynote sessions featured industry leaders such as Vibhu Trivedi (Renowned Graphic Designer) and Anshul Gupta (Co-Founder of Minimal Tweaks), providing insights into creative limits and industry standards.",
+    "metadata": {
+      "event": "INVICTUS",
+      "year": 2025,
+      "type": "people",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "invictus_2025_summary",
+    "text": "INVICTUS 2025 served as a massive networking and innovation platform, bridging the gap between traditional technical quizzes and future-ready challenges like prompt engineering and virtual trading. It solidified IEEE DTU's role in fostering healthy competition and industry-academia collaboration.",
+    "metadata": {
+      "event": "INVICTUS",
+      "year": 2025,
+      "type": "summary",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "bootstrap_2024_core_facts",
+    "text": "BOOTSTRAP'24, the IEEE DTU Orientation Program, was held on 28 August 2024 at B.R. Auditorium, Delhi Technological University, New Delhi. The event formally welcomed new students into the IEEE Student Branch, DTU—founded in 1983 and recognized as the oldest and largest IEEE student branch in the Delhi Section—with a strong ecosystem of 300+ active members and a 2000+ alumni network.",
+    "metadata": {
+      "event": "BOOTSTRAP'24",
+      "year": 2024,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "bootstrap_2024_overview",
+    "text": "The orientation presented IEEE DTU as a premier student organization focused on innovation, leadership, and technical excellence. Students were introduced to the branch's legacy, global IEEE alignment, and career-oriented initiatives through structured presentations, testimonials, and leadership addresses that emphasized long-term professional value.",
+    "metadata": {
+      "event": "BOOTSTRAP'24",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "bootstrap_2024_organising_team",
+    "text": "BOOTSTRAP'24 was conducted under the guidance of Prof. J. Panda, Branch Counsellor, IEEE DTU. The faculty advisory team included Prof. Rachana Garg (SAC Chair, IEEE Delhi Section), Prof. Rahul Katarya (Advisor, IEEE DTU Computer Society), and Prof. Sonam Rewari (Advisor, Women in Engineering, IEEE DTU), ensuring academic and professional alignment.",
+    "metadata": {
+      "event": "BOOTSTRAP'24",
+      "year": 2024,
+      "type": "people",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "bootstrap_2024_guests",
+    "text": "The event featured Mr. Parikh Jain, a distinguished DTU alumnus and Founder of ProPeers, as the Chief Guest. His interactive session focused on entrepreneurship, industry readiness, and leveraging platforms like IEEE DTU to build strong professional networks and practical skills.",
+    "metadata": {
+      "event": "BOOTSTRAP'24",
+      "year": 2024,
+      "type": "people",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "bootstrap_2024_program_agenda",
+    "text": "The program agenda included a welcome address, an introduction to IEEE DTU's legacy since 1983, presentations on IEEE's global impact, member testimonials highlighting internships and placements, a keynote by the Chief Guest, interactive quizzes, and a comprehensive IEEE membership pitch.",
+    "metadata": {
+      "event": "BOOTSTRAP'24",
+      "year": 2024,
+      "type": "fact",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "bootstrap_2024_summary",
+    "text": "BOOTSTRAP'24 successfully integrated new members into IEEE DTU by presenting its organizational legacy, leadership structure, and career-oriented mission. The orientation reinforced IEEE DTU's role in shaping industry-ready students through innovation, networking, and leadership opportunities, leaving attendees motivated to actively contribute to the branch.",
+    "metadata": {
+      "event": "BOOTSTRAP'24",
+      "year": 2024,
+      "type": "summary",
+      "priority": "high"
+    }
+  }
+]
+
+
+

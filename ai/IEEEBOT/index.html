@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE DTU ASSISTANT</title>
+    <style>
+        :root {
+            --bg: #050505;
+            --glass: rgba(255, 255, 255, 0.05);
+            --gold: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.3);
+        }
+
+        body { 
+            background: var(--bg); 
+            color: #fff; 
+            font-family: 'Inter', sans-serif;
+            display: flex; justify-content: center; align-items: center; 
+            height: 100vh; margin: 0;
+        }
+
+        .luxury-card {
+            width: 450px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        h2 { 
+            text-align: center; color: var(--gold); 
+            text-transform: uppercase; letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--gold-glow);
+        }
+
+        #chat-box {
+            height: 350px; overflow-y: auto;
+            margin: 20px 0; display: flex; flex-direction: column; gap: 15px;
+        }
+
+        .bubble {
+            padding: 12px 16px; border-radius: 16px; font-size: 14px;
+            max-width: 85%; line-height: 1.5;
+            animation: slideIn 0.4s ease forwards;
+        }
+
+        .bot { 
+            background: rgba(255,255,255,0.08); 
+            border-left: 3px solid var(--gold);
+            align-self: flex-start;
+        }
+
+        .content {
+            display:inline-block;
+            white-space:pre-wrap;
+            transition:opacity 0.1s ease-in;
+        }
+
+        .user { 
+            background: var(--gold); color: #000; font-weight: 600;
+            align-self: flex-end; 
+        }
+
+        .input-wrapper {
+            display: flex; background: rgba(255,255,255,0.1);
+            border-radius: 50px; padding: 5px 15px; border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        input {
+            flex: 1; background: transparent; border: none; color: white;
+            padding: 12px; outline: none;
+        }
+
+        button {
+            background: var(--gold); border: none; border-radius: 50px;
+            padding: 0 20px; cursor: pointer; font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--gold-glow); }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="luxury-card">
+        <h2>✨ IEEE DTU BOT ✨</h2>
+        <div id="chat-box">
+            <div class="bubble bot">Welcome to the inner circle. How can I assist you today? 🎩</div>
+        </div>
+        <div class="input-wrapper">
+            <input type="text" id="user-input" placeholder="Whisper your doubt..." onkeypress="if(event.key==='Enter')send()">
+            <button onclick="send()">SEND</button>
+        </div>
+    </div>
+
+    <script>
+        const getSessionId=()=>{
+            let sid=localStorage.getItem("chat_session_id");
+            if(!sid){
+                sid="user_"+Math.random().toString(36).substring(2, 11);
+                localStorage.setItem("chat_session_id", sid);
+            }
+            return sid;
+        };
+
+        const session_id=getSessionId();
+        document.getElementById("user-input").addEventListener("keypress",(e)=>{
+            if(e.key==="Enter") send();
+        });
+        async function send() {
+            const input = document.getElementById("user-input");
+            const box = document.getElementById("chat-box");
+            const question = input.value.trim();
+            if (!question) return;
+
+            const userDiv = document.createElement("div");
+            userDiv.className="bubble user";
+            userDiv.innerText=question;
+            box.appendChild(userDiv);
+            input.value="";
+
+            const botDiv = document.createElement("div");
+            botDiv.className = "bubble bot";
+            botDiv.innerHTML = "<b>Bot:</b> <span class='content'>...</span>";
+            box.appendChild(botDiv);
+            
+            const contentSpan=botDiv.querySelector(".content");
+            box.scrollTop=box.scrollHeight;
+
+            try {
+                const response = await fetch("/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: question,session_id: session_id})
+                });
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let isFirstChunk=true;
+                while(true){
+                    const{done, value} = await reader.read();
+                    if(done) break;
+                    
+                    const text=decoder.decode(value, { stream: true });
+                    
+                    if(isFirstChunk) {
+                        contentSpan.innerText = ""; 
+                        isFirstChunk = false;
+                    }
+
+                    contentSpan.innerText+=text;
+                    
+                    box.scrollTop=box.scrollHeight;
+                }
+            } catch(err){
+                contentSpan.innerText=" Connection lost. Please try again.";
+                console.error(err);
+            }
+        }
+
+        window.onload=()=>{
+            const inputField=document.getElementById("user-input");
+            if(inputField){
+                inputField.addEventListener("keypress",(e) => {
+                    if(e.key==="Enter") send();
+                });
+            }
+        };
+    </script>
+</body>
+</html>
