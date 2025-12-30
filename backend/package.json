@@ -8,16 +8,21 @@
     "scripts": {
         "dev": "nodemon src/app.js",
         "start": "node src/app.js",
-        "prod": "pm2 src/app.js"
+        "chatbot": "python src/chatbot_server.py",
+        "prod": "pm2 src/app.js",
+        "dev:all": "concurrently \"npm run dev\" \"npm run chatbot\" --names \"Express,Chatbot\" --prefix-colors \"blue,green\""
+        
     },
     "dependencies": {
         "bcrypt": "^6.0.0",
         "body-parser": "^2.2.0",
+        "concurrently": "^9.2.1",
         "cors": "^2.8.5",
         "crypto": "^1.0.1",
         "dotenv": "^17.2.3",
         "express": "^5.1.0",
         "express-session": "^1.18.2",
+        "http-proxy-middleware": "^3.0.5",
         "http-status": "^2.1.0",
         "mongoose": "^8.18.0",
         "nodemailer": "^7.0.11",
