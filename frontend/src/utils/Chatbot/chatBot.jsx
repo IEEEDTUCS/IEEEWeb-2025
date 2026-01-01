@@ -28,50 +28,62 @@ const Chatbot = ({ onClose }) => {
   }, [messages, isTyping]);
 
   const streamBotResponse = async (userMessage) => {
-  setIsTyping(true);
+    setIsTyping(true);
 
-  const botMessageId = Date.now();
-  setMessages((prev) => [
-    ...prev,
-    { id: botMessageId, text: "", sender: "bot" }
-  ]);
+    const botMessageId = Date.now();
 
-  try {
-    const response = await fetch("/api/chatbot/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        question: userMessage,
-        session_id: sessionId
-      })
-    });
+    setMessages((prev) => [
+      ...prev,
+      { id: botMessageId, text: "", sender: "bot" }
+    ]);
 
-    const text = await response.text();
+    try {
+      const response = await fetch("http://localhost:5001/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: userMessage,
+          session_id: sessionId
+        })
+      });
 
-    setMessages((prev) =>
-      prev.map((msg) =>
-        msg.id === botMessageId
-          ? { ...msg, text: text || "No response from chatbot." }
-          : msg
-      )
-    );
-  } catch (err) {
-    console.error("Network error:", err);
-    setMessages((prev) =>
-      prev.map((msg) =>
-        msg.id === botMessageId
-          ? {
-              ...msg,
-              text:
-                "Sorry, I am having trouble connecting. Please try again later."
-            }
-          : msg
-      )
-    );
-  } finally {
-    setIsTyping(false);
-  }
-};
+      if (!response.body) throw new Error("No stream");
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+
+      let botText = "";
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+
+        botText += decoder.decode(value, { stream: true });
+
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === botMessageId
+              ? { ...msg, text: botText }
+              : msg
+          )
+        );
+      }
+    } catch {
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === botMessageId
+            ? {
+                ...msg,
+                text:
+                  "Sorry, I am having trouble connecting. Please try again later."
+              }
+            : msg
+        )
+      );
+    } finally {
+      setIsTyping(false);
+    }
+  };
 
 
   const handleSendMessage = () => {

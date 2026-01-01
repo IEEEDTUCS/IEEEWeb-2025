@@ -2,25 +2,31 @@ from flask import Flask, request, Response, stream_with_context
 from flask_cors import CORS
 import os
 import time
-
+import threading
+import json
+from langchain_core.documents import Document
+from langchain_core.output_parsers import StrOutputParser
+from langchain.callbacks.base import BaseCallbackHandler
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.chat_models import ChatOllama
 from langchain_community.vectorstores import FAISS
-from langchain_community.document_loaders import JSONLoader
 from langchain.memory import ConversationBufferMemory
-from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+
 # -------------------- Flask Setup --------------------
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000", "http://localhost:5173"], supports_credentials=True)
+CORS(app, supports_credentials=True)
 
-# -------------------- LLM --------------------
-llm = ChatOllama(
-    model="llama3.2",
-    temperature=0.0,
-)
+class FlaskStreamingHandler(BaseCallbackHandler):
+    def __init__(self):
+        self.tokens = []
+
+    def on_llm_new_token(self, token: str, **kwargs):
+        self.tokens.append(token)
 
 # -------------------- Paths --------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -31,61 +37,82 @@ DB_FAISS_PATH = os.path.join(BASE_DIR, "vector")
 embeddings = HuggingFaceEmbeddings(
     model_name="BAAI/bge-large-en-v1.5"
 )
-
-# -------------------- Metadata --------------------
-def metadata_func(record: dict, metadata: dict) -> dict:
-    metadata["id"] = record.get("id")
-    for k, v in record.get("metadata", {}).items():
-        metadata[k] = v
-    return metadata
-
-# -------------------- Vector Store --------------------
-def get_vectorstore():
-    if not os.path.exists(DB_FAISS_PATH):
-        loader = JSONLoader(
-            file_path=DATA_PATH,
-            jq_schema=".[]",
-            content_key="text",
-            metadata_func=metadata_func
-        )
-        docs = loader.load()
-        vs = FAISS.from_documents(docs, embeddings)
-        vs.save_local(DB_FAISS_PATH)
-        return vs
-    return FAISS.load_local(
-        DB_FAISS_PATH,
-        embeddings,
-        allow_dangerous_deserialization=True
+llm=ChatOllama(
+    model="llama3.2",
+    temperature=0.0
     )
 
+def get_vectorstore():
+    if not os.path.exists(DB_FAISS_PATH):
+        print(f"--- REBUILDING DATABASE FROM {DATA_PATH} ---")
+        try:
+            with open(DATA_PATH, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            docs = []
+            for record in data:
+                meta_str = f"{record.get('id')} {record.get('metadata', {}).get('event', '')}"
+                combined_content = f"{record.get('text', '')} \nKeywords: {meta_str}"
+                
+                doc = Document(
+                    page_content=combined_content,
+                    metadata={"id": record.get("id"), **record.get("metadata", {})}
+                )
+                docs.append(doc)
+            vs = FAISS.from_documents(docs, embeddings)
+            vs.save_local(DB_FAISS_PATH)
+            print(f"--- SUCCESS: Database built with {len(docs)} records ---")
+            return vs
+        except Exception as e:
+            print(f"--- ERROR: {e} ---")
+            return None
+    print("--- LOADING EXISTING DATABASE ---")
+    return FAISS.load_local(DB_FAISS_PATH, embeddings, allow_dangerous_deserialization=True)
+
 vectorstore = get_vectorstore()
+
+rephrase_system_prompt = """
+Given the chat history and the latest user question, rephrase the question to be a standalone search query.
+If the user says "it", "he", or "she", replace it with the specific name from history.
+Output ONLY the rewritten question. Do not answer.
+"""
+rephrase_chain = ( 
+    ChatPromptTemplate.from_messages([
+        ("system", rephrase_system_prompt),
+        MessagesPlaceholder(variable_name="chat_history"),
+        ("human", "{input}"),
+    ])
+    | llm 
+    | StrOutputParser()
+)
 
 # -------------------- Prompt --------------------
 SYSTEM_PROMPT = """
 Role: You are the Official IEEE DTU Data Retrieval Assistant.
-[STRICT SCOPE & CONTRADICTION LOGIC]
-1. GREETINGS: You may respond politely to greetings and invite IEEE DTU questions.
-2. OFF-TOPIC: Reply EXACTLY: "I can only help with IEEE DTU related questions. Ask me about our events, workshops, or activities!"
-3. MISCONCEPTIONS: Reply with IEEE DTU clarification if misattributed.
-[RESPONSE RULES]
-Plain text only, single paragraph, no formatting.
-Factual queries: 1 sentence.
-Descriptive queries: max 3 sentences.
+
+[STRICT LOGIC ORDER - MANDATORY]
+1. IF DATA EXISTS: If the Context contains information about the query (e.g., Deva Nand, Sonam Rewari), start the answer IMMEDIATELY with that data. You are STRICTLY FORBIDDEN from starting with "Hello" or "I am the assistant" in this case.
+2. IF ONLY GREETING: Only if the user says "hi" or "hello" without any name or topic, identify yourself as the assistant.
+3. DATA GAP: If the topic is IEEE DTU but the detail is not in Context, say: "I don't have that information."
+4. OFF-TOPIC: If the query is unrelated to IEEE DTU, say: "I can only assist with IEEE DTU-related questions."
+
+[RESPONSE FORMAT]
+- Plain text only. NO bold, NO italics, NO bullet points.
+- Single continuous block of text (one paragraph).
+- Factual queries: exactly 1 sentence. Descriptive: maximum 3 sentences.
+
+[GROUNDING]
+Use ONLY the provided Context. Resolve pronouns (he, she, it) using Chat History.
+
 Context: {context}
+Chat History: {chat_history}
+User Query: {input}
 """
 
-prompt = ChatPromptTemplate.from_messages([
+answer_prompt = ChatPromptTemplate.from_messages([
     ("system", SYSTEM_PROMPT),
     MessagesPlaceholder(variable_name="chat_history"),
     ("human", "{input}")
 ])
-
-doc_chain = create_stuff_documents_chain(llm, prompt)
-
-retrieval_chain = create_retrieval_chain(
-    retriever=vectorstore.as_retriever(search_kwargs={"k": 4}),
-    combine_docs_chain=doc_chain
-)
 
 # -------------------- Session Memory --------------------
 sessions = {}
@@ -118,28 +145,62 @@ def health():
 @app.route("/chat", methods=["POST"])
 def chat():
     data = request.json
-    question = data.get("question", "")
+    question = data.get("question")
     session_id = data.get("session_id", "default")
-
+    
     memory = get_memory(session_id)
+    history = memory.load_memory_variables({})["chat_history"]
+
+    queries_to_run = [question] 
+    
+    if history:
+        try:
+            rewritten = rephrase_chain.invoke({"chat_history": history, "input": question})
+            rewritten = rewritten.strip()
+            if len(rewritten) > 3 and rewritten != question:
+                queries_to_run.append(rewritten)
+        except:
+            pass
+
+    all_docs = []
+    seen_ids = set()
+
+    for q in queries_to_run:
+        docs = vectorstore.similarity_search(q, k=10) 
+        for d in docs:
+            unique_id = d.metadata.get('id', d.page_content[:20])
+            if unique_id not in seen_ids:
+                all_docs.append(d)
+                seen_ids.add(unique_id)
 
     def generate():
-        history = memory.load_memory_variables({})["chat_history"]
-        result = retrieval_chain.invoke({
-            "input": question,
-            "chat_history": history
-        })
-        answer = result.get("answer", "")
-        memory.save_context({"input": question}, {"answer": answer})
-        yield answer
+        handler = FlaskStreamingHandler()
+        streaming_llm = ChatOllama(model="llama3.2", temperature=0.0, callbacks=[handler])
+        doc_chain = create_stuff_documents_chain(streaming_llm, answer_prompt)
+        
+        done = False
+        def run_chain():
+            nonlocal done
+            doc_chain.invoke({
+                "input": question,
+                "chat_history": history,
+                "context": all_docs
+            })
+            done = True
 
-    return Response(
-    answer,
-    status=200,
-    mimetype="text/plain"
-)
+        threading.Thread(target=run_chain, daemon=True).start()
 
+        full_answer = ""
+        while not done or handler.tokens:
+            if len(handler.tokens) > 0:
+                token = handler.tokens.pop(0)
+                full_answer += token
+                yield token
+            else:
+                time.sleep(0.01)
+        memory.save_context({"input": question}, {"answer": full_answer})
 
-# -------------------- Run --------------------
+    return Response(stream_with_context(generate()), mimetype="text/plain")
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    app.run(host="0.0.0.0", port=5001, debug=True, use_reloader=False)
