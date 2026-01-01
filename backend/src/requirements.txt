@@ -1,0 +1,24 @@
+# --- Core Server ---
+flask==3.1.2
+flask-cors==5.0.0
+python-dotenv==1.2.1
+
+# --- LangChain Core ---
+langchain==0.3.0
+langchain-core==0.3.63
+langchain-community==0.3.0
+langchain-huggingface==0.2.0
+
+# --- Embeddings & Vector DB ---
+sentence-transformers==5.2.0
+faiss-cpu==1.13.1
+
+# --- HuggingFace / Transformers ---
+transformers==4.57.3
+huggingface-hub==0.36.0
+accelerate==1.12.0
+
+# --- Utilities ---
+jq==1.10.0
+requests==2.32.5
+numpy==1.26.4
