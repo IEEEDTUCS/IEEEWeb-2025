@@ -64,7 +64,7 @@ export const signup = async (req, res) => {
         otpRequired: false,
       });
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+    if (typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       return res.status(400).json({
         success: false,
         message: "Invalid email format",
