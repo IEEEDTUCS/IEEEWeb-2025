@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import webpush from "web-push";
-import { createProxyMiddleware } from "http-proxy-middleware";
 import { connectToDB } from "./init/index.js";
 import ErrorHandler from "./utils/errorHandler.js";
 import subsRouter from "./Routes/subsRouter.js";
@@ -10,7 +9,7 @@ import emailRouter from "./Routes/emailRouter.js";
 import session from "express-session";
 import passport from "./config/passport.js";
 import authRoutes from "./Routes/authRoutes.js";
-
+import { createProxyMiddleware, fixRequestBody } from "http-proxy-middleware";
 dotenv.config();
 const app = express();
 
@@ -42,17 +41,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-/* 🔁 PROXY → Flask Chatbot */
-app.use(
-  "/api/chatbot",
-  createProxyMiddleware({
-    target: `http://localhost:${CHATBOT_PORT}`,
-    changeOrigin: true,
-    selfHandleResponse: false,
-    pathRewrite: { "^/api/chatbot": "" }
-  })
-);
-
 
 app.use("/subs", subsRouter);
 app.use("/emails", emailRouter);
@@ -82,6 +70,6 @@ app.use((err, req, res, next) => {
 
   app.listen(PORT, () => {
     console.log(`🚀 Express running on http://localhost:${PORT}`);
-    console.log(`🤖 Chatbot proxied → http://localhost:${PORT}/api/chatbot/chat`);
+    console.log(`🤖 Chatbot running directly on http://localhost:${CHATBOT_PORT}/chat`);
   });
 })();
