@@ -20,12 +20,17 @@ const allowedOrigins = (process.env.CLIENT_URLS || "http://localhost:5173")
   .split(",")
   .filter(Boolean);
 
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true
-  })
-);
+    if (origin.endsWith(".vercel.app")) {
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, origin);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ extended: true }));
