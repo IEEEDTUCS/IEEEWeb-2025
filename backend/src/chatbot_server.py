@@ -1,32 +1,30 @@
-from flask import Flask, request, Response, stream_with_context
-from flask_cors import CORS
 import os
 import time
-import threading
 import json
+from flask import Flask, request, Response, stream_with_context
+from flask_cors import CORS
+from dotenv import load_dotenv
 from langchain_core.documents import Document
 from langchain_core.output_parsers import StrOutputParser
-from langchain.callbacks.base import BaseCallbackHandler
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.messages import AIMessage, HumanMessage
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_community.chat_models import ChatOllama
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.vectorstores import FAISS
 from langchain.memory import ConversationBufferMemory
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+load_dotenv()
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
+if "GOOGLE_API_KEY" not in os.environ:
+    os.environ["GOOGLE_API_KEY"] = "AIzaSyBgbKxuY7MXffghCJyQiNnbx9KHonZsxRw"
+
 # -------------------- Flask Setup --------------------
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
-
-class FlaskStreamingHandler(BaseCallbackHandler):
-    def __init__(self):
-        self.tokens = []
-
-    def on_llm_new_token(self, token: str, **kwargs):
-        self.tokens.append(token)
 
 # -------------------- Paths --------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -37,9 +35,10 @@ DB_FAISS_PATH = os.path.join(BASE_DIR, "vector")
 embeddings = HuggingFaceEmbeddings(
     model_name="BAAI/bge-large-en-v1.5"
 )
-llm=ChatOllama(
-    model="llama3.2",
-    temperature=0.0
+llm=ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash",
+    temperature=0.0,
+    convert_system_message_to_human=True
     )
 
 def get_vectorstore():
@@ -174,31 +173,27 @@ def chat():
                 seen_ids.add(unique_id)
 
     def generate():
-        handler = FlaskStreamingHandler()
-        streaming_llm = ChatOllama(model="llama3.2", temperature=0.0, callbacks=[handler])
-        doc_chain = create_stuff_documents_chain(streaming_llm, answer_prompt)
-        
-        done = False
-        def run_chain():
-            nonlocal done
-            doc_chain.invoke({
+        doc_chain = create_stuff_documents_chain(llm, answer_prompt)
+
+        full_answer = ""
+        try:
+            for chunk in doc_chain.stream({
                 "input": question,
                 "chat_history": history,
                 "context": all_docs
-            })
-            done = True
-
-        threading.Thread(target=run_chain, daemon=True).start()
-
-        full_answer = ""
-        while not done or handler.tokens:
-            if len(handler.tokens) > 0:
-                token = handler.tokens.pop(0)
-                full_answer += token
-                yield token
-            else:
-                time.sleep(0.01)
-        memory.save_context({"input": question}, {"answer": full_answer})
+            }):
+                if hasattr(chunk, 'content'):
+                    content = chunk.content
+                else:
+                    content = str(chunk)
+                if content:
+                    full_answer += content
+                    yield content
+            
+            memory.save_context({"input": question}, {"answer": full_answer})
+            
+        except Exception as e:
+            yield f"Error generating response: {str(e)}"
 
     return Response(stream_with_context(generate()), mimetype="text/plain")
 
