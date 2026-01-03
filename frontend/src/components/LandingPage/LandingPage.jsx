@@ -35,6 +35,7 @@ export default function LandingPage() {
     // 0.25 means the animation completes after scrolling 25% of the page height.
     const animationEnd = 0.25; 
 
+    
     // 1. MASK SIZE (The Zoom)
     // Starts at 60% (Logo is big and visible). 
     // Ends at 5000% (Massive, creating a "full transparency" effect by pushing the mask edges off-screen).
