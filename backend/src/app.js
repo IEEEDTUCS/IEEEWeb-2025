@@ -9,16 +9,19 @@ import emailRouter from "./Routes/emailRouter.js";
 import session from "express-session";
 import passport from "./config/passport.js";
 import authRoutes from "./Routes/authRoutes.js";
-import { createProxyMiddleware, fixRequestBody } from "http-proxy-middleware";
+// import { createProxyMiddleware, fixRequestBody } from "http-proxy-middleware";
 dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 5000;
 const CHATBOT_PORT = process.env.CHATBOT_PORT || 5001;
 
-const allowedOrigins = (process.env.CLIENT_URLS || "http://localhost:5173")
-  .split(",")
-  .filter(Boolean);
+
+const allowedOrigins = process.env.CLIENT_URLS.split(",");
+
+  app.use(cors({
+  origin: (origin, callback) => {
+    // if (!origin) return callback(null, true);
 
     if (origin.endsWith(".vercel.app")) {
       return callback(null, true);
@@ -31,6 +34,8 @@ const allowedOrigins = (process.env.CLIENT_URLS || "http://localhost:5173")
     }
   },
   credentials: true,
+
+}));
 
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ extended: true }));

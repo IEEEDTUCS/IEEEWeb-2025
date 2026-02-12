@@ -50,7 +50,7 @@ export const saveSubs = async (req, res, next) => {
 };
 
 export const sendNotification = async (req, res, next) => {
-  const { title, message } = req.body;
+  const { title, message } = req.body;//also accept url in future
 
   // 1. Validate Input
   if (!title || !message) {
@@ -61,7 +61,8 @@ export const sendNotification = async (req, res, next) => {
   const payload = JSON.stringify({
     title,
     message,
-    icon: '/pwa-512x512.png' // Or your preferred icon path
+    icon: '/pwa-512x512.png', // Or your preferred icon path
+    url: 'https://invictusdtu.in/' // Use URL from request body or default
   });
 
   try {
