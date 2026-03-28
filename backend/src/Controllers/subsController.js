@@ -50,11 +50,11 @@ export const saveSubs = async (req, res, next) => {
 };
 
 export const sendNotification = async (req, res, next) => {
-  const { title, message } = req.body;//also accept url in future
+  const { title, message, url } = req.body;//also accept url in future
 
   // 1. Validate Input
-  if (!title || !message) {
-    return next(new expressError(400, "Title and message are required"));
+  if (!title || !message || !url ) {
+    return next(new expressError(400, "Title, message, and URL are required"));
   }
 
   // 2. Prepare Payload (Add an icon from your PWA's public folder)
@@ -62,7 +62,7 @@ export const sendNotification = async (req, res, next) => {
     title,
     message,
     icon: '/pwa-512x512.png', // Or your preferred icon path
-    url: 'https://invictusdtu.in/' // Use URL from request body or default
+    url: url // Use URL from request body or default
   });
 
   try {
