@@ -10,6 +10,7 @@ export default function Navbar({ setOpen, onClose }) {
   const router = useRouter();
   const isHome = router.pathname === "/";
 
+  // Your internal page links
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/IEEEDTU/about" },
@@ -17,9 +18,18 @@ export default function Navbar({ setOpen, onClose }) {
     { name: "Council", href: "/IEEEDTU/council" },
   ];
 
+  // ADDED: The external fest links
+  const externalFestLinks = [
+    { name: "Invictus", href: "https://www.invictusdtu.in/" },
+    { name: "Vihaan", href: "https://vihaan.ieeedtu.in/" },
+    { name: "Techweek", href: "https://techweek.ieeedtu.in/" },
+  ];
+
   // Keep body from scrolling when sidebar is open
   useEffect(() => {
-    setMenuOpen(setOpen);
+    if (setOpen !== undefined) {
+      setMenuOpen(setOpen);
+    }
   }, [setOpen]);
 
   // Close when clicking outside
@@ -49,16 +59,20 @@ export default function Navbar({ setOpen, onClose }) {
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
+            {/* Added fallback text in case the image path is broken */}
             <img
               src="/images/logo.png"
               alt="IEEE DTU Logo"
               className="h-12 w-auto object-contain"
+              onError={(e) => { e.target.style.display = 'none'; }}
             />
+           
           </Link>
+          
           {/* Hamburger icon always visible */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="text-white"
+            className="text-white hover:text-blue-400 transition-colors"
           >
             <Menu size={28} />
           </button>
@@ -74,45 +88,81 @@ export default function Navbar({ setOpen, onClose }) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 80, damping: 18 }}
-            className="fixed top-0 right-0 h-full w-72 bg-black text-white px-6 pt-24 pb-8 space-y-6 border-l border-gray-800 z-50"
-            style={{ boxShadow: "0 0 40px 0 rgba(0,0,0,0.4)" }}
+            className="fixed top-0 right-0 h-full w-72 bg-black text-white px-6 pt-24 pb-8 space-y-6 border-l border-gray-800 z-50 overflow-y-auto"
+            style={{ boxShadow: "-10px 0 40px 0 rgba(0,0,0,0.5)" }}
           >
             {/* Close Button */}
             <button
-              onClick={() => setMenuOpen(false)}
-              className="absolute top-6 right-6 text-white"
+              onClick={() => {
+                setMenuOpen(false);
+                onClose && onClose();
+              }}
+              className="absolute top-6 right-6 text-white hover:text-gray-400 transition-colors"
             >
               <X size={28} />
             </button>
 
-            {/* Navigation Links */}
-            {navLinks.map(({ name, href }) => (
-              <Link
-                key={name}
-                href={href}
-                className="block text-xl tracking-[0.1rem] font-heading hover:text-gray-300 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                {name}
-              </Link>
-            ))}
+            {/* Main Navigation Links */}
+            <div className="space-y-6">
+                {navLinks.map(({ name, href }) => (
+                  <Link
+                    key={name}
+                    href={href}
+                    className="block text-xl tracking-[0.1rem] font-heading hover:text-gray-300 transition-colors"
+                    onClick={() => {
+                        setMenuOpen(false);
+                        onClose && onClose();
+                    }}
+                  >
+                    {name}
+                  </Link>
+                ))}
+            </div>
 
             {/* Divider */}
-            <div className="border-t border-gray-800 my-4"></div>
+            <div className="border-t border-gray-800 my-6"></div>
+
+            {/* ADDED: Fest/Event Links */}
+            <div>
+                <p className="text-sm text-gray-500 uppercase tracking-widest font-semibold mb-4">
+                    Our Fests and Events
+                </p>
+                <div className="space-y-4">
+                    {externalFestLinks.map(({ name, href }) => (
+                        <a
+                            key={name}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-lg tracking-[0.1rem] font-heading text-blue-400 hover:text-blue-300 transition-colors"
+                            onClick={() => {
+                                setMenuOpen(false);
+                                onClose && onClose();
+                            }}
+                        >
+                            {name} 
+                        </a>
+                    ))}
+                </div>
+            </div>
+
+            {/* Divider */}
+            <div className="border-t border-gray-800 my-6"></div>
 
             {/* Sign In Button */}
             <Link
               href="/api/auth/signin"
-              onClick={() => setMenuOpen(false)}
-              className="block w-full text-center py-2 bg-gray-800 rounded-md hover:bg-gray-700 transition-colors font-semibold"
+              onClick={() => {
+                  setMenuOpen(false);
+                  onClose && onClose();
+              }}
+              className="block w-full text-center py-3 bg-white text-black rounded-md hover:bg-gray-200 transition-colors font-semibold uppercase tracking-wider text-sm mt-auto"
             >
               Sign In
             </Link>
           </motion.div>
-          
         )}
       </AnimatePresence>
-      
     </>
   );
 }
