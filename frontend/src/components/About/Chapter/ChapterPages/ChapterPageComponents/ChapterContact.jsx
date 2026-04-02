@@ -6,6 +6,7 @@ const ChapterContact = ({ ContactInformation, ColorScheme }) => {
     <>
         { ContactInformation &&
         <div className={styles.contactBox} style={{ backgroundColor: ColorScheme.ContactBoxBG }}>
+            <span className={styles.glowSpan}></span>
             { ContactInformation.email && <h2 className={`font-caption ${styles.contactInfo}`} style={{ color: ColorScheme.ContactBoxTextColor }}>
                 Contact us at: <a href={`mailto:${ContactInformation.email}`} style={{color: ColorScheme.MailTextColor}}>{ContactInformation.email}</a></h2> }
             <h2 className={`font-caption ${styles.contactInfo}`} style={{ color: ColorScheme.ContactBoxTextColor }}>Follow us on: </h2>

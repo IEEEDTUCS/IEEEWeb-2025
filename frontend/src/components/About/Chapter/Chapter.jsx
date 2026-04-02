@@ -51,7 +51,7 @@ export default function Chapter() {
           <div className={styles.serviceText}>
             <img 
               height="300"
-              src="/aboutChapterSection/CS_IEEE.png"
+              src="/aboutPage/aboutChapterSection/CS_IEEE.png"
               className={styles.chapterImage}
               alt="IEEE CS Logo"
             />
@@ -71,6 +71,8 @@ export default function Chapter() {
             </p>
             <a  
               className={`${styles.btnStroke2} ${styles.scrollFadeUp} ${styles.delay400}${visibleSections.has('cs') ? ` ${styles.visible}` : ''}`}
+              href='/IEEEDTU/Chapters/CS' 
+              target='_blank'
             >
               Know More
             </a>
@@ -95,7 +97,7 @@ export default function Chapter() {
           <div className={styles.serviceText}>
             <img 
               height="300"
-              src="/aboutChapterSection/PES_IEEE.png"
+              src="/aboutPage/aboutChapterSection/PES_IEEE.png"
               className={styles.chapterImage}
               alt="IEEE PES Logo"
             />
@@ -115,6 +117,8 @@ export default function Chapter() {
             </p>
             <a  
               className={`${styles.btnStroke2} ${styles.scrollFadeUp} ${styles.delay400}${visibleSections.has('pes') ? ` ${styles.visible}` : ''}`}
+              href='/IEEEDTU/Chapters/PES-IAS'
+              target='_blank'
             >
               Know More
             </a>
@@ -139,7 +143,7 @@ export default function Chapter() {
           <div className={styles.serviceText}>
             <img 
               height="300"
-              src="/aboutChapterSection/WIE_IEEE.png"
+              src="/aboutPage/aboutChapterSection/WIE_IEEE.png"
               className={styles.chapterImage}
               alt="IEEE WIE Logo"
             />
@@ -159,6 +163,8 @@ export default function Chapter() {
             </p>
             <a  
               className={`${styles.btnStroke2} ${styles.scrollFadeUp} ${styles.delay400}${visibleSections.has('wie') ? ` ${styles.visible}` : ''}`}
+              href='/IEEEDTU/Chapters/WIE'
+              target='_blank'
             >
               Know More
             </a>
@@ -183,7 +189,7 @@ export default function Chapter() {
           <div className={styles.serviceText}>
             <img 
               height="300"
-              src="/aboutChapterSection/CASS_IEEE.png"
+              src="/aboutPage/aboutChapterSection/CASS_IEEE.png"
               className={styles.chapterImage}
               alt="IEEE CASS Logo"
             />
@@ -203,6 +209,8 @@ export default function Chapter() {
             </p>
             <a  
               className={`${styles.btnStroke2} ${styles.scrollFadeUp} ${styles.delay400}${visibleSections.has('cass') ? ` ${styles.visible}` : ''}`}
+              href='/IEEEDTU/Chapters/CASS'
+              target='_blank'
             >
               Know More
             </a>

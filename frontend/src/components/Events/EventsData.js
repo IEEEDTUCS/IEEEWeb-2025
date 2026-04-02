@@ -16,95 +16,95 @@ const EventsData=[
    {
     title:"IEEE Day 2024",
     subheader:"",
-    image:"/Events/ieeeday24.png",
+    image:"/Events/ieeeday24.jpeg",
     typography:"Celebrating DTU's Oldest Student Society!"
   },
    {
     title:"IEEEXtreme",
     subheader:"",
-    image:"/Events/ieeextreme.png",
+    image:"/Events/ieeextreme.jpeg",
     typography:"24-hour global programming competition"
   },
    {
     title:"MIST",
     subheader:"",
-    image:"/Events/mist.png",
+    image:"/Events/mist.jpeg",
     typography:"The Cryptic Hunt"
   },
   
    {
     title:"CodeCrunchML",
     subheader:"",
-    image:"/Events/codecrunch.png",
+    image:"/Events/codecrunch.jpeg",
     typography:"A Machine Learning Hackathon"
   },
    {
     title:"Case Study",
     subheader:"",
-    image:"/Events/casestudy.png",
+    image:"/Events/casestudy.jpeg",
     typography:"Solutions are born from analysis and daring assumptions"
   },
  
    {
     title:"Tech Week 2023",
     subheader:"",
-    image:"/Events/techweek23.png",
+    image:"/Events/techweek23.jpeg",
     typography:"1 Week IEEE workshops"
   },
   {
     title:"DSSYWC",
     subheader:"",
-    image:"/Events/DSSYWC.png",
+    image:"/Events/dssywc.jpeg",
     typography:"DSSYWC 2022"
   },
    {
     title:"Domain Specific Hackathons",
     subheader:"",
-    image:"/Events/domain.png",
+    image:"/Events/domain.jpeg",
     typography:"A problem-solving journey!"
   },
    {
     title:"Field Events",
     subheader:"",
-    image:"/Events/field.png",
+    image:"/Events/field.jpeg",
     typography:"Engineering meets the joy of creative competitions!"
   },
   
    {
     title:"Devcraft",
     subheader:"",
-    image:"/Events/devcraft.png",
+    image:"/Events/devcraft.jpeg",
     typography:"Development-based Hackathon"
   },
    {
     title:"Programming Competitions",
     subheader:"",
-    image:"/Events/prog.png",
+    image:"/Events/prog.jpeg",
     typography:"Code weaves the fabric of tomorrow"
   },
   
    {
     title:"HackAIthon",
     subheader:"",
-    image:"/Events/hackaithon.png",
+    image:"/Events/hackaithon.jpeg",
     typography:"Gen AI Hackathon"
   },
    {
     title:"Blockchain",
     subheader:"",
-    image:"/Events/blockchain.png",
+    image:"/Events/blockchain.jpeg",
     typography:"A webinar on Web3 & Blockchain"
   },
    {
     title:"Worldquant",
     subheader:"",
-    image:"/Events/worldquant.png",
+    image:"/Events/worldquant.jpeg",
     typography:"A quantitative finance & fintech challenge"
   },
    {
     title:"Vihaan",
     subheader:"",
-    image:"/Events/vihaan007.png",
+    image:"/Events/vihaan007.jpeg",
     typography:"India's Largest Student-run Hacakthon"
   }
 ]

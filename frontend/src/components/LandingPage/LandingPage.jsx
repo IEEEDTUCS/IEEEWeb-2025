@@ -1,18 +1,16 @@
-"use client"; // Required for Framer Motion hooks in Next.js
+"use client";
 
 import * as React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import Link from "next/link";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import Drawer from '@mui/material/Drawer';
 
-// --- YOUR COMPONENTS ---
-import Navbar from '../../utils/Navbar'; 
-import AboutIEEE from '../About/AboutIEEE'; 
-
-// --- CORRECTED IMPORTS ---
-import Chapter from '../About/Chapter/Chapter'; 
-import Faculty from '../About/Faculty/Faculty';  
+// --- YOUR COMPONENTS --- 
+import AboutIEEE from '@/components/About/aboutIntro/AboutIEEE'
+import Chapter from '@/components/About/Chapter/Chapter'
+import Faculty from '@/components/About/Faculty/Faculty'
+import Signin from '../../utils/signin';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -21,6 +19,10 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 export default function LandingPage() {
     const targetRef = React.useRef(null);
     
+    // --- STATE ---
+    const [openSnackbar, setOpenSnackbar] = React.useState(false);
+    const [openSignIn, setOpenSignIn] = React.useState(false);
+
     // --- SCROLL SETUP ---
     const { scrollYProgress } = useScroll({
         target: targetRef,
@@ -34,34 +36,48 @@ export default function LandingPage() {
         restDelta: 0.001
     });
 
-    // --- THE NEW NAVBAR LINKS ---
-    const eventLinks = [
-        { name: "Invictus", href: "https://www.invictusdtu.in/" },
-        { name: "Vihaan", href: "https://vihaan.ieeedtu.in/" },
-        { name: "Techweek", href: "https://techweek.ieeedtu.in/" },
-    ];
-
     // --- ANIMATION TIMELINE ---
-    const maskSize = useTransform(smoothProgress, [0, 0.1, 0.2, 0.35, 0.55], ["20000%", "2000%", "800%", "200%", "30%"]);
-    const maskPosition = useTransform(smoothProgress, [0, 0.5, 0.7], ["21% 50%", "21% 50%", "50% 50%"]);
-    const videoMaskOpacity = useTransform(smoothProgress, [0.65, 0.75], [1, 0]);
-    const textOpacity = useTransform(smoothProgress, [0.65, 0.8], [0, 1]);
-    const textY = useTransform(smoothProgress, [0.65, 0.8], [40, 0]);
+    // Smooth zoom out from massive to 20%
+    const maskSize = useTransform(smoothProgress, [0, 0.2, 0.4, 0.6], ["40000%", "2000%", "200%", "20%"]);
+    
+    const maskPosition = useTransform(smoothProgress, [0, 0.2, 0.4, 0.5 ,0.55, 0.6, 0.62], ["55% 50%", "53% 50%", "50% 50%", "50% 50%", "50% 40%", "50% 30%", "50% 20%"]);
+    
+    const textOpacity = useTransform(smoothProgress, [0.45, 0.6], [0, 1]);
+    const textY = useTransform(smoothProgress, [0.45, 0.6], [40, 0]);
     const arrowOpacity = useTransform(smoothProgress, [0, 0.05], [1, 0]);
 
-    // --- SNACKBAR LOGIC ---
-    const [openSnackbar, setOpenSnackbar] = React.useState(false);
+    // --- COLOR & LOGO TRANSITIONS ---
+    const containerBg = useTransform(smoothProgress, [0.45, 0.65], ["#000000", "#000000"]);
+    const headingColor = useTransform(smoothProgress, [0.45, 0.65], ["#ffffff", "#ffffff"]); 
+    const subHeadingColor = useTransform(smoothProgress, [0.45, 0.65], ["#d1d5db", "#d1d5db"]);
+    
+    // Fades the video out to reveal the white background inside the mask when it gets small
+    const videoOpacity = useTransform(smoothProgress, [0.15, 0.6], [1, 0]);
 
+    // --- SNACKBAR LOGIC ---
     React.useEffect(() => {
-        const hasShownSnackbar = localStorage.getItem("hasShownSnackbar");
-        if (!hasShownSnackbar) {
-            const timer = setTimeout(() => {
-                setOpenSnackbar(true);
-                localStorage.setItem("hasShownSnackbar", "true");
-            }, 5500);
-            return () => clearTimeout(timer);
+        const now = Date.now();
+        const saved = localStorage.getItem("hasShownSnackbar");
+
+        if (saved) {
+            const savedTime = parseInt(saved, 10);
+            const twoDays = 2 * 24 * 60 * 60 * 1000; 
+            if (now - savedTime < twoDays) return; 
+            localStorage.removeItem("hasShownSnackbar");
         }
+
+        const timer = setTimeout(() => {
+            setOpenSnackbar(true);
+            localStorage.setItem("hasShownSnackbar", now.toString());
+        }, 5500);
+
+        return () => clearTimeout(timer);
     }, []);
+
+    const handleSignInClick = (e) => {
+        e.preventDefault(); 
+        setOpenSignIn(true);
+    };
 
     const handleSnackbarClose = (event, reason) => {
         if (reason === 'clickaway') return;
@@ -70,18 +86,13 @@ export default function LandingPage() {
 
     return (
         <main className="bg-[#000000] min-h-screen relative">
-            
-            {/* --- 1. FIXED NAVBAR --- 
-                z-[100] keeps it above everything else.
-                We pass eventLinks to render Invictus, Vihaan, Techweek.
-            */}
-            <div className="fixed top-0 left-0 w-full z-[100]">
-                <Navbar links={eventLinks} />
-            </div>
 
-            {/* --- 2. HERO SECTION WITH VIDEO MASK --- */}
+            {/* --- 2. HERO SECTION --- */}
             <div ref={targetRef} className="relative w-full h-[400vh]">
-                <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-[#000000]">
+                <motion.div 
+                    className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center"
+                    style={{ backgroundColor: containerBg }}
+                >
                     
                     {/* Scroll Indicator */}
                     <motion.div 
@@ -91,7 +102,10 @@ export default function LandingPage() {
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: [0, 10, 0] }}
-                            transition={{ opacity: { delay: 1.5, duration: 0.8 }, y: { repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1.5 } }}
+                            transition={{ 
+                                opacity: { delay: 1.5, duration: 0.8 }, 
+                                y: { repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1.5 } 
+                            }}
                         >
                             <p className="text-xs uppercase tracking-[0.3em] mb-3 opacity-60 font-bold text-center">Scroll</p>
                             <svg className="w-6 h-6 mx-auto opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,21 +117,26 @@ export default function LandingPage() {
                     {/* Text Behind Mask */}
                     <motion.div 
                         className="absolute z-10 flex flex-col items-center justify-center text-center px-4 w-full"
-                        style={{ opacity: textOpacity, y: textY, top: "40%" }}
+                        style={{ opacity: textOpacity, y: textY, top: "45%" }}
                     >
-                        <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-playfair font-bold tracking-tight drop-shadow-2xl">
+                        <motion.h1 
+                            className="text-5xl md:text-7xl lg:text-8xl font-playfair font-bold tracking-tight drop-shadow-2xl"
+                            style={{ color: headingColor }}
+                        >
                             IEEE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">DTU</span>
-                        </h1>
-                        <h2 className="text-gray-300 text-sm md:text-lg mt-6 font-sans font-light tracking-[0.3em] uppercase opacity-90">
+                        </motion.h1>
+                        <motion.h2 
+                            className="text-xl md:text-2xl font-extrabold mt-6 font-[Orbitron] tracking-[0.25em] uppercase opacity-99"
+                            style={{ color: subHeadingColor }}
+                        >
                             A World of Limitless Possibilities
-                        </h2>
+                        </motion.h2>
                     </motion.div>
 
                     {/* Masked Video */}
                     <motion.div 
-                        className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none"
+                        className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none bg-white"
                         style={{
-                            opacity: videoMaskOpacity, 
                             maskImage: "url('/logo2.svg')",
                             maskPosition: maskPosition, 
                             maskRepeat: "no-repeat",
@@ -128,43 +147,62 @@ export default function LandingPage() {
                             WebkitMaskSize: maskSize,
                         }}
                     >
-                        <video src="https://res.cloudinary.com/dmeyryjzj/video/upload/q_auto/f_auto/v1775135234/ieee_fun_compressed_hq_1_b1jygs.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"></div>
+                        <motion.video 
+                            src="https://res.cloudinary.com/dmeyryjzj/video/upload/q_auto/f_auto/v1775135234/ieee_fun_compressed_hq_1_b1jygs.mp4" 
+                            autoPlay muted loop playsInline 
+                            className="w-full h-full object-cover" 
+                            style={{ opacity: videoOpacity }} 
+                        />
+                        <motion.div 
+                            className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"
+                            style={{ opacity: videoOpacity }} 
+                        ></motion.div>
                     </motion.div>
-
-                </div>
+                </motion.div>
             </div>
 
-         {/* --- 3. ALL ABOUT SECTIONS --- */}
+            {/* --- 3. SECTIONS --- */}
             <div className="relative z-30 bg-[#0a0a0a] w-full border-t border-white/10">
-                
-                {/* About Main Component */}
-                <section id="about" className="py-20">
+                <section id="about" className="py-20 bg-white">
                     <AboutIEEE />
                 </section>
 
-                {/* Chapter Component (Updated Tag) */}
-                <section id="chapters" className="py-20 bg-[#000000] border-t border-white/5">
+                <section id="chapters" className="py-20 bg-[#ffffff] border-t border-white/5">
                     <Chapter />
                 </section>
 
-                {/* Faculty Component */}
-                <section id="faculty" className="py-20 bg-[#0a0a0a] border-t border-white/5">
+                <section id="faculty" className="py-20 bg-[#ffffff] border-t border-white/5">
                     <Faculty />
                 </section>
-
             </div>
 
-            {/* --- SNACKBAR --- */}
+            {/* --- Snackbar --- */}
             <Snackbar open={openSnackbar} autoHideDuration={8000} onClose={handleSnackbarClose}>
-                <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: '100%', backgroundColor: '#006AFF', color: 'white' }}>
-                    Join the community!{"\u00A0"}{"\u00A0"}
-                    <Link href="/api/auth/signin" className="border-2 border-white rounded cursor-pointer px-2 py-1 hover:bg-white hover:text-[#006AFF] font-bold uppercase text-sm">
+                <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: '100%', alignItems: 'center' }}>
+                    <span className="mr-4">Get access to exclusive benefits!</span>
+                    <button
+                        onClick={handleSignInClick} 
+                        className="border-2 border-white rounded cursor-pointer px-2 py-1 text-sm transition-colors hover:bg-white hover:text-black"
+                    >
                         Sign in
-                    </Link>
+                    </button>
                 </Alert>
             </Snackbar>
 
+            {/* --- Sign In Drawer --- */}
+            <Drawer
+                anchor="right"
+                open={openSignIn}
+                onClose={() => setOpenSignIn(false)}
+                PaperProps={{
+                    sx: {
+                        backgroundColor: "#000",
+                        width: { xs: "100%", sm: "22rem", md: "25rem" },
+                    }
+                }}
+            >
+                <Signin />
+            </Drawer>
         </main>
     );
 }

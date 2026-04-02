@@ -10,6 +10,7 @@ const boilerPlate = (WrappedComponent) => {
     const router = useRouter();
     const [loading, setLoading] = useState(true); // start with loader on
 
+
     useEffect(() => {
       // 1. Hide loader once DOM fully loads (initial page load)
       const handleDomLoad = () => setLoading(false);
@@ -38,11 +39,13 @@ const boilerPlate = (WrappedComponent) => {
 
     return (
       <>
+     
+
         <Loader visible={loading} />
-        {router.pathname === '/' ? null : <Navbar />}
+        <Navbar />
         <WrappedComponent {...props} setGlobalLoading={setLoading} />
         <Chatbot></Chatbot>
-        {router.pathname === '/' ? null : <Footer />}
+        <Footer />
       </>
     );
   };

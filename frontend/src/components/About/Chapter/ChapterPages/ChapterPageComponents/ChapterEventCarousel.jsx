@@ -52,7 +52,7 @@ function CarouselComp({ images = [], SelectedDot }) {
               width: i === current ? '1.75rem' :'0.75rem',
               transition: '0.3s ease-in',
               backgroundColor: i === current ? SelectedDot : "#69706b",
-              border: 'none',
+              border: '1.5px solid black',
               cursor: 'pointer'
             }}
             aria-label={`Go to slide ${i + 1}`}
