@@ -10,6 +10,7 @@ import Drawer from '@mui/material/Drawer';
 import AboutIEEE from '@/components/About/aboutIntro/AboutIEEE'
 import Chapter from '@/components/About/Chapter/Chapter'
 import Faculty from '@/components/About/Faculty/Faculty'
+import Echoes from '@/components/About/Echoes/Echoes'
 import Signin from '../../utils/signin';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -173,6 +174,10 @@ export default function LandingPage() {
 
                 <section id="faculty" className="py-20 bg-[#ffffff] border-t border-white/5">
                     <Faculty />
+                </section>
+                
+                <section id="echoes" className="py-20 bg-[#ffffff] border-t border-white/5 ">
+                    <Echoes/>
                 </section>
             </div>
 
