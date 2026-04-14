@@ -374,8 +374,8 @@
 
 import * as React from 'react';
 import { createTheme } from '@mui/material/styles';
-// import { AppProvider } from '@toolpad/core/AppProvider';
-// import { SignInPage } from '@toolpad/core/SignInPage';
+import { AppProvider } from '@toolpad/core/AppProvider';
+import { SignInPage } from '@toolpad/core/SignInPage';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
