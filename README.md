@@ -1,38 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# IEEE DTU - Official Main Website
 
-## Getting Started
+> The digital home and operational backbone of the IEEE DTU Student Branch. Built to evolve, designed to empower, and constantly adapting to help our student branch function better, always.
 
-First, run the development server:
+## Vision & Purpose
+Unlike our event-specific platforms (like Vihaan or TechWeek) that are built for a specific timeframe, this repository is a **living, breathing project**. There is no final architecture and no fixed endpoint. 
 
-```bash
-npm i
+This website is the central nervous system of IEEE DTU. Its primary mission is to streamline operations, showcase our various chapters (including the Computer Society, WIE, PES, etc.), highlight our Special Interest Groups (SIGs), and provide a permanent hub for our community's resources and achievements.
 
-npm run dev
+## ✨ Core Objectives
+- **Centralized Hub:** A single source of truth for upcoming events, workshops, departmental help, research and placement help.
+- **Continuous Evolution:** The design and architecture are meant to be updated. As web technologies advance, this repository serves as a sandbox for the tech team to implement modern standards.
+- **Operational Efficiency:** Built to reduce friction for the core team by automating registrations, showcasing society structure, and managing member resources effectively.
+- **Legacy & Handoff:** Structured in a way that allows senior developers to easily onboard juniors, ensuring the platform outlives any single batch of students.
 
-```
+## 🏗️ Architecture Philosophy
+Because this project is meant to run forever, flexibility is our main priority. While the specific technologies may shift over time, our core philosophy remains:
+- **Modularity:** Components are built independently so entire pages or sections can be redesigned without breaking the entire site.
+- **Scalability:** The backend and database schemas are designed to hold years of historical data (past teams, past events, alumni networks) without slowing down.
+- **Modern Web Standards:** We typically leverage robust, full-stack JavaScript/TypeScript environments to ensure high performance, SEO optimization, and an excellent developer experience. 
 
-Open [http://localhost:3006](http://localhost:3006) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/admin](http://localhost:3000/api/admin). This endpoint can be edited in `pages/api/admin.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
-.
+Best Of Luck
+~~ Zahan Sharma 2k27 batch
