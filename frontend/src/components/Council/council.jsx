@@ -10,37 +10,89 @@ import { motion } from 'framer-motion';
 
 function Council({ img, Name, Position, insta, linkedin }) {
   return (
-    <CardContainer className="w-full max-w-[280px] mx-auto">
-      <CardBody className="relative rounded-xl bg-white border border-neutral-100 shadow-xl shadow-white/30 hover:shadow-2xl hover:shadow-white/40 transition-shadow duration-300 overflow-hidden">
-        <CardItem translateZ={80} className="w-full h-[260px] overflow-hidden">
+    <CardContainer className=" group w-full border border-white/80
+    rounded-md
+    shadow-[0_4px_20px_rgba(255,255,255,0.06)]
+    hover:border-[#70A6E3]/60
+    hover:shadow-[0_0_25px_rgba(112,166,227,0.18)]
+    transition-all duration-300">
+      <CardBody className="relative w-full h-auto">
+
+        {/* IMAGE */}
+        <CardItem
+          translateZ={80}
+          className="relative w-full overflow-hidden rounded-t-md"
+        >
           <Image
             src={img}
             alt={Name}
             width={600}
             height={600}
-            className="h-full w-full object-cover"
+            className="h-[300px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
+
+          {/* subtle hover overlay */}
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
         </CardItem>
 
-        <CardItem translateZ={50} className="w-full pt-4 text-center">
-          <p className="text-xl md:text-2xl font-subheading font-bold text-neutral-00">{Name}</p>
+        {/* NAME + POSITION/SOCIALS */}
+        <CardItem
+          translateZ={50}
+          className="relative w-full h-[72px] text-center overflow-hidden bg-white rounded-b-md"
+        >
+
+          {/* NAME */}
+          <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 group-hover:-translate-y-8 group-hover:opacity-0">
+            <p className="text-xl md:text-2xl font-subheading font-bold text-neutral-600">
+              {Name}
+            </p>
+          </div>
+
+          {/* POSITION + SOCIALS */}
+          <div className="absolute inset-x-0 bottom-0 flex justify-center items-center pb-4 translate-y-10 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+
+            <span className="text-sm uppercase tracking-[0.12em] text-neutral-500">
+              {Position}
+            </span>
+
+            {linkedin && (
+              <a
+                href={linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-5 h-5 flex items-center justify-center"
+              >
+                {Name === "Khobaib Akmal" ? (
+                  <LanguageIcon
+                    fontSize="small"
+                    className="text-blue-600 cursor-pointer transition-transform duration-200 hover:scale-125"
+                  />
+                ) : (
+                  <LinkedInIcon
+                    fontSize="small"
+                    className="text-blue-600 cursor-pointer transition-transform duration-200 hover:scale-125"
+                  />
+                )}
+              </a>
+            )}
+
+            {insta && (
+              <a
+                href={insta}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-5 h-5 flex items-center justify-center"
+              >
+                <InstagramIcon
+                  fontSize="small"
+                  className="text-pink-500 cursor-pointer transition-transform duration-200 hover:scale-125"
+                />
+              </a>
+            )}
+
+          </div>
         </CardItem>
 
-        <CardItem translateZ={90} className="w-full flex justify-center items-center gap-2 py-4">
-          <span className="text-sm text-neutral-500">{Position}</span>
-          {linkedin && (
-            <a href={linkedin} target="_blank" rel="noopener noreferrer">
-              {Name === "Khobaib Akmal"
-                ? <LanguageIcon fontSize="small" className="text-blue-600 hover:scale-110 transition cursor-pointer" />
-                : <LinkedInIcon fontSize="small" className="text-blue-600 hover:scale-110 transition cursor-pointer" />}
-            </a>
-          )}
-          {insta && (
-            <a href={insta} target="_blank" rel="noopener noreferrer">
-              <InstagramIcon fontSize="small" className="text-pink-500 hover:scale-110 transition cursor-pointer" />
-            </a>
-          )}
-        </CardItem>
       </CardBody>
     </CardContainer>
   );
@@ -52,12 +104,12 @@ export default function CouncilComponent() {
       className="relative bg-black pb-10 pt-20"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <div className="m-15">
         <motion.div>
           <motion.p
-            className="font-heading text-center text-[#70A6E3] text-xl tracking-[0.2rem] font-semibold"
+            className="font-heading text-center text-[#70A6E3] text-lg tracking-[0.2rem] font-semibold"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
@@ -85,13 +137,14 @@ export default function CouncilComponent() {
         </motion.div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto px-6 mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-14">
         {CouncilData.map((member, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.08 }}
+            transition={{ duration: 0.5, delay: index * 0.08,ease: "easeOut" }}
+            className="transition-all duration-300"
           >
             <Council {...member} />
           </motion.div>
