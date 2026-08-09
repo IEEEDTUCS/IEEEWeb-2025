@@ -49,7 +49,7 @@ function Council({ img, Name, Position, insta, linkedin }) {
           </div>
 
           {/* POSITION + SOCIALS */}
-          <div className="absolute inset-x-0 bottom-0 flex justify-center items-center pb-4 translate-y-10 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+          <div className="absolute inset-x-0 bottom-0 flex justify-center items-center pb-4 translate-y-10 opacity-0 transition-all duration-650 group-hover:translate-y-0 group-hover:opacity-100">
 
             <span className="text-sm uppercase tracking-[0.12em] text-neutral-500">
               {Position}
@@ -60,17 +60,17 @@ function Council({ img, Name, Position, insta, linkedin }) {
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-5 h-5 flex items-center justify-center"
+                className="w-6 h-6 flex items-center justify-center"
               >
-                {Name === "Khobaib Akmal" ? (
+                {Name === "Parth Sharma" ? (
                   <LanguageIcon
                     fontSize="small"
-                    className="text-blue-600 cursor-pointer transition-transform duration-200 hover:scale-125"
+                    className="text-blue-600 cursor-pointer transition-transform duration-200 hover:scale-140"
                   />
                 ) : (
                   <LinkedInIcon
                     fontSize="small"
-                    className="text-blue-600 cursor-pointer transition-transform duration-200 hover:scale-125"
+                    className="text-blue-600 cursor-pointer transition-transform duration-200 hover:scale-140"
                   />
                 )}
               </a>
@@ -81,11 +81,11 @@ function Council({ img, Name, Position, insta, linkedin }) {
                 href={insta}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-5 h-5 flex items-center justify-center"
+                className="w-6 h-6 flex items-center justify-center"
               >
                 <InstagramIcon
                   fontSize="small"
-                  className="text-pink-500 cursor-pointer transition-transform duration-200 hover:scale-125"
+                  className="text-pink-500 cursor-pointer transition-transform duration-200 hover:scale-140"
                 />
               </a>
             )}
@@ -143,7 +143,7 @@ export default function CouncilComponent() {
             key={index}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.08,ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
             className="transition-all duration-300"
           >
             <Council {...member} />
