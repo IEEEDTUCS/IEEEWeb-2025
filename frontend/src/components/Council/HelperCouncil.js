@@ -7,7 +7,7 @@ const CouncilData=[
         linkedin:"https://www.linkedin.com/in/rudit-madaan/"
     },
       {
-        img:"/CouncilPhotos/bhavit_jain.jpg",
+        img:"/CouncilPhotos/bhavit_jain.webp",
         Name:"Bhavit Jain",
         Position:"Vice Chairperson ",
         insta:"https://www.instagram.com/k10.shankar/",
@@ -35,7 +35,7 @@ const CouncilData=[
         linkedin:"https://www.linkedin.com/in/aditya-tiwari-784517279/"
     },
     {
-        img:"/CouncilPhotos/ashutosh_kumar_mishra.jpeg",
+        img:"/CouncilPhotos/ashutosh_kumar_mishra.webp",
         Name:"Ashutosh Kumar Mishra",
         Position:"Treasurer  ",
         insta:"https://www.instagram.com/kdotakmal/",

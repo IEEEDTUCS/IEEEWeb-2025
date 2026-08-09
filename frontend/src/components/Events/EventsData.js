@@ -106,6 +106,13 @@ const EventsData=[
     subheader:"",
     image:"/Events/vihaan007.jpeg",
     typography:"India's Largest Student-run Hacakthon"
+  },
+   {
+    title:"Adobe AI Scholastic Program",
+    subheader:"",
+    image:"/Events/adobe_ai.jpeg",
+    typography:"Generative AI Workshop by Adobe × IEEE DTU"
   }
+
 ]
 export default EventsData;
