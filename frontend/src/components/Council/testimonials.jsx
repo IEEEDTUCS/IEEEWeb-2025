@@ -55,7 +55,7 @@ function Gallery({ items, setIndex, setOpen, index }) {
             <CardBody
               className={`bg-white rounded-2xl shadow-lg shadow-black/20 border border-neutral-200 overflow-hidden transition-[width,height] duration-500 ease-in-out
                 ${index === i
-                  ? "w-[280px] sm:w-[420px] md:w-[640px] h-[360px] sm:h-[420px] md:h-[460px] p-6 flex flex-col md:flex-row items-center justify-center gap-6"
+                  ? "w-[320px] sm:w-[600px] md:w-[850px] lg:w-[950px] h-[500px] sm:h-[560px] md:h-[620px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-center gap-8"
                   : "w-16 sm:w-20 md:w-28 h-[280px] sm:h-[340px] md:h-[400px] flex flex-col items-center justify-end"
                 }`}
             >
@@ -68,15 +68,15 @@ function Gallery({ items, setIndex, setOpen, index }) {
   />
 ) : (
   <>
-    <CardItem translateZ={30} className="text-left order-2 md:order-1 flex-1 relative">
-      <div className="max-h-[280px] overflow-y-auto pr-3 [mask-image:linear-gradient(to_bottom,black_85%,transparent)]">
+    <CardItem translateZ={20} className="text-left order-2 md:order-1 flex-1 relative">
+      <div className="pr-3">
         <p className="text-base md:text-lg text-neutral-700 font-serif leading-relaxed whitespace-pre-line">
           {item.description}
         </p>
       </div>
     </CardItem>
-    <CardItem translateZ={70} className="flex flex-col items-center order-1 md:order-2">
-      <img src={item.url} alt={item.title} className="w-28 h-32 sm:w-36 sm:h-40 object-cover rounded-xl shadow-md" />
+    <CardItem translateZ={20} className="flex flex-col items-center order-1 md:order-2 shrink-0">
+      <img src={item.url} alt={item.title} className="w-32 h-36 sm:w-40 sm:h-44 object-cover rounded-xl shadow-md" />
       <h3 className="text-lg font-semibold mt-3 text-neutral-800">{item.title}</h3>
       <p className="text-sm text-neutral-500">{item.designation}</p>
     </CardItem>
