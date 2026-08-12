@@ -12,7 +12,7 @@ const testimonials = [
     title: "Harsh Kumar",
     designation: "Batch of 2024 (Treasurer)",
     description:
-      "IEEE DTU has been one of the most transformative journeys of my college life. From starting as a Core Member to taking on the role of Treasurer, every step has been a learning curve. Handling sponsorships, financial planning, and corporate relations gave me real-world exposure beyond textbooks. You get to know more about real-world panorama. Kehte hain na, seekhna band toh jeetna band—and IEEE ensured I kept learning and growing. \n Invictus DTU was another exciting chapter where I got to lead corporate partnerships and sponsorships, working with an incredible team.Whether it was late- night Yapp meetings or pulling off large - scale events, every moment was worth it. More than anything, it gave me a strong network of mentors, friends, and juniors who made this journey unforgettable.Yahan sirf society nahi, ek solid family milti hai! To all juniors: grab every opportunity, make a Yaadgaar college journey for you",
+      "IEEE DTU has been one of the most transformative journeys of my college life. From starting as a Core Member to taking on the role of Treasurer, every step has been a learning curve. Handling sponsorships, financial planning, and corporate relations gave me real-world exposure beyond textbooks. You get to know more about real-world panorama. Kehte hain na, seekhna band toh jeetna band—and IEEE ensured I kept learning and growing. \n Invictus DTU was another exciting chapter where I got to lead corporate partnerships and sponsorships, working with an incredible team.Whether it was late- night Yapp meetings or pulling off large - scale events, every moment was worth it. More than anything, it gave me a strong network of mentors, friends, and juniors who made this journey unforgettable.Yahan sirf society nahi, ek solid family milti hai! To all juniors: grab every opportunity, make a Yaadgaar college journey for you.",
   },
   {
     id: "2",
@@ -39,90 +39,52 @@ const testimonials = [
   
 ];
 
+import { CardContainer, CardBody, CardItem } from '@/components/Council/Card3D'; // adjust path
+
 function Gallery({ items, setIndex, setOpen, index }) {
   return (
-    <div className="flex flex-col sm:flex-row md:flex-row overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth lg:justify-center md:justify-start sm:justify-start items-center gap-2 py-1">
+    <div className="flex flex-row overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth justify-center items-stretch gap-4 py-4 px-4">
       {items.map((item, i) => (
-        <motion.div
-          whileTap={{ scale: 0.98 }}
-          
-          key={item.id}
-          onMouseEnter={() => setIndex(i)}
-          onClick={() => {
-            setIndex(i);
-            setOpen(true);
-          }}
-          className={`snap-center flex-shrink-0 w-82 mx-4 bg-white rounded-2xl shadow-lg p-0 text-center" 
-            ${
-              index === i
-                ? "w-full max-w-xs sm:max-w-md md:max-w-2xl lg:w-4xl transition-[width] ease-in duration-600 p-6 bg-white rounded-2xl shadow-2xl shadow-black/30 flex flex-col justify-center items-center"
-                : "w-10 sm:w-16 md:w-34 h-100 sm:h-116 md:h-[600px] lg:h-160 rounded-xl overflow-hidden shadow-2xl shadow-black/30"
-            }`}
-        >
-          {/* Always show photo thumbnail */}
-          <motion.img
-            src={item.url}
-            alt={item.title}
-            className={`object-cover rounded-xl 
-              ${index === i ? "hidden" : "w-full h-full"}`}
-          />
-
-          {/* Collapsed state (when not expanded) */}
-          {index !== i && (
-            <div className="flex flex-col items-center justify-center p-2">
-              <motion.img
-                src={item.url}
-                alt={item.title}
-                className="w-28 h-32 sm:w-32 sm:h-36 object-cover rounded-xl"
-              />
-              <h3 className="text-sm sm:text-base font-semibold mt-2 text-center">
-                {item.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-500 text-center">
-                {item.designation}
-              </p>
-            </div>
-          )}
-
-          { /* Expanded content with smooth animation */ }
-                <AnimatePresence>
-                {index === i && (
-                  <motion.div
-                  className="flex flex-col md:flex-row items-center md:items-start mt-4 gap-6 w-full"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.45, delay: 0.4 }}
-                  >
-                  {/* Left side: Bio */}
-                <div className=" text-left px-2 order-2 md:order-1">
-                  <p className="text-lg text-gray-700 font-serif leading-relaxed overflow-hidden line-clamp-18" style={{ color: "#555555" }}>
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Right side: Photo + Details */}
-                <div className="flex flex-col items-center order-1 md:order-2 md:ml-6 ">
-                  <div
-                    className="w-38 h-42 
-                      sm:w-56 sm:h-60 
-                      md:w-80 md:h-86 
-                      lg:w-84 lg:h-110 
-                      rounded-xl shadow-md bg-white flex items-center justify-center"
-                  >
-                    <img
-                      src={item.url}
-                      alt={item.title}
-                      className="max-w-full h-full object-cover rounded-xl"
-                    />
-                  </div>
-                  <h3 className="text-xl font-sans font-semibold mt-3" style={{ color: "#000000" }}>{item.title}</h3>
-                  <p className="text-sm text-gray-500 md:w-46 md:h-6 ml-8">{item.designation}</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+        <CardContainer key={item.id} className="snap-center flex-shrink-0" containerClassName="py-0">
+          <motion.div
+            whileTap={{ scale: 0.98 }}
+            onMouseEnter={() => setIndex(i)}
+            onClick={() => { setIndex(i); setOpen(true); }}
+            className="cursor-pointer"
+          >
+            <CardBody
+              className={`bg-white rounded-2xl shadow-lg shadow-black/20 border border-neutral-200 overflow-hidden transition-[width,height] duration-500 ease-in-out
+                ${index === i
+                  ? "w-[320px] sm:w-[600px] md:w-[850px] lg:w-[950px] h-[500px] sm:h-[560px] md:h-[620px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-center gap-8"
+                  : "w-16 sm:w-20 md:w-28 h-[280px] sm:h-[340px] md:h-[400px] flex flex-col items-center justify-end"
+                }`}
+            >
+              {index !== i ? (
+  // collapsed: photo fills the whole card now, not a small padded thumbnail
+<img
+    src={item.url}
+    alt={item.title}
+    className="w-full h-full object-cover"
+  />
+) : (
+  <>
+    <CardItem translateZ={20} className="text-left order-2 md:order-1 flex-1 relative">
+      <div className="pr-3">
+        <p className="text-base md:text-lg text-neutral-700 font-serif leading-relaxed whitespace-pre-line">
+          {item.description}
+        </p>
+      </div>
+    </CardItem>
+    <CardItem translateZ={20} className="flex flex-col items-center order-1 md:order-2 shrink-0">
+      <img src={item.url} alt={item.title} className="w-32 h-36 sm:w-40 sm:h-44 object-cover rounded-xl shadow-md" />
+      <h3 className="text-lg font-semibold mt-3 text-neutral-800">{item.title}</h3>
+      <p className="text-sm text-neutral-500">{item.designation}</p>
+    </CardItem>
+  </>
+)}
+            </CardBody>
+          </motion.div>
+        </CardContainer>
       ))}
     </div>
   );
@@ -131,6 +93,8 @@ function Gallery({ items, setIndex, setOpen, index }) {
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
+  const activeIndex = Math.min(Math.max(index, 0), testimonials.length - 1);
+  const activeTestimonial = testimonials[activeIndex];
 
   useEffect(() => {
     if (open) {
@@ -179,9 +143,8 @@ export default function Testimonials() {
             onClick={() => setOpen(false)}
           >
          <motion.div 
-              layoutId={testimonials[index].id}
-              className="bg-white rounded-xl shadow-lg p-4 w-auto /12 max-w-xl max-h-[80vh] overflow-y-auto relative" //"w-full sm:w-[80%] md:w-[600px] h-auto rounded-2xl cursor-default bg-white p-4 shadow-lg"
-
+              layoutId={activeTestimonial.id}
+              className="bg-white rounded-xl shadow-lg p-4 w-auto /12 max-w-xl max-h-[80vh] overflow-y-auto relative"
               onClick={(e) => e.stopPropagation()}
             >
               <motion.button
@@ -191,11 +154,11 @@ export default function Testimonials() {
                 ✕
               </motion.button>
              <Image 
-                src={testimonials[index].url}
+                src={activeTestimonial.url}
                 width={150}
                 height={150}
-                alt={testimonials[index].title}
-                className="rounded-full  object-cover mx-auto md:w-40 md:h-40 w-24 h-24" //w-full h-60 sm:h-72 md:h-80
+                alt={activeTestimonial.title}
+                className="rounded-full  object-cover mx-auto md:w-40 md:h-40 w-24 h-24"
               />
               <article className="p-2 mt-4 text-center"> 
                 <motion.h1 
@@ -204,7 +167,7 @@ export default function Testimonials() {
                   transition={{ duration: 0.2, delay: 0.2 }}
                   className="text-xl font-semibold font-[montserrat-semibold] "
                 >
-                   {testimonials[index].title}
+                   {activeTestimonial.title}
                  </motion.h1>
                  <motion.p
                   initial={{ y: -10, opacity: 0 }}
@@ -213,7 +176,7 @@ export default function Testimonials() {
                   className="text-xl md:text-base leading-relaxed py-2 font-serif "
                   style={{ color: "#555555" }}
                 >
-                  {testimonials[index].description}
+                  {activeTestimonial.description}
                  </motion.p>
              </article>
              </motion.div>

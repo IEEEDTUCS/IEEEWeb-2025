@@ -1,148 +1,160 @@
 const CouncilData=[
     {
-        img:"/CouncilPhotos/VaibhavGautam.jpg",
-        Name:"Vaibhav Gautam",
+        img:"/CouncilPhotos/rudit_madaan.jpg",
+        Name:"Rudit Madaan",
         Position:"Chairperson",
-        insta:"https://www.instagram.com/vaibhavgautam98/",
-        linkedin:"https://www.linkedin.com/in/vaibhav-gautam-55772721b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
+        insta:"https://www.instagram.com/rudit_madaan/",
+        linkedin:"https://www.linkedin.com/in/rudit-madaan/"
     },
       {
-        img:"/CouncilPhotos/A571E8EC-94B5-4DA9-AEA8-233CD72D451B - Karan Ketan.jpeg",
-        Name:"Ketan Shankar",
+        img:"/CouncilPhotos/bhavit_jain.webp",
+        Name:"Bhavit Jain",
         Position:"Vice Chairperson ",
-        insta:"https://www.instagram.com/k10.shankar/",
-        linkedin:"https://www.linkedin.com/in/ketan-shankar-519306258/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
+        insta:"https://www.instagram.com/jainbhavit2018/",
+        linkedin:"https://www.linkedin.com/in/jainbhavit2018/"
     },
      {
-        img:"/CouncilPhotos/IMG_7122 - Spruha Kar.jpeg",
-        Name:"Spruha Kar   ",
+        img:"/CouncilPhotos/jitendra_kumar_singh.jpg",
+        Name:"Jitendra Kumar Singh   ",
         Position:"General Secretary",
-        insta:"https://www.instagram.com/spruha_594/",
-        linkedin:"https://www.linkedin.com/in/spruha-kar-0a577b254/"
+        insta:"https://www.instagram.com/18jitendra_/",
+        linkedin:"https://www.linkedin.com/in/jitendra-kumar-singh-878b2a286/"
     },
      {
-        img:"/CouncilPhotos/Anshul_Agrawal.jpg",
-        Name:"Anshul Agrawal",
+        img:"/CouncilPhotos/dhruv_chiripal.jpg",
+        Name:"Dhruv Chiripal",
         Position:"Joint Secretary",
-        insta:"https://www.instagram.com/anshul._.agrawal/",
-        linkedin:"https://www.linkedin.com/in/anshul--agrawal/"
+        insta:"https://www.instagram.com/dhruv.chiripal/",
+        linkedin:"https://www.linkedin.com/in/dhruv-chiripal/"
     },
      {
-        img:"/CouncilPhotos/_MG_5059___MG_5059 - Yash Arora.JPG",
-        Name:"Yash Arora",
+        img:"/CouncilPhotos/aditya_tiwari.jpg",
+        Name:"Aditya Tiwari",
         Position:"Joint Secretary",
-        insta:"https://www.instagram.com/iamyash.77/",
-        linkedin:"https://www.linkedin.com/in/yash-arora-yashinpixels/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
+        insta:"https://www.instagram.com/adityatiwari_in/",
+        linkedin:"https://www.linkedin.com/in/aditya-tiwari-784517279/"
     },
-     {
-        img:"/CouncilPhotos/DSC_0709 - Khobaib Akmal.JPG",
-        Name:"Khobaib Akmal",
+    {
+        img:"/CouncilPhotos/ashutosh_kumar_mishra.webp",
+        Name:"Ashutosh Kumar Mishra",
         Position:"Treasurer  ",
-        insta:"https://www.instagram.com/kdotakmal/",
-        linkedin:"https://khobaibakmal.framer.website/"
-    },
-     {
-        img:"/CouncilPhotos/FR Image - Tasneem Ahmed.jpg",
-        Name:"Tasneem Ahmed",
-        Position:"Chairperson, CS ",
-        insta:"https://www.instagram.com/tasneemahmed_28/",
-        linkedin:"https://www.linkedin.com/in/tasneem-a-2b87b61a5/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
+        insta:"https://www.instagram.com/ashutosh_mishr_/",
+        linkedin:"https://www.linkedin.com/in/ashutosh-mishra-3843953ab/"
     },
     {
-        img:"/CouncilPhotos/Kinshuok_Munjal.png",
-        Name:"Kinshouk Munjal",
-        Position:"Vice Chairperson, CS ",
-        insta:"https://www.instagram.com/kinshuok/",
-        linkedin:"https://www.linkedin.com/in/kinshuok-munjal-54a2b9221/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
-    },
-     {
-        img:"/CouncilPhotos/Abhimanyu_Jha.jpg",
-        Name:"Abhimanyu Kumar Jha",
-        Position:"Vice Chairperson, CS ",
-        insta:"https://www.instagram.com/abhimanyu_kumar_2210/",
-        linkedin:"https://www.linkedin.com/in/abhimanyu-kumar-jha/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
-    },
-    
-
-     {
-        img:"/CouncilPhotos/ayush grover.jpg",
-        Name:"Ayush Grover",
-        Position:"Secretary, CS ",
-        insta:"https://www.instagram.com/ayushgrovermj1120/",
-        linkedin:"https://www.linkedin.com/in/ayush-grover-55b44a281/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
-    },
-     {
-        img:"/CouncilPhotos/WhatsApp Image 2025-06-28 at 15.54.16_0f78b50f - Vaishnavi Saraswat.jpg",
-        Name:"Vaishnavi Saraswat",
-        Position:"Chairperson, PES-IAS",
-        insta:"https://www.instagram.com/vaishnavii_s04/",
-        linkedin:"https://www.linkedin.com/in/vaishnavi-saraswat-44967424b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
-    },
-     {
-        img:"/CouncilPhotos/IMG_0352 - Aaryan Agarwal.jpeg",
-        Name:"Aaryan Agarwal",
-        Position:"Vice Chairperson, PES-IAS",
-        insta:"https://www.instagram.com/aaryan_agarwal._/",
-        linkedin:"https://www.linkedin.com/in/aaryan-agarwal-488582256/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
-    },
-     {
-        img:"/CouncilPhotos/1000080431-01~3 - Samarth Nagpal.jpeg",
-        Name:"Samarth Nagpal",
-        Position:" Secretary, PES-IAS",
-        insta:"",
-        linkedin:"https://www.linkedin.com/in/samarthnagpal/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
-    },
-     {
-        img:"/CouncilPhotos/Jasmeen_Kour.jpg",
-        Name:"Jasmeen Kour ",
-        Position:"Chairperson, CASS",
-        insta:"",
-        linkedin:"https://www.linkedin.com/in/jasmeen-kour-31b624261/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3B1BMvykmeTf%2Ba%2BuJLBdotEA%3D%3D"
-    },
-
-     {
-        img:"/CouncilPhotos/Arjun_Pandita.png",
-        Name:"Arjun Pandita",
-        Position:"Vice Chairperson, CASS",
-        insta:"https://www.instagram.com/arjun.pandita17/",
-        linkedin:"https://www.linkedin.com/in/arjun-pandita-594b5324b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
-    },
-     {
-        img:"/CouncilPhotos/IMG_3662 - Tanishq Bhatia.jpeg",
-        Name:"Tanishq Bhatia",
-        Position:"Secretary, CASS",
-        insta:"https://www.instagram.com/tan_ishqqq._/",
-        linkedin:"https://www.linkedin.com/in/tanishq-bhatia-371641244/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
-    },
-     {
-        img:"/CouncilPhotos/WhatsApp Image 2025-05-13 at 17.47.22_2758ecefcopy - Supratim Dey Choudhury.jpg",
-        Name:"Supratim Dey Choudhury",
-        Position:"Chairperson, WIE",
-        insta:"https://www.instagram.com/__.supratim.dey.c.__/",
-        linkedin:"https://www.linkedin.com/in/supratimdeychoudhury/"
-    },
-     {
-        img:"/CouncilPhotos/KanavImge linkedin.jpg",
-        Name:"Kanav Pahwa",
-        Position:"Vice Chairperson, WIE",
-        insta:"https://www.instagram.com/pahwa.kanav06/",
-        linkedin:"https://www.linkedin.com/in/kanavpahwa06/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
-    },
-     {
-        img:"/CouncilPhotos/unnati nath.jpg",
-        Name:"Unnati Nath",
-        Position:"Head of Publications",
-        insta:"https://www.instagram.com/unnatinath/",
-        linkedin:"https://www.linkedin.com/in/unnatinath/"
-    },
-    {
-        img:"/CouncilPhotos/FR Image - Tasneem Ahmed.jpg",
-        Name:"Tasneem Ahmed",
+        img:"/CouncilPhotos/mridul_mor.jpeg",
+        Name:"Mridul Mor",
         Position:"Webmaster",
-        insta:"https://www.instagram.com/tasneemahmed_28/",
-        linkedin:"https://www.linkedin.com/in/tasneem-a-2b87b61a5/?lipi=urn%3Ali%3Apage%3Ad_flagship3_company_posts%3BSCqnWIsqRVSossuxgnI4Ew%3D%3D"
+        insta:"https://www.instagram.com/_mridul_mor/",
+        linkedin:"https://www.linkedin.com/in/mridul-mor/"
+    },
+    {
+        img:"/CouncilPhotos/jahan_sharma.jpeg",
+        Name:"Jahan Sharma",
+        Position:"Chairperson, CS ",
+        linkedin:"https://www.linkedin.com/in/jahansharma/"
+    },
+    {
+        img:"/CouncilPhotos/unnat_agarwal.jpg",
+        Name:"Unnat Agarwal",
+        Position:"Vice Chairperson, CS ",
+        insta:"https://www.instagram.com/_unnat_7779/",
+        linkedin:"https://www.linkedin.com/in/unnat7779/"
+    },
+
+     {
+        img:"/CouncilPhotos/shashwat_jha.jpg",
+        Name:"Shashwat Jha",
+        Position:"Chairperson, PES-IAS",
+        linkedin:"https://www.linkedin.com/in/shashwatjha26/"
+    },
+     {
+        img:"/CouncilPhotos/shreyans_jain.jpeg",
+        Name:"Shreyans Jain",
+        Position:"Vice Chairperson, PES-IAS",
+        insta:"https://www.instagram.com/shreyansj28/",
+        linkedin:"https://www.linkedin.com/in/shreyans-jain-7925a7326/"
     },
     
+     {
+        img:"/CouncilPhotos/srijoni_das.jpeg",
+        Name:"Srijoni Das",
+        Position:"Chairperson, CASS",
+        insta:"https://www.instagram.com/srijo8031/",
+        linkedin:"https://www.linkedin.com/in/srijoni-das-13a8b1280/"
+    },
+
+     {
+        img:"/CouncilPhotos/sneha_meerwal.jpg",
+        Name:"Sneha Meerwal",
+        Position:"Vice Chairperson, CASS",
+        insta:"https://www.instagram.com/snehameerwal/",
+        linkedin:"https://www.linkedin.com/in/sneha-meerwal-38926a300/"
+    },
+    
+     {
+        img:"/CouncilPhotos/shraddha_singh.jpeg",
+        Name:"Shraddha Singh",
+        Position:"Chairperson, WIE",
+        insta:"https://www.instagram.com/shraddha_singh05/",
+        linkedin:"https://www.linkedin.com/in/shraddha-singh-29b3a528a/"
+    },
+     {
+        img:"/CouncilPhotos/roshan_beja.jpg",
+        Name:"Roshan Beja",
+        Position:"Vice Chairperson, WIE",
+        insta:"https://www.instagram.com/roshan_beja/",
+        linkedin:"https://www.linkedin.com/in/roshankumarbeja/"
+    },
+     {
+        img:"/CouncilPhotos/mridul_mor.jpeg",
+        Name:"Mridul Mor",
+        Position:"Head of Membership Development",
+        insta:"https://www.instagram.com/_mridul_mor/",
+        linkedin:"https://www.linkedin.com/in/mridul-mor/"
+    },
+     {
+        img:"/CouncilPhotos/bhavya_agarwal.jpg",
+        Name:"Bhavya Agarwal",
+        Position:"Head of Corporate Affairs",
+        insta:"https://www.instagram.com/bhavyaa.ag/",
+        linkedin:"https://www.linkedin.com/in/bhavya-agarwal-6733262a3/"
+    },
+     {
+        img:"/CouncilPhotos/yuvraj_malik.jpeg",
+        Name:"Yuvraj Malik",
+        Position:"Head of Hospitality",
+        insta:"https://www.instagram.com/yuvrajmalik2005/",
+        linkedin:"https://www.linkedin.com/in/yuvrajmalik2005/"
+    },
+     {
+        img:"/CouncilPhotos/harshit_shakya.jpeg",
+        Name:"Harshit Shakya",
+        Position:"Head of Logistics",
+        insta:"https://www.instagram.com/harshitshakya50/",
+        linkedin:"https://www.linkedin.com/in/harshit-shakya-2b65b7288/"
+    },
+     {
+        img:"/CouncilPhotos/abhinay_sahai.jpg",
+        Name:"Abhinay Sahai",
+        Position:"Head of Public Relations",
+        insta:"https://www.instagram.com/abhinay_sahai_/",
+        linkedin:"https://www.linkedin.com/in/abhinay-sahai-30790628b/"
+    },
+     {
+        img:"/CouncilPhotos/himanshu_yadav.jpeg",
+        Name:"Himanshu Yadav",
+        Position:"Head of Publications",
+        insta:"https://www.instagram.com/himanshu.yadv_/",
+        linkedin:"https://www.linkedin.com/in/him-y/"
+    },
+     {
+        img:"/CouncilPhotos/tarush_sonakya.jpg",
+        Name:"Tarush Sonakya",
+        Position:"Head of Technical Affairs",
+        insta:"https://www.instagram.com/anonimbus31337/",
+        linkedin:"https://www.linkedin.com/in/tarush-sonakya/"
+    },
 ]
 
 export default CouncilData ;
