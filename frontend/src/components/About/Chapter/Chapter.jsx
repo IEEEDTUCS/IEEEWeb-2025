@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styles from '/src/styles/AboutChapter.module.css';
+import styles from '@/styles/AboutChapter.module.css';
 
 
 export default function Chapter() {

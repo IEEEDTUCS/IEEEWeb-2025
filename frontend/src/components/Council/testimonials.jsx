@@ -8,38 +8,54 @@ import Image from "next/image";
 const testimonials = [
   {
     id: "1",
-    url: "/images/Harsh_Kumar.jpg", // put your image path in public folder
+    url: "/images/Ketan_Shankar.jpg",
+    title: "Ketan Shankar",
+    designation: "Batch of 2026 (Vice Chairperson)",
+    description:
+      "IEEE DTU has been much more than just a student chapter for me, it has been one of the defining parts of my college journey. Some of my fondest memories were made while planning events, navigating last-minute challenges, brainstorming ideas, and making countless memories along the way with an incredible group of people. Every experience pushed me to grow, not just as an engineering student, but as an individual.\n\nWhat I cherish the most is the community that IEEE DTU fostered. It introduced me to some of the finest seniors I could have asked for, peers I feel incredibly fortunate to have learned alongside, and juniors I'll always be grateful for. It gave me the confidence to take initiative, embrace responsibility, and learn from both successes and setbacks.\n\nIf there's one thing I'd say to anyone at DTU, it's this: if you're looking for a place to truly grow, both as a person and as a professional, I don't think there's a better place than IEEE DTU. And I say that not out of bias, but because I've experienced firsthand the kind of opportunities, friendships, and sense of belonging this community offers.\n\nLooking back, I feel incredibly fortunate to have been a part of this journey, and I know the lessons, memories, and people of IEEE DTU will stay with me for years to come.",
+  },
+  {
+    id: "2",
+    url: "/images/Khobaib_Akmal.jpg",
+    title: "Khobaib Akmal",
+    designation: "Batch of 2026 (Treasurer)",
+    description:
+      "In your college life, there will come a moment where you get the chance to join IEEE. You must. That's a canon event.\n\nI couldn't really say that I was convinced that I should join a paid society. I was told to do it by my hostel roommate and I'm glad he told me. He moved on from IEEE in two years, I stuck around and ended up becoming Treasurer.\n\nOnce I was afraid of talking. However, as time went on and I developed these skills, I was given the opportunity to manage several events and even to represent DTU's Technical Council to the dignitaries and external attendees. These moments definitely reshape and develop you to be a better self.\n\nMy seniors and peers put their faith in me without ever trying to barge in. They made me feel better on my back foot because of their point of view. And my juniors, they've been my biggest source of motivation. I can still recall those OAT meetings that happened prior to each fest. They all showed up. For us, for IEEE.\n\nI take away a lot of memories, many deep connections and a better method on how to speak, stand up to and cooperate as a team, and as I learnt, \"Control the controllables\".\n\nThis side, Khobaib Akmal, KBN, IEEE.",
+  },
+  {
+    id: "4",
+    url: "/images/Harsh_Kumar.jpg",
     title: "Harsh Kumar",
     designation: "Batch of 2024 (Treasurer)",
     description:
       "IEEE DTU has been one of the most transformative journeys of my college life. From starting as a Core Member to taking on the role of Treasurer, every step has been a learning curve. Handling sponsorships, financial planning, and corporate relations gave me real-world exposure beyond textbooks. You get to know more about real-world panorama. Kehte hain na, seekhna band toh jeetna band—and IEEE ensured I kept learning and growing. \n Invictus DTU was another exciting chapter where I got to lead corporate partnerships and sponsorships, working with an incredible team.Whether it was late- night Yapp meetings or pulling off large - scale events, every moment was worth it. More than anything, it gave me a strong network of mentors, friends, and juniors who made this journey unforgettable.Yahan sirf society nahi, ek solid family milti hai! To all juniors: grab every opportunity, make a Yaadgaar college journey for you.",
   },
   {
-    id: "2",
+    id: "5",
     url: "/images/Ansh_Anurag.jpg",
     title: "Ansh Anurag",
     designation: "Batch of 2024 (Chairperson)",
     description: "Taking on the role of Chairperson at IEEE DTU has been nothing short of a rollercoaster ride—one filled with brainstorms, crazy deadlines, and, of course, some unforgettable wins! From doubling our student membership to executing North India's largest hackathon (with 1300+ brilliant minds coming together!), every step has been about pushing boundaries and making things bigger, better, and bolder. Vihaan007 was more than just an event; it was proof of what passionate collaboration can achieve.Initiatives like WIEvek, Bootstrap, and Tinkercase weren't just ideas on paper—they turned into platforms that brought people together, created impact, and, most importantly, gave students the confidence to dream bigger.Shoutout to the incredible team that made it all happen! Without them, this journey wouldn’t have been that amazing.And to all the future IEEE leaders—bhaiyo aur behno, keep the fire alive because the best is yet to come!",
   },
   {
-    id: "3",
+    id: "6",
     url: "/images/Sidakpreet_Singh.jpg",
     title: "Sidakpreet Singh",
     designation: "Batch of 2024 (Chairperson PES IEEE DTU)",
     description: "For me IEEE has always been more than just an organisation—it’s a movement, a community of passionate individuals who believe in pushing the boundaries of technology and innovation. Being a part of this incredible network has shown me the power of collective effort, where every small initiative counts. As the Chairperson of PES- IEEE DTU, I had the privilege of witnessing this firsthand.It wasn’t just about leading; it was about creating opportunities, fostering a culture of learning, and ensuring that every student who walked through our doors found a space to grow.It was a step - by - step growth from conducting SIG’s to bringing industry experts to our platform, every initiative was driven by the goal of empowering the next generation of engineers.But beyond the projects and events, what truly made this journey special were the people—the ones who stood by each other during any kind of situation, who celebrated small victories together, and who reminded me every day why IEEE was a cherishable part of my journey in DTU.",
   },
   {
-    id: "4",
-    url: "/images/Shreya.jpg", // put your image path in public folder
+    id: "7",
+    url: "/images/Shreya.jpg",
     title: "Shreya",
-    designation: "Unversity of Southern California",
+    designation: "University of Southern California",
     description:
       "My journey with IEEE started in 2013 and I have been a part of IEEE for four years up until I graduated. I dabbled with a lot of things in IEEE such as programming, website designing, LFRs, Mac- Bots, publications, corporate affairs and so on.That's where I found my calling and built a career around it. Through IEEE I learnt a lot of things such as how to talk to people. I met the best set of people including seniors who inspired and guided me, my batchmates who stood with me, and juniors who looked up to me. I gained a lot of technical experience from working on IEEE projects such asTroika and other fests.But more than that, I gained friends. I gained a way to talk to people, give interviews, ask questions and make contacts, which that is something that takes you a long way in life, and IEEE was a major contributing factor in everything. I am where I am because of all my experiences as an IEEE member, being with my friends and coworkers.I really hope that a few years down the line, you all will be the ones encouraging more juniors with your journey as an IEEE member.",
   },
   
 ];
 
-import { CardContainer, CardBody, CardItem } from '@/components/Council/Card3D'; // adjust path
+import { CardContainer, CardBody, CardItem } from '@/components/Council/card3d';
 
 function Gallery({ items, setIndex, setOpen, index }) {
   return (

@@ -39,12 +39,12 @@ export default function LandingPage() {
 
     // --- ANIMATION TIMELINE ---
     // Smooth zoom out from massive to 20%
-    const maskSize = useTransform(smoothProgress, [0, 0.2, 0.4, 0.6], ["40000%", "2000%", "200%", "20%"]);
+    const maskSize = useTransform(smoothProgress, [0, 0.15, 0.35, 0.6], ["40000%", "3000%", "300%", "20%"]);
     
     const maskPosition = useTransform(smoothProgress, [0, 0.2, 0.4, 0.5 ,0.55, 0.6, 0.62], ["55% 50%", "53% 50%", "50% 50%", "50% 50%", "50% 40%", "50% 30%", "50% 20%"]);
     
-    const textOpacity = useTransform(smoothProgress, [0.45, 0.6], [0, 1]);
-    const textY = useTransform(smoothProgress, [0.45, 0.6], [40, 0]);
+    const textOpacity = useTransform(smoothProgress, [0.45, 0.65], [0, 1]);
+    const textY = useTransform(smoothProgress, [0.45, 0.65], [40, 0]);
     const arrowOpacity = useTransform(smoothProgress, [0, 0.05], [1, 0]);
 
     // --- COLOR & LOGO TRANSITIONS ---
@@ -54,6 +54,9 @@ export default function LandingPage() {
     
     // Fades the video out to reveal the white background inside the mask when it gets small
     const videoOpacity = useTransform(smoothProgress, [0.15, 0.6], [1, 0]);
+
+    // Bottom bridge fade — smoothly blends hero into white sections
+    const bridgeOpacity = useTransform(smoothProgress, [0.55, 0.78], [0, 1]);
 
     // --- SNACKBAR LOGIC ---
     React.useEffect(() => {
@@ -159,24 +162,33 @@ export default function LandingPage() {
                             style={{ opacity: videoOpacity }} 
                         ></motion.div>
                     </motion.div>
+
+                    {/* Bottom fade bridge — hero flows seamlessly into black about section */}
+                    <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-24 z-30 pointer-events-none"
+                        style={{
+                            background: "linear-gradient(to bottom, transparent, #000000)",
+                            opacity: bridgeOpacity,
+                        }}
+                    />
                 </motion.div>
             </div>
 
             {/* --- 3. SECTIONS --- */}
-            <div className="relative z-30 bg-[#0a0a0a] w-full border-t border-white/10">
-                <section id="about" className="py-20 bg-white">
+            <div className="relative z-30 w-full">
+                <section id="about" className="bg-black">
                     <AboutIEEE />
                 </section>
 
-                <section id="chapters" className="py-20 bg-[#ffffff] border-t border-white/5">
+                <section id="chapters" className="py-20 bg-[#ffffff] border-t border-gray-100">
                     <Chapter />
                 </section>
 
-                <section id="faculty" className="py-20 bg-[#ffffff] border-t border-white/5">
+                <section id="faculty" className="py-20 bg-[#ffffff] border-t border-gray-100">
                     <Faculty />
                 </section>
                 
-                <section id="echoes" className="py-20 bg-[#ffffff] border-t border-white/5 ">
+                <section id="echoes" className="py-20 bg-[#ffffff] border-t border-gray-100">
                     <Echoes/>
                 </section>
             </div>

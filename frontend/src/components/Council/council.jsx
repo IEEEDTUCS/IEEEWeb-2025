@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import CouncilData from '@/components/Council/HelperCouncil'
-import { CardContainer, CardBody, CardItem } from './Card3D';
+import { CardContainer, CardBody, CardItem } from './card3d';
 
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';

@@ -21,7 +21,7 @@ export default function Navbar({ setOpen, onClose }) {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "/IEEEDTU/about" },
+    { name: "About Us", href: "/#about" },
     { name: "Events", href: "/IEEEDTU/events" },
     { name: "Council", href: "/IEEEDTU/council" },
   ];
@@ -30,28 +30,28 @@ export default function Navbar({ setOpen, onClose }) {
     {
       name: "Invictus",
       years: [
-        { label: "Invictus '26", href: "https://www.invictusdtu.in/" },
-        { label: "Invictus '25", href: "#" },
-        { label: "Invictus '24", href: "#" },
-        { label: "Invictus '23", href: "#" },
+        { label: "Invictus '26", href: "https://www.invictusdtu.in/", external: true },
+        { label: "Invictus '25", href: "/IEEEDTU/events", external: false },
+        { label: "Invictus '24", href: "/IEEEDTU/events", external: false },
+        { label: "Invictus '23", href: "/IEEEDTU/events", external: false },
       ]
     },
     {
       name: "Vihaan",
       years: [
-        { label: "Vihaan 009", href: "https://vihaan.ieeedtu.in/" },
-        { label: "Vihaan 008", href: "#" },
-        { label: "Vihaan 007", href: "#" },
-        { label: "Vihaan 006", href: "#" },
+        { label: "Vihaan 009", href: "https://vihaan.ieeedtu.in/", external: true },
+        { label: "Vihaan 008", href: "/IEEEDTU/events", external: false },
+        { label: "Vihaan 007", href: "/IEEEDTU/events", external: false },
+        { label: "Vihaan 006", href: "/IEEEDTU/events", external: false },
       ]
     },
     {
       name: "Techweek",
       years: [
-        { label: "Techweek '26", href: "https://techweek.ieeedtu.in/" },
-        { label: "Techweek '25", href: "#" },
-        { label: "Techweek '24", href: "#" },
-        { label: "Techweek '23", href: "#" },
+        { label: "Techweek '26", href: "https://techweek.ieeedtu.in/", external: true },
+        { label: "Techweek '25", href: "/IEEEDTU/events", external: false },
+        { label: "Techweek '24", href: "/IEEEDTU/events", external: false },
+        { label: "Techweek '23", href: "/IEEEDTU/events", external: false },
       ]
     }
   ];
@@ -160,7 +160,7 @@ export default function Navbar({ setOpen, onClose }) {
                                     />
                                 </button>
                                 
-                                <AnimatePresence>
+                                        <AnimatePresence>
                                     {expandedFest === fest.name && (
                                         <motion.div
                                             initial={{ height: 0, opacity: 0 }}
@@ -168,7 +168,8 @@ export default function Navbar({ setOpen, onClose }) {
                                             exit={{ height: 0, opacity: 0 }}
                                             className="overflow-hidden border-l border-white/10 ml-2"
                                         >
-                                            {fest.years.map((year) => (
+                                            {fest.years.map((year) =>
+                                              year.external ? (
                                                 <a
                                                     key={year.label}
                                                     href={year.href}
@@ -178,7 +179,17 @@ export default function Navbar({ setOpen, onClose }) {
                                                 >
                                                     {year.label}
                                                 </a>
-                                            ))}
+                                              ) : (
+                                                <Link
+                                                    key={year.label}
+                                                    href={year.href}
+                                                    onClick={() => setMenuOpen(false)}
+                                                    className="block py-2 pl-4 text-sm font-light text-gray-400 hover:text-white hover:bg-white/5 transition-all"
+                                                >
+                                                    {year.label}
+                                                </Link>
+                                              )
+                                            )}
                                         </motion.div>
                                     )}
                                 </AnimatePresence>

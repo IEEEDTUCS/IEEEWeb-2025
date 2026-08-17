@@ -4,7 +4,7 @@ import Stats from './Stats';
 
 export default function AboutIEEE() {
   return (
-    <div className="min-h-screen bg-black px-4 sm:px-6 lg:px-8 pt-32">
+    <div className="min-h-screen bg-black px-4 sm:px-6 lg:px-8">
       
       {/* Heading Section */}
       <div className="text-center mb-16 opacity-0 animate-[slideUp_1s_ease-out_forwards] transform-gpu">
