@@ -16,10 +16,10 @@ function FacultyWindow() {
       imageUrl: "/aboutPage/Faculty/Prof-Rachna.png",
     },
     {
-      name: "Dr. Sonam Rewari",
+      name: "Dr. Sonal Singh",
       designation: "Asst Professor, ECE Department",
       details: "Faculty advisor, IEEE DTU WIE",
-      imageUrl: "/aboutPage/Faculty/Dr-Sonam.jpg",
+      imageUrl: "/aboutPage/Faculty/Dr-Sonal.jpg",
     },
     {
       name: "Dr. Deva Nand",
