@@ -80,7 +80,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-gray-500 bg-[url('/footer.png')] text-gray-300 pt-10 pb-6 relative mt-20 font-sans">
+    <footer className="w-full bg-gray-500 bg-[url('/footer.png')] text-gray-300 pt-10 pb-6 relative font-sans">
       {/* Header Section */}
       <div className="flex flex-col items-center text-center px-4">
         <div className="flex items-center gap-2">
@@ -106,7 +106,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             {[
               { name: "Home", href: "/" },
-              { name: "About Us", href: "/IEEEDTU/about" },
+              { name: "About Us", href: "/#about" },
               { name: "Events", href: "/IEEEDTU/events" },
               { name: "Council", href: "/IEEEDTU/council" },
             ].map((link) => (
@@ -150,16 +150,19 @@ export default function Footer() {
           </h3>
           <div className="space-y-4 text-sm">
             {[
-              { name: "Vaibhav Gautam", phone: "+91 93552 57413" },
-              { name: "Ketan Shankar", phone: "+91 95606 47659" },
-              { name: "Spruha Kar", phone: "+91 72178 61438" },
+              { name: "Rudit Madaan", phone: "+91 96257 01606" },
+              { name: "Bhavit Jain", phone: "+91 97737 25773" },
+              { name: "Jitendra Kumar Singh", phone: "+91 75368 21441" },
             ].map((person) => (
               <div key={person.name} className="flex flex-col gap-1">
                 <span className="font-medium text-white">{person.name}</span>
-                <span className="flex items-center gap-2 text-gray-300">
+                <a
+                  href={`tel:${person.phone.replace(/\s+/g, "")}`}
+                  className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition"
+                >
                   <Phone size={16} className="text-blue-400" />
                   {person.phone}
-                </span>
+                </a>
               </div>
             ))}
           </div>
