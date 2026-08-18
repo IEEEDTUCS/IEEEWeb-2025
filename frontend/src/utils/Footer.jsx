@@ -109,6 +109,8 @@ export default function Footer() {
               { name: "About Us", href: "/#about" },
               { name: "Events", href: "/IEEEDTU/events" },
               { name: "Council", href: "/IEEEDTU/council" },
+              { name: "Join Us", href: "/IEEEDTU/join-us" },
+
             ].map((link) => (
               <li key={link.name}>
                 <a

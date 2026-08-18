@@ -24,6 +24,7 @@ export default function Navbar({ setOpen, onClose }) {
     { name: "About Us", href: "/#about" },
     { name: "Events", href: "/IEEEDTU/events" },
     { name: "Council", href: "/IEEEDTU/council" },
+    
   ];
 
   const festData = [
@@ -83,12 +84,37 @@ export default function Navbar({ setOpen, onClose }) {
             />
           </Link>
           
-          <button
-            onClick={() => setMenuOpen(true)}
-            className="p-2 text-white hover:bg-white/10 rounded-full transition-all active:scale-90"
+              <div className="flex items-center gap-4">
+
+            {/* Join Us Button */}
+           <Link
+            href="IEEEDTU/join-us"
+            className="
+              px-5 py-2
+              rounded-full
+              border-2 border-white/70
+              text-white
+              text-sm
+              font-bold
+              tracking-wide
+              hover:bg-white
+              hover:text-black
+              hover:border-white
+              transition-all duration-300
+            "
           >
-            <Menu size={30} strokeWidth={1.5} /> {/* Made icon slightly thinner */}
-          </button>
+            Join Us
+          </Link>
+
+            {/* Menu Button */}
+            <button
+              onClick={() => setMenuOpen(true)}
+              className="p-2 text-white hover:bg-white/10 rounded-full transition-all active:scale-90"
+            >
+              <Menu size={30} strokeWidth={1.5} />
+            </button>
+
+          </div>
         </div>
       </motion.nav>
 
