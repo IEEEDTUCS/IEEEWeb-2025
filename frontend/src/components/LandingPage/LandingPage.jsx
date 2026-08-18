@@ -12,6 +12,7 @@ import Chapter from '@/components/About/Chapter/Chapter'
 import Faculty from '@/components/About/Faculty/Faculty'
 import Echoes from '@/components/About/Echoes/Echoes'
 import Signin from '../../utils/signin';
+import { JoinBanner, JoinModal } from './JoinModal';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -22,7 +23,9 @@ export default function LandingPage() {
     
     // --- STATE ---
     const [openSnackbar, setOpenSnackbar] = React.useState(false);
-    const [openSignIn, setOpenSignIn] = React.useState(false);
+    const [openSignIn, setOpenSignIn]     = React.useState(false);
+    const [showBanner, setShowBanner]     = React.useState(false);
+    const [showModal, setShowModal]       = React.useState(false);
 
     // --- SCROLL SETUP ---
     const { scrollYProgress } = useScroll({
@@ -38,60 +41,67 @@ export default function LandingPage() {
     });
 
     // --- ANIMATION TIMELINE ---
-    // Smooth zoom out from massive to 20%
     const maskSize = useTransform(smoothProgress, [0, 0.15, 0.35, 0.6], ["40000%", "3000%", "300%", "20%"]);
-    
     const maskPosition = useTransform(smoothProgress, [0, 0.2, 0.4, 0.5 ,0.55, 0.6, 0.62], ["55% 50%", "53% 50%", "50% 50%", "50% 50%", "50% 40%", "50% 30%", "50% 20%"]);
-    
     const textOpacity = useTransform(smoothProgress, [0.45, 0.65], [0, 1]);
     const textY = useTransform(smoothProgress, [0.45, 0.65], [40, 0]);
     const arrowOpacity = useTransform(smoothProgress, [0, 0.05], [1, 0]);
-
-    // --- COLOR & LOGO TRANSITIONS ---
     const containerBg = useTransform(smoothProgress, [0.45, 0.65], ["#000000", "#000000"]);
     const headingColor = useTransform(smoothProgress, [0.45, 0.65], ["#ffffff", "#ffffff"]); 
     const subHeadingColor = useTransform(smoothProgress, [0.45, 0.65], ["#d1d5db", "#d1d5db"]);
-    
-    // Fades the video out to reveal the white background inside the mask when it gets small
     const videoOpacity = useTransform(smoothProgress, [0.15, 0.6], [1, 0]);
-
-    // Bottom bridge fade — smoothly blends hero into white sections
     const bridgeOpacity = useTransform(smoothProgress, [0.55, 0.78], [0, 1]);
+
+    // --- BANNER: show after 2.5s, respect dismiss session flag ---
+    React.useEffect(() => {
+        const dismissed = sessionStorage.getItem("joinBannerDismissed");
+        if (dismissed) return;
+        const t = setTimeout(() => setShowBanner(true), 2500);
+        return () => clearTimeout(t);
+    }, []);
 
     // --- SNACKBAR LOGIC ---
     React.useEffect(() => {
         const now = Date.now();
         const saved = localStorage.getItem("hasShownSnackbar");
-
         if (saved) {
             const savedTime = parseInt(saved, 10);
             const twoDays = 2 * 24 * 60 * 60 * 1000; 
             if (now - savedTime < twoDays) return; 
             localStorage.removeItem("hasShownSnackbar");
         }
-
         const timer = setTimeout(() => {
             setOpenSnackbar(true);
             localStorage.setItem("hasShownSnackbar", now.toString());
         }, 5500);
-
         return () => clearTimeout(timer);
     }, []);
 
-    const handleSignInClick = (e) => {
-        e.preventDefault(); 
-        setOpenSignIn(true);
-    };
-
+    const handleSignInClick = (e) => { e.preventDefault(); setOpenSignIn(true); };
     const handleSnackbarClose = (event, reason) => {
         if (reason === 'clickaway') return;
         setOpenSnackbar(false);
+    };
+    const handleBannerDismiss = () => {
+        setShowBanner(false);
+        sessionStorage.setItem("joinBannerDismissed", "1");
     };
 
     return (
         <main className="bg-[#000000] min-h-screen relative">
 
-            {/* --- 2. HERO SECTION --- */}
+            {/* ── JOIN BANNER (top) ── */}
+            {showBanner && (
+                <JoinBanner
+                    onOpen={() => { setShowBanner(false); setShowModal(true); }}
+                    onDismiss={handleBannerDismiss}
+                />
+            )}
+
+            {/* ── JOIN MODAL ── */}
+            <JoinModal open={showModal} onClose={() => setShowModal(false)} />
+
+            {/* --- HERO SECTION --- */}
             <div ref={targetRef} className="relative w-full h-[400vh]">
                 <motion.div 
                     className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center"
@@ -163,7 +173,7 @@ export default function LandingPage() {
                         ></motion.div>
                     </motion.div>
 
-                    {/* Bottom fade bridge — hero flows seamlessly into black about section */}
+                    {/* Bottom fade bridge */}
                     <motion.div
                         className="absolute bottom-0 left-0 right-0 h-24 z-30 pointer-events-none"
                         style={{
@@ -174,20 +184,17 @@ export default function LandingPage() {
                 </motion.div>
             </div>
 
-            {/* --- 3. SECTIONS --- */}
+            {/* --- SECTIONS --- */}
             <div className="relative z-30 w-full">
                 <section id="about" className="bg-black">
                     <AboutIEEE />
                 </section>
-
                 <section id="chapters" className="py-20 bg-[#ffffff] border-t border-gray-100">
                     <Chapter />
                 </section>
-
                 <section id="faculty" className="py-20 bg-[#ffffff] border-t border-gray-100">
                     <Faculty />
                 </section>
-                
                 <section id="echoes" className="py-20 bg-[#ffffff] border-t border-gray-100">
                     <Echoes/>
                 </section>
