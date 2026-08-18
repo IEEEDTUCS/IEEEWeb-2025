@@ -378,13 +378,7 @@ import { AppProvider } from '@toolpad/core/AppProvider';
 import { SignInPage } from '@toolpad/core/SignInPage';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-
-import {
- 
-  Link,
-
-
-} from '@mui/material';
+import WhatsAppButton from '@/utils/WhatsAppButton';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -431,10 +425,7 @@ const BRANDING = {
 
 function ForgotPasswordLink() {
   return (
-  <Link href="https://drive.google.com/file/d/1QWUDALanIDhwZ8CmhwzGCi-irSmRhndq/view?usp=sharing" target="_blank" variant="body2">
-      Not a part of IEEE DTU?
-      Join now →
-    </Link>
+    <WhatsAppButton variant="pill" style={{ marginTop: 4, borderRadius: 8 }} />
   );
 }
 

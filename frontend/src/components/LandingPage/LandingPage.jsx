@@ -13,6 +13,7 @@ import Chapter from '@/components/About/Chapter/Chapter'
 import Faculty from '@/components/About/Faculty/Faculty'
 import Echoes from '@/components/About/Echoes/Echoes'
 import Signin from '../../utils/signin';
+import { JoinBanner, JoinModal } from './JoinModal';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -41,9 +42,7 @@ export default function LandingPage() {
 
     
     const maskSize = useTransform(smoothProgress, [0, 0.15, 0.35, 0.6], ["40000%", "3000%", "300%", "20%"]);
-    
     const maskPosition = useTransform(smoothProgress, [0, 0.2, 0.4, 0.5 ,0.55, 0.6, 0.62], ["55% 50%", "53% 50%", "50% 50%", "50% 50%", "50% 40%", "50% 30%", "50% 20%"]);
-    
     const textOpacity = useTransform(smoothProgress, [0.45, 0.65], [0, 1]);
     const textY = useTransform(smoothProgress, [0.45, 0.65], [40, 0]);
     const arrowOpacity = useTransform(smoothProgress, [0, 0.05], [1, 0]);
@@ -60,30 +59,27 @@ export default function LandingPage() {
     React.useEffect(() => {
         const now = Date.now();
         const saved = localStorage.getItem("hasShownSnackbar");
-
         if (saved) {
             const savedTime = parseInt(saved, 10);
             const twoDays = 2 * 24 * 60 * 60 * 1000; 
             if (now - savedTime < twoDays) return; 
             localStorage.removeItem("hasShownSnackbar");
         }
-
         const timer = setTimeout(() => {
             setOpenSnackbar(true);
             localStorage.setItem("hasShownSnackbar", now.toString());
         }, 5500);
-
         return () => clearTimeout(timer);
     }, []);
 
-    const handleSignInClick = (e) => {
-        e.preventDefault(); 
-        setOpenSignIn(true);
-    };
-
+    const handleSignInClick = (e) => { e.preventDefault(); setOpenSignIn(true); };
     const handleSnackbarClose = (event, reason) => {
         if (reason === 'clickaway') return;
         setOpenSnackbar(false);
+    };
+    const handleBannerDismiss = () => {
+        setShowBanner(false);
+        sessionStorage.setItem("joinBannerDismissed", "1");
     };
 
     return (
@@ -173,15 +169,12 @@ export default function LandingPage() {
                 <section id="about" className="bg-black">
                     <AboutIEEE />
                 </section>
-
                 <section id="chapters" className="py-20 bg-[#ffffff] border-t border-gray-100">
                     <Chapter />
                 </section>
-
                 <section id="faculty" className="py-20 bg-[#ffffff] border-t border-gray-100">
                     <Faculty />
                 </section>
-                
                 <section id="echoes" className="py-20 bg-[#ffffff] border-t border-gray-100">
                     <Echoes/>
                 </section>
