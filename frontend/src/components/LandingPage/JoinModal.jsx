@@ -362,7 +362,7 @@ export function JoinModal({ open, onClose }) {
                   <WhatsAppButton />
 
                   <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScdVzhcEbKrc61Y3aUzhK1NTybm7MpRfYNBvNAHSzV1tTpBzA/viewform"
+                    href="/IEEEDTU/join-us"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white transition-all"

@@ -84,27 +84,8 @@ export default function Navbar({ setOpen, onClose }) {
             />
           </Link>
           
+          
               <div className="flex items-center gap-4">
-
-            {/* Join Us Button */}
-           <Link
-            href="IEEEDTU/join-us"
-            className="
-              px-5 py-2
-              rounded-full
-              border-2 border-white/70
-              text-white
-              text-sm
-              font-bold
-              tracking-wide
-              hover:bg-white
-              hover:text-black
-              hover:border-white
-              transition-all duration-300
-            "
-          >
-            Join Us
-          </Link>
 
             {/* Menu Button */}
             <button

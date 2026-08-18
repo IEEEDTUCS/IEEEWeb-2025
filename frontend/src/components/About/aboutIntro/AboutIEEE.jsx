@@ -96,9 +96,33 @@ export default function AboutIEEE() {
         <Stats />
       </div>
 
-      {/* WhatsApp CTA */}
-      <div className="mt-10 mb-8 flex justify-center opacity-0 animate-[slideUp_1s_ease-out_0.9s_forwards] transform-gpu">
-        <WhatsAppButton style={{ maxWidth: 320 }} />
+      {/* WhatsApp + Join Us CTAs */}
+      <div className="mt-10 mb-8 flex flex-col sm:flex-row justify-center gap-3 opacity-0 animate-[slideUp_1s_ease-out_0.9s_forwards] transform-gpu">
+        <WhatsAppButton style={{ maxWidth: 260 }} />
+        <a
+          href="/IEEEDTU/join-us"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
+            maxWidth: 260,
+            width: "100%",
+            padding: "12px 28px",
+            borderRadius: 12,
+            fontSize: 14,
+            fontWeight: 700,
+            color: "#fff",
+            background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
+            boxShadow: "0 4px 18px rgba(79,70,229,0.35)",
+            textDecoration: "none",
+            transition: "filter 0.2s, transform 0.15s",
+          }}
+          onMouseEnter={e => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+          onMouseLeave={e => { e.currentTarget.style.filter = ""; e.currentTarget.style.transform = ""; }}
+        >
+          Join Us →
+        </a>
       </div>
       
       <style jsx>{`
