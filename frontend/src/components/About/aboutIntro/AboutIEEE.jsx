@@ -113,8 +113,8 @@ export default function AboutIEEE() {
             fontSize: 14,
             fontWeight: 700,
             color: "#fff",
-            background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
-            boxShadow: "0 4px 18px rgba(79,70,229,0.35)",
+            background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
+            boxShadow: "0 4px 18px rgba(37,99,235,0.35)",
             textDecoration: "none",
             transition: "filter 0.2s, transform 0.15s",
           }}

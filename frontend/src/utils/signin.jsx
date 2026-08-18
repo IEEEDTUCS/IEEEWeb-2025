@@ -441,9 +441,9 @@ function ForgotPasswordLink() {
           fontSize: 13,
           fontWeight: 700,
           color: "#fff",
-          background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
+          background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
           textDecoration: "none",
-          boxShadow: "0 2px 10px rgba(79,70,229,0.3)",
+          boxShadow: "0 2px 10px rgba(37,99,235,0.3)",
         }}
       >
         Join Us →
