@@ -10,6 +10,7 @@ import {
   ChevronDown, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import styles from "@/styles/ChapterInfos.module.css";
+import WhatsAppButton from "@/utils/WhatsAppButton";
 
 /* ─── client-only guard (prevents SSR hydration mismatch) ─── */
 function ClientOnly({ children }) {
@@ -689,35 +690,12 @@ function Contact({ info }) {
             <div className={styles.contactCard}
               style={{ borderColor: `${accent}25`, background: cs.ContactBoxBG }}
             >
-              {/* Email row */}
-              <a href={`mailto:${info.contact.email}`}
-                className={styles.contactRow}
-                style={{ borderColor: "rgba(255,255,255,0.08)" }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background  = `${accent}14`;
-                  e.currentTarget.style.borderColor = `${accent}50`;
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background  = "rgba(255,255,255,0.04)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                }}
-              >
-                <div className={styles.contactIconBox}
-                  style={{ background: `${accent}22`, color: accent }}>
-                  <Mail size={19} />
-                </div>
-                <div>
-                  <p className={styles.contactMeta} style={{ color: cs.ContactBoxTextColor }}>Email us at</p>
-                  <p className={styles.contactValue} style={{ color: cs.MailTextColor }}>
-                    {info.contact.email}
-                  </p>
-                </div>
-                <ArrowRight size={16} color="rgba(255,255,255,0.2)" style={{ marginLeft: "auto" }} />
-              </a>
+              {/* WhatsApp */}
+              <WhatsAppButton style={{ borderRadius: 12, marginBottom: "1.25rem" }} />
 
               {/* Socials */}
               <p className={styles.contactMeta}
-                style={{ color: cs.ContactBoxTextColor, margin: "1.4rem 0 0.75rem" }}>
+                style={{ color: cs.ContactBoxTextColor, margin: "0 0 0.75rem" }}>
                 Follow us on
               </p>
               <div className={styles.socialRow}>

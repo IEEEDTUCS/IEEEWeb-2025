@@ -1,6 +1,7 @@
 import React from 'react';
 import Slideshow from './Slideshow';
 import Stats from './Stats';
+import WhatsAppButton from '@/utils/WhatsAppButton';
 
 export default function AboutIEEE() {
   return (
@@ -93,6 +94,11 @@ export default function AboutIEEE() {
       {/* Stats Section */}
       <div className="mt-16 opacity-0 animate-[slideUp_1s_ease-out_0.7s_forwards] transform-gpu">
         <Stats />
+      </div>
+
+      {/* WhatsApp CTA */}
+      <div className="mt-10 mb-8 flex justify-center opacity-0 animate-[slideUp_1s_ease-out_0.9s_forwards] transform-gpu">
+        <WhatsAppButton style={{ maxWidth: 320 }} />
       </div>
       
       <style jsx>{`
