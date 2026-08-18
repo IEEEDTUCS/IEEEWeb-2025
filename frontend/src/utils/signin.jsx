@@ -425,19 +425,18 @@ const BRANDING = {
 
 function ForgotPasswordLink() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 4 }}>
-      <WhatsAppButton variant="pill" style={{ borderRadius: 8 }} />
+    <div style={{ display: "flex", gap: 8, marginTop: 4 }}>
       <a
         href="/IEEEDTU/join-us"
         target="_blank"
         rel="noopener noreferrer"
         style={{
+          flex: 1,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           gap: 6,
-          width: "100%",
-          padding: "8px 18px",
+          padding: "8px 12px",
           borderRadius: 8,
           fontSize: 13,
           fontWeight: 700,
@@ -449,6 +448,9 @@ function ForgotPasswordLink() {
       >
         Join Us →
       </a>
+      <div style={{ flex: 1 }}>
+        <WhatsAppButton variant="pill" style={{ borderRadius: 8, width: "100%" }} />
+      </div>
     </div>
   );
 }
