@@ -358,23 +358,28 @@ export function JoinModal({ open, onClose }) {
                     </p>
                   </motion.div>
 
-                  {/* fallback CTA */}
-                  <WhatsAppButton />
-
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScdVzhcEbKrc61Y3aUzhK1NTybm7MpRfYNBvNAHSzV1tTpBzA/viewform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white transition-all"
-                    style={{
-                      background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
-                      boxShadow: "0 4px 20px rgba(79,70,229,0.35)",
-                    }}
-                    onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.12)"}
-                    onMouseLeave={e => e.currentTarget.style.filter = ""}
-                  >
-                    Open full form <ArrowRight size={14} />
-                  </a>
+                  {/* CTAs — side by side */}
+                  <div style={{ display: "flex", gap: 10 }}>
+                    <a
+                      href="/IEEEDTU/join-us"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white transition-all"
+                      style={{
+                        flex: 1,
+                        background: "linear-gradient(135deg, #4f46e5, #7c3aed)",
+                        boxShadow: "0 4px 20px rgba(79,70,229,0.35)",
+                        textDecoration: "none",
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.12)"}
+                      onMouseLeave={e => e.currentTarget.style.filter = ""}
+                    >
+                      Join Us <ArrowRight size={14} />
+                    </a>
+                    <div style={{ flex: 1 }}>
+                      <WhatsAppButton style={{ borderRadius: 12, width: "100%", padding: "12px 10px", fontSize: 13 }} />
+                    </div>
+                  </div>
 
                 </div>
               </div>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import config from './JoinUs.json';
+import WhatsAppButton from '@/utils/WhatsAppButton';
 
 const initialForm = config.sections.reduce((form, section) => {
   section.fields.forEach((field) => {
@@ -149,6 +150,12 @@ export default function JoinUs() {
             )}
           </div>
         </motion.form>
+
+        {/* WhatsApp alternative */}
+        <div className="md:mx-[10%] mt-6">
+          <p className="text-center text-white/50 text-sm mb-3">— or reach us directly —</p>
+          <WhatsAppButton />
+        </div>
       </div>
 
       {submitted && (

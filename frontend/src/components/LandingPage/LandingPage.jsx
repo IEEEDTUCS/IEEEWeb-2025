@@ -6,8 +6,6 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Drawer from '@mui/material/Drawer';
 
-
-
 import AboutIEEE from '@/components/About/aboutIntro/AboutIEEE'
 import Chapter from '@/components/About/Chapter/Chapter'
 import Faculty from '@/components/About/Faculty/Faculty'
@@ -21,48 +19,49 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 export default function LandingPage() {
     const targetRef = React.useRef(null);
-    
-    
-    const [openSnackbar, setOpenSnackbar] = React.useState(false);
-    const [openSignIn, setOpenSignIn] = React.useState(false);
-    const [openJoinPopup, setOpenJoinPopup] = React.useState(true);
 
-    
+    const [openSnackbar, setOpenSnackbar] = React.useState(false);
+    const [openSignIn, setOpenSignIn]     = React.useState(false);
+    const [showBanner, setShowBanner]     = React.useState(false);
+    const [showModal, setShowModal]       = React.useState(false);
+
     const { scrollYProgress } = useScroll({
         target: targetRef,
-        offset: ["start start", "end end"], 
+        offset: ["start start", "end end"],
     });
 
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 20, 
-        damping: 30,    
-        mass: 0.8,     
+        stiffness: 20,
+        damping: 30,
+        mass: 0.8,
         restDelta: 0.001
     });
 
-    
-    const maskSize = useTransform(smoothProgress, [0, 0.15, 0.35, 0.6], ["40000%", "3000%", "300%", "20%"]);
-    const maskPosition = useTransform(smoothProgress, [0, 0.2, 0.4, 0.5 ,0.55, 0.6, 0.62], ["55% 50%", "53% 50%", "50% 50%", "50% 50%", "50% 40%", "50% 30%", "50% 20%"]);
-    const textOpacity = useTransform(smoothProgress, [0.45, 0.65], [0, 1]);
-    const textY = useTransform(smoothProgress, [0.45, 0.65], [40, 0]);
-    const arrowOpacity = useTransform(smoothProgress, [0, 0.05], [1, 0]);
-
-    
-    const containerBg = useTransform(smoothProgress, [0.45, 0.65], ["#000000", "#000000"]);
-    const headingColor = useTransform(smoothProgress, [0.45, 0.65], ["#ffffff", "#ffffff"]); 
+    const maskSize        = useTransform(smoothProgress, [0, 0.15, 0.35, 0.6], ["40000%", "3000%", "300%", "20%"]);
+    const maskPosition    = useTransform(smoothProgress, [0, 0.2, 0.4, 0.5, 0.55, 0.6, 0.62], ["55% 50%", "53% 50%", "50% 50%", "50% 50%", "50% 40%", "50% 30%", "50% 20%"]);
+    const textOpacity     = useTransform(smoothProgress, [0.45, 0.65], [0, 1]);
+    const textY           = useTransform(smoothProgress, [0.45, 0.65], [40, 0]);
+    const arrowOpacity    = useTransform(smoothProgress, [0, 0.05], [1, 0]);
+    const containerBg     = useTransform(smoothProgress, [0.45, 0.65], ["#000000", "#000000"]);
+    const headingColor    = useTransform(smoothProgress, [0.45, 0.65], ["#ffffff", "#ffffff"]);
     const subHeadingColor = useTransform(smoothProgress, [0.45, 0.65], ["#d1d5db", "#d1d5db"]);
-    
-    const videoOpacity = useTransform(smoothProgress, [0.15, 0.6], [1, 0]);
+    const videoOpacity    = useTransform(smoothProgress, [0.15, 0.6], [1, 0]);
+    const bridgeOpacity   = useTransform(smoothProgress, [0.55, 0.78], [0, 1]);
 
-    const bridgeOpacity = useTransform(smoothProgress, [0.55, 0.78], [0, 1]);
+    // Show pill banner after 2.5s, once per session
+    React.useEffect(() => {
+        if (sessionStorage.getItem("joinBannerDismissed")) return;
+        const t = setTimeout(() => setShowBanner(true), 2500);
+        return () => clearTimeout(t);
+    }, []);
 
+    // Snackbar logic
     React.useEffect(() => {
         const now = Date.now();
         const saved = localStorage.getItem("hasShownSnackbar");
         if (saved) {
             const savedTime = parseInt(saved, 10);
-            const twoDays = 2 * 24 * 60 * 60 * 1000; 
-            if (now - savedTime < twoDays) return; 
+            if (now - savedTime < 2 * 24 * 60 * 60 * 1000) return;
             localStorage.removeItem("hasShownSnackbar");
         }
         const timer = setTimeout(() => {
@@ -72,37 +71,41 @@ export default function LandingPage() {
         return () => clearTimeout(timer);
     }, []);
 
-    const handleSignInClick = (e) => { e.preventDefault(); setOpenSignIn(true); };
-    const handleSnackbarClose = (event, reason) => {
-        if (reason === 'clickaway') return;
-        setOpenSnackbar(false);
-    };
-    const handleBannerDismiss = () => {
-        setShowBanner(false);
-        sessionStorage.setItem("joinBannerDismissed", "1");
-    };
+    const handleSignInClick   = (e) => { e.preventDefault(); setOpenSignIn(true); };
+    const handleSnackbarClose = (_, reason) => { if (reason === 'clickaway') return; setOpenSnackbar(false); };
+    const handleBannerDismiss = () => { setShowBanner(false); sessionStorage.setItem("joinBannerDismissed", "1"); };
 
     return (
         <main className="bg-[#000000] min-h-screen relative">
 
-            
+            {/* Pill banner */}
+            {showBanner && (
+                <JoinBanner
+                    onOpen={() => { setShowBanner(false); setShowModal(true); }}
+                    onDismiss={handleBannerDismiss}
+                />
+            )}
+
+            {/* Full modal */}
+            <JoinModal open={showModal} onClose={() => setShowModal(false)} />
+
+            {/* Hero */}
             <div ref={targetRef} className="relative w-full h-[400vh]">
-                <motion.div 
+                <motion.div
                     className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center"
                     style={{ backgroundColor: containerBg }}
                 >
-                    
-                    
-                    <motion.div 
+                    {/* Scroll indicator */}
+                    <motion.div
                         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-40 text-white flex flex-col items-center pointer-events-none"
-                        style={{ opacity: arrowOpacity }} 
+                        style={{ opacity: arrowOpacity }}
                     >
                         <motion.div
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: [0, 10, 0] }}
-                            transition={{ 
-                                opacity: { delay: 1.5, duration: 0.8 }, 
-                                y: { repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1.5 } 
+                            transition={{
+                                opacity: { delay: 1.5, duration: 0.8 },
+                                y: { repeat: Infinity, duration: 2, ease: "easeInOut", delay: 1.5 }
                             }}
                         >
                             <p className="text-xs uppercase tracking-[0.3em] mb-3 opacity-60 font-bold text-center">Scroll</p>
@@ -112,17 +115,18 @@ export default function LandingPage() {
                         </motion.div>
                     </motion.div>
 
-                    <motion.div 
+                    {/* Text */}
+                    <motion.div
                         className="absolute z-10 flex flex-col items-center justify-center text-center px-4 w-full"
                         style={{ opacity: textOpacity, y: textY, top: "45%" }}
                     >
-                        <motion.h1 
+                        <motion.h1
                             className="text-5xl md:text-7xl lg:text-8xl font-playfair font-bold tracking-tight drop-shadow-2xl"
                             style={{ color: headingColor }}
                         >
                             IEEE <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">DTU</span>
                         </motion.h1>
-                        <motion.h2 
+                        <motion.h2
                             className="text-xl md:text-2xl font-extrabold mt-6 font-[Orbitron] tracking-[0.25em] uppercase opacity-99"
                             style={{ color: subHeadingColor }}
                         >
@@ -130,31 +134,33 @@ export default function LandingPage() {
                         </motion.h2>
                     </motion.div>
 
-                    <motion.div 
+                    {/* Masked video */}
+                    <motion.div
                         className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none bg-white"
                         style={{
                             maskImage: "url('/logo2.svg')",
-                            maskPosition: maskPosition, 
+                            maskPosition,
                             maskRepeat: "no-repeat",
-                            maskSize: maskSize, 
+                            maskSize,
                             WebkitMaskImage: "url('/logo2.svg')",
-                            WebkitMaskPosition: maskPosition, 
+                            WebkitMaskPosition: maskPosition,
                             WebkitMaskRepeat: "no-repeat",
                             WebkitMaskSize: maskSize,
                         }}
                     >
-                        <motion.video 
-                            src="https://res.cloudinary.com/dmeyryjzj/video/upload/q_auto/f_auto/v1775135234/ieee_fun_compressed_hq_1_b1jygs.mp4" 
-                            autoPlay muted loop playsInline 
-                            className="w-full h-full object-cover" 
-                            style={{ opacity: videoOpacity }} 
+                        <motion.video
+                            src="https://res.cloudinary.com/dmeyryjzj/video/upload/q_auto/f_auto/v1775135234/ieee_fun_compressed_hq_1_b1jygs.mp4"
+                            autoPlay muted loop playsInline
+                            className="w-full h-full object-cover"
+                            style={{ opacity: videoOpacity }}
                         />
-                        <motion.div 
+                        <motion.div
                             className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30"
-                            style={{ opacity: videoOpacity }} 
-                        ></motion.div>
+                            style={{ opacity: videoOpacity }}
+                        />
                     </motion.div>
 
+                    {/* Bottom bridge */}
                     <motion.div
                         className="absolute bottom-0 left-0 right-0 h-24 z-30 pointer-events-none"
                         style={{
@@ -165,6 +171,7 @@ export default function LandingPage() {
                 </motion.div>
             </div>
 
+            {/* Sections */}
             <div className="relative z-30 w-full">
                 <section id="about" className="bg-black">
                     <AboutIEEE />
@@ -176,15 +183,16 @@ export default function LandingPage() {
                     <Faculty />
                 </section>
                 <section id="echoes" className="py-20 bg-[#ffffff] border-t border-gray-100">
-                    <Echoes/>
+                    <Echoes />
                 </section>
             </div>
 
+            {/* Snackbar */}
             <Snackbar open={openSnackbar} autoHideDuration={8000} onClose={handleSnackbarClose}>
                 <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: '100%', alignItems: 'center' }}>
                     <span className="mr-4">Get access to exclusive benefits!</span>
                     <button
-                        onClick={handleSignInClick} 
+                        onClick={handleSignInClick}
                         className="border-2 border-white rounded cursor-pointer px-2 py-1 text-sm transition-colors hover:bg-white hover:text-black"
                     >
                         Sign in
@@ -192,6 +200,7 @@ export default function LandingPage() {
                 </Alert>
             </Snackbar>
 
+            {/* Sign In Drawer */}
             <Drawer
                 anchor="right"
                 open={openSignIn}
@@ -205,7 +214,6 @@ export default function LandingPage() {
             >
                 <Signin />
             </Drawer>
-            
         </main>
     );
 }
