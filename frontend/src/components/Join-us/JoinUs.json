@@ -1,0 +1,145 @@
+{
+  "googleForm": {
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSfgGoyFCC737i6_9kHCwuSo5ZVPND-Os6Oqbl2p_zh41WdyjA/formResponse"
+  },
+  "page": {
+    "title": "IEEE DTU Student Branch Enquiry Form"
+  },
+  "sections": [
+    {
+      "id": "section-1",
+      "title": "",
+      "fields": [
+        {
+          "id": "fullName",
+          "label": "Full Name",
+          "type": "text",
+          "required": true,
+          "entryId": "entry.1301824371",
+          "placeholder": "Your answer"
+        },
+        {
+          "id": "personalEmail",
+          "label": "Personal Email ID",
+          "type": "email",
+          "required": true,
+          "entryId": "entry.504026258",
+          "placeholder": "Your answer"
+        },
+        {
+          "id": "dob",
+          "label": "Date of Birth",
+          "type": "date",
+          "required": true,
+          "entryId": "entry.1619116424"
+        },
+        {
+          "id": "contact",
+          "label": "Contact Number (Preferably WhatsApp)",
+          "type": "tel",
+          "required": true,
+          "entryId": "entry.261706200",
+          "placeholder": "Your answer"
+        },
+        {
+          "id": "graduatingYear",
+          "label": "Graduating Year",
+          "type": "select",
+          "required": true,
+          "entryId": "entry.280199721",
+          "options": [
+            "2K28",
+            "2K29",
+            "2K30",
+            "2K31"
+          ]
+        },
+        {
+          "id": "rollNumber",
+          "label": "University Roll Number",
+          "type": "text",
+          "required": true,
+          "entryId": "entry.667029615",
+          "placeholder": "Your answer"
+        },
+        {
+          "id": "course",
+          "label": "Course",
+          "type": "select",
+          "required": true,
+          "entryId": "entry.1545815311",
+          "options": [
+            "B.Tech",
+            "M.Tech",
+            "B.Des",
+            "M.Des",
+            "Integrated B.Sc & M.Sc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-2",
+      "title": "Specialization in B.Tech",
+      "fields": [
+        {
+          "id": "branch",
+          "label": "Branch",
+          "type": "radio",
+          "required": true,
+          "entryId": "entry.1782304140",
+          "options": [
+            "Automative Engineering",
+            "Biotechnology Engineering",
+            "Chemical Engineering",
+            "Civil Engineering",
+            "Computer Science & Engineering",
+            "Computer Science and Data Science",
+            "Electronics & Communication Engineering",
+            "Electronics Engineering with VLSI Design",
+            "Electrical Engineering",
+            "Engineering Physics",
+            "Environmental Engineering",
+            "Information Technology",
+            "Information Technology with Cyber Security",
+            "Mathematics & Computing",
+            "Mechanical Engineering",
+            "Mechanical and Automation Engineering",
+            "Production & Industrial Engineering",
+            "Software Engineering"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "section-3",
+      "title": "Additional Details",
+      "fields": [
+        {
+          "id": "source",
+          "label": "From where you got to know about IEEE",
+          "type": "text",
+          "required": true,
+          "entryId": "entry.1396758984",
+          "placeholder": "Your answer"
+        },
+        {
+          "id": "interest",
+          "label": "What would you like to know about IEEE DTU?",
+          "type": "textarea",
+          "required": true,
+          "entryId": "entry.1347660796",
+          "placeholder": "Your answer"
+        },
+        {
+          "id": "additionalNote",
+          "label": "Any additional note? (maybe your expectations or a short description about yourself 😊)",
+          "type": "textarea",
+          "required": false,
+          "entryId": "entry.127541299",
+          "placeholder": "Your answer"
+        }
+      ]
+    }
+  ]
+}

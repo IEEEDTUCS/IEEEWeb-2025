@@ -6,7 +6,8 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import Drawer from '@mui/material/Drawer';
 
-// --- YOUR COMPONENTS --- 
+
+
 import AboutIEEE from '@/components/About/aboutIntro/AboutIEEE'
 import Chapter from '@/components/About/Chapter/Chapter'
 import Faculty from '@/components/About/Faculty/Faculty'
@@ -21,13 +22,18 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 export default function LandingPage() {
     const targetRef = React.useRef(null);
     
-    // --- STATE ---
+    
     const [openSnackbar, setOpenSnackbar] = React.useState(false);
+<<<<<<< HEAD
     const [openSignIn, setOpenSignIn]     = React.useState(false);
     const [showBanner, setShowBanner]     = React.useState(false);
     const [showModal, setShowModal]       = React.useState(false);
+=======
+    const [openSignIn, setOpenSignIn] = React.useState(false);
+    const [openJoinPopup, setOpenJoinPopup] = React.useState(true);
+>>>>>>> origin/main
 
-    // --- SCROLL SETUP ---
+    
     const { scrollYProgress } = useScroll({
         target: targetRef,
         offset: ["start start", "end end"], 
@@ -40,12 +46,17 @@ export default function LandingPage() {
         restDelta: 0.001
     });
 
+<<<<<<< HEAD
     // --- ANIMATION TIMELINE ---
+=======
+    
+>>>>>>> origin/main
     const maskSize = useTransform(smoothProgress, [0, 0.15, 0.35, 0.6], ["40000%", "3000%", "300%", "20%"]);
     const maskPosition = useTransform(smoothProgress, [0, 0.2, 0.4, 0.5 ,0.55, 0.6, 0.62], ["55% 50%", "53% 50%", "50% 50%", "50% 50%", "50% 40%", "50% 30%", "50% 20%"]);
     const textOpacity = useTransform(smoothProgress, [0.45, 0.65], [0, 1]);
     const textY = useTransform(smoothProgress, [0.45, 0.65], [40, 0]);
     const arrowOpacity = useTransform(smoothProgress, [0, 0.05], [1, 0]);
+<<<<<<< HEAD
     const containerBg = useTransform(smoothProgress, [0.45, 0.65], ["#000000", "#000000"]);
     const headingColor = useTransform(smoothProgress, [0.45, 0.65], ["#ffffff", "#ffffff"]); 
     const subHeadingColor = useTransform(smoothProgress, [0.45, 0.65], ["#d1d5db", "#d1d5db"]);
@@ -61,6 +72,18 @@ export default function LandingPage() {
     }, []);
 
     // --- SNACKBAR LOGIC ---
+=======
+
+    
+    const containerBg = useTransform(smoothProgress, [0.45, 0.65], ["#000000", "#000000"]);
+    const headingColor = useTransform(smoothProgress, [0.45, 0.65], ["#ffffff", "#ffffff"]); 
+    const subHeadingColor = useTransform(smoothProgress, [0.45, 0.65], ["#d1d5db", "#d1d5db"]);
+    
+    const videoOpacity = useTransform(smoothProgress, [0.15, 0.6], [1, 0]);
+
+    const bridgeOpacity = useTransform(smoothProgress, [0.55, 0.78], [0, 1]);
+
+>>>>>>> origin/main
     React.useEffect(() => {
         const now = Date.now();
         const saved = localStorage.getItem("hasShownSnackbar");
@@ -90,6 +113,7 @@ export default function LandingPage() {
     return (
         <main className="bg-[#000000] min-h-screen relative">
 
+<<<<<<< HEAD
             {/* ── JOIN BANNER (top) ── */}
             {showBanner && (
                 <JoinBanner
@@ -102,13 +126,16 @@ export default function LandingPage() {
             <JoinModal open={showModal} onClose={() => setShowModal(false)} />
 
             {/* --- HERO SECTION --- */}
+=======
+            
+>>>>>>> origin/main
             <div ref={targetRef} className="relative w-full h-[400vh]">
                 <motion.div 
                     className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center"
                     style={{ backgroundColor: containerBg }}
                 >
                     
-                    {/* Scroll Indicator */}
+                    
                     <motion.div 
                         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-40 text-white flex flex-col items-center pointer-events-none"
                         style={{ opacity: arrowOpacity }} 
@@ -128,7 +155,6 @@ export default function LandingPage() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Text Behind Mask */}
                     <motion.div 
                         className="absolute z-10 flex flex-col items-center justify-center text-center px-4 w-full"
                         style={{ opacity: textOpacity, y: textY, top: "45%" }}
@@ -147,7 +173,6 @@ export default function LandingPage() {
                         </motion.h2>
                     </motion.div>
 
-                    {/* Masked Video */}
                     <motion.div 
                         className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none bg-white"
                         style={{
@@ -173,7 +198,10 @@ export default function LandingPage() {
                         ></motion.div>
                     </motion.div>
 
+<<<<<<< HEAD
                     {/* Bottom fade bridge */}
+=======
+>>>>>>> origin/main
                     <motion.div
                         className="absolute bottom-0 left-0 right-0 h-24 z-30 pointer-events-none"
                         style={{
@@ -184,7 +212,10 @@ export default function LandingPage() {
                 </motion.div>
             </div>
 
+<<<<<<< HEAD
             {/* --- SECTIONS --- */}
+=======
+>>>>>>> origin/main
             <div className="relative z-30 w-full">
                 <section id="about" className="bg-black">
                     <AboutIEEE />
@@ -200,7 +231,6 @@ export default function LandingPage() {
                 </section>
             </div>
 
-            {/* --- Snackbar --- */}
             <Snackbar open={openSnackbar} autoHideDuration={8000} onClose={handleSnackbarClose}>
                 <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: '100%', alignItems: 'center' }}>
                     <span className="mr-4">Get access to exclusive benefits!</span>
@@ -213,7 +243,6 @@ export default function LandingPage() {
                 </Alert>
             </Snackbar>
 
-            {/* --- Sign In Drawer --- */}
             <Drawer
                 anchor="right"
                 open={openSignIn}
@@ -227,6 +256,7 @@ export default function LandingPage() {
             >
                 <Signin />
             </Drawer>
+            
         </main>
     );
 }
