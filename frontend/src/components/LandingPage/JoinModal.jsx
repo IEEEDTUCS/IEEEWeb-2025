@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X, Zap, Users, Trophy, BookOpen,
@@ -150,11 +150,9 @@ export function JoinBanner({ onOpen, onDismiss }) {
    MODAL
 ══════════════════════════════════════════════════ */
 export function JoinModal({ open, onClose }) {
-  const [formLoaded, setFormLoaded] = useState(false);
-
   useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
-    else { document.body.style.overflow = ""; setFormLoaded(false); }
+    else document.body.style.overflow = "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
@@ -207,20 +205,12 @@ export function JoinModal({ open, onClose }) {
                 </div>
 
                 <div className="relative flex-1 overflow-hidden" style={{ minHeight: 480 }}>
-                  {!formLoaded && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-white">
-                      <div className="w-9 h-9 rounded-full border-[3px] animate-spin"
-                        style={{ borderColor: "#dbeafe", borderTopColor: BLUE }} />
-                      <p className="text-gray-400 text-sm">Loading form…</p>
-                    </div>
-                  )}
                   <iframe
                     src={FORM_URL}
                     title="IEEE DTU Membership Form"
                     width="100%" height="100%"
                     frameBorder="0" marginHeight="0" marginWidth="0"
-                    onLoad={() => setFormLoaded(true)}
-                    style={{ display: formLoaded ? "block" : "none", minHeight: 480 }}
+                    style={{ display: "block", minHeight: 480 }}
                   />
                 </div>
               </div>
