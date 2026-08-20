@@ -18,6 +18,11 @@ const nextConfig = {
         source: "/membership/mv",
         destination: "https://forms.gle/Vth12GpyEm3R5JnK8",
         permanent: true,
+      },
+      {
+        source: "/membership/dk",
+        destination: "https://forms.gle/sqojujXjTDqt8o3w6",
+        permanent: true,
       }
     ]
   },
