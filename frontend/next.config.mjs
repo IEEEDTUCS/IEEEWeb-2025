@@ -7,6 +7,25 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const nextConfig = {
   // Silence the "multiple lockfiles" workspace root warning on Vercel
   outputFileTracingRoot: path.join(__dirname, "../"),
+  async redirects() {
+    return [
+      {
+        source: "/join",
+        destination: "https://forms.gle/z3ck5AwGbxVdSNqK7",
+        permanent: true,
+      },
+      {
+        source: "/membership/mv",
+        destination: "https://forms.gle/Vth12GpyEm3R5JnK8",
+        permanent: true,
+      },
+      {
+        source: "/membership/dk",
+        destination: "https://forms.gle/sqojujXjTDqt8o3w6",
+        permanent: true,
+      }
+    ]
+  },
 
   async rewrites() {
     return [
