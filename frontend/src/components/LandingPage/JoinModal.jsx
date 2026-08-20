@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X, Zap, Users, Trophy, BookOpen,
@@ -97,18 +97,18 @@ export function JoinBanner({ onOpen, onDismiss }) {
       animate={{ y: 0,   opacity: 1, scale: 1   }}
       exit={{    y: -80, opacity: 0, scale: 0.9  }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-5 left-1/2 z-[990]"
-      style={{ transform: "translateX(-50%)" }}
+      className="fixed top-4 left-4 right-4 md:left-1/2 md:right-auto z-[990] md:w-auto"
+      style={{ transform: undefined }}
     >
+      <div className="md:translate-x-[-50%] md:relative">
       <div
-        className="relative flex items-center gap-3 px-5 py-3 rounded-2xl"
+        className="relative flex items-center gap-2 px-4 py-2.5 rounded-2xl"
         style={{
           background: "rgba(10,10,20,0.88)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
           border: `1px solid rgba(37,99,235,0.35)`,
           boxShadow: `0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(37,99,235,0.1)`,
-          whiteSpace: "nowrap",
         }}
       >
         <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
@@ -118,7 +118,7 @@ export function JoinBanner({ onOpen, onDismiss }) {
             style={{ background: BLUE }} />
         </span>
 
-        <p className="text-white/90 text-sm font-semibold">Join IEEE DTU</p>
+        <p className="text-white/90 text-sm font-semibold min-w-0 truncate">Join IEEE DTU</p>
 
         <motion.button
           onClick={onOpen}
@@ -135,11 +135,12 @@ export function JoinBanner({ onOpen, onDismiss }) {
 
         <button
           onClick={onDismiss}
-          className="ml-1 text-white/30 hover:text-white/70 transition-colors"
+          className="ml-1 text-white/30 hover:text-white/70 transition-colors flex-shrink-0"
           aria-label="Dismiss"
         >
           <X size={14} />
         </button>
+      </div>
       </div>
     </motion.div>
   );
@@ -149,11 +150,9 @@ export function JoinBanner({ onOpen, onDismiss }) {
    MODAL
 ══════════════════════════════════════════════════ */
 export function JoinModal({ open, onClose }) {
-  const [formLoaded, setFormLoaded] = useState(false);
-
   useEffect(() => {
     if (open) document.body.style.overflow = "hidden";
-    else { document.body.style.overflow = ""; setFormLoaded(false); }
+    else document.body.style.overflow = "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
@@ -176,19 +175,21 @@ export function JoinModal({ open, onClose }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 24 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[996] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[996] flex items-end md:items-center justify-center p-0 md:p-4"
             style={{ pointerEvents: "none" }}
           >
             <div
-              className="relative w-full flex flex-col md:flex-row overflow-hidden rounded-3xl"
+              className="relative w-full flex flex-col md:flex-row overflow-hidden md:rounded-3xl rounded-t-3xl"
               style={{
-                maxWidth: 960, maxHeight: "90vh",
+                maxWidth: 960,
+                height: "92vh",
+                maxHeight: "92vh",
                 pointerEvents: "auto",
                 boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)",
               }}
             >
-              {/* ── LEFT: form ── */}
-              <div className="w-full md:w-[52%] flex flex-col" style={{ background: "#fff" }}>
+              {/* ── LEFT: form — hidden on mobile ── */}
+              <div className="hidden md:flex md:w-[52%] flex-col" style={{ background: "#fff" }}>
                 <div
                   className="px-7 pt-6 pb-4 flex items-center justify-between flex-shrink-0"
                   style={{ borderBottom: "1px solid #f0f0f0" }}
@@ -204,20 +205,12 @@ export function JoinModal({ open, onClose }) {
                 </div>
 
                 <div className="relative flex-1 overflow-hidden" style={{ minHeight: 480 }}>
-                  {!formLoaded && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-white">
-                      <div className="w-9 h-9 rounded-full border-[3px] animate-spin"
-                        style={{ borderColor: "#dbeafe", borderTopColor: BLUE }} />
-                      <p className="text-gray-400 text-sm">Loading form…</p>
-                    </div>
-                  )}
                   <iframe
                     src={FORM_URL}
                     title="IEEE DTU Membership Form"
                     width="100%" height="100%"
                     frameBorder="0" marginHeight="0" marginWidth="0"
-                    onLoad={() => setFormLoaded(true)}
-                    style={{ display: formLoaded ? "block" : "none", minHeight: 480 }}
+                    style={{ display: "block", minHeight: 480 }}
                   />
                 </div>
               </div>
