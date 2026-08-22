@@ -48,7 +48,7 @@ const EventsData=[
    {
     title:"Tech Week 2023",
     subheader:"",
-    image:"/Events/techweek23.jpeg",
+    image:"/Events/techweek.jpeg",
     typography:"1 Week IEEE workshops"
   },
   {
@@ -104,7 +104,7 @@ const EventsData=[
    {
     title:"Vihaan",
     subheader:"",
-    image:"/Events/vihaan007.jpeg",
+    image:"/Events/vihaan.png",
     typography:"India's Largest Student-run Hacakthon"
   },
    {
@@ -112,6 +112,24 @@ const EventsData=[
     subheader:"",
     image:"/Events/adobe_ai.jpeg",
     typography:"Generative AI Workshop by Adobe × IEEE DTU"
+  },
+   {
+    title:"Dream Forge",
+    subheader:"",
+    image:"/Events/dream_forge.png",
+    typography:"Business Strategy & Innovation Challenge"
+  },
+  {
+    title:"RoboRace",
+    subheader:"",
+    image:"/Events/roborace.jpeg",
+    typography:"Robotics & Speed Showcase"
+  },
+  {
+    title:"Micro Mouse",
+    subheader:"",
+    image:"/Events/micromouse.jpeg",
+    typography:"Autonomous Maze-Solving Robot Challenge"
   }
 
 ]
