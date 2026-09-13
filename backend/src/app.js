@@ -9,6 +9,7 @@ import emailRouter from "./Routes/emailRouter.js";
 import session from "express-session";
 import passport from "./config/passport.js";
 import authRoutes from "./Routes/authRoutes.js";
+import chatRouter from "./Routes/chatRouter.js";
 // import { createProxyMiddleware, fixRequestBody } from "http-proxy-middleware";
 dotenv.config();
 const app = express();
@@ -21,7 +22,7 @@ const allowedOrigins = process.env.CLIENT_URLS.split(",");
 
   app.use(cors({
   origin: (origin, callback) => {
-    // if (!origin) return callback(null, true);
+    if (!origin) return callback(null, true);
 
     if (origin.endsWith(".vercel.app")) {
       return callback(null, true);
@@ -55,6 +56,7 @@ app.use(passport.session());
 app.use("/subs", subsRouter);
 app.use("/emails", emailRouter);
 app.use("/auth", authRoutes);
+app.use("/api", chatRouter);
 
 app.use((req, res, next) => {
   next(new ErrorHandler(404, "Not Found"));
