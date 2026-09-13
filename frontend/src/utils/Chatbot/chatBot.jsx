@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const CHAT_API_URL =
-  process.env.NEXT_PUBLIC_CHAT_API_URL || "http://localhost:4000/api/chat";
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:4000";
+const CHAT_API_URL = `${backendUrl}/api/chat`;
 
 const Chatbot = ({ onClose }) => {
   const initialMessages = [
