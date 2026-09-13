@@ -101,11 +101,35 @@ function Council({ img, Name, Position, insta, linkedin }) {
 export default function CouncilComponent() {
   return (
     <motion.div
-      className="relative bg-black pb-10 pt-20"
+      className="relative overflow-hidden pb-10 pt-20 bg-[#05070d]"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
+      {/* Decorative background layers */}
+      {/* base gradient: deep navy -> black */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0a1424] via-[#070b14] to-black" />
+
+      {/* subtle dotted grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)",
+          backgroundSize: "26px 26px",
+          maskImage:
+            "radial-gradient(ellipse at 50% 0%, black 40%, transparent 85%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at 50% 0%, black 40%, transparent 85%)",
+        }}
+      />
+
+      {/* soft accent glows */}
+      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[#70A6E3]/15 blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-[#4f6fd0]/10 blur-[120px]" />
+
+      {/* content wrapper above the background */}
+      <div className="relative z-10">
       <div className="m-15">
         <motion.div>
           <motion.p
@@ -149,6 +173,7 @@ export default function CouncilComponent() {
             <Council {...member} />
           </motion.div>
         ))}
+      </div>
       </div>
     </motion.div>
   );
