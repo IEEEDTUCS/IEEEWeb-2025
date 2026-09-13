@@ -14,6 +14,7 @@
         "dev:all": "concurrently \"npm run dev\" \"npm run chatbot\" --names \"Express,Chatbot\" --prefix-colors \"blue,green\""
         
     },
+    
     "dependencies": {
         "@google/generative-ai": "^0.24.0",
         "bcrypt": "^6.0.0",
