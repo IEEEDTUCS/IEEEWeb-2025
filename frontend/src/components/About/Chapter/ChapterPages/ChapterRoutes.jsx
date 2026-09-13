@@ -209,7 +209,7 @@ function Hero({ info }) {
             Explore Chapter
           </button>
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScdVzhcEbKrc61Y3aUzhK1NTybm7MpRfYNBvNAHSzV1tTpBzA/viewform"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfgGoyFCC737i6_9kHCwuSo5ZVPND-Os6Oqbl2p_zh41WdyjA/viewform"
             target="_blank" rel="noopener noreferrer"
             className={styles.ctaOutline}
             style={{ borderColor: `${accent}80`, color: "#fff" }}
@@ -630,7 +630,7 @@ function Membership({ info }) {
             </p>
           </div>
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScdVzhcEbKrc61Y3aUzhK1NTybm7MpRfYNBvNAHSzV1tTpBzA/viewform"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfgGoyFCC737i6_9kHCwuSo5ZVPND-Os6Oqbl2p_zh41WdyjA/viewform"
             target="_blank" rel="noopener noreferrer"
             className={styles.ctaPrimary}
             style={{ background: accent, display: "flex", alignItems: "center", gap: 8 }}
