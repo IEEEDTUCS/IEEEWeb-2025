@@ -97,21 +97,23 @@ export default function AboutIEEE() {
       </div>
 
       {/* WhatsApp + Join Us CTAs */}
-      <div className="mt-10 mb-8 flex flex-col sm:flex-row justify-center gap-3 opacity-0 animate-[slideUp_1s_ease-out_0.9s_forwards] transform-gpu">
-        <WhatsAppButton style={{ maxWidth: 260 }} />
+      <div className="mt-10 mb-8 flex flex-col sm:flex-row items-center justify-center gap-3 px-4 opacity-0 animate-[slideUp_1s_ease-out_0.9s_forwards] transform-gpu">
+        <div className="w-full sm:w-auto sm:min-w-[220px] sm:max-w-[260px]">
+          <WhatsAppButton />
+        </div>
         <a
           href="/IEEEDTU/join-us"
+          className="w-full sm:w-auto sm:min-w-[220px] sm:max-w-[260px]"
           style={{
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
             gap: 8,
-            maxWidth: 260,
             width: "100%",
             padding: "12px 28px",
             borderRadius: 12,
             fontSize: 14,
-            fontWeight: 700,
+            fontWeight: 600,
             color: "#fff",
             background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
             boxShadow: "0 4px 18px rgba(37,99,235,0.35)",
