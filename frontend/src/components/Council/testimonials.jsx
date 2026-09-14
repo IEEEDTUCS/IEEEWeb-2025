@@ -1,10 +1,10 @@
-
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { CardContainer, CardBody, CardItem } from '@/components/Council/card3d';
 
-// Example data (replace with your real testimonials)
+// Only first 2 testimonials: Ketan Shankar and Khobaib Akmal
 const testimonials = [
   {
     id: "1",
@@ -24,11 +24,9 @@ const testimonials = [
   },
 ];
 
-import { CardContainer, CardBody, CardItem } from '@/components/Council/card3d';
-
 function Gallery({ items, setIndex, setOpen, index }) {
   return (
-    <div className="flex flex-row overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth justify-center items-stretch gap-4 py-4 px-4">
+    <div className="flex flex-row overflow-x-auto snap-x snap-mandatory scrollbar-hide scroll-smooth justify-center items-stretch gap-6 py-4 px-4">
       {items.map((item, i) => (
         <CardContainer key={item.id} className="snap-center flex-shrink-0" containerClassName="py-0">
           <motion.div
@@ -38,35 +36,34 @@ function Gallery({ items, setIndex, setOpen, index }) {
             className="cursor-pointer"
           >
             <CardBody
-              className={`bg-white rounded-2xl shadow-lg shadow-black/20 border border-neutral-200 overflow-hidden transition-[width,height] duration-500 ease-in-out
+              className={`bg-zinc-950/90 rounded-2xl shadow-2xl shadow-black/80 border border-zinc-800/80 hover:border-blue-500/40 overflow-hidden transition-[width,height] duration-500 ease-in-out backdrop-blur-md
                 ${index === i
-                  ? "w-[320px] sm:w-[600px] md:w-[850px] lg:w-[950px] h-auto min-h-[500px] sm:min-h-[560px] md:min-h-[620px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-center gap-8"
-                  : "w-16 sm:w-20 md:w-28 h-[280px] sm:h-[340px] md:h-[400px] flex flex-col items-center justify-end"
+                  ? "w-[320px] sm:w-[600px] md:w-[850px] lg:w-[950px] h-[500px] sm:h-[560px] md:h-[620px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-center gap-8"
+                  : "w-24 sm:w-28 md:w-36 h-[300px] sm:h-[360px] md:h-[420px] flex flex-col items-center justify-end"
                 }`}
             >
               {index !== i ? (
-  // collapsed: photo fills the whole card now, not a small padded thumbnail
-<img
-    src={item.url}
-    alt={item.title}
-    className="w-full h-full object-cover"
-  />
-) : (
-  <>
-    <CardItem translateZ={20} className="text-left order-2 md:order-1 flex-1 relative w-full">
-      <div className="pr-3 max-h-[70vh] overflow-y-auto scrollbar-hide">
-        <p className="text-base md:text-lg text-neutral-700 font-serif leading-relaxed whitespace-pre-line">
-          {item.description}
-        </p>
-      </div>
-    </CardItem>
-    <CardItem translateZ={20} className="flex flex-col items-center order-1 md:order-2 shrink-0">
-      <img src={item.url} alt={item.title} className="w-32 h-36 sm:w-40 sm:h-44 object-cover rounded-xl shadow-md" />
-      <h3 className="text-lg font-semibold mt-3 text-neutral-800">{item.title}</h3>
-      <p className="text-sm text-neutral-500">{item.designation}</p>
-    </CardItem>
-  </>
-)}
+                <img
+                  src={item.url}
+                  alt={item.title}
+                  className="w-full h-full object-cover rounded-xl opacity-70 hover:opacity-100 transition-opacity"
+                />
+              ) : (
+                <>
+                  <CardItem translateZ={20} className="text-left order-2 md:order-1 flex-1 relative">
+                    <div className="pr-3 overflow-y-auto max-h-[380px] sm:max-h-[440px] scrollbar-thin scrollbar-thumb-zinc-700">
+                      <p className="text-base md:text-lg text-zinc-300 font-sans leading-relaxed whitespace-pre-line">
+                        {item.description}
+                      </p>
+                    </div>
+                  </CardItem>
+                  <CardItem translateZ={20} className="flex flex-col items-center order-1 md:order-2 shrink-0">
+                    <img src={item.url} alt={item.title} className="w-32 h-36 sm:w-40 sm:h-44 object-cover rounded-xl shadow-lg border border-zinc-800" />
+                    <h3 className="text-lg font-heading font-bold mt-3 text-white">{item.title}</h3>
+                    <p className="text-sm font-medium text-blue-400 font-nav mt-0.5">{item.designation}</p>
+                  </CardItem>
+                </>
+              )}
             </CardBody>
           </motion.div>
         </CardContainer>
@@ -97,91 +94,58 @@ export default function Testimonials() {
   }, [open]);
 
   return (
-    <div className="relative py-20 mb-10 overflow-hidden bg-gradient-to-b from-[#f5f7fb] via-white to-[#eef2f9]">
-      {/* subtle grid texture */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.5]"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(112,166,227,0.10) 1px, transparent 1px)",
-          backgroundSize: "26px 26px",
-          maskImage:
-            "radial-gradient(ellipse at 50% 0%, black 35%, transparent 80%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at 50% 0%, black 35%, transparent 80%)",
-        }}
-      />
-      <h3 className="relative text-center font-heading font-bold text-lg uppercase mb-0" style={{
-    fontweight: 600,
-    fontSize: "1rem",    
-    letterSpacing: "0.25rem",
-        color: "#70a6e3",
-        margin: 0,
-        padding: 0,
-  }}>PROUD TO PRESENT</h3>
-      <h1
-        className="relative text-center font-heading mb-8 text-5xl leading-[1.255] font-sans font-bold my-6 mt-0"
-        style={{ color: "#000000" }}
-      >
+    <div className="relative bg-black py-20 pb-32 text-white overflow-hidden">
+      <h3 className="text-center font-heading font-semibold text-sm md:text-base tracking-[0.25rem] text-blue-400 uppercase mb-2">
+        PROUD TO PRESENT
+      </h3>
+      <h1 className="text-center font-heading text-4xl sm:text-5xl font-extrabold text-white mb-10">
         Testimonials
       </h1>
-      {/* <h2 className="text-center text-3xl font-bold my-6">Testimonials</h2> */}
 
-      <div className="relative z-10">
-        <Gallery items={testimonials} index={index} setIndex={setIndex} setOpen={setOpen} />
-      </div>
+      <Gallery items={testimonials} index={index} setIndex={setIndex} setOpen={setOpen} />
 
       <AnimatePresence>
         {open && (
-        
-           <motion.div 
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             key="overlay"
-            className="fixed inset-0 z-50 flex justify-center items-center bg-black/50 backdrop-blur-sm px-2"
+            className="fixed inset-0 z-50 flex justify-center items-center bg-black/80 backdrop-blur-md px-4"
             onClick={() => setOpen(false)}
           >
-         <motion.div 
+            <motion.div 
               layoutId={activeTestimonial.id}
-              className="bg-white rounded-xl shadow-lg p-4 w-auto /12 max-w-xl max-h-[80vh] overflow-y-auto relative"
+              className="bg-zinc-950 border border-zinc-800 rounded-2xl shadow-2xl p-6 sm:p-8 w-full max-w-xl max-h-[85vh] overflow-y-auto relative text-white"
               onClick={(e) => e.stopPropagation()}
             >
-              <motion.button
+              <button
                 onClick={() => setOpen(false)}
-                className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl font-bold"
+                className="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl font-bold p-1 rounded-lg hover:bg-zinc-900 transition-colors"
               >
                 ✕
-              </motion.button>
-             <Image 
+              </button>
+              <Image 
                 src={activeTestimonial.url}
                 width={150}
                 height={150}
                 alt={activeTestimonial.title}
-                className="rounded-full  object-cover mx-auto md:w-40 md:h-40 w-24 h-24"
+                className="rounded-2xl object-cover mx-auto md:w-36 md:h-36 w-28 h-28 border border-zinc-800 shadow-lg"
               />
-              <article className="p-2 mt-4 text-center"> 
-                <motion.h1 
-                  initial={{ scaleY: 0.2 }}
-                  animate={{ scaleY: 1 }}
-                  transition={{ duration: 0.2, delay: 0.2 }}
-                  className="text-xl font-semibold font-[montserrat-semibold] "
-                >
-                   {activeTestimonial.title}
-                 </motion.h1>
-                 <motion.p
-                  initial={{ y: -10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.2, delay: 0.2 }}
-                  className="text-xl md:text-base leading-relaxed py-2 font-serif "
-                  style={{ color: "#555555" }}
-                >
+              <article className="mt-5 text-center"> 
+                <h2 className="text-2xl font-heading font-bold text-white">
+                  {activeTestimonial.title}
+                </h2>
+                <p className="text-sm font-semibold text-blue-400 mt-1 font-nav">
+                  {activeTestimonial.designation}
+                </p>
+                <p className="text-base text-zinc-300 leading-relaxed py-4 font-sans text-left whitespace-pre-line border-t border-zinc-800/80 mt-4">
                   {activeTestimonial.description}
-                 </motion.p>
-             </article>
-             </motion.div>
+                </p>
+              </article>
+            </motion.div>
           </motion.div>
-         )} 
+        )} 
       </AnimatePresence>
     </div>
   );
