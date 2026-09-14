@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import CouncilData from '@/components/Council/HelperCouncil'
+import CouncilData from '@/components/Council/HelperCouncil';
 import { CardContainer, CardBody, CardItem } from './card3d';
 
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -10,18 +10,18 @@ import { motion } from 'framer-motion';
 
 function Council({ img, Name, Position, insta, linkedin }) {
   return (
-    <CardContainer className=" group w-full border border-white/80
-    rounded-md
-    shadow-[0_4px_20px_rgba(255,255,255,0.06)]
-    hover:border-[#70A6E3]/60
-    hover:shadow-[0_0_25px_rgba(112,166,227,0.18)]
-    transition-all duration-300">
+    <CardContainer className="group w-full border border-zinc-800/80
+      rounded-xl
+      shadow-[0_4px_20px_rgba(0,0,0,0.6)]
+      hover:border-blue-500/50
+      hover:shadow-[0_0_25px_rgba(37,99,235,0.2)]
+      transition-all duration-300">
       <CardBody className="relative w-full h-auto">
 
         {/* IMAGE */}
         <CardItem
           translateZ={80}
-          className="relative w-full overflow-hidden rounded-t-md"
+          className="relative w-full overflow-hidden rounded-t-xl"
         >
           <Image
             src={img}
@@ -32,26 +32,26 @@ function Council({ img, Name, Position, insta, linkedin }) {
           />
 
           {/* subtle hover overlay */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 pointer-events-none" />
         </CardItem>
 
         {/* NAME + POSITION/SOCIALS */}
         <CardItem
           translateZ={50}
-          className="relative w-full h-[72px] text-center overflow-hidden bg-white rounded-b-md"
+          className="relative w-full h-[72px] text-center overflow-hidden bg-zinc-950 border-t border-zinc-800/60 rounded-b-xl"
         >
 
           {/* NAME */}
           <div className="absolute inset-0 flex items-center justify-center transition-all duration-300 group-hover:-translate-y-8 group-hover:opacity-0">
-            <p className="text-xl md:text-2xl font-subheading font-bold text-neutral-600">
+            <p className="text-xl md:text-2xl font-heading font-bold text-white tracking-tight">
               {Name}
             </p>
           </div>
 
           {/* POSITION + SOCIALS */}
-          <div className="absolute inset-x-0 bottom-0 flex justify-center items-center pb-4 translate-y-10 opacity-0 transition-all duration-650 group-hover:translate-y-0 group-hover:opacity-100">
+          <div className="absolute inset-x-0 bottom-0 flex justify-center items-center pb-4 translate-y-10 opacity-0 transition-all duration-650 group-hover:translate-y-0 group-hover:opacity-100 gap-2">
 
-            <span className="text-sm uppercase tracking-[0.12em] text-neutral-500">
+            <span className="text-xs md:text-sm uppercase tracking-[0.12em] text-zinc-400 font-medium font-nav">
               {Position}
             </span>
 
@@ -65,12 +65,12 @@ function Council({ img, Name, Position, insta, linkedin }) {
                 {Name === "Parth Sharma" ? (
                   <LanguageIcon
                     fontSize="small"
-                    className="text-blue-600 cursor-pointer transition-transform duration-200 hover:scale-140"
+                    className="text-blue-400 cursor-pointer transition-transform duration-200 hover:scale-125 hover:text-blue-300"
                   />
                 ) : (
                   <LinkedInIcon
                     fontSize="small"
-                    className="text-blue-600 cursor-pointer transition-transform duration-200 hover:scale-140"
+                    className="text-blue-400 cursor-pointer transition-transform duration-200 hover:scale-125 hover:text-blue-300"
                   />
                 )}
               </a>
@@ -85,7 +85,7 @@ function Council({ img, Name, Position, insta, linkedin }) {
               >
                 <InstagramIcon
                   fontSize="small"
-                  className="text-pink-500 cursor-pointer transition-transform duration-200 hover:scale-140"
+                  className="text-pink-400 cursor-pointer transition-transform duration-200 hover:scale-125 hover:text-pink-300"
                 />
               </a>
             )}
@@ -101,39 +101,15 @@ function Council({ img, Name, Position, insta, linkedin }) {
 export default function CouncilComponent() {
   return (
     <motion.div
-      className="relative overflow-hidden pb-10 pt-20 bg-[#05070d]"
+      className="relative bg-black pb-10 pt-20"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      {/* Decorative background layers */}
-      {/* base gradient: deep navy -> black */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0a1424] via-[#070b14] to-black" />
-
-      {/* subtle dotted grid */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)",
-          backgroundSize: "26px 26px",
-          maskImage:
-            "radial-gradient(ellipse at 50% 0%, black 40%, transparent 85%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse at 50% 0%, black 40%, transparent 85%)",
-        }}
-      />
-
-      {/* soft accent glows */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-[#70A6E3]/15 blur-[120px]" />
-      <div className="pointer-events-none absolute top-1/3 -right-24 h-96 w-96 rounded-full bg-[#4f6fd0]/10 blur-[120px]" />
-
-      {/* content wrapper above the background */}
-      <div className="relative z-10">
       <div className="m-15">
         <motion.div>
           <motion.p
-            className="font-heading text-center text-[#70A6E3] text-lg tracking-[0.2rem] font-semibold"
+            className="font-heading text-center text-blue-400 text-sm md:text-base tracking-[0.2rem] font-semibold uppercase"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
@@ -142,12 +118,12 @@ export default function CouncilComponent() {
           </motion.p>
 
           <motion.h1
-            className="font-heading text-center mt-3 md:tracking-[0.2rem] text-white text-2xl md:text-3xl font-bold"
+            className="font-heading text-center mt-3 tracking-wide text-white text-3xl md:text-4xl font-extrabold"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
           >
-            IEEE-DTU COUNCIL
+            IEEE-DTU <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-blue-600">COUNCIL</span>
           </motion.h1>
 
           <motion.div
@@ -156,7 +132,7 @@ export default function CouncilComponent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.7, ease: "easeOut" }}
           >
-            <hr className="border-white/20" />
+            <hr className="border-zinc-800/80" />
           </motion.div>
         </motion.div>
       </div>
@@ -173,7 +149,6 @@ export default function CouncilComponent() {
             <Council {...member} />
           </motion.div>
         ))}
-      </div>
       </div>
     </motion.div>
   );
