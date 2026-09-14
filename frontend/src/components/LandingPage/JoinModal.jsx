@@ -97,50 +97,38 @@ export function JoinBanner({ onOpen, onDismiss }) {
       animate={{ y: 0,   opacity: 1, scale: 1   }}
       exit={{    y: -80, opacity: 0, scale: 0.9  }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-4 left-4 right-4 md:left-1/2 md:right-auto z-[990] md:w-auto"
-      style={{ transform: undefined }}
+      className="fixed top-5 left-4 right-4 md:left-1/2 md:right-auto z-[990] md:w-auto"
     >
       <div className="md:translate-x-[-50%] md:relative">
-      <div
-        className="relative flex items-center gap-2 px-4 py-2.5 rounded-2xl"
-        style={{
-          background: "rgba(10,10,20,0.88)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          border: `1px solid rgba(37,99,235,0.35)`,
-          boxShadow: `0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(37,99,235,0.1)`,
-        }}
-      >
-        <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-            style={{ background: BLUE }} />
-          <span className="relative inline-flex rounded-full h-2.5 w-2.5"
-            style={{ background: BLUE }} />
-        </span>
-
-        <p className="text-white/90 text-sm font-semibold min-w-0 truncate">Join IEEE DTU</p>
-
-        <motion.button
-          onClick={onOpen}
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-1.5 text-white text-xs font-bold px-3.5 py-1.5 rounded-xl"
-          style={{
-            background: `linear-gradient(135deg, ${BLUE}, ${BLUE_DK})`,
-            boxShadow: `0 2px 12px rgba(37,99,235,0.45)`,
-          }}
+        <div
+          className="relative flex items-center gap-3 px-4 py-2 rounded-full border border-blue-500/30 bg-zinc-950/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.7),0_0_20px_rgba(37,99,235,0.25)] hover:border-blue-500/50 transition-all duration-300"
         >
-          Join Now <ChevronRight size={12} />
-        </motion.button>
+          <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-blue-500" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500" />
+          </span>
 
-        <button
-          onClick={onDismiss}
-          className="ml-1 text-white/30 hover:text-white/70 transition-colors flex-shrink-0"
-          aria-label="Dismiss"
-        >
-          <X size={14} />
-        </button>
-      </div>
+          <p className="text-white text-xs sm:text-sm font-semibold tracking-wide min-w-0 truncate">
+            Join IEEE DTU
+          </p>
+
+          <motion.button
+            onClick={onOpen}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-1.5 text-white text-xs font-bold px-3.5 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 shadow-[0_2px_14px_rgba(37,99,235,0.5)] hover:shadow-[0_4px_20px_rgba(37,99,235,0.7)] transition-all cursor-pointer"
+          >
+            Join Now <ChevronRight size={12} />
+          </motion.button>
+
+          <button
+            onClick={onDismiss}
+            className="ml-1 text-zinc-400 hover:text-white transition-colors flex-shrink-0 p-1 cursor-pointer"
+            aria-label="Dismiss"
+          >
+            <X size={14} />
+          </button>
+        </div>
       </div>
     </motion.div>
   );
@@ -165,8 +153,7 @@ export function JoinModal({ open, onClose }) {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             onClick={onClose}
-            className="fixed inset-0 z-[995]"
-            style={{ background: "rgba(0,0,0,0.72)", backdropFilter: "blur(6px)" }}
+            className="fixed inset-0 z-[995] bg-black/80 backdrop-blur-md"
           />
 
           <motion.div
@@ -179,32 +166,29 @@ export function JoinModal({ open, onClose }) {
             style={{ pointerEvents: "none" }}
           >
             <div
-              className="relative w-full flex flex-col md:flex-row overflow-hidden md:rounded-3xl rounded-t-3xl"
+              className="relative w-full flex flex-col md:flex-row overflow-hidden md:rounded-3xl rounded-t-3xl border border-zinc-800 shadow-[0_32px_80px_rgba(0,0,0,0.8),0_0_50px_rgba(37,99,235,0.15)] bg-zinc-950"
               style={{
                 maxWidth: 960,
                 height: "92vh",
                 maxHeight: "92vh",
                 pointerEvents: "auto",
-                boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06)",
               }}
             >
               {/* ── LEFT: form — hidden on mobile ── */}
-              <div className="hidden md:flex md:w-[52%] flex-col" style={{ background: "#fff" }}>
+              <div className="hidden md:flex md:w-[52%] flex-col bg-zinc-950 border-r border-zinc-800/80">
                 <div
-                  className="px-7 pt-6 pb-4 flex items-center justify-between flex-shrink-0"
-                  style={{ borderBottom: "1px solid #f0f0f0" }}
+                  className="px-7 pt-6 pb-4 flex items-center justify-between flex-shrink-0 border-b border-zinc-800/80 bg-zinc-900/50"
                 >
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-widest mb-0.5"
-                      style={{ color: BLUE }}>
+                    <p className="text-xs font-bold uppercase tracking-widest mb-0.5 text-blue-400">
                       Membership Form
                     </p>
-                    <h2 className="text-lg font-bold text-gray-900">Join IEEE DTU</h2>
+                    <h2 className="text-lg font-bold text-white">Join IEEE DTU</h2>
                   </div>
                   <img src="/images/logo.png" alt="IEEE DTU" className="h-9 w-auto object-contain" />
                 </div>
 
-                <div className="relative flex-1 overflow-hidden" style={{ minHeight: 480 }}>
+                <div className="relative flex-1 overflow-hidden bg-zinc-950" style={{ minHeight: 480 }}>
                   <iframe
                     src={FORM_URL}
                     title="IEEE DTU Membership Form"
@@ -217,15 +201,11 @@ export function JoinModal({ open, onClose }) {
 
               {/* ── RIGHT: pitch ── */}
               <div
-                className="w-full md:w-[48%] flex flex-col overflow-y-auto"
-                style={{ background: "#09090f" }}
+                className="w-full md:w-[48%] flex flex-col overflow-y-auto bg-zinc-950"
               >
                 <button
                   onClick={onClose}
-                  className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full flex items-center justify-center transition-colors"
-                  style={{ background: "rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.6)" }}
-                  onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.15)"}
-                  onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.08)"}
+                  className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full flex items-center justify-center bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors cursor-pointer"
                   aria-label="Close"
                 >
                   <X size={15} />
@@ -236,20 +216,18 @@ export function JoinModal({ open, onClose }) {
                   {/* headline */}
                   <div>
                     <div className="flex items-center gap-2 mb-3">
-                      <Sparkles size={14} style={{ color: BLUE }} />
-                      <span className="text-xs font-bold uppercase tracking-widest"
-                        style={{ color: BLUE }}>
+                      <Sparkles size={14} className="text-blue-400" />
+                      <span className="text-xs font-bold uppercase tracking-widest text-blue-400">
                         Why join us
                       </span>
                     </div>
                     <h3 className="text-[1.65rem] font-extrabold text-white leading-tight">
                       Be part of{" "}
-                      <span className="text-transparent bg-clip-text"
-                        style={{ backgroundImage: `linear-gradient(135deg, #60a5fa, #3b82f6)` }}>
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-blue-600">
                         something bigger.
                       </span>
                     </h3>
-                    <p className="text-white/45 text-sm mt-2 leading-relaxed">
+                    <p className="text-zinc-400 text-sm mt-2 leading-relaxed">
                       DTU's oldest engineering society — 40+ years of technical excellence.
                     </p>
                   </div>
@@ -260,11 +238,10 @@ export function JoinModal({ open, onClose }) {
                       <motion.div key={label}
                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="rounded-xl px-2 py-3 flex flex-col items-center text-center"
-                        style={{ background: BLUE_BG, border: `1px solid ${BLUE_BD}` }}
+                        className="rounded-xl px-2 py-3 flex flex-col items-center text-center bg-blue-500/10 border border-blue-500/20"
                       >
-                        <span className="text-xl font-extrabold" style={{ color: "#93c5fd" }}>{value}</span>
-                        <span className="text-[10px] text-white/40 font-medium mt-0.5 leading-tight">{label}</span>
+                        <span className="text-xl font-extrabold text-blue-400">{value}</span>
+                        <span className="text-[10px] text-zinc-400 font-medium mt-0.5 leading-tight">{label}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -275,16 +252,14 @@ export function JoinModal({ open, onClose }) {
                       <motion.div key={title}
                         initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.12 + i * 0.07 }}
-                        className="flex items-start gap-3 p-3 rounded-xl"
-                        style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
+                        className="flex items-start gap-3 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800"
                       >
-                        <div className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
-                          style={{ background: BLUE_BG, color: "#60a5fa" }}>
+                        <div className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center bg-blue-500/10 text-blue-400">
                           {icon}
                         </div>
                         <div>
                           <p className="text-white text-sm font-semibold">{title}</p>
-                          <p className="text-white/40 text-xs leading-relaxed mt-0.5">{desc}</p>
+                          <p className="text-zinc-400 text-xs leading-relaxed mt-0.5">{desc}</p>
                         </div>
                       </motion.div>
                     ))}
@@ -292,18 +267,17 @@ export function JoinModal({ open, onClose }) {
 
                   {/* testimonial */}
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
-                    className="rounded-xl p-4"
-                    style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
+                    className="rounded-xl p-4 bg-zinc-900/60 border border-zinc-800"
                   >
                     <div className="flex gap-0.5 mb-2">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} size={11} className="text-yellow-400 fill-yellow-400" />
                       ))}
                     </div>
-                    <p className="text-white/60 text-xs leading-relaxed italic">
+                    <p className="text-zinc-300 text-xs leading-relaxed italic">
                       "IEEE DTU introduced me to some of the finest seniors and peers I could have asked for. If you're looking for a place to truly grow — there's no better place."
                     </p>
-                    <p className="text-xs font-semibold mt-2" style={{ color: "#60a5fa" }}>
+                    <p className="text-xs font-semibold mt-2 text-blue-400">
                       — Ketan Shankar, Batch of 2026
                     </p>
                   </motion.div>
@@ -314,16 +288,7 @@ export function JoinModal({ open, onClose }) {
                       href="/IEEEDTU/join-us"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white"
-                      style={{
-                        flex: 1,
-                        background: `linear-gradient(135deg, ${BLUE}, ${BLUE_DK})`,
-                        boxShadow: `0 4px 20px rgba(37,99,235,0.35)`,
-                        textDecoration: "none",
-                        transition: "filter 0.15s",
-                      }}
-                      onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.12)"}
-                      onMouseLeave={e => e.currentTarget.style.filter = ""}
+                      className="flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-[0_4px_20px_rgba(37,99,235,0.45)] hover:shadow-[0_6px_25px_rgba(37,99,235,0.65)] transition-all no-underline"
                     >
                       Join Us <ArrowRight size={14} />
                     </a>

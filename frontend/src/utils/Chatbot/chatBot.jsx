@@ -106,11 +106,11 @@ const Chatbot = ({ onClose }) => {
   };
 
   return (
-    <div className="w-80 h-[500px] md:w-96 md:h-[600px] flex flex-col bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden font-sans">
+    <div className="w-80 h-[500px] md:w-96 md:h-[600px] flex flex-col bg-zinc-950 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(37,99,235,0.2)] border border-zinc-800 overflow-hidden font-sans">
       {/* Header */}
-      <div className="p-4 border-b border-gray-200 flex justify-between items-center bg-gradient-to-r from-blue-600 to-blue-700 flex-shrink-0">
+      <div className="p-4 border-b border-zinc-800 flex justify-between items-center bg-gradient-to-r from-blue-700 to-blue-600 flex-shrink-0">
         <div className="flex items-center space-x-3">
-          <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center text-blue-600 font-bold text-xs shadow-md">
+          <div className="h-10 w-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-md">
             IEEE
           </div>
           <div>
@@ -120,7 +120,7 @@ const Chatbot = ({ onClose }) => {
         </div>
         <button
           onClick={onClose}
-          className="text-white hover:text-blue-100 transition-colors"
+          className="text-white hover:text-blue-200 transition-colors p-1"
           aria-label="Close chat"
         >
           ✕
@@ -130,7 +130,7 @@ const Chatbot = ({ onClose }) => {
       {/* Messages */}
       <div
         ref={chatWindowRef}
-        className="flex-1 p-4 space-y-3 overflow-y-auto bg-gray-50"
+        className="flex-1 p-4 space-y-3 overflow-y-auto bg-zinc-950/90"
       >
         {messages.map((msg) => (
           <div
@@ -142,8 +142,8 @@ const Chatbot = ({ onClose }) => {
             <div
               className={`max-w-[80%] px-4 py-2.5 rounded-2xl shadow-sm text-sm leading-relaxed ${
                 msg.sender === "bot"
-                  ? "bg-white text-gray-800 rounded-bl-none border border-gray-200"
-                  : "bg-blue-600 text-white rounded-br-none"
+                  ? "bg-zinc-900 text-zinc-200 rounded-bl-none border border-zinc-800"
+                  : "bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-br-none"
               }`}
             >
               {msg.text}
@@ -153,7 +153,7 @@ const Chatbot = ({ onClose }) => {
 
         {isTyping && (
           <div className="flex justify-start">
-            <div className="px-4 py-2.5 rounded-2xl bg-white border border-gray-200 shadow-sm rounded-bl-none">
+            <div className="px-4 py-2.5 rounded-2xl bg-zinc-900 border border-zinc-800 shadow-sm rounded-bl-none">
               <div className="flex items-center space-x-1">
                 <span
                   className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
@@ -174,7 +174,7 @@ const Chatbot = ({ onClose }) => {
       </div>
 
       {/* Input */}
-      <div className="p-4 border-t border-gray-200 bg-white flex-shrink-0">
+      <div className="p-4 border-t border-zinc-800 bg-zinc-950 flex-shrink-0">
         <form
           onSubmit={handleSendMessage}
           className="flex items-center space-x-3"
@@ -185,12 +185,12 @@ const Chatbot = ({ onClose }) => {
             onChange={(e) => setInput(e.target.value)}
             disabled={isTyping}
             placeholder="Ask about IEEE DTU..."
-            className="flex-1 px-4 py-2.5 text-sm bg-gray-50 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 transition-all"
+            className="flex-1 px-4 py-2.5 text-sm bg-zinc-900 border border-zinc-700 text-white placeholder-zinc-500 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 transition-all"
           />
           <button
             type="submit"
             disabled={!input.trim() || isTyping}
-            className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 transition-colors"
+            className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full flex items-center justify-center hover:from-blue-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 transition-all cursor-pointer shadow-[0_0_12px_rgba(37,99,235,0.4)]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -395,36 +395,41 @@ function About({ info }) {
 function Events({ info }) {
   const cs     = info.ColorSchemes;
   const accent = cs.JoinFormBGColor;
-  const images = info.events.images || [];
+  const images = info.events?.images || [];
   const total  = images.length;
 
   const [idx, setIdx]   = useState(0);
   const [dir, setDir]   = useState(1);
   const dragX           = useRef(0);
 
-  const go = useCallback((newIdx) => {
-    setDir(newIdx > idx ? 1 : -1);
-    setIdx((newIdx + total) % total);
-  }, [idx, total]);
+  const safeIdx = total > 0 ? ((idx % total) + total) % total : 0;
 
-  const prev = useCallback(() => go(idx - 1), [go, idx]);
-  const next = useCallback(() => go(idx + 1), [go, idx]);
+  const go = useCallback((newIdx) => {
+    if (total <= 1) return;
+    setDir(newIdx > safeIdx ? 1 : -1);
+    setIdx((newIdx + total) % total);
+  }, [safeIdx, total]);
+
+  const prev = useCallback(() => go(safeIdx - 1), [go, safeIdx]);
+  const next = useCallback(() => go(safeIdx + 1), [go, safeIdx]);
 
   // Auto-advance
   useEffect(() => {
+    if (total <= 1) return;
     const t = setInterval(() => { setDir(1); setIdx(i => (i + 1) % total); }, 4500);
     return () => clearInterval(t);
   }, [total]);
 
   // Keyboard
   useEffect(() => {
+    if (total <= 1) return;
     const fn = e => {
       if (e.key === "ArrowLeft") prev();
       else if (e.key === "ArrowRight") next();
     };
     window.addEventListener("keydown", fn);
     return () => window.removeEventListener("keydown", fn);
-  }, [prev, next]);
+  }, [prev, next, total]);
 
   const variants = {
     enter: d => ({ x: d > 0 ? "100%" : "-100%", opacity: 0 }),
@@ -434,6 +439,8 @@ function Events({ info }) {
 
   const ref    = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  if (total === 0) return null;
 
   return (
     <section id="events" className={styles.section}
@@ -463,28 +470,31 @@ function Events({ info }) {
           <div className={styles.carouselFrame}
             onMouseDown={e => { dragX.current = e.clientX; }}
             onMouseUp={e => {
+              if (total <= 1) return;
               const dx = e.clientX - dragX.current;
               if (dx > 60) prev(); else if (dx < -60) next();
             }}
             onTouchStart={e => { dragX.current = e.touches[0].clientX; }}
             onTouchEnd={e => {
+              if (total <= 1) return;
               const dx = e.changedTouches[0].clientX - dragX.current;
               if (dx > 50) prev(); else if (dx < -50) next();
             }}
           >
             <AnimatePresence initial={false} custom={dir} mode="popLayout">
-              <motion.div key={idx} custom={dir}
+              <motion.div key={safeIdx} custom={dir}
                 variants={variants} initial="enter" animate="center" exit="exit"
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className={styles.carouselSlide}
-                drag="x"
+                drag={total > 1 ? "x" : false}
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.12}
                 onDragEnd={(_, { offset }) => {
+                  if (total <= 1) return;
                   if (offset.x > 60) prev(); else if (offset.x < -60) next();
                 }}
               >
-                <img src={images[idx]} alt={`Event ${idx + 1}`} className={styles.carouselPhoto} />
+                <img src={images[safeIdx]} alt={`Event ${safeIdx + 1}`} className={styles.carouselPhoto} />
 
                 {/* Bottom gradient */}
                 <div className={styles.carouselGradient}
@@ -494,7 +504,7 @@ function Events({ info }) {
                 {/* Counter */}
                 <div className={styles.carouselCount}>
                   <span style={{ color: "#fff", fontWeight: 700, fontSize: 14 }}>
-                    {String(idx + 1).padStart(2, "0")}
+                    {String(safeIdx + 1).padStart(2, "0")}
                   </span>
                   <span style={{ color: "rgba(255,255,255,0.45)", fontSize: 14 }}>
                     &nbsp;/&nbsp;{String(total).padStart(2, "0")}
@@ -504,56 +514,68 @@ function Events({ info }) {
             </AnimatePresence>
 
             {/* Prev / Next buttons */}
-            <button className={`${styles.carouselBtn} ${styles.carouselBtnPrev}`}
-              onClick={prev}
-              style={{ borderColor: `${accent}50` }}
-            >
-              <ChevronLeft size={22} />
-            </button>
-            <button className={`${styles.carouselBtn} ${styles.carouselBtnNext}`}
-              onClick={next}
-              style={{ borderColor: `${accent}50` }}
-            >
-              <ChevronRight size={22} />
-            </button>
+            {total > 1 && (
+              <>
+                <button className={`${styles.carouselBtn} ${styles.carouselBtnPrev}`}
+                  onClick={prev}
+                  style={{ borderColor: `${accent}50` }}
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft size={22} />
+                </button>
+                <button className={`${styles.carouselBtn} ${styles.carouselBtnNext}`}
+                  onClick={next}
+                  style={{ borderColor: `${accent}50` }}
+                  aria-label="Next slide"
+                >
+                  <ChevronRight size={22} />
+                </button>
+              </>
+            )}
           </div>
 
           {/* Dot indicators */}
-          <div className={styles.carouselDots}>
-            {images.map((_, i) => (
-              <motion.button key={i}
-                onClick={() => go(i)}
-                className={styles.carouselDot}
-                animate={{
-                  width:      i === idx ? 28 : 8,
-                  background: i === idx ? accent : "rgba(255,255,255,0.25)",
-                  opacity:    i === idx ? 1 : 0.6,
-                }}
-                transition={{ duration: 0.3 }}
-              />
-            ))}
-          </div>
+          {total > 1 && (
+            <div className={styles.carouselDots}>
+              {images.map((_, i) => (
+                <motion.button key={i}
+                  onClick={() => go(i)}
+                  className={styles.carouselDot}
+                  aria-label={`Slide ${i + 1}`}
+                  animate={{
+                    width:      i === safeIdx ? 28 : 8,
+                    background: i === safeIdx ? accent : "rgba(255,255,255,0.25)",
+                    opacity:    i === safeIdx ? 1 : 0.6,
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+              ))}
+            </div>
+          )}
 
           {/* Thumbnail strip */}
-          <div className={styles.thumbRow}>
-            {images.map((src, i) => (
-              <motion.button key={i}
-                onClick={() => go(i)}
-                className={styles.thumbBtn}
-                animate={{
-                  opacity: i === idx ? 1 : 0.4,
-                  scale:   i === idx ? 1 : 0.94,
-                }}
-                transition={{ duration: 0.25 }}
-                style={{
-                  borderColor: i === idx ? accent : "transparent",
-                  boxShadow:   i === idx ? `0 0 0 2px ${accent}` : "none",
-                }}
-              >
-                <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              </motion.button>
-            ))}
-          </div>
+          {total > 1 && (
+            <div className={styles.thumbRow}>
+              {images.map((src, i) => (
+                <motion.button key={i}
+                  onClick={() => go(i)}
+                  className={styles.thumbBtn}
+                  aria-label={`Go to slide ${i + 1}`}
+                  animate={{
+                    opacity: i === safeIdx ? 1 : 0.4,
+                    scale:   i === safeIdx ? 1 : 0.94,
+                  }}
+                  transition={{ duration: 0.25 }}
+                  style={{
+                    borderColor: i === safeIdx ? accent : "transparent",
+                    boxShadow:   i === safeIdx ? `0 0 0 2px ${accent}` : "none",
+                  }}
+                >
+                  <img src={src} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                </motion.button>
+              ))}
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
