@@ -50,8 +50,8 @@ export default function Navbar({ setOpen, onClose }) {
       years: [
         { label: "Techweek '26", href: "https://techweek.ieeedtu.in/", external: true },
         { label: "Techweek '25", href: "/IEEEDTU/events", external: false },
-        { label: "Techweek '24", href: "/IEEEDTU/events", external: false },
-        { label: "Techweek '23", href: "/IEEEDTU/events", external: false },
+        { label: "Techweek '23", href: "https://ieee-dtu-tech-week.vercel.app/", external: true },
+        { label: "Techweek '22", href: "https://techweek-22.vercel.app/", external: true },
       ]
     }
   ];
