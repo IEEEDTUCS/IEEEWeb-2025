@@ -5,14 +5,15 @@ const CHAT_API_URL = `${backendUrl}/api/chat`;
 
 const Chatbot = ({ onClose }) => {
   const initialMessages = [
-    { id: 1, text: "Hey there! 👋", sender: "bot" },
-    { id: 2, text: "I'm the IEEE DTU Assistant. Ask me anything about IEEE DTU — events, chapters, hackathons, and more!", sender: "bot" },
+    { id: 1, text: "Hey! 👋 I'm the IEEE DTU Assistant.", sender: "bot" },
+    { id: 2, text: "Ask me anything about IEEE DTU — events, chapters, membership, hackathons, SIGs, and more!", sender: "bot" },
   ];
 
   const [messages, setMessages] = useState(initialMessages);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const chatWindowRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     if (chatWindowRef.current) {
@@ -24,7 +25,6 @@ const Chatbot = ({ onClose }) => {
     setIsTyping(true);
     const botMessageId = Date.now();
 
-    // Add an empty bot message that we'll fill as tokens stream in
     setMessages((prev) => [
       ...prev,
       { id: botMessageId, text: "", sender: "bot" },
@@ -37,16 +37,12 @@ const Chatbot = ({ onClose }) => {
         body: JSON.stringify({ message: userMessage }),
       });
 
-      // Handle rate limiting
       if (response.status === 429) {
         const data = await response.json();
         setMessages((prev) =>
           prev.map((msg) =>
             msg.id === botMessageId
-              ? {
-                  ...msg,
-                  text: `⏳ ${data.message || "Too many requests. Please wait a moment and try again."}`,
-                }
+              ? { ...msg, text: `⏳ ${data.message || "Too many requests. Please wait a moment."}` }
               : msg
           )
         );
@@ -54,13 +50,8 @@ const Chatbot = ({ onClose }) => {
         return;
       }
 
-      if (!response.ok) {
-        throw new Error(`Server error: ${response.status}`);
-      }
-
-      if (!response.body) {
-        throw new Error("Streaming not supported");
-      }
+      if (!response.ok) throw new Error(`Server error: ${response.status}`);
+      if (!response.body) throw new Error("Streaming not supported");
 
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
@@ -69,9 +60,7 @@ const Chatbot = ({ onClose }) => {
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
-
         botText += decoder.decode(value, { stream: true });
-
         setMessages((prev) =>
           prev.map((msg) =>
             msg.id === botMessageId ? { ...msg, text: botText } : msg
@@ -83,10 +72,7 @@ const Chatbot = ({ onClose }) => {
       setMessages((prev) =>
         prev.map((msg) =>
           msg.id === botMessageId
-            ? {
-                ...msg,
-                text: "Sorry, I'm having trouble connecting right now. Please try again later.",
-              }
+            ? { ...msg, text: "Sorry, I'm having trouble connecting right now. Please try again." }
             : msg
         )
       );
@@ -98,116 +84,262 @@ const Chatbot = ({ onClose }) => {
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (!input.trim() || isTyping) return;
-
     const userMessage = { id: Date.now(), text: input, sender: "user" };
     setMessages((prev) => [...prev, userMessage]);
     streamBotResponse(input);
     setInput("");
+    inputRef.current?.focus();
   };
 
   return (
-    <div className="w-80 h-[500px] md:w-96 md:h-[600px] flex flex-col bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden font-sans">
-      {/* Header */}
-      <div className="p-4 border-b border-gray-200 flex justify-between items-center bg-gradient-to-r from-blue-600 to-blue-700 flex-shrink-0">
-        <div className="flex items-center space-x-3">
-          <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center text-blue-600 font-bold text-xs shadow-md">
+    <div
+      className="flex flex-col overflow-hidden"
+      style={{
+        width: "22rem",
+        height: "520px",
+        borderRadius: 20,
+        background: "#05070d",
+        border: "1px solid rgba(112,166,227,0.22)",
+        boxShadow: "0 24px 64px rgba(0,0,0,0.7), 0 0 0 1px rgba(112,166,227,0.08)",
+        fontFamily: "inherit",
+      }}
+    >
+      {/* ── Header ── */}
+      <div
+        style={{
+          padding: "14px 16px",
+          borderBottom: "1px solid rgba(112,166,227,0.15)",
+          background: "linear-gradient(135deg, #0a1424 0%, #0d1829 100%)",
+          flexShrink: 0,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          {/* Avatar */}
+          <div
+            style={{
+              width: 36,
+              height: 36,
+              borderRadius: "50%",
+              background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 10,
+              fontWeight: 800,
+              color: "#fff",
+              letterSpacing: "0.05em",
+              flexShrink: 0,
+              boxShadow: "0 0 12px rgba(37,99,235,0.4)",
+            }}
+          >
             IEEE
           </div>
           <div>
-            <h3 className="font-semibold text-white">IEEE DTU Assistant</h3>
-            <p className="text-xs text-blue-100">Always here to help</p>
+            <p style={{ margin: 0, fontSize: 13, fontWeight: 700, color: "#e2e8f0", lineHeight: 1.3 }}>
+              IEEE DTU Assistant
+            </p>
+            {/* Online indicator */}
+            <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 2 }}>
+              <span
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: "50%",
+                  background: "#22c55e",
+                  display: "inline-block",
+                  boxShadow: "0 0 6px rgba(34,197,94,0.7)",
+                }}
+              />
+              <span style={{ fontSize: 10, color: "#70a6e3", fontWeight: 500 }}>Online</span>
+            </div>
           </div>
         </div>
         <button
           onClick={onClose}
-          className="text-white hover:text-blue-100 transition-colors"
+          style={{
+            background: "rgba(255,255,255,0.05)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: 8,
+            color: "rgba(255,255,255,0.5)",
+            width: 28,
+            height: 28,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 14,
+            transition: "all 0.15s",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+            e.currentTarget.style.color = "#fff";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+            e.currentTarget.style.color = "rgba(255,255,255,0.5)";
+          }}
           aria-label="Close chat"
         >
           ✕
         </button>
       </div>
 
-      {/* Messages */}
+      {/* ── Messages ── */}
       <div
         ref={chatWindowRef}
-        className="flex-1 p-4 space-y-3 overflow-y-auto bg-gray-50"
+        style={{
+          flex: 1,
+          overflowY: "auto",
+          padding: "14px 12px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+          scrollbarWidth: "none",
+        }}
       >
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`flex ${
-              msg.sender === "bot" ? "justify-start" : "justify-end"
-            }`}
+            style={{
+              display: "flex",
+              justifyContent: msg.sender === "bot" ? "flex-start" : "flex-end",
+            }}
           >
             <div
-              className={`max-w-[80%] px-4 py-2.5 rounded-2xl shadow-sm text-sm leading-relaxed ${
-                msg.sender === "bot"
-                  ? "bg-white text-gray-800 rounded-bl-none border border-gray-200"
-                  : "bg-blue-600 text-white rounded-br-none"
-              }`}
+              style={{
+                maxWidth: "82%",
+                padding: "9px 13px",
+                borderRadius: msg.sender === "bot" ? "4px 16px 16px 16px" : "16px 4px 16px 16px",
+                fontSize: 13,
+                lineHeight: 1.55,
+                ...(msg.sender === "bot"
+                  ? {
+                      background: "rgba(112,166,227,0.08)",
+                      border: "1px solid rgba(112,166,227,0.18)",
+                      color: "#cbd5e1",
+                    }
+                  : {
+                      background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
+                      color: "#fff",
+                      boxShadow: "0 2px 12px rgba(37,99,235,0.3)",
+                    }),
+              }}
             >
-              {msg.text}
+              {msg.text || (
+                <span style={{ color: "rgba(203,213,225,0.3)", fontStyle: "italic", fontSize: 12 }}>
+                  thinking...
+                </span>
+              )}
             </div>
           </div>
         ))}
 
+        {/* Typing indicator */}
         {isTyping && (
-          <div className="flex justify-start">
-            <div className="px-4 py-2.5 rounded-2xl bg-white border border-gray-200 shadow-sm rounded-bl-none">
-              <div className="flex items-center space-x-1">
+          <div style={{ display: "flex", justifyContent: "flex-start" }}>
+            <div
+              style={{
+                padding: "10px 14px",
+                borderRadius: "4px 16px 16px 16px",
+                background: "rgba(112,166,227,0.08)",
+                border: "1px solid rgba(112,166,227,0.18)",
+                display: "flex",
+                alignItems: "center",
+                gap: 4,
+              }}
+            >
+              {[0, 0.18, 0.36].map((delay, i) => (
                 <span
-                  className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
-                  style={{ animationDelay: "0s" }}
-                ></span>
-                <span
-                  className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
-                  style={{ animationDelay: "0.15s" }}
-                ></span>
-                <span
-                  className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
-                  style={{ animationDelay: "0.3s" }}
-                ></span>
-              </div>
+                  key={i}
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    background: "#70a6e3",
+                    display: "inline-block",
+                    animation: "ieeeBounceDot 1.2s ease-in-out infinite",
+                    animationDelay: `${delay}s`,
+                  }}
+                />
+              ))}
             </div>
           </div>
         )}
+        <style>{`
+          @keyframes ieeeBounceDot {
+            0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+            40% { transform: translateY(-5px); opacity: 1; }
+          }
+        `}</style>
       </div>
 
-      {/* Input */}
-      <div className="p-4 border-t border-gray-200 bg-white flex-shrink-0">
+      {/* ── Input ── */}
+      <div
+        style={{
+          padding: "10px 12px",
+          borderTop: "1px solid rgba(112,166,227,0.12)",
+          background: "rgba(10,20,36,0.6)",
+          flexShrink: 0,
+        }}
+      >
         <form
           onSubmit={handleSendMessage}
-          className="flex items-center space-x-3"
+          style={{ display: "flex", alignItems: "center", gap: 8 }}
         >
           <input
+            ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={isTyping}
             placeholder="Ask about IEEE DTU..."
-            className="flex-1 px-4 py-2.5 text-sm bg-gray-50 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 transition-all"
+            style={{
+              flex: 1,
+              padding: "9px 14px",
+              fontSize: 13,
+              borderRadius: 20,
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(112,166,227,0.2)",
+              color: "#e2e8f0",
+              outline: "none",
+              transition: "border-color 0.15s",
+            }}
+            onFocus={(e) => (e.target.style.borderColor = "rgba(112,166,227,0.5)")}
+            onBlur={(e) => (e.target.style.borderColor = "rgba(112,166,227,0.2)")}
           />
           <button
             type="submit"
             disabled={!input.trim() || isTyping}
-            className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 transition-colors"
+            style={{
+              flexShrink: 0,
+              width: 36,
+              height: 36,
+              borderRadius: "50%",
+              background: input.trim() && !isTyping
+                ? "linear-gradient(135deg, #2563eb, #1d4ed8)"
+                : "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(112,166,227,0.2)",
+              color: input.trim() && !isTyping ? "#fff" : "rgba(255,255,255,0.2)",
+              cursor: input.trim() && !isTyping ? "pointer" : "not-allowed",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "all 0.15s",
+              boxShadow: input.trim() && !isTyping ? "0 2px 10px rgba(37,99,235,0.35)" : "none",
+            }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="22" y1="2" x2="11" y2="13"></line>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
             </svg>
           </button>
         </form>
+        <p style={{ margin: "6px 0 0", fontSize: 10, color: "rgba(112,166,227,0.4)", textAlign: "center" }}>
+          Powered by IEEE DTU · AI may make mistakes
+        </p>
       </div>
     </div>
   );

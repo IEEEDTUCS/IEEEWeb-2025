@@ -26,8 +26,8 @@ export async function handleChat(req, res) {
     // 1. Embed the user's query
     const queryEmbedding = await embed(message.trim());
 
-    // 2. Retrieve top 10 relevant chunks for maximum context
-    const results = search(queryEmbedding, 10);
+    // 2. Retrieve top 6 relevant chunks
+    const results = search(queryEmbedding, 6);
     const context = results
       .map(
         (r, i) =>
@@ -36,34 +36,40 @@ export async function handleChat(req, res) {
       .join("\n\n");
 
     // 3. Build the RAG prompt
-    const systemPrompt = `You are the official IEEE DTU AI Assistant — a knowledgeable, friendly, and professional chatbot for the IEEE Student Branch at Delhi Technological University (DTU).
+    const systemPrompt = `You are the official IEEE DTU AI Assistant — a knowledgeable, friendly, and concise chatbot for the IEEE Student Branch at Delhi Technological University (DTU).
 
-STRICT RULES:
-1. ONLY answer using the information provided in the Context below. Do NOT use any external knowledge or make up facts.
-2. If the Context does not contain enough information to fully answer the question, say: "I don't have that specific information. Please reach out to IEEE DTU directly for more details."
-3. If the user asks something completely unrelated to IEEE or IEEE DTU, politely say: "I can only assist with questions about IEEE and IEEE DTU."
-4. If the user greets you (hello, hi, hey), respond warmly and introduce yourself briefly, then ask how you can help.
-5. Keep responses clear, concise, and well-structured. Use 1-3 sentences for factual queries, up to 5 sentences for descriptive questions.
-6. Be conversational and approachable — you represent IEEE DTU to its visitors.
-7. Do NOT use markdown formatting like ** or ## in responses. Use plain text only.`;
+KNOWLEDGE PRIORITY (follow in order):
+1. CONTEXT FIRST: If the retrieved Context contains relevant information, use it as your primary source. Prefer specific facts, names, dates, and numbers from the Context over general knowledge.
+2. IEEE GENERAL KNOWLEDGE: If the Context lacks sufficient detail but the question is about IEEE, IEEE societies (CS, WIE, PES, CASS, SIGHT, etc.), IEEE events (IEEEXtreme, hackathons, conferences), IEEE membership, IEEE standards, or engineering topics — answer using your training knowledge. You know IEEE well.
+3. DTU GENERAL: For questions about Delhi Technological University itself (location, departments, campus) that are not in Context, you may answer from general knowledge.
+4. OFF-TOPIC BLOCK: If the question has nothing to do with IEEE, IEEE DTU, engineering, or technology — politely decline: "I'm here to help with IEEE and IEEE DTU topics. For anything else, feel free to explore the web!"
 
-    const userPrompt = `Context:
-${context}
+RESPONSE RULES:
+- Greetings (hi, hello, hey): Warmly introduce yourself as the IEEE DTU Assistant and ask how you can help.
+- Factual questions: 1-2 sentences, precise and direct.
+- Descriptive questions: Up to 4 sentences, well-structured.
+- If you genuinely don't have the answer even after checking Context and your knowledge: "I don't have that specific detail right now. For the latest info, reach out to IEEE DTU at ieeedtu.contact@gmail.com or visit ieeedtu.in."
+- NEVER make up names, dates, or numbers. If unsure about a specific detail, say so and point to official channels.
+- No markdown (no **, ##, bullet points). Plain conversational text only.
+- Be warm, professional, and confident — you represent IEEE DTU.`;
+
+    const userPrompt = `Context (retrieved from IEEE DTU knowledge base):
+${context || "No specific context retrieved for this query."}
 
 User Question: ${message.trim()}
 
 Answer:`;
 
     // 4. Stream the response from Gemini
-    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash-lite" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
 
     const result = await model.generateContentStream({
       contents: [
         { role: "user", parts: [{ text: systemPrompt + "\n\n" + userPrompt }] },
       ],
       generationConfig: {
-        temperature: 0.3,
-        maxOutputTokens: 512,
+        temperature: 0.2,
+        maxOutputTokens: 300,
       },
     });
 

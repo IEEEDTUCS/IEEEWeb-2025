@@ -791,5 +791,173 @@
       "type": "summary",
       "priority": "high"
     }
+  },
+  {
+    "id": "ieee_dtu_membership_how_to_join",
+    "text": "To join IEEE DTU, students can register through the official membership form at ieeedtu.in/join or via the /join redirect. Membership representatives are available to guide new students through the process. You can also reach out on WhatsApp to any of the membership coordinators listed on the website. The membership drive typically happens at the start of each academic year, especially during BOOTSTRAP — the official orientation program.",
+    "metadata": {
+      "event": "Membership",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_membership_benefits",
+    "text": "IEEE DTU membership offers access to: IEEE Xplore digital library with 6 million+ research papers, journals, and conference proceedings; exclusive SIG (Special Interest Group) workshops in ML, Robotics, DSA, Web Dev, Design, and DevOps; mentorship from seniors and alumni at companies like Microsoft, Google, Amazon, and Adobe; participation in flagship events like Vihaan hackathon, IEEEXtreme, Invictus, TechWeek, and IEEE Day; a strong alumni network of 2000+ professionals; leadership roles within chapters (CS, WIE, PES-IAS, CASS); and access to IEEE's global professional network.",
+    "metadata": {
+      "event": "Membership",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_membership_fee_structure",
+    "text": "IEEE DTU membership involves both a local branch membership fee and an optional IEEE global student membership fee. The global IEEE student membership gives access to IEEE Xplore and international benefits. Local IEEE DTU membership provides access to all branch events, SIGs, and the campus community. Exact fee details are shared during the orientation (BOOTSTRAP) or can be obtained from membership representatives on the website.",
+    "metadata": {
+      "event": "Membership",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_sigs_overview",
+    "text": "IEEE DTU runs Special Interest Groups (SIGs) — peer-led technical communities where students learn by building. Active SIGs include: Machine Learning (ML) SIG focusing on AI, deep learning, and data science projects; Robotics SIG covering hardware, embedded systems, and automation; Competitive Programming SIG for DSA, algorithms, and contest preparation; Web Development SIG for full-stack projects; Design SIG for UI/UX, graphic design, and Figma; and DevOps SIG covering cloud, CI/CD, and deployment. SIGs meet regularly, run internal projects, and mentor juniors.",
+    "metadata": {
+      "event": "SIG",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_sig_ml",
+    "text": "The Machine Learning SIG at IEEE DTU focuses on applied AI and data science. It runs hands-on projects in computer vision, NLP, and predictive modelling. Members participate in Kaggle competitions, internal paper reading sessions, and build real-world ML pipelines. The SIG actively collaborates with the CS chapter for events like CodeCrunch ML and TechWeek workshops on ML.",
+    "metadata": {
+      "event": "SIG",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_dtu_sig_robotics",
+    "text": "The Robotics SIG at IEEE DTU is run under the PES-IAS chapter. It works on line-following robots (LFRs), Arduino-based embedded systems, drone programming, and autonomous systems. Members showcase projects at TinkerCase and collaborate with PES-IAS for hardware workshops. The SIG provides hands-on experience with microcontrollers, sensors, and real-time control systems.",
+    "metadata": {
+      "event": "SIG",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "ieee_dtu_sig_cp",
+    "text": "The Competitive Programming SIG at IEEE DTU prepares students for coding contests including IEEEXtreme, ICPC, Codeforces rounds, and LeetCode contests. It runs regular problem-solving sessions, mock contests, and editorial discussions. The SIG is associated with the CS chapter and has helped IEEE DTU achieve top rankings at IEEEXtreme 18.0 — Rank 1 in Delhi Section and Top 5 in Asia-Pacific.",
+    "metadata": {
+      "event": "SIG",
+      "year": 2025,
+      "type": "fact",
+      "priority": "medium",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_dtu_soc_overview",
+    "text": "The Society of Chapters (SoC) within IEEE DTU refers to the collective structure of all technical chapters and affinity groups operating under the student branch. IEEE DTU has four active chapters: the Computer Society (CS), Power & Energy Society - Industry Applications Society (PES-IAS), Women in Engineering (WIE) Affinity Group, and Circuits and Systems Society (CASS). Each chapter runs independently with its own faculty advisor, student leadership, events, and SIGs, while collaborating under the IEEE DTU umbrella for major events.",
+    "metadata": {
+      "event": "SoC",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_soc_cs_chapter_detail",
+    "text": "The IEEE Computer Society (CS) Chapter at DTU is the largest and most active chapter. It organizes Vihaan (24-hour hackathon), IEEEXtreme (global coding contest), Micro-Hacks, Bulls N' Bears (stock market simulation), MIST (cryptic hunt), TechWeek (5-day workshop festival), and CodeCrunch ML (AI/ML competition at Invictus). It runs SIGs in ML, CP, Web Dev, DevOps, and Design. The CS Chapter is advised by Prof. Rahul Katarya.",
+    "metadata": {
+      "event": "SoC",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "ieee_dtu_soc_wie_chapter_detail",
+    "text": "The IEEE Women in Engineering (WIE) Affinity Group at DTU focuses on gender inclusivity in STEM, mentorship, and outreach. Its flagship events are Vihaan (the 24-hour national hackathon it co-organizes), WIEVEK (STEM outreach at Delhi NGOs for underprivileged girls), and women-led speaker sessions. WIE is advised by Prof. Sonam Rewari and is one of the most socially impactful chapters at IEEE DTU.",
+    "metadata": {
+      "event": "SoC",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "ieee_dtu_soc_pes_ias_chapter_detail",
+    "text": "The PES-IAS Chapter at IEEE DTU focuses on Power Systems, Energy Engineering, and Industrial Applications. It organizes TinkerCase (Arduino and embedded systems showcase), Robotics SIG sessions, energy-themed workshops, and seminars on smart grids and renewable energy. The chapter bridges hardware engineering with real-world energy applications and is advised by Prof. Rachna Garg.",
+    "metadata": {
+      "event": "SoC",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "ieee_dtu_soc_cass_chapter_detail",
+    "text": "The CASS (Circuits and Systems Society) Chapter at IEEE DTU was established in 2024 and focuses on circuit design, embedded systems, and sustainable electronics. In 2024, members participated in the IEEE International Symposium on Integrated Circuits and Systems (ISICAS) themed 'Systems and Circuits for a Sustainable Society'. The chapter is advised by Dr. Deva Nand and is the newest addition to IEEE DTU's chapter structure.",
+    "metadata": {
+      "event": "SoC",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "CASS"
+    }
+  },
+  {
+    "id": "ieee_dtu_council_2025",
+    "text": "The IEEE DTU Student Branch council for 2025-26 includes Ketan Shankar (Vice Chairperson, Batch of 2026) and Khobaib Akmal (Treasurer, Batch of 2026) among its key leaders. The council manages all chapter operations, event planning, sponsorships, and member engagement across the CS, WIE, PES-IAS, and CASS chapters.",
+    "metadata": {
+      "event": "Council",
+      "year": 2025,
+      "type": "people",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_contact_and_socials",
+    "text": "IEEE DTU can be reached at: Email — ieeedtu.contact@gmail.com; Website — ieeedtu.in; Instagram — @ieee.dtu; LinkedIn — linkedin.com/company/ieee-dtu; Discord — discord.gg/rfD9aW48. For membership queries, visit ieeedtu.in/join. For WhatsApp contact, membership representatives are listed on the website. The branch is located at Delhi Technological University, Shahbad Daulatpur, Main Bawana Road, Delhi - 110042.",
+    "metadata": {
+      "event": "Contact",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_alumni_network",
+    "text": "IEEE DTU has a strong alumni network of 2000+ professionals working at top companies worldwide including Microsoft, Google, Amazon, Adobe, Deloitte, Expedia, Airtel Digital, Optum, and more. The alumni network actively mentors current students through SIG sessions, mock interviews, and referrals. Alumni have also served as judges and mentors at flagship events like Vihaan 007.",
+    "metadata": {
+      "event": "Alumni",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieee_dtu_vihaan_009_overview",
+    "text": "Vihaan 009 is the upcoming 9th edition of the flagship 24-hour hackathon organized by IEEE DTU WIE. It is IEEE DTU's most prestigious annual hackathon event. The official website is vihaan.ieeedtu.in. Previous editions include Vihaan 007 (April 2024, 1500 participants, 492 teams) and Vihaan 008 (2025). Registration details for Vihaan 009 will be announced on the IEEE DTU website and social media channels.",
+    "metadata": {
+      "event": "Vihaan",
+      "year": 2025,
+      "type": "fact",
+      "priority": "high",
+      "chapter": "WIE"
+    }
   }
 ]
