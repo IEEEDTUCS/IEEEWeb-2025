@@ -46,7 +46,7 @@ const EventsData=[
   },
  
    {
-    title:"Tech Week 2023",
+    title:"TechWeek",
     subheader:"",
     image:"/Events/techweek.jpeg",
     typography:"1 Week IEEE workshops"
@@ -112,12 +112,6 @@ const EventsData=[
     subheader:"",
     image:"/Events/adobeAIscholastic.jpg",
     typography:"Generative AI Workshop by Adobe × IEEE DTU"
-  },
-   {
-    title:"Dream Forge",
-    subheader:"",
-    image:"/Events/dream_forge.png",
-    typography:"Business Strategy & Innovation Challenge"
   },
   {
     title:"RoboRace",
