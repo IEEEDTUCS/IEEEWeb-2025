@@ -93,16 +93,14 @@ function WABtn({ style = {} }) {
 export function JoinBanner({ onOpen, onDismiss }) {
   return (
     <motion.div
-      initial={{ y: -80, opacity: 0, scale: 0.9 }}
-      animate={{ y: 0,   opacity: 1, scale: 1   }}
-      exit={{    y: -80, opacity: 0, scale: 0.9  }}
+      initial={{ y: -80, x: "-50%", opacity: 0, scale: 0.9 }}
+      animate={{ y: 0,   x: "-50%", opacity: 1, scale: 1   }}
+      exit={{    y: -80, x: "-50%", opacity: 0, scale: 0.9  }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-4 left-4 right-4 md:left-1/2 md:right-auto z-[990] md:w-auto"
-      style={{ transform: undefined }}
+      className="fixed top-4 left-1/2 z-[990] w-[calc(100%-2rem)] max-w-md md:w-auto md:max-w-none"
     >
-      <div className="md:translate-x-[-50%] md:relative">
       <div
-        className="relative flex items-center gap-2 px-4 py-2.5 rounded-2xl"
+        className="relative flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-2.5 rounded-2xl"
         style={{
           background: "rgba(10,10,20,0.88)",
           backdropFilter: "blur(20px)",
@@ -118,13 +116,13 @@ export function JoinBanner({ onOpen, onDismiss }) {
             style={{ background: BLUE }} />
         </span>
 
-        <p className="text-white/90 text-sm font-semibold min-w-0 truncate">Join IEEE DTU</p>
+        <p className="text-white/90 text-sm font-semibold min-w-0 truncate flex-1 md:flex-none">Join IEEE DTU</p>
 
         <motion.button
           onClick={onOpen}
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-1.5 text-white text-xs font-bold px-3.5 py-1.5 rounded-xl"
+          className="flex items-center gap-1 sm:gap-1.5 text-white text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-xl flex-shrink-0 whitespace-nowrap"
           style={{
             background: `linear-gradient(135deg, ${BLUE}, ${BLUE_DK})`,
             boxShadow: `0 2px 12px rgba(37,99,235,0.45)`,
@@ -135,12 +133,11 @@ export function JoinBanner({ onOpen, onDismiss }) {
 
         <button
           onClick={onDismiss}
-          className="ml-1 text-white/30 hover:text-white/70 transition-colors flex-shrink-0"
+          className="text-white/30 hover:text-white/70 transition-colors flex-shrink-0"
           aria-label="Dismiss"
         >
-          <X size={14} />
+          <X size={16} />
         </button>
-      </div>
       </div>
     </motion.div>
   );
