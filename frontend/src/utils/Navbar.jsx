@@ -32,9 +32,8 @@ export default function Navbar({ setOpen, onClose }) {
       name: "Invictus",
       years: [
         { label: "Invictus '26", href: "https://www.invictusdtu.in/", external: true },
-        { label: "Invictus '25", href: "/IEEEDTU/events", external: false },
-        { label: "Invictus '24", href: "/IEEEDTU/events", external: false },
-        { label: "Invictus '23", href: "/IEEEDTU/events", external: false },
+        { label: "Invictus '25", href: "https://invictus-2025.vercel.app/", external: true },
+        { label: "Invictus '24", href: "https://invictusdtu24.vercel.app/", external: true },
       ]
     },
     {
