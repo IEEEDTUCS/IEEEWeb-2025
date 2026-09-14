@@ -1,75 +1,43 @@
-import React, { useEffect, useRef, useState } from 'react';
+"use client";
 
-function FacultyCard({ name, designation, details, imageUrl }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef(null);
+import React from 'react';
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '50px'
-      }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
-  }, []);
-
+function FacultyCard({ name, designation, details, chapterBadge, badgeColor, imageUrl }) {
   return (
-    <div 
-      ref={cardRef}
-      className={`flex flex-col items-center justify-start text-center gap-4 sm:gap-6 h-[400px] sm:h-[450px] w-full max-w-[280px] sm:max-w-xs rounded-2xl sm:rounded-3xl bg-white p-4 sm:p-6 shadow-lg shadow-gray-200/60 transition-all duration-700 hover:shadow-xl hover:shadow-gray-300/40 hover:-translate-y-2 group transform ${
-        isVisible
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-8'
-      }`}
-      style={{ transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}
-    >
+    <div className="flex flex-col items-center justify-between text-center h-[430px] w-full rounded-2xl bg-zinc-950/70 border border-zinc-800/90 p-6 shadow-xl backdrop-blur-xl transition-all duration-500 hover:border-blue-500/40 hover:shadow-[0_15px_35px_-10px_rgba(59,130,246,0.25)] hover:-translate-y-2 group relative overflow-hidden">
+      {/* Top subtle sheen */}
+      <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:via-blue-400/30 transition-all duration-500" />
+
       {/* Image Section */}
-      <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-md bg-gray-50 p-1 transform transition-all duration-500 hover:shadow-lg group-hover:scale-[1.02] flex-shrink-0">
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-1.5 transition-all duration-500 group-hover:border-zinc-700 flex-shrink-0">
         <img
           src={imageUrl}
           alt={`Profile picture of ${name}`}
-          className="h-40 w-32 sm:h-48 sm:w-40 object-cover rounded-lg sm:rounded-xl transition-all duration-500 hover:scale-[1.03]"
+          className="h-44 w-36 sm:h-48 sm:w-40 object-cover rounded-xl transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 via-transparent to-transparent rounded-lg sm:rounded-xl opacity-0 transition-opacity duration-300 hover:opacity-100"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent rounded-xl pointer-events-none" />
       </div>
-                      
+
       {/* Content Section */}
-      <div className="flex-1 flex flex-col justify-center space-y-3 sm:space-y-4 transform transition-all duration-500 delay-75 group-hover:translate-y-[-2px]">
-        <h3 className="font-bold text-gray-800 text-lg sm:text-xl lg:text-2xl tracking-tight hover:text-gray-900 transition-all duration-300 cursor-default leading-tight">
+      <div className="flex-1 flex flex-col justify-center space-y-2.5 pt-4 w-full">
+        {chapterBadge && (
+          <span className={`inline-block mx-auto px-2.5 py-0.5 rounded-full text-[11px] font-semibold border ${badgeColor}`}>
+            {chapterBadge}
+          </span>
+        )}
+
+        <h3 className="font-bold text-white text-base sm:text-lg tracking-tight group-hover:text-blue-300 transition-colors duration-300">
           {name}
         </h3>
-                              
-        <div className="space-y-2 sm:space-y-3">
-          <p className="text-blue-600 font-medium tracking-wide text-xs sm:text-sm hover:text-blue-700 transition-all duration-300">
-            {designation}
-          </p>
-          <p className="text-xs sm:text-sm leading-relaxed text-gray-600 font-normal tracking-wide hover:text-gray-700 transition-colors duration-300 whitespace-pre-line">
-            {details}
-          </p>
-        </div>
+
+        <p className="text-blue-400 font-medium text-xs tracking-wide">
+          {designation}
+        </p>
+
+        <p className="text-xs leading-relaxed text-zinc-400 font-normal">
+          {details}
+        </p>
       </div>
-                      
-      <style jsx>{`
-        body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-      `}</style>
     </div>
   );
 }
