@@ -4,7 +4,7 @@ const EventsData=[
    {
     title:"Project WIEVEK",
     subheader:"",
-    image:"/Events/wievek.jpg",
+    image:"/Events/wievek.jpeg",
     typography:"Empowering Young Minds in Engineering"
   },  
   {
@@ -110,7 +110,7 @@ const EventsData=[
    {
     title:"Adobe AI Scholastic Program",
     subheader:"",
-    image:"/Events/hackaithon.jpeg",
+    image:"/Events/adobeAIscholastic.jpg",
     typography:"Generative AI Workshop by Adobe × IEEE DTU"
   },
    {
