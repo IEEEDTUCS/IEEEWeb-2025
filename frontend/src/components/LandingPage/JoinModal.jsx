@@ -62,27 +62,17 @@ function WABtn({ style = {} }) {
   return (
     <button
       onClick={handleClick}
-      style={{
-        flex: 1,
-        display: "flex", alignItems: "center", justifyContent: "center", gap: 7,
-        padding: "12px 10px",
-        borderRadius: 12,
-        fontSize: 13, fontWeight: 700,
-        color: "#fff",
-        background: "linear-gradient(135deg, #16a34a, #15803d)",
-        boxShadow: "0 4px 16px rgba(22,163,74,0.3)",
-        border: "none", cursor: "pointer",
-        transition: "filter 0.15s",
-        ...style,
-      }}
+      className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-green-600 to-green-700 shadow-[0_4px_16px_rgba(22,163,74,0.3)] hover:shadow-[0_6px_20px_rgba(22,163,74,0.4)] border-none cursor-pointer transition-all"
+      style={style}
       onMouseEnter={e => e.currentTarget.style.filter = "brightness(1.1)"}
       onMouseLeave={e => e.currentTarget.style.filter = ""}
     >
-      <svg viewBox="0 0 24 24" fill="currentColor" width={16} height={16} style={{ flexShrink: 0 }}>
+      <svg viewBox="0 0 24 24" fill="currentColor" width={14} height={14} className="sm:w-4 sm:h-4 flex-shrink-0">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
         <path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.554 4.105 1.523 5.823L.057 23.882a.75.75 0 0 0 .92.92l6.086-1.459A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 0 1-4.964-1.356l-.355-.212-3.686.884.899-3.643-.232-.373A9.718 9.718 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
       </svg>
-      {animating ? "Connecting…" : "WhatsApp"}
+      <span className="hidden xs:inline sm:inline">{animating ? "Connecting…" : "WhatsApp"}</span>
+      <span className="xs:hidden sm:hidden">{animating ? "..." : "WA"}</span>
     </button>
   );
 }
@@ -97,37 +87,42 @@ export function JoinBanner({ onOpen, onDismiss }) {
       animate={{ y: 0,   opacity: 1, scale: 1   }}
       exit={{    y: -80, opacity: 0, scale: 0.9  }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-5 left-4 right-4 md:left-1/2 md:right-auto z-[990] md:w-auto"
+      className="fixed top-3 left-3 right-3 sm:top-5 sm:left-4 sm:right-4 md:left-1/2 md:right-auto z-[990] md:w-auto"
     >
       <div className="md:translate-x-[-50%] md:relative">
         <div
-          className="relative flex items-center gap-3 px-4 py-2 rounded-full border border-blue-500/30 bg-zinc-950/85 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.7),0_0_20px_rgba(37,99,235,0.25)] hover:border-blue-500/50 transition-all duration-300"
+          className="relative flex items-center justify-between gap-2 px-3 py-2 sm:gap-3 sm:px-4 rounded-full border border-blue-500/30 bg-zinc-950/90 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.7),0_0_20px_rgba(37,99,235,0.25)] hover:border-blue-500/50 transition-all duration-300"
         >
-          <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-blue-500" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500" />
-          </span>
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+            <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 flex-shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-blue-500" />
+              <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-blue-500" />
+            </span>
 
-          <p className="text-white text-xs sm:text-sm font-semibold tracking-wide min-w-0 truncate">
-            Join IEEE DTU
-          </p>
+            <p className="text-white text-xs sm:text-sm font-semibold tracking-wide truncate">
+              Join IEEE DTU
+            </p>
+          </div>
 
-          <motion.button
-            onClick={onOpen}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-1.5 text-white text-xs font-bold px-3.5 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 shadow-[0_2px_14px_rgba(37,99,235,0.5)] hover:shadow-[0_4px_20px_rgba(37,99,235,0.7)] transition-all cursor-pointer"
-          >
-            Join Now <ChevronRight size={12} />
-          </motion.button>
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+            <motion.button
+              onClick={onOpen}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-1 sm:gap-1.5 text-white text-[11px] sm:text-xs font-bold px-2.5 py-1.5 sm:px-3.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 shadow-[0_2px_14px_rgba(37,99,235,0.5)] hover:shadow-[0_4px_20px_rgba(37,99,235,0.7)] transition-all cursor-pointer whitespace-nowrap"
+            >
+              Join Now <ChevronRight size={11} className="sm:hidden" /><ChevronRight size={12} className="hidden sm:inline" />
+            </motion.button>
 
-          <button
-            onClick={onDismiss}
-            className="ml-1 text-zinc-400 hover:text-white transition-colors flex-shrink-0 p-1 cursor-pointer"
-            aria-label="Dismiss"
-          >
-            <X size={14} />
-          </button>
+            <button
+              onClick={onDismiss}
+              className="text-zinc-400 hover:text-white transition-colors flex-shrink-0 p-1 cursor-pointer"
+              aria-label="Dismiss"
+            >
+              <X size={13} className="sm:hidden" />
+              <X size={14} className="hidden sm:inline" />
+            </button>
+          </div>
         </div>
       </div>
     </motion.div>
@@ -247,19 +242,19 @@ export function JoinModal({ open, onClose }) {
                   </div>
 
                   {/* perks */}
-                  <div className="flex flex-col gap-3">
+                  <div className="flex flex-col gap-2.5 sm:gap-3">
                     {PERKS.map(({ icon, title, desc }, i) => (
                       <motion.div key={title}
                         initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.12 + i * 0.07 }}
-                        className="flex items-start gap-3 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800"
+                        className="flex items-start gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-xl bg-zinc-900/60 border border-zinc-800"
                       >
-                        <div className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center bg-blue-500/10 text-blue-400">
+                        <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center bg-blue-500/10 text-blue-400">
                           {icon}
                         </div>
                         <div>
-                          <p className="text-white text-sm font-semibold">{title}</p>
-                          <p className="text-zinc-400 text-xs leading-relaxed mt-0.5">{desc}</p>
+                          <p className="text-white text-xs sm:text-sm font-semibold">{title}</p>
+                          <p className="text-zinc-400 text-[11px] sm:text-xs leading-relaxed mt-0.5">{desc}</p>
                         </div>
                       </motion.div>
                     ))}
@@ -267,31 +262,31 @@ export function JoinModal({ open, onClose }) {
 
                   {/* testimonial */}
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
-                    className="rounded-xl p-4 bg-zinc-900/60 border border-zinc-800"
+                    className="rounded-xl p-3 sm:p-4 bg-zinc-900/60 border border-zinc-800"
                   >
                     <div className="flex gap-0.5 mb-2">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={11} className="text-yellow-400 fill-yellow-400" />
+                        <Star key={i} size={10} className="sm:size-11 text-yellow-400 fill-yellow-400" />
                       ))}
                     </div>
-                    <p className="text-zinc-300 text-xs leading-relaxed italic">
+                    <p className="text-zinc-300 text-[11px] sm:text-xs leading-relaxed italic">
                       "IEEE DTU introduced me to some of the finest seniors and peers I could have asked for. If you're looking for a place to truly grow — there's no better place."
                     </p>
-                    <p className="text-xs font-semibold mt-2 text-blue-400">
+                    <p className="text-[11px] sm:text-xs font-semibold mt-2 text-blue-400">
                       — Ketan Shankar, Batch of 2026
                     </p>
                   </motion.div>
 
                   {/* CTAs — Join Us left, WhatsApp right */}
-                  <div className="flex gap-2.5">
+                  <div className="flex gap-2">
                     <a
                       href="/IEEEDTU/join-us"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-[0_4px_20px_rgba(37,99,235,0.45)] hover:shadow-[0_6px_25px_rgba(37,99,235,0.65)] transition-all no-underline"
+                      className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-[0_4px_20px_rgba(37,99,235,0.45)] hover:shadow-[0_6px_25px_rgba(37,99,235,0.65)] transition-all no-underline"
                       style={{ textDecoration: 'none' }}
                     >
-                      Join Us <ArrowRight size={14} />
+                      Join Us <ArrowRight size={13} className="sm:hidden" /><ArrowRight size={14} className="hidden sm:inline" />
                     </a>
                     <WABtn />
                   </div>
