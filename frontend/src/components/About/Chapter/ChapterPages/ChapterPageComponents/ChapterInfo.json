@@ -18,7 +18,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": ["/Events/vihaan.png", "/Events/techweek.jpeg", "/Events/mist.jpeg", "/Events/ieeextreme.jpeg", "/Events/hackaithon.jpeg", "/Events/blockchain.jpeg"]
+            "images": ["/Events/vihaan.jpeg", "/Events/techweek.jpeg", "/Events/mist.jpeg", "/Events/ieeextreme.jpeg", "/Events/hackaithon.jpeg", "/Events/blockchain.jpeg"]
         },
 
         "membership": {
@@ -171,7 +171,7 @@
         "events": {
             "isEvents": true,
             "heading": "Events",
-            "images": ["/Events/vihaan.png", "/Events/techweek.jpeg", "/Events/mist.jpeg", "/Events/ieeextreme.jpeg", "/Events/hackaithon.jpeg", "/Events/blockchain.jpeg"]
+            "images": ["/Events/vihaan.jpeg", "/Events/techweek.jpeg", "/Events/mist.jpeg", "/Events/ieeextreme.jpeg", "/Events/hackaithon.jpeg", "/Events/blockchain.jpeg"]
         },
 
         "membership": {

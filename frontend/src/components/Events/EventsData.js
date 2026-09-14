@@ -104,7 +104,7 @@ const EventsData=[
    {
     title:"Vihaan",
     subheader:"",
-    image:"/Events/vihaan.png",
+    image:"/Events/vihaan.jpeg",
     typography:"India's Largest Student-run Hacakthon"
   },
    {
@@ -140,25 +140,25 @@ const EventsData=[
   {
     title:"CodeKaze",
     subheader:"",
-    image:"/Events/codekaze.JPG",
+    image:"/Events/codekaze.jpeg",
     typography:"Algorithmic Coding Competition"
   },
   {
     title:"Digithon",
     subheader:"",
-    image:"/Events/digithon.JPG",
+    image:"/Events/digithon.jpeg",
     typography:"Digital Innovation Hackathon"
   },
   {
     title:"DreamForge",
     subheader:"",
-    image:"/Events/dreamforge.JPG",
+    image:"/Events/dreamforge.jpeg",
     typography:"Business Strategy & Innovation Challenge"
   },
   {
     title:"Guess-a-Palooza",
     subheader:"",
-    image:"/Events/guess-a-palooza.JPG",
+    image:"/Events/guess-a-palooza.jpeg",
     typography:"The Ultimate Guessing Game"
   },
   {
@@ -170,25 +170,25 @@ const EventsData=[
   {
     title:"ILUX",
     subheader:"",
-    image:"/Events/ilux.JPG",
+    image:"/Events/ilux.jpeg",
     typography:"Design & UI/UX Competition"
   },
   {
     title:"Invictus '26",
     subheader:"",
-    image:"/Events/invictus.JPG",
+    image:"/Events/invictus.jpeg",
     typography:"DTU's Annual Technical Fest"
   },
   {
     title:"LFR",
     subheader:"",
-    image:"/Events/lfr.JPG",
+    image:"/Events/lfr.jpeg",
     typography:"Line Following Robot Challenge"
   },
   {
     title:"Pitchfork",
     subheader:"",
-    image:"/Events/pitchfork.jpg",
+    image:"/Events/pitchfork.jpeg",
     typography:"Startup Fundraising Simulation"
   },
   {
@@ -200,13 +200,13 @@ const EventsData=[
   {
     title:"RoboSoccer",
     subheader:"",
-    image:"/Events/robosoccer.JPG",
+    image:"/Events/robosoccer.jpeg",
     typography:"Robot Football Championship"
   },
   {
     title:"RoboWars",
     subheader:"",
-    image:"/Events/robowars.JPG",
+    image:"/Events/robowars.jpeg",
     typography:"Battle of the Bots"
   },
   {
