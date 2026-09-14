@@ -198,12 +198,6 @@ const EventsData=[
     subheader:"",
     image:"/Events/cryptovate.jpg", 
     typography:"Online Blockchain Hackathon"
-  },
-  {
-    title:"Pitchfork",
-    subheader:"",
-    image:"/Events/pitchfork.jpeg",
-    typography:"Startup Fundraising Simulation"
   }
 
 ]
