@@ -959,5 +959,239 @@
       "priority": "high",
       "chapter": "WIE"
     }
+  },
+  {
+    "id": "vihaan_hackathon_detailed",
+    "text": "Vihaan is India's largest student-run hackathon organized by IEEE DTU Women in Engineering (WIE) and Computer Society (CS). It's a 24-hour coding marathon where teams build innovative tech solutions across multiple domains including healthcare, education, fintech, sustainability, and social good. Vihaan 007 (2024) saw 1500+ participants from IITs, NITs, and top colleges. Winners receive cash prizes, mentorship from industry leaders, and internship opportunities. The event features workshops, speaker sessions, midnight snacks, and a vibrant hacker culture. Vihaan is known for its inclusive environment and strong alumni network at companies like Google, Microsoft, Amazon, and Adobe.",
+    "metadata": {
+      "event": "Vihaan",
+      "type": "detail",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "invictus_2026_detailed",
+    "text": "Invictus is the annual flagship technical fest of Delhi Technological University organized by the Technical Council. Invictus 2026 is the upcoming edition featuring 60+ events across coding, robotics, AI/ML, design, business, and innovation challenges. The fest runs for 3-4 days and attracts participation from 100+ colleges nationwide including IITs, NITs, and private universities. IEEE DTU plays a major role in organizing flagship events like CodeCrunch ML, Adobe DevCraft, CaseQuest, ILUX (design), CodeKaze, and hardware showcases like TinkerCase and LFR. The fest features celebrity guests, keynote speakers from industry, cultural nights, and massive prize pools. Invictus celebrates innovation under themes like 'Unleashing the Sword of Innovation' and 'Life in a Pixelated Era'.",
+    "metadata": {
+      "event": "Invictus",
+      "year": 2026,
+      "type": "detail",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "invictus_ieee_role",
+    "text": "IEEE DTU is a cornerstone organizing partner of Invictus. The Computer Society runs CodeCrunch ML (AI/ML competition with 500+ participants), Adobe DevCraft (development challenge with PPI opportunities), and CaseQuest (case study competition with 670+ participants). WIE organizes ILUX (UI/UX design event using Figma and Adobe XD). PES-IAS hosts TinkerCase (Arduino and embedded systems showcase), LFR (Line Following Robot), and RoboWars. CS also conducts CodeKaze (algorithmic coding with GeeksforGeeks), Bulls N' Bears (virtual trading), and DreamForge (business pitch competition). IEEE's contribution makes Invictus one of the most technically robust college fests in North India.",
+    "metadata": {
+      "event": "Invictus",
+      "type": "detail",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "ieeextreme_18_performance",
+    "text": "IEEEXtreme 18.0 saw IEEE DTU achieve historic results: Rank 1 in Delhi Section and Top 5 in Asia-Pacific Region. IEEEXtreme is IEEE's annual 24-hour global programming competition held in October where teams of up to 3 students solve algorithmic challenges. IEEE DTU's Competitive Programming SIG prepares students year-round through mock contests, problem-solving sessions, and Codeforces/LeetCode practice. The competition covers data structures, algorithms, graph theory, dynamic programming, number theory, and computational geometry. Top performers receive IEEE certificates, global recognition, and networking with international teams.",
+    "metadata": {
+      "event": "IEEEXtreme",
+      "year": 2024,
+      "type": "achievement",
+      "priority": "high",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "techweek_workshop_festival",
+    "text": "TechWeek is IEEE DTU CS Chapter's annual 5-day workshop festival held every year. It features hands-on workshops on trending technologies including Machine Learning, Web Development (React, Node.js), DevOps (Docker, Kubernetes, CI/CD), Design (Figma, UI/UX principles), Competitive Programming, Blockchain, and Cloud Computing (AWS, Azure). Each workshop is led by senior students, alumni, or industry professionals. TechWeek also includes project showcases, resume-building sessions, and tech talks. Participation certificates are provided. It's designed to upskill juniors and build a strong technical foundation early in their college journey.",
+    "metadata": {
+      "event": "TechWeek",
+      "type": "detail",
+      "priority": "high",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "codecrunch_ml_invictus",
+    "text": "CodeCrunch ML is the flagship AI/ML hackathon organized by IEEE DTU CS during Invictus. It attracts 500+ participants and focuses on real-world machine learning challenges in computer vision, NLP, predictive analytics, and deep learning. Teams work on datasets, build models, and present solutions to a judging panel of industry experts. Winners receive cash prizes, certificates, and opportunities to connect with companies like Adobe, Microsoft, and Amazon. The event showcases DTU's strength in data science and AI research.",
+    "metadata": {
+      "event": "CodeCrunch ML",
+      "type": "detail",
+      "priority": "medium",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "adobe_devcraft_ppi",
+    "text": "Adobe DevCraft is a premier development-focused event at Invictus supported by Adobe. It challenges students to build innovative applications, web platforms, or creative tech solutions. The highlight is that top performers get exclusive Pre-Placement Interview (PPI) opportunities with Adobe for internships and full-time roles. DevCraft tests full-stack development skills, UI/UX integration, problem-solving, and presentation. It's one of the most competitive events at Invictus with direct career impact for participants.",
+    "metadata": {
+      "event": "Adobe DevCraft",
+      "type": "detail",
+      "priority": "high",
+      "sponsor": "Adobe"
+    }
+  },
+  {
+    "id": "casequest_business_case",
+    "text": "CaseQuest is IEEE DTU's flagship case study competition held during Invictus with 670+ participants. Themed around 'Sustainable Technological Progression', it challenges teams to analyze real-world business problems, propose innovative solutions, and present their strategies. The event is organized in collaboration with Business Bulls DTU and tests analytical thinking, market research, and presentation skills. It attracts participants from management and engineering backgrounds, bridging tech and business domains.",
+    "metadata": {
+      "event": "CaseQuest",
+      "type": "detail",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "ilux_design_competition",
+    "text": "ILUX is IEEE DTU WIE's UI/UX design competition held at Invictus. Participants design interfaces using Figma, Adobe XD, and other design tools. Challenges include mobile app design, website redesign, user flow optimization, and accessibility-focused design. ILUX features keynote sessions by renowned designers like Vibhu Trivedi and Anshul Gupta (Co-Founder of Minimal Tweaks). The event celebrates DTU's growing design community and offers certificates, prizes, and portfolio-building opportunities.",
+    "metadata": {
+      "event": "ILUX",
+      "type": "detail",
+      "priority": "medium",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "codekaze_geeksforgeeks",
+    "text": "CodeKaze is an algorithmic coding competition organized by IEEE DTU CS in collaboration with GeeksforGeeks during Invictus. It tests data structures, algorithms, problem-solving speed, and coding accuracy. The competition follows a contest format similar to Codeforces and LeetCode with multiple difficulty levels. Top performers receive GeeksforGeeks goodies, certificates, and recognition on the GFG leaderboard. It's a key event for aspiring competitive programmers.",
+    "metadata": {
+      "event": "CodeKaze",
+      "type": "detail",
+      "priority": "medium",
+      "chapter": "CS"
+    }
+  },
+  {
+    "id": "tinkercase_arduino_showcase",
+    "text": "TinkerCase is the annual Arduino and embedded systems showcase organized by IEEE DTU PES-IAS Chapter on IEEE Day. Students present projects using Arduino, Raspberry Pi, ESP32, sensors, actuators, and IoT devices. Projects range from home automation and robotics to wearable tech and environmental monitoring systems. TinkerCase celebrates hands-on hardware innovation and encourages students to explore the limitless possibilities of embedded systems and microcontrollers.",
+    "metadata": {
+      "event": "TinkerCase",
+      "type": "detail",
+      "priority": "medium",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "lfr_line_following_robot",
+    "text": "LFR (Line Following Robot) is a classic robotics competition at Invictus where teams build autonomous robots that follow a black line on a white surface using IR sensors. The challenge tests speed, accuracy, maze-solving logic, and PID control tuning. LFR is organized by IEEE DTU PES-IAS and Robotics SIG. It's a beginner-friendly event that introduces students to embedded systems, sensor calibration, and control systems.",
+    "metadata": {
+      "event": "LFR",
+      "type": "detail",
+      "priority": "low",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "robowars_combat_robotics",
+    "text": "RoboWars is the battle of combat robots at Invictus. Teams design and build remote-controlled fighting robots equipped with weapons like hammers, flippers, and saws. Robots compete in an arena to immobilize or destroy opponents. RoboWars tests mechanical design, electronics, durability, and strategy. It's one of the most thrilling spectator events at Invictus and showcases innovation in mechanical and electrical engineering.",
+    "metadata": {
+      "event": "RoboWars",
+      "type": "detail",
+      "priority": "medium",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "robosoccer_robot_football",
+    "text": "RoboSoccer is a robot football championship where teams build autonomous or semi-autonomous robots to play soccer. The challenge involves object detection (ball tracking), path planning, teamwork coordination, and real-time decision-making. RoboSoccer combines AI, robotics, and competitive sports, offering a fun yet technically challenging experience for participants.",
+    "metadata": {
+      "event": "RoboSoccer",
+      "type": "detail",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "dreamforge_business_pitch",
+    "text": "DreamForge is a business strategy and innovation challenge at Invictus where teams pitch startup ideas or solve real-world business problems. Participants present business models, market research, revenue strategies, and go-to-market plans to a judging panel. DreamForge bridges entrepreneurship and technology, encouraging students to think beyond code and design scalable business solutions.",
+    "metadata": {
+      "event": "DreamForge",
+      "type": "detail",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "ieee_day_celebration",
+    "text": "IEEE Day is celebrated globally on the first Tuesday of October to commemorate the first IEEE meeting in 1884. At IEEE DTU, IEEE Day features TinkerCase (Arduino showcase), tech talks, quizzes, networking sessions, and a celebration of IEEE's impact on technology and society. The day honors IEEE's mission of advancing technology for humanity and brings together students, faculty, and alumni to reflect on innovation and collaboration.",
+    "metadata": {
+      "event": "IEEE Day",
+      "type": "detail",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "wievek_ngo_outreach",
+    "text": "WIEVEK (WIE + Vivek, meaning wisdom) is IEEE DTU WIE's flagship social outreach program. It involves visiting NGOs and underprivileged schools in Delhi to conduct STEM workshops for young girls. Volunteers teach basic electronics, coding (Scratch, Python basics), and hands-on projects like LED circuits and paper circuits. WIEVEK aims to bridge the gender gap in STEM education and inspire the next generation of women engineers. Sessions are interactive, fun, and designed to spark curiosity in science and technology.",
+    "metadata": {
+      "event": "WIEVEK",
+      "type": "detail",
+      "priority": "high",
+      "chapter": "WIE"
+    }
+  },
+  {
+    "id": "bootstrap_orientation",
+    "text": "Bootstrap is IEEE DTU's annual orientation program held in August to welcome new students. Bootstrap '26 introduces freshers to IEEE's global network, the IEEE DTU branch structure (CS, WIE, PES-IAS, CASS), SIGs (ML, Robotics, CP, Web Dev, Design, DevOps), membership benefits (IEEE Xplore, workshops, events, mentorship), and the roadmap for their college journey. The event features testimonials from seniors, keynote speakers (alumni and industry professionals), interactive quizzes, and a comprehensive pitch on why students should join IEEE DTU. It's the first touchpoint for building the IEEE community each year.",
+    "metadata": {
+      "event": "Bootstrap",
+      "year": 2026,
+      "type": "detail",
+      "priority": "high"
+    }
+  },
+  {
+    "id": "guess_a_palooza",
+    "text": "Guess-a-Palooza is a fun guessing game event at Invictus featuring trivia, riddles, visual puzzles, and tech-themed challenges. It's a light-hearted competition designed to break the ice and engage participants who want a less technical but engaging experience at the fest.",
+    "metadata": {
+      "event": "Guess-a-Palooza",
+      "type": "detail",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "digithon_digital_hackathon",
+    "text": "Digithon is a digital innovation hackathon at Invictus focused on building solutions for emerging technologies like Web3, blockchain, IoT, AR/VR, and digital payments. Teams prototype apps, platforms, or tech demos and present them to judges. Digithon encourages experimentation with cutting-edge tech stacks and offers prizes, mentorship, and exposure to startups and tech companies.",
+    "metadata": {
+      "event": "Digithon",
+      "type": "detail",
+      "priority": "medium"
+    }
+  },
+  {
+    "id": "micromouse_maze_robot",
+    "text": "MicroMouse is an autonomous maze-solving robot competition where small robots navigate a maze to find the shortest path from start to finish. The challenge tests pathfinding algorithms (DFS, BFS, Dijkstra, A*), sensor integration, and motor control. MicroMouse is organized by IEEE DTU Robotics SIG and is popular among students interested in embedded AI and autonomous systems.",
+    "metadata": {
+      "event": "MicroMouse",
+      "type": "detail",
+      "priority": "low",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "quidditch_magical_sports",
+    "text": "Quidditch is a fun sports challenge at Invictus inspired by the Harry Potter series. It's a creative and entertaining event that adds a cultural and recreational element to the technical fest, encouraging teamwork and physical activity.",
+    "metadata": {
+      "event": "Quidditch",
+      "type": "detail",
+      "priority": "low"
+    }
+  },
+  {
+    "id": "roborace_speed_race",
+    "text": "RoboRace is a high-speed robotics competition where autonomous or RC robots race on a track. The challenge tests speed optimization, obstacle avoidance, track detection, and mechanical stability. RoboRace is thrilling to watch and combines robotics, electronics, and competitive racing.",
+    "metadata": {
+      "event": "RoboRace",
+      "type": "detail",
+      "priority": "low",
+      "chapter": "PES-IAS"
+    }
+  },
+  {
+    "id": "adobe_ai_scholastic",
+    "text": "Adobe AI Scholastic Program was a generative AI workshop organized by IEEE DTU in collaboration with Adobe. The workshop covered AI tools like Adobe Firefly, Sensei, prompt engineering, and creative AI applications. Industry experts from Adobe led the sessions, demonstrating how generative AI is transforming design, media, and content creation. Participants learned hands-on skills and received certificates from Adobe and IEEE DTU.",
+    "metadata": {
+      "event": "Adobe AI Scholastic Program",
+      "type": "detail",
+      "priority": "medium",
+      "sponsor": "Adobe",
+      "chapter": "CS"
+    }
   }
 ]
