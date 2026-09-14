@@ -110,7 +110,7 @@ const EventsData=[
    {
     title:"Adobe AI Scholastic Program",
     subheader:"",
-    image:"/Events/adobe_ai.jpeg",
+    image:"/Events/hackaithon.jpeg",
     typography:"Generative AI Workshop by Adobe × IEEE DTU"
   },
    {
