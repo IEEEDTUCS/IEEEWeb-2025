@@ -13,6 +13,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.resolve(__dirname, "../../../data");
 const IEEE_JSON_PATH = path.resolve(__dirname, "../ieee.json");
 
+// Create data dir if it doesn't exist (for deployment)
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+
 // ──────────────────────────────────────────────
 // IEEE Global Knowledge — real, factual data
 // ──────────────────────────────────────────────
