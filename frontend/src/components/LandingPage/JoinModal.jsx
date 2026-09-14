@@ -169,7 +169,7 @@ export function JoinModal({ open, onClose }) {
               className="relative w-full flex flex-col md:flex-row overflow-hidden md:rounded-3xl rounded-t-3xl border border-zinc-800 shadow-[0_32px_80px_rgba(0,0,0,0.8),0_0_50px_rgba(37,99,235,0.15)] bg-zinc-950"
               style={{
                 maxWidth: 960,
-                height: "92vh",
+                height: "auto",
                 maxHeight: "92vh",
                 pointerEvents: "auto",
               }}
@@ -211,7 +211,7 @@ export function JoinModal({ open, onClose }) {
                   <X size={15} />
                 </button>
 
-                <div className="p-7 flex flex-col gap-6">
+                <div className="p-5 sm:p-7 flex flex-col gap-5 sm:gap-6">
 
                   {/* headline */}
                   <div>
@@ -221,7 +221,7 @@ export function JoinModal({ open, onClose }) {
                         Why join us
                       </span>
                     </div>
-                    <h3 className="text-[1.65rem] font-extrabold text-white leading-tight">
+                    <h3 className="text-2xl sm:text-[1.65rem] font-extrabold text-white leading-tight">
                       Be part of{" "}
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-blue-600">
                         something bigger.
@@ -233,15 +233,15 @@ export function JoinModal({ open, onClose }) {
                   </div>
 
                   {/* stats */}
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="grid grid-cols-4 gap-2 sm:gap-3">
                     {STATS.map(({ value, label }) => (
                       <motion.div key={label}
                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="rounded-xl px-2 py-3 flex flex-col items-center text-center bg-blue-500/10 border border-blue-500/20"
+                        className="rounded-xl px-2 sm:px-3 py-3 sm:py-4 flex flex-col items-center text-center bg-blue-500/10 border border-blue-500/20"
                       >
-                        <span className="text-xl font-extrabold text-blue-400">{value}</span>
-                        <span className="text-[10px] text-zinc-400 font-medium mt-0.5 leading-tight">{label}</span>
+                        <span className="text-lg sm:text-xl font-extrabold text-blue-400">{value}</span>
+                        <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium mt-0.5 leading-tight">{label}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -283,12 +283,13 @@ export function JoinModal({ open, onClose }) {
                   </motion.div>
 
                   {/* CTAs — Join Us left, WhatsApp right */}
-                  <div style={{ display: "flex", gap: 10 }}>
+                  <div className="flex gap-2.5">
                     <a
                       href="/IEEEDTU/join-us"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-[0_4px_20px_rgba(37,99,235,0.45)] hover:shadow-[0_6px_25px_rgba(37,99,235,0.65)] transition-all no-underline"
+                      className="flex-1 flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 shadow-[0_4px_20px_rgba(37,99,235,0.45)] hover:shadow-[0_6px_25px_rgba(37,99,235,0.65)] transition-all no-underline"
+                      style={{ textDecoration: 'none' }}
                     >
                       Join Us <ArrowRight size={14} />
                     </a>
