@@ -130,6 +130,90 @@ const EventsData=[
     subheader:"",
     image:"/Events/micromouse.jpeg",
     typography:"Autonomous Maze-Solving Robot Challenge"
+  },
+  {
+    title:"Bootstrap '26",
+    subheader:"",
+    image:"/Events/bootstrap26.jpeg",
+    typography:"IEEE DTU Orientation Program"
+  },
+  {
+    title:"CodeKaze",
+    subheader:"",
+    image:"/Events/codekaze.JPG",
+    typography:"Algorithmic Coding Competition"
+  },
+  {
+    title:"Digithon",
+    subheader:"",
+    image:"/Events/digithon.JPG",
+    typography:"Digital Innovation Hackathon"
+  },
+  {
+    title:"DreamForge",
+    subheader:"",
+    image:"/Events/dreamforge.JPG",
+    typography:"Business Strategy & Innovation Challenge"
+  },
+  {
+    title:"Guess-a-Palooza",
+    subheader:"",
+    image:"/Events/guess-a-palooza.JPG",
+    typography:"The Ultimate Guessing Game"
+  },
+  {
+    title:"IEEE Day",
+    subheader:"",
+    image:"/Events/ieee_day.jpeg",
+    typography:"Celebrating IEEE's Global Impact"
+  },
+  {
+    title:"ILUX",
+    subheader:"",
+    image:"/Events/ilux.JPG",
+    typography:"Design & UI/UX Competition"
+  },
+  {
+    title:"Invictus '26",
+    subheader:"",
+    image:"/Events/invictus.JPG",
+    typography:"DTU's Annual Technical Fest"
+  },
+  {
+    title:"LFR",
+    subheader:"",
+    image:"/Events/lfr.JPG",
+    typography:"Line Following Robot Challenge"
+  },
+  {
+    title:"Pitchfork",
+    subheader:"",
+    image:"/Events/pitchfork.jpg",
+    typography:"Startup Fundraising Simulation"
+  },
+  {
+    title:"Quidditch",
+    subheader:"",
+    image:"/Events/quidditch.jpeg",
+    typography:"The Magical Sports Challenge"
+  },
+  {
+    title:"RoboSoccer",
+    subheader:"",
+    image:"/Events/robosoccer.JPG",
+    typography:"Robot Football Championship"
+  },
+  {
+    title:"RoboWars",
+    subheader:"",
+    image:"/Events/robowars.JPG",
+    typography:"Battle of the Bots"
+  },
+  {
+    title:"TinkerCase",
+    subheader:"",
+    image:"/Events/tinkercase.jpeg",
+    typography:"Arduino & Embedded Systems Showcase"
   }
 
 ]
