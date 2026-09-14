@@ -41,9 +41,8 @@ export default function Navbar({ setOpen, onClose }) {
       name: "Vihaan",
       years: [
         { label: "Vihaan 009", href: "https://vihaan.ieeedtu.in/", external: true },
-        { label: "Vihaan 008", href: "/IEEEDTU/events", external: false },
-        { label: "Vihaan 007", href: "/IEEEDTU/events", external: false },
-        { label: "Vihaan 006", href: "/IEEEDTU/events", external: false },
+        { label: "Vihaan 008", href: "https://vihaan25-o.vercel.app/", external: true },
+        { label: "Vihaan 007", href: "https://vihaan2023.vercel.app/", external: true },
       ]
     },
     {
