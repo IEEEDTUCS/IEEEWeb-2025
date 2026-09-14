@@ -53,12 +53,14 @@ export default function WhatsAppButton({ variant = "dark", className = "", style
     justifyContent: "center",
     gap: 8,
     cursor: "pointer",
-    fontWeight: 700,
-    border: "none",
-    transition: "filter 0.2s, transform 0.15s",
-    background: "linear-gradient(135deg, #16a34a, #15803d)",
-    color: "#fff",
-    boxShadow: "0 4px 18px rgba(22,163,74,0.35)",
+    fontWeight: 600,
+    transition: "background 0.2s, border-color 0.2s, transform 0.15s",
+    background: "rgba(255,255,255,0.05)",
+    color: "#e5e7eb",
+    border: "1px solid rgba(255,255,255,0.18)",
+    boxShadow: "none",
+    backdropFilter: "blur(6px)",
+    WebkitBackdropFilter: "blur(6px)",
     ...style,
   };
 
@@ -79,10 +81,12 @@ export default function WhatsAppButton({ variant = "dark", className = "", style
       onClick={handleClick}
       className={className}
       style={baseStyle}
-      onMouseEnter={e => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
-      onMouseLeave={e => { e.currentTarget.style.filter = ""; e.currentTarget.style.transform = ""; }}
+      onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+      onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)"; e.currentTarget.style.transform = ""; }}
     >
-      <WAIcon size={variant === "pill" ? 15 : 18} />
+      <span style={{ color: "#25D366", display: "inline-flex" }}>
+        <WAIcon size={variant === "pill" ? 15 : 18} />
+      </span>
       {animating ? (
         <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <span style={{

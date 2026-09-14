@@ -32,27 +32,24 @@ export default function Navbar({ setOpen, onClose }) {
       name: "Invictus",
       years: [
         { label: "Invictus '26", href: "https://www.invictusdtu.in/", external: true },
-        { label: "Invictus '25", href: "/IEEEDTU/events", external: false },
-        { label: "Invictus '24", href: "/IEEEDTU/events", external: false },
-        { label: "Invictus '23", href: "/IEEEDTU/events", external: false },
+        { label: "Invictus '25", href: "https://invictus-2025.vercel.app/", external: true },
+        { label: "Invictus '24", href: "https://invictusdtu24.vercel.app/", external: true },
       ]
     },
     {
       name: "Vihaan",
       years: [
         { label: "Vihaan 009", href: "https://vihaan.ieeedtu.in/", external: true },
-        { label: "Vihaan 008", href: "/IEEEDTU/events", external: false },
-        { label: "Vihaan 007", href: "/IEEEDTU/events", external: false },
-        { label: "Vihaan 006", href: "/IEEEDTU/events", external: false },
+        { label: "Vihaan 008", href: "https://vihaan25-o.vercel.app/", external: true },
+        { label: "Vihaan 007", href: "https://vihaan2023.vercel.app/", external: true },
       ]
     },
     {
       name: "Techweek",
       years: [
-        { label: "Techweek '26", href: "https://techweek.ieeedtu.in/", external: true },
-        { label: "Techweek '25", href: "/IEEEDTU/events", external: false },
-        { label: "Techweek '24", href: "/IEEEDTU/events", external: false },
-        { label: "Techweek '23", href: "/IEEEDTU/events", external: false },
+        { label: "Techweek '25", href: "https://techweek.ieeedtu.in/", external: true },
+        { label: "Techweek '23", href: "https://ieee-dtu-tech-week.vercel.app/", external: true },
+        { label: "Techweek '22", href: "https://techweek-22.vercel.app/", external: true },
       ]
     }
   ];
