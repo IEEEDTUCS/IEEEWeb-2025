@@ -61,7 +61,7 @@ User Question: ${message.trim()}
 Answer:`;
 
     // 4. Stream the response from Gemini
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const result = await model.generateContentStream({
       contents: [
