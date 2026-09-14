@@ -24,7 +24,6 @@ const Chatbot = ({ onClose }) => {
     setIsTyping(true);
     const botMessageId = Date.now();
 
-    // Add an empty bot message placeholder
     setMessages((prev) => [
       ...prev,
       { id: botMessageId, text: "", sender: "bot" },
@@ -37,16 +36,19 @@ const Chatbot = ({ onClose }) => {
         body: JSON.stringify({ message: userMessage }),
       });
 
-      // Handle rate limiting
       if (response.status === 429) {
         const data = await response.json();
         setMessages((prev) =>
           prev.map((msg) =>
             msg.id === botMessageId
-              ? { ...msg, text: `⏳ ${data.message || "Too many requests. Please wait a moment and try again."}` }
+              ? {
+                  ...msg,
+                  text: `⏳ ${data.message || "Too many requests. Please wait a moment and try again."}`,
+                }
               : msg
           )
         );
+        setIsTyping(false);
         return;
       }
 
@@ -76,11 +78,13 @@ const Chatbot = ({ onClose }) => {
       }
     } catch (err) {
       console.error("Chat error:", err);
-      // Update the existing placeholder — don't add a new message
       setMessages((prev) =>
         prev.map((msg) =>
           msg.id === botMessageId
-            ? { ...msg, text: "Sorry, I'm having trouble connecting right now. Please try again later." }
+            ? {
+                ...msg,
+                text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+              }
             : msg
         )
       );
@@ -129,7 +133,9 @@ const Chatbot = ({ onClose }) => {
         {messages.map((msg) => (
           <div
             key={msg.id}
-            className={`flex ${msg.sender === "bot" ? "justify-start" : "justify-end"}`}
+            className={`flex ${
+              msg.sender === "bot" ? "justify-start" : "justify-end"
+            }`}
           >
             <div
               className={`max-w-[80%] px-4 py-2.5 rounded-2xl shadow-sm text-sm leading-relaxed ${
@@ -138,9 +144,7 @@ const Chatbot = ({ onClose }) => {
                   : "bg-blue-600 text-white rounded-br-none"
               }`}
             >
-              {msg.text || (
-                <span className="text-gray-300 italic text-xs">thinking...</span>
-              )}
+              {msg.text}
             </div>
           </div>
         ))}
@@ -149,9 +153,18 @@ const Chatbot = ({ onClose }) => {
           <div className="flex justify-start">
             <div className="px-4 py-2.5 rounded-2xl bg-white border border-gray-200 shadow-sm rounded-bl-none">
               <div className="flex items-center space-x-1">
-                <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: "0s" }} />
-                <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: "0.15s" }} />
-                <span className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: "0.3s" }} />
+                <span
+                  className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
+                  style={{ animationDelay: "0s" }}
+                ></span>
+                <span
+                  className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.15s" }}
+                ></span>
+                <span
+                  className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"
+                  style={{ animationDelay: "0.3s" }}
+                ></span>
               </div>
             </div>
           </div>
@@ -160,7 +173,10 @@ const Chatbot = ({ onClose }) => {
 
       {/* Input */}
       <div className="p-4 border-t border-gray-200 bg-white flex-shrink-0">
-        <form onSubmit={handleSendMessage} className="flex items-center space-x-3">
+        <form
+          onSubmit={handleSendMessage}
+          className="flex items-center space-x-3"
+        >
           <input
             type="text"
             value={input}
@@ -174,9 +190,19 @@ const Chatbot = ({ onClose }) => {
             disabled={!input.trim() || isTyping}
             className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 transition-colors"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="22" y1="2" x2="11" y2="13" />
-              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
             </svg>
           </button>
         </form>

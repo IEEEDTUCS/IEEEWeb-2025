@@ -22,7 +22,7 @@ export async function embed(text) {
  * @returns {Promise<number[][]>}
  */
 export async function embedBatch(texts) {
-  const BATCH_SIZE = 20;
+  const BATCH_SIZE = 10; // Reduced from 20 to avoid rate limits
   const allEmbeddings = [];
 
   for (let i = 0; i < texts.length; i += BATCH_SIZE) {
@@ -55,9 +55,10 @@ export async function embedBatch(texts) {
       }
     }
 
-    // Delay between batches to stay within rate limits
+    // Increased delay between batches to 5s for free tier rate limits
     if (i + BATCH_SIZE < texts.length) {
-      await new Promise((r) => setTimeout(r, 2000));
+      console.log(`   ⏳ Waiting 5s before next batch...`);
+      await new Promise((r) => setTimeout(r, 5000));
     }
   }
 
