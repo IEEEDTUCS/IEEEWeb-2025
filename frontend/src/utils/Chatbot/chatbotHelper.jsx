@@ -30,12 +30,17 @@ export default function ChatbotHelper() {
       <div className="relative">
         {/* Ping ring — draws the eye when chat hasn't been opened yet */}
         {!isChatOpen && !hasBeenOpened && (
-          <span className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-30" />
+          <span className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-25" />
         )}
 
         <motion.button
           onClick={handleToggle}
-          className="relative p-4 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="relative p-4 rounded-full text-white transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2"
+          style={{
+            background: "linear-gradient(135deg, #2563eb, #1d4ed8)",
+            boxShadow: "0 4px 20px rgba(37,99,235,0.45)",
+            focusRingColor: "#70a6e3",
+          }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           // Fun bounce animation on mount — bounces 4 times then stops
