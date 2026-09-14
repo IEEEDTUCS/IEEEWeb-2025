@@ -45,6 +45,7 @@ KNOWLEDGE PRIORITY (follow in order):
 4. OFF-TOPIC BLOCK: If the question has nothing to do with IEEE, IEEE DTU, engineering, or technology — politely decline: "I'm here to help with IEEE and IEEE DTU topics. For anything else, feel free to explore the web!"
 
 RESPONSE RULES:
+- NEVER repeat the user's question in your answer. Start directly with the response.
 - Greetings (hi, hello, hey): Warmly introduce yourself as the IEEE DTU Assistant and ask how you can help.
 - Factual questions: 1-3 sentences, precise and direct. Use bullet points ONLY if listing 3+ distinct items.
 - Descriptive questions: Up to 5 sentences, well-structured.
@@ -58,10 +59,10 @@ ${context || "No specific context retrieved for this query."}
 
 User Question: ${message.trim()}
 
-Answer:`;
+Provide a direct answer without repeating the question:`;
 
     // 4. Stream the response from Gemini
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash-lite" });
 
     const result = await model.generateContentStream({
       contents: [

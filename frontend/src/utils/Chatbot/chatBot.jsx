@@ -22,7 +22,7 @@ const Chatbot = ({ onClose }) => {
 
   const streamBotResponse = async (userMessage) => {
     setIsTyping(true);
-    const botMessageId = Date.now();
+    const botMessageId = `bot-${Date.now()}`;
 
     setMessages((prev) => [
       ...prev,
@@ -97,7 +97,7 @@ const Chatbot = ({ onClose }) => {
     e.preventDefault();
     if (!input.trim() || isTyping) return;
 
-    const userMessage = { id: Date.now(), text: input, sender: "user" };
+    const userMessage = { id: `user-${Date.now()}`, text: input, sender: "user" };
     setMessages((prev) => [...prev, userMessage]);
     streamBotResponse(input);
     setInput("");
