@@ -64,6 +64,16 @@ const nextConfig = {
         destination: "https://forms.gle/n7NhpyfyXFBkVJ25A",
         permanent: true,
       },
+      {
+        source: "/ieee-day/wa",
+        destination: "https://chat.whatsapp.com/Ipcctb9lkgpGWhk9W3waJq",
+        permanent: true,
+      },
+      {
+        source: "/ieee-day/register",
+        destination: "https://unstop.com/college-fests/ieee-day-2026-delhi-technological-university-dtu-new-delhi-514223",
+        permanent: true,
+      },
     ]
   },
 
