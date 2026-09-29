@@ -74,6 +74,12 @@ const nextConfig = {
         destination: "https://unstop.com/college-fests/ieee-day-2026-delhi-technological-university-dtu-new-delhi-514223",
         permanent: true,
       },
+      // Short, event-specific URLs can point at the reusable linktree route.
+      {
+        source: "/ieee-day/linktree",
+        destination: "/linktree/ieee-day",
+        permanent: false,
+      },
     ]
   },
 
