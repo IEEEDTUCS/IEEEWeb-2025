@@ -17,7 +17,7 @@ const linktrees = {
     links: [
       {
         label: "Register for IEEE Day 2026",
-        href: "https://ieeedtu.in/ieee-day/regiter",
+        href: "https://ieeedtu.in/ieee-day/register",
         icon: "registration",
       },
       {
