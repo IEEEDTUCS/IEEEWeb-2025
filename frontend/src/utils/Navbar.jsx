@@ -46,11 +46,17 @@ export default function Navbar({ setOpen, onClose }) {
       ]
     },
     {
+      name: "IEEE Day",
+      years: [
+        { label: "IEEE Day 2026", href: "https://ieeeday.ieeedtu.in/", external: true },
+      ]
+    },
+    {
       name: "Techweek",
       years: [
-        { label: "Techweek '25", href: "https://techweek.ieeedtu.in/", external: true },
-        { label: "Techweek '23", href: "https://ieee-dtu-tech-week.vercel.app/", external: true },
-        { label: "Techweek '22", href: "https://techweek-22.vercel.app/", external: true },
+        { label: "Techweek '25", href: "https://26.techweek.ieeedtu.in/", external: true },
+        { label: "Techweek '23", href: "https://23.techweek.ieeedtu.in/", external: true },
+        { label: "Techweek '22", href: "https://22.techweek,ieeedtu.in/", external: true },
       ]
     }
   ];
