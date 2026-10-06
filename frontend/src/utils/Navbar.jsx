@@ -32,8 +32,8 @@ export default function Navbar({ setOpen, onClose }) {
       name: "Invictus",
       years: [
         { label: "Invictus '26", href: "https://www.invictusdtu.in/", external: true },
-        { label: "Invictus '25", href: "https://invictus-2025.vercel.app/", external: true },
-        { label: "Invictus '24", href: "https://invictusdtu24.vercel.app/", external: true },
+        { label: "Invictus '25", href: "https://25.invictusdtu.in/", external: true },
+        { label: "Invictus '24", href: "https://24.invictusdtu.in/", external: true },
       ]
     },
     {
@@ -54,9 +54,9 @@ export default function Navbar({ setOpen, onClose }) {
     {
       name: "Techweek",
       years: [
-        { label: "Techweek '25", href: "https://26.techweek.ieeedtu.in/", external: true },
+        { label: "Techweek '26", href: "https://techweek.ieeedtu.in/", external: true },
         { label: "Techweek '23", href: "https://23.techweek.ieeedtu.in/", external: true },
-        { label: "Techweek '22", href: "https://22.techweek,ieeedtu.in/", external: true },
+        { label: "Techweek '22", href: "https://22.techweek.ieeedtu.in/", external: true },
       ]
     }
   ];
