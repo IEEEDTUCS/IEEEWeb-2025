@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import {
   motion, useInView, useScroll, useTransform,
   AnimatePresence, useSpring,
@@ -208,14 +209,13 @@ function Hero({ info }) {
           >
             Explore Chapter
           </button>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfgGoyFCC737i6_9kHCwuSo5ZVPND-Os6Oqbl2p_zh41WdyjA/viewform"
-            target="_blank" rel="noopener noreferrer"
+          <Link
+            href="/join-now"
             className={styles.ctaOutline}
             style={{ borderColor: `${accent}80`, color: "#fff" }}
           >
             Join IEEE DTU <ExternalLink size={14} />
-          </a>
+          </Link>
         </motion.div>
       </motion.div>
 
@@ -629,14 +629,13 @@ function Membership({ info }) {
               Join a community of innovators, engineers and leaders.
             </p>
           </div>
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfgGoyFCC737i6_9kHCwuSo5ZVPND-Os6Oqbl2p_zh41WdyjA/viewform"
-            target="_blank" rel="noopener noreferrer"
+          <Link
+            href="/IEEEDTU/join-us"
             className={styles.ctaPrimary}
             style={{ background: accent, display: "flex", alignItems: "center", gap: 8 }}
           >
             Join Now <ArrowRight size={15} />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -42,6 +42,40 @@ const linktrees = {
       },
     ],
   },
+  "ieeextreme": {
+    slug: "ieeextreme",
+    title: "IEEEXTREME 20.0",
+    description: "IEEEXtreme is a global challenge in which teams of IEEE Student members – advised and proctored by an IEEE member, and often supported by an IEEE Student Branch – compete in a 24-hour time span against each other to solve a set of programming problems.",
+    eventLogo: "/event-logos/ieeextreme.png",
+    accentColor: "#00629B",
+    links: [
+      {
+        label: "Learn about IEEEXTREME",
+        href: "https://ieeextreme.org/",
+        icon: "website",
+      },
+      {
+        label: "Join IEEE DTU to participate with us",
+        href: "/IEEEDTU/join-us",
+        icon: "registration",
+      },
+      {
+        label: "Follow IEEE DTU",
+        href: "https://www.instagram.com/ieee.dtu/",
+        icon: "instagram",
+      },
+      {
+        label: "Connect with IEEE DTU",
+        href: "https://www.linkedin.com/company/ieee-dtu/",
+        icon: "linkedin",
+      },
+      {
+        label: "Visit the IEEE DTU website",
+        href: "https://www.ieeedtu.in",
+        icon: "website",
+      },
+    ],
+  },
 };
 
 export function getLinktree(slug) {

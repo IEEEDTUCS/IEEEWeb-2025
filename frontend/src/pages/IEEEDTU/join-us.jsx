@@ -11,7 +11,7 @@ function JoinUsPage() {
 
         <meta
           name="description"
-          content="IEEE DTU Student Branch Enquiry Form"
+          content="Connect with an IEEE DTU membership coordinator and join our community."
         />
 
         <meta name="robots" content="index, follow" />
