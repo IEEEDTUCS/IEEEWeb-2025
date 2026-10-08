@@ -31,6 +31,11 @@ const linktrees = {
         icon: "website",
       },
       {
+        label: "Join IEEE DTU",
+        href: "/IEEEDTU/join-us",
+        icon: "registration",
+      },
+      {
         label: "Follow IEEE DTU",
         href: "https://www.instagram.com/ieee.dtu/",
         icon: "instagram",
