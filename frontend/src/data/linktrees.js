@@ -26,6 +26,11 @@ const linktrees = {
         icon: "whatsapp",
       },
       {
+        label: "Visit the IEEE DAY 2026 website",
+        href: "https://ieeeday.ieeedtu.in",
+        icon: "website",
+      },
+      {
         label: "Follow IEEE DTU",
         href: "https://www.instagram.com/ieee.dtu/",
         icon: "instagram",
@@ -58,6 +63,21 @@ const linktrees = {
         label: "Join IEEE DTU to participate with us",
         href: "/IEEEDTU/join-us",
         icon: "registration",
+      },
+      {
+        label: "Register for IEEEXTREME 20.0",
+        href: "https://xtreme.vtools.ieee.org/",
+        icon: "registration",
+      },
+      {
+        label: "IEEE DTU's Team Registration Form",
+        href: "https://docs.google.com/forms/d/136gDKgCwj0Grqdr317l6-ZRFf2sbAP0cBUeTdWvW9Nc/edit",
+        icon: "registration",
+      },
+      {
+        label: "Join the WhatsApp community",
+        href: "https://chat.whatsapp.com/H3Tvb50HMlgHnaK12D8MKW",
+        icon: "whatsapp",
       },
       {
         label: "Follow IEEE DTU",
