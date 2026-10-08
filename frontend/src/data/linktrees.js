@@ -26,6 +26,11 @@ const linktrees = {
         icon: "whatsapp",
       },
       {
+        label: "Join IEEE DTU to participate with us",
+        href: "/IEEEDTU/join-us",
+        icon: "registration",
+      },
+      {
         label: "Visit the IEEE DAY 2026 website",
         href: "https://ieeeday.ieeedtu.in",
         icon: "website",
